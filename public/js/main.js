@@ -734,7 +734,7 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sub */ \"./src/sub.ts\");\n\nObject(_sub__WEBPACK_IMPORTED_MODULE_0__[\"hello\"])();\n\n\n//# sourceURL=webpack:///./src/main.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sub */ \"./src/sub.ts\");\n\nObject(_sub__WEBPACK_IMPORTED_MODULE_0__[\"Hello\"])();\n\n\n//# sourceURL=webpack:///./src/main.ts?");
 
 /***/ }),
 
@@ -742,11 +742,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sub
 /*!********************!*\
   !*** ./src/sub.ts ***!
   \********************/
-/*! exports provided: hello */
+/*! exports provided: Hello */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"hello\", function() { return hello; });\n/* harmony import */ var pixi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! pixi.js */ \"./node_modules/pixi.js/lib/pixi.es.js\");\n\nfunction hello() {\n    console.log(\"hellooooo world!!!!!\");\n    var app = new pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"Application\"]({\n        width: 400,\n        height: 200\n    });\n    document.body.appendChild(app.view);\n    var text = new pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"Text\"](\"Hellooooo World!!!!!\", new pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"TextStyle\"]({\n        fill: \"#FFFFFF\"\n    }));\n    app.stage.addChild(text);\n}\n\n\n//# sourceURL=webpack:///./src/sub.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Hello\", function() { return Hello; });\n/* harmony import */ var pixi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! pixi.js */ \"./node_modules/pixi.js/lib/pixi.es.js\");\n\nfunction Hello() {\n    console.log(\"hellooooo world!!!!!\");\n    var app = new pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"Application\"]({\n        width: 400,\n        height: 200\n    });\n    document.body.appendChild(app.view);\n    var text = new pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"Text\"](\"Hellooooo World!!!!!\", new pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"TextStyle\"]({\n        fill: \"#FFFFFF\"\n    }));\n    app.stage.addChild(text);\n}\n\n\n//# sourceURL=webpack:///./src/sub.ts?");
 
 /***/ })
 

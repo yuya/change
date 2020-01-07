@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 
-export function hello() {
+export function Hello() {
   console.log("hellooooo world!!!!!");
 
   const app = new PIXI.Application({

@@ -1,0 +1,29 @@
+{
+  "lintOptions": {
+    "typeCheck": true
+  },
+  "rules": {
+    "class-name": true,
+    "no-default-export": true,
+    "no-duplicate-variable": true,
+    "no-var-keyword": true,
+    "deprecation": true,
+    "encoding": true,
+    "eofline": true,
+    "no-arg": true,
+    "no-eval": true,
+    "no-invalid-template-strings": true,
+    "no-invalid-this": true,
+    "no-trailing-whitespace": true,
+    "number-literal-format": true,
+    "prefer-const": true,
+    "indent": [true, "spaces", 2],
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "triple-equals": [true, "allow-null-check"],
+    "variable-name": [
+      true,
+      "check-format",
+      "ban-keywords"
+    ]
+  }
+}

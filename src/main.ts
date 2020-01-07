@@ -1,4 +1,4 @@
 import * as PIXI from "pixi.js";
-import {hello} from "./sub";
+import {Hello} from "./sub";
 
-hello();
+Hello();
