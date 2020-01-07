@@ -6,9 +6,9 @@
     "moduleResolution": "node",
     "types": [
       "pixi.js"
-    ],
-    "include": [
-      "src/**/*"
     ]
-  }
+  },
+  "includes": [
+    "src/**/*"
+  ]
 }
