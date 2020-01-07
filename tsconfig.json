@@ -3,8 +3,12 @@
     "sourceMap": true,
     "target": "es5",
     "module": "esnext",
+    "moduleResolution": "node",
     "types": [
       "pixi.js"
+    ],
+    "include": [
+      "src/**/*"
     ]
   }
 }
