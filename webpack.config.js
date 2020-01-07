@@ -15,7 +15,10 @@ module.exports = (mode = "development", argv) => {
       ]
     },
     resolve: {
-      extensions: [".ts"]
+      extensions: [
+        ".js",
+        ".ts"
+      ]
     },
     entry: path.resolve(__dirname, "src/main.ts"),
     output: {
