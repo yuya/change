@@ -1,4 +1,15 @@
 import * as PIXI from "pixi.js";
-import {Hello} from "./sub";
+import "./config";
+import { Env } from "./utilities/env";
 
-Hello();
+const env = Env;
+const app = new PIXI.Application({
+  width: Math.round(env.screenWidth / env.pixelRatio),
+  height: Math.round(env.screenHeight / env.pixelRatio),
+  resolution: env.pixelRatio,
+  backgroundColor: 0xCFCBB1
+});
+document.body.appendChild(app.view);
+
+const logo = PIXI.Sprite.from("/img/change.png");
+app.stage.addChild(logo);

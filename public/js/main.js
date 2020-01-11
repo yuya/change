@@ -726,6 +726,18 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 
 /***/ }),
 
+/***/ "./src/config.ts":
+/*!***********************!*\
+  !*** ./src/config.ts ***!
+  \***********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var pixi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! pixi.js */ \"./node_modules/pixi.js/lib/pixi.es.js\");\n\npixi_js__WEBPACK_IMPORTED_MODULE_0__[\"settings\"].SCALE_MODE = pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"SCALE_MODES\"].NEAREST;\n\n\n//# sourceURL=webpack:///./src/config.ts?");
+
+/***/ }),
+
 /***/ "./src/main.ts":
 /*!*********************!*\
   !*** ./src/main.ts ***!
@@ -734,19 +746,19 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sub */ \"./src/sub.ts\");\n\nObject(_sub__WEBPACK_IMPORTED_MODULE_0__[\"Hello\"])();\n\n\n//# sourceURL=webpack:///./src/main.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var pixi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! pixi.js */ \"./node_modules/pixi.js/lib/pixi.es.js\");\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config */ \"./src/config.ts\");\n/* harmony import */ var _utilities_env__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utilities/env */ \"./src/utilities/env.ts\");\n\n\n\nvar env = _utilities_env__WEBPACK_IMPORTED_MODULE_2__[\"Env\"];\nvar app = new pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"Application\"]({\n    width: Math.round(env.screenWidth / env.pixelRatio),\n    height: Math.round(env.screenHeight / env.pixelRatio),\n    resolution: env.pixelRatio,\n    backgroundColor: 0xCFCBB1\n});\ndocument.body.appendChild(app.view);\nvar logo = pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"Sprite\"].from(\"/img/change.png\");\napp.stage.addChild(logo);\n\n\n//# sourceURL=webpack:///./src/main.ts?");
 
 /***/ }),
 
-/***/ "./src/sub.ts":
-/*!********************!*\
-  !*** ./src/sub.ts ***!
-  \********************/
-/*! exports provided: Hello */
+/***/ "./src/utilities/env.ts":
+/*!******************************!*\
+  !*** ./src/utilities/env.ts ***!
+  \******************************/
+/*! exports provided: Env */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Hello\", function() { return Hello; });\n/* harmony import */ var pixi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! pixi.js */ \"./node_modules/pixi.js/lib/pixi.es.js\");\n\nfunction Hello() {\n    console.log(\"hellooooo world!!!!!\");\n    var app = new pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"Application\"]({\n        width: 400,\n        height: 200\n    });\n    document.body.appendChild(app.view);\n    var text = new pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"Text\"](\"Hellooooo World!!!!!\", new pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"TextStyle\"]({\n        fill: \"#FFFFFF\"\n    }));\n    app.stage.addChild(text);\n}\n\n\n//# sourceURL=webpack:///./src/sub.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Env\", function() { return Env; });\nvar Env = /** @class */ (function () {\n    function Env() {\n    }\n    Env.setScreenWidth = function (width) {\n        Env.screenWidth = width;\n    };\n    Env.setScreenHeight = function (height) {\n        Env.screenHeight = height;\n    };\n    Env.userAgent = navigator.userAgent.toLowerCase();\n    Env.hasTouch = (\"ontouchstart\" in window);\n    Env.screenWidth = Math.min(window.innerWidth, document.body.clientWidth);\n    Env.screenHeight = window.innerHeight;\n    Env.pixelRatio = window.devicePixelRatio || 1;\n    return Env;\n}());\n\n\n\n//# sourceURL=webpack:///./src/utilities/env.ts?");
 
 /***/ })
 
