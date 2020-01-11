@@ -5,7 +5,8 @@
     "module": "esnext",
     "moduleResolution": "node",
     "types": [
-      "pixi.js"
+      "pixi.js",
+      "howler"
     ]
   },
   "includes": [
