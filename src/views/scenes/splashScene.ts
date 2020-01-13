@@ -6,9 +6,12 @@ import { SceneController } from "../../controllers/sceneController";
 export class SplashScene extends Scene {
   private logo: PIXI.Sprite;
   private se: Howl = new Howl({
-    src: ["assets/poiiiiin.mp3"]
+    src: ["assets/poiiiiin.mp3"],
+    onend: () => {
+      this.gotoNextScene();
+    }
   }); 
-  private isPlayedSE: boolean = false;
+  private isAnimPlayed: boolean = false;
 
   constructor() {
     super();
@@ -34,18 +37,19 @@ export class SplashScene extends Scene {
     const targetY = (this.sceneController.app.screen.height / 2) - (this.logo.height / 8);
 
     if (this.logo.y >= targetY) {
-      if (!this.isPlayedSE) {
-        this.isPlayedSE = true;
+      if (!this.isAnimPlayed) {
+        this.isAnimPlayed = true;
         this.se.play();
       }
-
-      this.logo.destroy();
-      SceneController.assign("title"); 
-      // this.sceneController.assign("title");
 
       return;
     }
 
     this.logo.y += 2;
+  }
+
+  private gotoNextScene(): void {
+    this.logo.destroy();
+    SceneController.assign("title"); 
   }
 }

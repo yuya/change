@@ -4,7 +4,7 @@ import { Scene } from "../views/scenes/scene";
 import { BootScene } from "../views/scenes/bootScene";
 import { SplashScene } from "../views/scenes/splashScene";
 import { TitleScene } from "../views/scenes/titleScene";
-// import { FugaScene } from "../views/scenes/fugaScene";
+import { GameScene } from "../views/scenes/gameScene";
 
 export class SceneController {
   public static instance: SceneController;
@@ -50,6 +50,8 @@ export class SceneController {
         return this.instance.currentScene = new SplashScene();
       case "TITLE":
         return this.instance.currentScene = new TitleScene();
+      case "GAME":
+        return this.instance.currentScene = new GameScene();
       default:
         throw new Error("The scene name cannot be found"); 
         return
