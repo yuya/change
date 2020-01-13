@@ -6,7 +6,8 @@
     "moduleResolution": "node",
     "types": [
       "pixi.js",
-      "howler"
+      "howler",
+      "youtube-player"
     ],
     "baseUrl": "./src",
     "rootDir": "./src"

@@ -366,6 +366,11 @@
   dependencies:
     pixi.js "*"
 
+"@types/youtube-player@^5.5.1":
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/@types/youtube-player/-/youtube-player-5.5.1.tgz#648dcbfb994d50b529ec77ff0abfef655d95d571"
+  integrity sha512-6pcJWr/GoMec8a/mhR6uF4DKTPOYD8pnwZiwtxs+holUTIaEarihEX+dgl8NFCZE66698DTE7ehx5JYhF+IhFw==
+
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.8.5.tgz#51b1c5fe6576a34953bf4b253df9f0d490d9e359"
