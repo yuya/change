@@ -1,11 +1,11 @@
 const path = require("path");
 const se   = require("play-sound")(opts = {});
 
-module.exports = (mode = "development", argv) => {
-  const isDev = (mode === "development");
-
+module.exports = (env, argv) => {
+  const isProd = !!env.production;
+  
   return {
-    mode: mode,
+    mode: env.production ? "production" : "development",
     module: {
       rules: [
         {
@@ -27,7 +27,7 @@ module.exports = (mode = "development", argv) => {
     entry: path.resolve(__dirname, "src/main.ts"),
     output: {
       path: path.resolve(__dirname, "public/js"),
-      filename: isDev ? "main.js" : "main.min.js"
+      filename: isProd ? "main.min.js" : "main.js"
     },
     devServer: {
       host: "0.0.0.0",

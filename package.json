@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "build:prod": "webpack --mode production",
-    "build:dev": "webpack --mode development",
-    "watch:prod": "webpack -w --mode production",
-    "watch:dev": "webpack -w --mode development",
+    "build:prod": "webpack --env.production",
+    "build:dev": "webpack --env.development",
+    "watch:prod": "webpack -w --env.production",
+    "watch:dev": "webpack -w --env.development",
     "tslint": "tslint -p tsconfig.json --format stylish \"src/**/*.ts*\"",
     "server": "webpack-dev-server"
   },
