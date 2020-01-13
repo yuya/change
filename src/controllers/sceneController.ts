@@ -3,7 +3,7 @@ import { Howl, Howler } from "howler";
 import { Scene } from "../views/scenes/scene";
 import { BootScene } from "../views/scenes/bootScene";
 import { SplashScene } from "../views/scenes/splashScene";
-// import { TitleScene } from "../views/secenes/titleScene";
+import { TitleScene } from "../views/scenes/titleScene";
 // import { FugaScene } from "../views/scenes/fugaScene";
 
 export class SceneController {
@@ -48,6 +48,8 @@ export class SceneController {
         return this.instance.currentScene = new BootScene();
       case "SPLASH":
         return this.instance.currentScene = new SplashScene();
+      case "TITLE":
+        return this.instance.currentScene = new TitleScene();
       default:
         throw new Error("The scene name cannot be found"); 
         return

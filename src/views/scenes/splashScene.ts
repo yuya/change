@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 import { Howl, Howler } from "howler";
 import { Scene } from "./scene";
+import { SceneController } from "../../controllers/sceneController";
 
 export class SplashScene extends Scene {
   private logo: PIXI.Sprite;
@@ -37,6 +38,10 @@ export class SplashScene extends Scene {
         this.isPlayedSE = true;
         this.se.play();
       }
+
+      this.logo.destroy();
+      SceneController.assign("title"); 
+      // this.sceneController.assign("title");
 
       return;
     }
