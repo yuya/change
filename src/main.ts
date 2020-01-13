@@ -15,37 +15,4 @@ const app = new PIXI.Application({
 });
 
 sceneController.init(app);
-sceneController.assign("splash")
-
-function init(se) {
-  document.body.appendChild(app.view);
-
-  const logo = PIXI.Sprite.from("/img/change.png");
-  const container = new PIXI.Container();
-
-  logo.width = 256;
-  logo.height = 256;
-
-  container.addChild(logo);
-  app.stage.addChild(container);
-
-  container.pivot.x = logo.width / 2;
-  container.pivot.y = logo.height / 2;
-
-  container.x = (app.screen.width / 2);
-  container.y = -(logo.height / 2);
-
-  app.ticker.add((delta) => {
-    const targetY = (app.screen.height / 2) - (logo.height / 12);
-    // rotate the container!
-    // use delta to create frame-independent transform
-    // container.rotation -= 0.03 * delta;
-    if (container.y >= targetY) {
-      se.play();
-
-      return app.ticker.destroy();
-    }
-
-    container.y += 2;
-  });
-}
+sceneController.assign("boot");

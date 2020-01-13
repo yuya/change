@@ -7,7 +7,9 @@
     "types": [
       "pixi.js",
       "howler"
-    ]
+    ],
+    "baseUrl": "./src",
+    "rootDir": "./src"
   },
   "includes": [
     "src/**/*"
