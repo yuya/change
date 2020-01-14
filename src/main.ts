@@ -11,6 +11,9 @@ const app = new PIXI.Application({
   width: env.screenWidth / env.pixelRatio,
   height: env.screenHeight / env.pixelRatio,
   resolution: env.pixelRatio,
+  // width: env.screenWidth,
+  // height: env.screenHeight,
+  // resolution: env.pixelRatio,
   backgroundColor: 0xCFCBB1
 });
 

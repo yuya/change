@@ -10,7 +10,8 @@
       "youtube-player"
     ],
     "baseUrl": "./src",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "lib": ["dom", "es2015"]
   },
   "includes": [
     "src/**/*"

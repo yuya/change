@@ -6,9 +6,19 @@ import { YouTubePlayer } from "youtube-player/dist/types";
 import { Scene } from "./scene";
 import { SceneController } from "../../controllers/sceneController";
 
+interface GameSE {
+  ok: Howl,
+  ng: Howl
+}
+
 export class GameScene extends Scene {
   private logo: PIXI.Sprite;
   private player: YouTubePlayer;
+  private se: GameSE = {
+    ok: new Howl({ src: ["assets/se_ok.mp3"] }),
+    ng: new Howl({ src: ["assets/se_ng.mp3"] })
+  };
+  private elapsedTime: any = 0;
 
   constructor() {
     super();
@@ -29,20 +39,115 @@ export class GameScene extends Scene {
       }
 
     });
+    this.player.setPlaybackQuality("small");
 
-    document.addEventListener("pointerup", () => {
+    const fireEvent = (event) => {
+      document.removeEventListener("pointerdown", fireEvent);
       this.player.playVideo();
-    }, false);
+      // this.registHandleSound();
+      document.addEventListener("pointerdown", () => {
+        this.hogeFunc();
+      }, false);
+    };
+
+    document.addEventListener("pointerdown", fireEvent, false);
   }
 
-  private doFunc(currentTime: number): void {
-    console.log(currentTime);
+  // private registHandleSound(): void {
+  //   document.addEventListener("pointerdown", this.doFunc, false);
+
+  // }
+
+  // private getApproximateNumber(numberList: Array<number>, time: number): number {
+  //   let diff: Array<number> = [];
+  //   let idx: number = 0;
+  //   let num: number;
+    
+  //   for (let i = 0, l = numberList.length; i < l; i++) {
+  //     num = numberList[i];
+  //     diff[i] = Math.abs(time - num);
+  //     idx = (diff[idx] < diff[i]) ? idx : i;
+  //   }
+
+  //   return numberList[idx];
+  // }
+
+  private hogeFunc(): void {
+    const getApproximateNumber = (numberList: Array<number>, time: number): number => {
+      let diff: Array<number> = [];
+      let idx: number = 0;
+      let num: number;
+      
+      for (let i = 0, l = numberList.length; i < l; i++) {
+        num = numberList[i];
+        diff[i] = Math.abs(time - num);
+        idx = (diff[idx] < diff[i]) ? idx : i;
+      }
+
+      return numberList[idx];
+    };
+
+    const timingList: Array<number> = [
+      // 15.70,
+      31.10,
+      32.00,
+      44.90,
+      45.30,
+      45.70,
+      58.60,
+      58.90,
+      59.40,
+      75.70,
+      77.40,
+      80.80,
+      81.30,
+      81.70,
+      82.50,
+      84.30,
+      87.70,
+      88.10,
+      88.60,
+      89.40,
+      91.10,
+      94.60,
+      95.00,
+      95.50,
+      96.30,
+      98.00,
+      101.40,
+      101.90,
+      102.30,
+      103.50
+    ];
+    const currentTime: any = this.player.getCurrentTime();
+
+    currentTime.then((time: any) => {
+      const approximate = getApproximateNumber(timingList, time);
+      const absGap = Math.abs(time - approximate);
+
+      // console.log(absGap);
+      if (absGap <= 0.125) {
+        console.log("ok: " + absGap);
+        this.se.ok.play();
+      }
+      else {
+        console.log("ng: " + absGap);
+        this.se.ng.play();
+      }
+    });
+  }
+
+  private setCurrentTime(time: number): void {
+    this.elapsedTime = time;
+    console.log(this.elapsedTime);
   }
 
   public renderByFrame(delta: number): void {
-    const promise: any = this.player.getCurrentTime();
-    promise.then((currentTime: any) => {
-      this.doFunc(currentTime);
-    });
+    // const ytCurrentTime: any = this.player.getCurrentTime();
+
+    // ytCurrentTime.then((currentTime: any) => {
+    //   this.setCurrentTime(currentTime);
+    //   // this.hogeFunc(currentTime);
+    // });
   }
 }
