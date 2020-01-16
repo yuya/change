@@ -2,10 +2,10 @@ const path = require("path");
 const se   = require("play-sound")(opts = {});
 
 module.exports = (env, argv) => {
-  const isProd = !!env.production;
+  const isProd = argv.mode === "production";
   
   return {
-    mode: env.production ? "production" : "development",
+    mode: argv.mode,
     module: {
       rules: [
         {
