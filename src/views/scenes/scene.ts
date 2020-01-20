@@ -3,6 +3,7 @@ import { SceneController } from "../../controllers/sceneController"
 
 export abstract class Scene extends PIXI.Container {
   protected sceneController = SceneController.instance;
+  protected loader = SceneController.loader;
   protected elapsedFrameCount: number = 0;
   protected renderObjectList: any[] = [];
 

@@ -8,6 +8,7 @@ import { GameScene } from "../views/scenes/gameScene";
 
 export class SceneController {
   public static instance: SceneController;
+  public static loader: PIXI.Loader = PIXI.Loader.shared;
 
   public app!: PIXI.Application;
   // public currentScene: PIXI.Container;

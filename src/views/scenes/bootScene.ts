@@ -4,36 +4,55 @@ import { Scene } from "./scene";
 import { SceneController } from "../../controllers/sceneController";
 
 export class BootScene extends Scene {
+  private container: PIXI.Container;
+  private spriteData: any;
   private btnSoundOk: PIXI.Sprite;
   private btnSoundNg: PIXI.Sprite;
 
   constructor() {
     super();
 
-    const container = new PIXI.Container;
-    container.width = 40;
-    container.height = 80;
+    this.container = new PIXI.Container();
+    this.spriteData = this.loader.resources["sprite"].spritesheet.textures;
+    this.btnSoundOk = PIXI.Sprite.from(this.spriteData["vol_enable.png"]);
+    this.btnSoundNg = PIXI.Sprite.from(this.spriteData["vol_disable.png"]);
 
-    this.btnSoundOk = PIXI.Sprite.from("/img/btn_vol_on.png");
-    this.btnSoundOk.interactive = true;
-    this.btnSoundOk.buttonMode = true;
-    this.btnSoundOk.width = this.btnSoundOk.height = 80;
-    this.btnSoundOk.pivot.set(
-      this.btnSoundOk.width / 2,
-      this.btnSoundOk.height / 2,
-    );
-    this.btnSoundOk.position.set(
-      this.sceneController.app.screen.width / 2,
-      this.sceneController.app.screen.height / 2
-    );
+    this.btnSoundOk.name = "vol_enable";
+    this.btnSoundNg.name = "vol_disable";
 
-    this.btnSoundOk.addListener("pointerup", () => {
-      container.destroy({ children: true });
-      SceneController.assign("splash");
+    this.init();
+  }
+
+  private init() {
+    const renderTarget = [this.btnSoundOk, this.btnSoundNg];
+    const halfScreenWidth = this.sceneController.app.screen.width / 2;
+    const fireEventName = "pointerdown";
+
+    renderTarget.forEach((btn, index) => {
+      btn.anchor.set(0.5, 0.5);
+
+      btn.x = (btn.name === "vol_enable") ? halfScreenWidth + btn.width : halfScreenWidth - btn.width;
+      btn.y = this.sceneController.app.screen.height / 2;
+
+      btn.buttonMode = true;
+      btn.interactive = true;
+
+      btn.addListener(fireEventName, () => {
+        this.handleBtnClick(fireEventName, btn);
+      });
+
+      this.container.addChild(btn);
     });
 
-    // this.sceneController.app.stage.addChild(this.btnSoundOk);
-    container.addChild(this.btnSoundOk);
-    this.sceneController.app.stage.addChild(container);
+    this.sceneController.app.stage.addChild(this.container);
+  }
+
+  private handleBtnClick(eventName: string, sprite: PIXI.Sprite) {
+    if (eventName === "mouseover") {
+    }
+    else if (eventName === "pointerdown") {
+      this.container.destroy({ children: true });
+      SceneController.assign("splash");
+    }
   }
 }

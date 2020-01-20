@@ -17,5 +17,8 @@ const app = new PIXI.Application({
   backgroundColor: 0xCFCBB1
 });
 
-sceneController.init(app);
-sceneController.assign("boot");
+sceneController.loader.add("sprite", "/img/sprites.json");
+sceneController.loader.load((loader, resources) => {
+  sceneController.init(app);
+  sceneController.assign("boot");
+});
