@@ -17,8 +17,30 @@ const app = new PIXI.Application({
   backgroundColor: 0xCFCBB1
 });
 
-sceneController.loader.add("sprite", "/img/sprites.json");
-sceneController.loader.load((loader, resources) => {
+const hideSpinner = () => {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", hideSpinner, false);
+    return;
+  }
+
+  const spinner = document.getElementById("spinner");
+  spinner.style.display = "none";
+};
+
+const routeScene = () => {
+  const regex   = /^#!(\w+)/;
+  const matched = location.hash.match(regex);
+
+  sceneController.assign(matched ? matched[1] : "boot");
+}
+
+const init = () => {
+  hideSpinner();
   sceneController.init(app);
-  sceneController.assign("boot");
-});
+  
+  routeScene();
+  // sceneController.assign("boot");
+};
+
+sceneController.loader.add("sprite", "/img/sprites.json");
+sceneController.loader.load(init);

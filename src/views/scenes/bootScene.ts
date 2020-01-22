@@ -12,7 +12,7 @@ export class BootScene extends Scene {
   constructor() {
     super();
 
-    this.container = new PIXI.Container();
+    this.container  = new PIXI.Container();
     this.spriteData = this.loader.resources["sprite"].spritesheet.textures;
     this.btnSoundOk = PIXI.Sprite.from(this.spriteData["vol_enable.png"]);
     this.btnSoundNg = PIXI.Sprite.from(this.spriteData["vol_disable.png"]);
@@ -48,11 +48,7 @@ export class BootScene extends Scene {
   }
 
   private handleBtnClick(eventName: string, sprite: PIXI.Sprite) {
-    if (eventName === "mouseover") {
-    }
-    else if (eventName === "pointerdown") {
-      this.container.destroy({ children: true });
-      SceneController.assign("splash");
-    }
+    this.container.destroy({ children: true });
+    SceneController.assign("splash");
   }
 }

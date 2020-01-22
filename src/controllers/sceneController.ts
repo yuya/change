@@ -11,7 +11,6 @@ export class SceneController {
   public static loader: PIXI.Loader = PIXI.Loader.shared;
 
   public app!: PIXI.Application;
-  // public currentScene: PIXI.Container;
   public currentScene: Scene;
 
   constructor(app: PIXI.Application) {
@@ -23,11 +22,6 @@ export class SceneController {
   }
 
   public static init(app: PIXI.Application) {
-    // app.ticker.add((delta: number) => {
-    //   // console.log(delta);
-    //   app.render();
-    // });
-
     const instance: SceneController = new SceneController(app);
     SceneController.instance = instance;
 
@@ -38,50 +32,26 @@ export class SceneController {
   }
 
   public static assign(sceneName: string) {
-    sceneName = sceneName.toUpperCase();
-
     if (this.instance.currentScene) {
       this.instance.currentScene.destroy();
     }
 
+    console.log(sceneName);
+    // TODO: 404.html 用意して #! なくす
+    history.pushState(null, sceneName, `#!${sceneName}`);
+
     switch (sceneName) {
-      case "BOOT":
+      case "boot":
         return this.instance.currentScene = new BootScene();
-      case "SPLASH":
+      case "splash":
         return this.instance.currentScene = new SplashScene();
-      case "TITLE":
+      case "title":
         return this.instance.currentScene = new TitleScene();
-      case "GAME":
+      case "game":
         return this.instance.currentScene = new GameScene();
       default:
         throw new Error("The scene name cannot be found"); 
         return
     }
-  
-    // sceneName = sceneName.toUpperCase();
-    // let scene: PIXI.Container;
-
-    // switch (sceneName) {
-    //   case "SPLASH":
-    //     if (scene) {
-    //       scene.destroy();
-    //     }
-
-    //     scene = new SplashScene(this.instance.app);
-    //     this.instance.currentScene = scene;
-    //     this.instance.currentScene.name = sceneName;
-    //     return;
-    //   case "TITLE":
-    //     if (scene) {
-    //       scene.destroy();
-    //     }
-
-    //     scene = new TitleScene(this.instance.app);
-    //     this.instance.currentScene = scene;
-    //     this.instance.currentScene.name = sceneName;
-    //     return;
-    //   default:
-    //     throw new Error("The scene name cannot be found");
-    // }
   }
 }
