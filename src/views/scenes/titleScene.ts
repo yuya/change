@@ -4,19 +4,23 @@ import { Scene } from "./scene";
 import { SceneController } from "../../controllers/sceneController";
 
 export class TitleScene extends Scene {
+  private container: PIXI.Container;
+  private sprites: any;
   private logo: PIXI.Sprite;
-  private se: Howl = new Howl({
-    src: ["assets/poiiiiin.mp3"]
-  }); 
-  private isPlayedSE: boolean = false;
+  private nextSceneName: string;
 
-  constructor() {
+  constructor(nextSceneName: string) {
     super();
 
-    this.logo = PIXI.Sprite.from("/img/dna.png");
-    this.logo.width = 192;
-    this.logo.height = 160;
+    this.container     = new PIXI.Container();
+    this.sprites       = this.loader.resources["sprites"].spritesheet.textures;
+    this.logo          = PIXI.Sprite.from(this.sprites["tmp_title.png"]);
+    this.nextSceneName = nextSceneName;
 
+    this.init();
+  }
+
+  private init() {
     this.logo.anchor.set(0.5, 0.5);
     this.logo.position.set(
       this.sceneController.app.screen.width / 2,
@@ -27,14 +31,14 @@ export class TitleScene extends Scene {
     this.logo.interactive = true;
 
     this.logo.addListener("pointerup", () => {
-      this.logo.destroy();
-      SceneController.assign("game");
+      this.container.destroy({ children: true });
+      SceneController.assign(this.nextSceneName);
     });
 
-    this.sceneController.app.stage.addChild(this.logo);
+    this.container.addChild(this.logo);
+    this.sceneController.app.stage.addChild(this.container);
   }
 
   // public renderByFrame(delta: number): void {
-  //   this.logo.alpha += 0.1;
   // }
 }

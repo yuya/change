@@ -5,16 +5,21 @@ import { SceneController } from "../../controllers/sceneController";
 
 export class SplashScene extends Scene {
   private logo: PIXI.Sprite;
-  private se: Howl = new Howl({
-    src: ["assets/poiiiiin.mp3"],
-    onend: () => {
-      this.gotoNextScene();
-    }
-  }); 
-  private isAnimPlayed: boolean = false;
+  private se: Howl;
+  private isAnimPlayed: boolean;
+  private nextSceneName: string;
 
-  constructor() {
+  constructor(nextSceneName: string) {
     super();
+
+    this.se = new Howl({
+      src: "assets/poiiiiin.mp3",
+      onend: () => {
+        this.gotoNextScene();
+      }
+    });
+    this.isAnimPlayed = false;
+    this.nextSceneName = nextSceneName;
 
     this.logo = PIXI.Sprite.from("/img/change.png");
     this.logo.width = 192;
@@ -50,6 +55,6 @@ export class SplashScene extends Scene {
 
   private gotoNextScene(): void {
     this.logo.destroy();
-    SceneController.assign("title"); 
+    SceneController.assign(this.nextSceneName); 
   }
 }

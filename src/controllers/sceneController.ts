@@ -36,17 +36,16 @@ export class SceneController {
       this.instance.currentScene.destroy();
     }
 
-    console.log(sceneName);
     // TODO: 404.html 用意して #! なくす
     history.pushState(null, sceneName, `#!${sceneName}`);
 
     switch (sceneName) {
       case "boot":
-        return this.instance.currentScene = new BootScene();
+        return this.instance.currentScene = new BootScene("splash");
       case "splash":
-        return this.instance.currentScene = new SplashScene();
+        return this.instance.currentScene = new SplashScene("title");
       case "title":
-        return this.instance.currentScene = new TitleScene();
+        return this.instance.currentScene = new TitleScene("game");
       case "game":
         return this.instance.currentScene = new GameScene();
       default:

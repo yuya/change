@@ -37,10 +37,10 @@ const routeScene = () => {
 const init = () => {
   hideSpinner();
   sceneController.init(app);
-  
+
   routeScene();
   // sceneController.assign("boot");
 };
 
-sceneController.loader.add("sprite", "/img/sprites.json");
+sceneController.loader.add("sprites", "/img/sprites.json");
 sceneController.loader.load(init);
