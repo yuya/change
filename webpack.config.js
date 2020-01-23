@@ -1,5 +1,6 @@
-const path = require("path");
-const se   = require("play-sound")(opts = {});
+const path       = require("path");
+const se         = require("play-sound")(opts = {});
+const LiveReload = require("webpack-livereload-plugin");
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === "production";
@@ -36,6 +37,7 @@ module.exports = (env, argv) => {
       contentBase: path.resolve(__dirname, "public")
     },
     plugins: [
+      new LiveReload(),
       function () {
         this.hooks.afterEmit.tap("watch-run", function (watching, callback) {
           se.play("/System/Library/Sounds/Purr.aiff");
