@@ -1,2 +1,4 @@
+*.log
+
 .ignore
 node_modules
