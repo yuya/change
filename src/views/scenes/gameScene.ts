@@ -38,7 +38,6 @@ export class GameScene extends Scene {
     super();
 
     this.container     = new PIXI.Container();
-    
     this.ytPlayer      = YTPlayer("yt", this.ytPlayerOptions);
     this.introCutscene = new IntroCutscene(this.container, this.ytPlayer);
 
@@ -46,19 +45,23 @@ export class GameScene extends Scene {
     this.container.interactive = true;
 
     this.ytPlayer.setPlaybackQuality("small");
+    this.ytPlayer.mute();
     this.init();
   }
 
   private init() {
-    this.introCutscene.play();
     this.ytPlayer.on("ready", (event) => {
       this.ytDOM = document.getElementById("yt");
 
-      this.container.addListener("pointerup", () => {
-        // this.introCutscene.fadeOut();
+      this.introCutscene.play(() => {
         this.ytDOM.className = "show";
+
+        this.ytPlayer.unMute();
+        this.ytPlayer.seekTo(15, true);
+      });
+
+      this.container.addListener("pointerup", () => {
         this.ytPlayer.playVideo();
-        this.introCutscene.destroy();
       });
     });
 

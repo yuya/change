@@ -22,7 +22,6 @@ export class IntroCutscene extends Scene {
     this.sprites   = this.loader.resources["sprites"].spritesheet.textures;
     this.keyv      = PIXI.Sprite.from(this.sprites["dna.png"]);
     this.jingle    = new Howl({ src: "assets/intro.mp3" });
-    this.jinglePlayed = false;
 
     this.keyv.name = "dna";
 
@@ -39,32 +38,23 @@ export class IntroCutscene extends Scene {
     this.sceneController.app.stage.addChild(this.container);
   }
 
-  public play() {
+  public play(callback: any) {
     this.jingle.once("end", () => {
-      this.jinglePlayed = true;
       this.ticker = this.sceneController.app.ticker.add((delta: number) => {
-        this.renderByFrame(delta);
+        this.renderByFrame(delta, callback);
       });
     });
 
     this.jingle.play();
   }
 
-  public fadeOut() {
-  }
-
-  // public renderByFrame(delta: number): void {
-  //   if (this.keyv.alpha <= 0) {
-  //     this.destroy();
-  //   }
-
-  //   this.keyv.alpha -= 0.1;
-  // }
-
-  public renderByFrame(delta: number): void {
-    if (this.keyv.alpha >= 0) {
-      this.keyv.alpha -= 0.1;
+  public renderByFrame(delta: number, callback: any): void {
+    if (this.keyv.alpha <= 0) {
+      callback();
+      this.destroy();
     }
+
+    this.keyv.alpha -= 0.1;
   }
 
   public destroy() {

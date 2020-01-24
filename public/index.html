@@ -45,11 +45,10 @@ button {
 <script src="/js/main.js"></script>
 <script>
 (() => {
-const script   = document.createElement("script");
-const port     = 35729;
-const filename = "livereload.js";
+const script = document.createElement("script");
+const port   = 35729;
 
-script.src = `//${document.location.hostname}:${port}/${filename}`;
+script.src = `//${document.location.hostname}:${port}/livereload.js`;
 document.body.appendChild(script);
 })();
 </script>
