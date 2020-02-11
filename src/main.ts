@@ -1,5 +1,5 @@
-import { CONST } from "./config";
-import { SceneController } from "./controllers/sceneController";
+import { CONST } from "config";
+import { SceneController } from "controllers/sceneController";
 
 const init = () => {
   const sceneController = SceneController.instance;

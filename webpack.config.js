@@ -22,6 +22,7 @@ module.exports = (env, argv) => {
         ".ts"
       ],
       modules: [
+        "src",
         "node_modules"
       ]
     },

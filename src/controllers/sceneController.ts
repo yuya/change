@@ -2,7 +2,7 @@ import * as PIXI from "pixi.js";
 import * as WebFont from "webfontloader";
 import PixiPlugin from "gsap/PixiPlugin";
 import gsap from "gsap";
-import { CONST } from "../config";
+import { CONST } from "config";
 
 export class SceneController {
   public renderer : PIXI.Renderer;
