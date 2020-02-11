@@ -2,55 +2,24 @@
 <html>
 <head>
 <title>CHANGE</title>
-<!-- <meta name="viewport" content="width=device-width, user-scalable=no"> -->
-<link rel="icon" type="image/png" href="favicon.png">
-<style>body{margin:0;padding:0;overflow:hidden;}</style>
-<style>
-html {
-  display: table;
-  width: 100%;
-  height: 100%;
-}
-body {
-  display: table-cell;
-  background-color: #CFCBB1;
-  text-align: center;
-  vertical-align: middle;
-}
-button {
-  font-size: 32px;
-}
-#yt {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  pointer-events: none;
-  border: 4px solid #FFF;
-  outline: 4px solid #222;
-  /* opacity: 0; */
-  /*
-  -webkit-transform: scale(0.5, 0.5);
-          transform: scale(0.5, 0.5);
-  -webkit-transform-origin: 100% 100%;
-          transform-origin: 100% 100%;
-  */
-}
-.show { opacity: 1; }
-.hide { opacity: 0; }
-</style>
+<meta name="viewport" content="user-scalable=no">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<div id="container"></div>
 <div id="yt" class="hide"></div>
 <img id="spinner" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHdpZHRoPSc2OHB4JyBoZWlnaHQ9JzY4cHgnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiBjbGFzcz0idWlsLXJpbmciPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJub25lIiBjbGFzcz0iYmsiPjwvcmVjdD48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MiIgc3Ryb2tlLWRhc2hhcnJheT0iMTc0LjE2OTg5NjcxNTAxODE1IDg5LjcyMzg4NjE4NjUyNDQ4IiBzdHJva2U9IiNlMTM2MzkiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMTYiPjxhbmltYXRlVHJhbnNmb3JtIGF0dHJpYnV0ZU5hbWU9InRyYW5zZm9ybSIgdHlwZT0icm90YXRlIiB2YWx1ZXM9IjAgNTAgNTA7MTgwIDUwIDUwOzM2MCA1MCA1MDsiIGtleVRpbWVzPSIwOzAuNTsxIiBkdXI9IjFzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgYmVnaW49IjBzIj48L2FuaW1hdGVUcmFuc2Zvcm0+PC9jaXJjbGU+PC9zdmc+" width="24" height="24" style="position:fixed;top:0;right:0;bottom:0;left:0;margin:auto;pointer-events:none;">
 <script src="/js/main.js"></script>
+<!-- for development -->
 <script>
 (() => {
 const script = document.createElement("script");
-const port   = 35729;
+const portNo = 35729;
 
-script.src = `//${document.location.hostname}:${port}/livereload.js`;
+script.src = `//${document.location.hostname}:${portNo}/livereload.js`;
 document.body.appendChild(script);
 })();
 </script>
 </body>
+
 </html>

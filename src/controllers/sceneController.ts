@@ -1,56 +1,58 @@
 import * as PIXI from "pixi.js";
-import { Howl, Howler } from "howler";
-import { Scene } from "../views/scenes/scene";
-import { BootScene } from "../views/scenes/bootScene";
-import { SplashScene } from "../views/scenes/splashScene";
-import { TitleScene } from "../views/scenes/titleScene";
-import { GameScene } from "../views/scenes/gameScene";
+import * as WebFont from "webfontloader";
+import PixiPlugin from "gsap/PixiPlugin";
+import gsap from "gsap";
+import { CONST } from "../config";
 
 export class SceneController {
-  public static instance: SceneController;
-  public static loader: PIXI.Loader = PIXI.Loader.shared;
+  public renderer : PIXI.Renderer;
+  public stage    : PIXI.Container;
+  public loader   : PIXI.Loader;
+  public ticker   : PIXI.Ticker;    // TODO: 別クラスにする？
+  public events   : { [key:string] : any };
 
-  public app!: PIXI.Application;
-  public currentScene: Scene;
-
-  constructor(app: PIXI.Application) {
-    if (SceneController.instance) {
-      throw new Error("SceneController can be instantiate only once");
+  private static _instance: SceneController;
+  public static get instance(): SceneController {
+    if (!this._instance) {
+      this._instance = new SceneController();
     }
 
-    this.app = app;
+    return this._instance;
   }
 
-  public static init(app: PIXI.Application) {
-    const instance: SceneController = new SceneController(app);
-    SceneController.instance = instance;
-
-    document.body.appendChild(app.view);
-    app.ticker.add((delta: number) => {
-      instance.currentScene.renderByFrame(delta);
+  private constructor() {
+    this.renderer = PIXI.autoDetectRenderer({
+      width  : CONST.CANVAS_WIDTH,
+      height : CONST.CANVAS_HEIGHT,
+      backgroundColor : CONST.CANVAS_BGCOLOR
     });
+
+    this.loader = PIXI.Loader.shared;
+    this.ticker = PIXI.Ticker.shared;
+    this.stage  = new PIXI.Container();
+    this.events = {
+      "initLayout" : () => this.initLayout(),
+      "onUpdate"   : () => this.onUpdate()
+    };
+
+    this.ticker.autoStart = false;
+    this.ticker.stop();
+    this.ticker.add(this.events.onUpdate);
+
+    // window.addEventListener("load", this.events.initLayout, false);
+    this.initLayout();
   }
 
-  public static assign(sceneName: string) {
-    if (this.instance.currentScene) {
-      this.instance.currentScene.destroy();
-    }
+  public initLayout() {
+    CONST.CANVAS_TARGET_EL.appendChild(this.renderer.view);
+    this.renderer.render(this.stage);
+  }
 
-    // TODO: 404.html 用意して #! なくす
-    history.pushState(null, sceneName, `#!${sceneName}`);
+  public route(sceneName: string) {
+    console.log(sceneName);
+  }
 
-    switch (sceneName) {
-      case "boot":
-        return this.instance.currentScene = new BootScene("splash");
-      case "splash":
-        return this.instance.currentScene = new SplashScene("title");
-      case "title":
-        return this.instance.currentScene = new TitleScene("game");
-      case "game":
-        return this.instance.currentScene = new GameScene();
-      default:
-        throw new Error("The scene name cannot be found"); 
-        return
-    }
+  public onUpdate() {
+    this.renderer.render(this.stage);
   }
 }

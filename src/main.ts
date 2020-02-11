@@ -1,46 +1,27 @@
-import * as PIXI from "pixi.js";
-import { Howl, Howler } from "howler";
-import "./config";
-import { Env } from "./utilities/env";
+import { CONST } from "./config";
 import { SceneController } from "./controllers/sceneController";
 
-const env = Env;
-const sceneController = SceneController;
-
-const app = new PIXI.Application({
-  width: env.screenWidth / env.pixelRatio,
-  height: env.screenHeight / env.pixelRatio,
-  resolution: env.pixelRatio,
-  // width: env.screenWidth,
-  // height: env.screenHeight,
-  // resolution: env.pixelRatio,
-  backgroundColor: 0xCFCBB1
-});
-
-const hideSpinner = () => {
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", hideSpinner, false);
-    return;
-  }
-
-  const spinner = document.getElementById("spinner");
-  spinner.style.display = "none";
-};
-
-const routeScene = () => {
-  const regex   = /^#!(\w+)/;
-  const matched = location.hash.match(regex);
-
-  sceneController.assign(matched ? matched[1] : "boot");
-}
-
 const init = () => {
-  hideSpinner();
-  sceneController.init(app);
+  const sceneController = SceneController.instance;
+  const _hideSpinner = () => {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", _hideSpinner, false);
+      return;
+    }
 
-  routeScene();
-  // sceneController.assign("boot");
+    const spinner = CONST.SPINNER_EL;
+    spinner.style.display = "none";
+  };
+
+  const _routeScene = () => {
+    const regex   = /^#!(\w+)/;
+    const matched = location.hash.match(regex);
+
+    sceneController.route(matched ? matched[1] : "boot");
+  };
+
+  _hideSpinner();
+  _routeScene();
 };
 
-sceneController.loader.add("sprites", "/img/sprites.json");
-sceneController.loader.load(init);
+window.addEventListener("load", init, false);

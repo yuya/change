@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Pixel-Mplus";
+  src: url("/assets/PixelMplus10-Regular.ttf");
+}
+html {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+body {
+  display: table-cell;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  /* background-color: #CFCBB1; */
+  text-align: center;
+  vertical-align: middle;
+}
+canvas {
+  position: relative;
+  outline: 6px solid #222;
+}
+#container {
+  display: inline-block;
+  position: relative;
+}
+#yt {
+  position: fixed;
+  bottom: 16px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  border: 4px solid #FFF;
+  outline: 4px solid #222;
+  /* pointer-events: none; */
+}
+.show { opacity: 1; }
+.hide { opacity: 0; }
+p {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  margin: 0;
+  font-family: monospace;
+  line-height: 1;
+  font-size: 3rem;
+}
