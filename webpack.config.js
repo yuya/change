@@ -1,18 +1,29 @@
-const path       = require("path");
-const se         = require("play-sound")(opts = {});
-const LiveReload = require("webpack-livereload-plugin");
+const path        = require("path");
+const se          = require("play-sound")(opts = {});
+const HtmlWebpack = require("html-webpack-plugin");
+const LiveReload  = require("webpack-livereload-plugin");
 
 module.exports = (env, argv) => {
   const isProd = argv.mode === "production";
   
   return {
     mode: argv.mode,
+    entry: path.resolve(__dirname, "src/typescript/main.ts"),
+    output: {
+      path: path.resolve(__dirname, "public"),
+      publicPath: "/",
+      filename: isProd ? "main.min.js?[hash]" : "main.js?[hash]"
+    },
     module: {
       rules: [
         {
           test: /\.ts$/,
           use: "ts-loader",
           exclude: /node_modules/
+        },
+        {
+          test: /\.pug$/,
+          use: "pug-loader"
         }
       ]
     },
@@ -22,14 +33,9 @@ module.exports = (env, argv) => {
         ".ts"
       ],
       modules: [
-        "src",
+        "src/typescript",
         "node_modules"
       ]
-    },
-    entry: path.resolve(__dirname, "src/main.ts"),
-    output: {
-      path: path.resolve(__dirname, "public/js"),
-      filename: isProd ? "main.min.js" : "main.js"
     },
     devServer: {
       host: "0.0.0.0",
@@ -38,6 +44,9 @@ module.exports = (env, argv) => {
       contentBase: path.resolve(__dirname, "public")
     },
     plugins: [
+      new HtmlWebpack({
+        template: path.resolve(__dirname, "src/pug/index.pug")
+      }),
       new LiveReload(),
       function () {
         this.hooks.afterEmit.tap("watch-run", function (watching, callback) {

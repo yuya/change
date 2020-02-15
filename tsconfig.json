@@ -9,11 +9,12 @@
       "howler",
       "youtube-player"
     ],
-    "baseUrl": "./src",
-    "rootDir": "./src",
+    "rootDir": "./src/typescript",
+    "baseUrl": "./src/typescript",
+    "outDir": "assets/",
     "lib": ["dom", "es2017"]
   },
   "includes": [
-    "src/**/*"
+    "src/typescript/**/*"
   ]
 }
