@@ -27,8 +27,19 @@ export class TitleScene extends Scene {
 
   private attachEvent(): void {
     const nextSceneName = this.userData.load("nextSceneName");
+    const bgm = new Howl({
+      src: "/assets/bgm_title.mp3",
+      loop: true
+    });
+    const clickSe = new Howl({
+      src: "/assets/se_spring.mp3",
+      onend: () => {
+        bgm.fade(1, 0, 500);
+      }
+    });
 
     this.el.coverRect.addListener("pointerdown", () => {
+      clickSe.play();
       gsap.to(this.container, {
         duration: 0.1,
         pixi: { alpha: 0 },
@@ -38,6 +49,8 @@ export class TitleScene extends Scene {
         }
       });
     });
+
+    bgm.play();
   }
 
   private renderTitleLogo(): void {
