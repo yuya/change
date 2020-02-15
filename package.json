@@ -6,7 +6,7 @@
     "watch:prod": "webpack -w --mode=production",
     "watch:dev": "webpack -w --mode=development",
     "tslint": "tslint -p tsconfig.json --format stylish \"src/**/*.ts*\"",
-    "server": "webpack-dev-server"
+    "server": "webpack-dev-server --devtool eval-source-map --history-api-fallback --open"
   },
   "dependencies": {
     "howler": "^2.1.3",

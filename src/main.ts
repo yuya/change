@@ -1,27 +1,33 @@
 import { CONST } from "config";
-import { SceneController } from "controllers/sceneController";
+import { GameController } from "controllers/gameController";
+import { AssetData } from "models/assetData";
+
+const gameController = GameController.instance;
+const assetData      = AssetData.instance;
+const spritePath     = "/img/sprites.json";
 
 const init = () => {
-  const sceneController = SceneController.instance;
   const _hideSpinner = () => {
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", _hideSpinner, false);
-      return;
-    }
-
     const spinner = CONST.SPINNER_EL;
     spinner.style.display = "none";
   };
 
   const _routeScene = () => {
-    const regex   = /^#!(\w+)/;
-    const matched = location.hash.match(regex);
+    const regex   = /\/(\w+)/;
+    const matched = location.pathname.match(regex);
 
-    sceneController.route(matched ? matched[1] : "boot");
+    gameController.route(matched ? matched[1] : "");
   };
 
-  _hideSpinner();
-  _routeScene();
+  gameController.loader
+    .add(spritePath)
+    .load((loader, resources) => {
+      assetData.save("textures", resources[spritePath].spritesheet.textures);
+
+      _hideSpinner();
+      _routeScene();
+    })
+  ;
 };
 
-window.addEventListener("load", init, false);
+window.addEventListener("DOMContentLoaded", init, false);
