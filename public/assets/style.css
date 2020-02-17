@@ -19,6 +19,8 @@ body {
 canvas {
   position: relative;
   outline: 6px solid #222;
+  /* outline: 6px solid red; */
+  /* border: 6px solid red; */
 }
 #container {
   display: inline-block;
@@ -36,12 +38,21 @@ canvas {
 }
 .show { opacity: 1; }
 .hide { opacity: 0; }
-p {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  margin: 0;
-  font-family: monospace;
-  line-height: 1;
-  font-size: 3rem;
+#spinner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+canvas {
+  width: 50%;
+  height: 50%;
+  /* -webkit-transform-origin: 0 0;
+  -webkit-transform: scale(0.5, 0.5); */
 }

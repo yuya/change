@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import { utils } from "utils";
 import { Howl, Howler } from "howler";
 import { Scene } from "views/scenes/_scene";
 
@@ -9,21 +10,24 @@ export class BootScene extends Scene {
     super();
 
     this.textures     = this.assetData.load("textures");
-    this.el.btnVolOn  = this.createSprite(this.textures["btn_vol_on.png"]);
-    this.el.btnVolOff = this.createSprite(this.textures["btn_vol_off.png"]);
+    this.el.btnVolOn  = utils.createSprite(this.textures["btn_vol_on.png"]);
+    this.el.btnVolOff = utils.createSprite(this.textures["btn_vol_off.png"]);
 
     this.initLayout();
     this.attachEvent();
   }
 
   private initLayout(): void {
-    const btnVolOnX  = this.display.pos.centerX + (this.el.btnVolOn.width*0.875);
-    const btnVolOffX = this.display.pos.centerX - (this.el.btnVolOff.width*0.875);
+    const btnVolOnPosX  = this.display.pos.centerX + (this.el.btnVolOn.width*0.875);
+    const btnVolOffPosX = this.display.pos.centerX - (this.el.btnVolOff.width*0.875);
+
+    // this.el.btnVolOn.scale.set(2, 2);
+    // this.el.btnVolOff.scale.set(2, 2);
 
     this.el.btnVolOn.pivot.set(this.el.btnVolOn.width / 2, this.el.btnVolOn.height / 2);
     this.el.btnVolOff.pivot.set(this.el.btnVolOff.width / 2, this.el.btnVolOff.height / 2);
-    this.el.btnVolOn.position.set(btnVolOnX, this.display.pos.centerY);
-    this.el.btnVolOff.position.set(btnVolOffX, this.display.pos.centerY);
+    this.el.btnVolOn.position.set(btnVolOnPosX, this.display.pos.centerY);
+    this.el.btnVolOff.position.set(btnVolOffPosX, this.display.pos.centerY);
     this.el.btnVolOn.interactive  = this.el.btnVolOn.buttonMode  = true;
     this.el.btnVolOff.interactive = this.el.btnVolOff.buttonMode = true;
 
@@ -81,12 +85,12 @@ export class BootScene extends Scene {
       this.game.route(nextSceneName);
     };
 
-    this.el.bootLogo = this.createSprite(this.textures["logo_change.png"]);
+    this.el.bootLogo = utils.createSprite(this.textures["logo_change.png"]);
     this.el.bootLogo.pivot.set(this.el.bootLogo.width / 2, this.el.bootLogo.height / 2);
     this.el.bootLogo.position.set(this.display.pos.centerX, -this.el.bootLogo.height);
 
     gsap.to(this.el.bootLogo, {
-      duration: 2.75,
+      duration: utils.msec2sec(2750),
       ease: "linear",
       pixi: { y: this.display.pos.centerY },
       onComplete: () => {

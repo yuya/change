@@ -1,4 +1,6 @@
 import { gsap } from "gsap";
+import { conf } from "conf";
+import { utils } from "utils";
 import { Howl, Howler } from "howler";
 import { Scene } from "views/scenes/_scene";
 
@@ -9,8 +11,8 @@ export class TitleScene extends Scene {
     super();
 
     this.textures     = this.assetData.load("textures");
-    this.el.coverRect = this.createTransparentRect(this.game.renderer.width / 2, this.game.renderer.height / 2);
-    this.el.titleLogo = this.createSprite(this.textures["logo_dna.png"]);
+    this.el.coverRect = utils.createTransparentRect(conf.canvas_width, conf.canvas_height);
+    this.el.titleLogo = utils.createSprite(this.textures["logo_dna.png"]);
 
     this.initLayout();
     this.attachEvent();
@@ -46,7 +48,7 @@ export class TitleScene extends Scene {
         bgm.fade(1, 0, 750);
       }, 1250);
       gsap.to(this.container, {
-        duration: 0.1,
+        duration: utils.msec2sec(100),
         pixi: { alpha: 0 },
         onComplete: () => {
           this.destroy();
@@ -60,7 +62,7 @@ export class TitleScene extends Scene {
 
   private renderTitleLogo(): void {
     gsap.to(this.el.titleLogo, {
-      duration: 0.66,
+      duration: utils.msec2sec(660),
       ease: "linear",
       pixi: { scale: 1.05 },
       repeat: -1,

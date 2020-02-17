@@ -102,7 +102,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -132,7 +132,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../../public/assets/spritesheet.json</filename>
+                <filename>../../../public/assets/spritesheet.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -161,15 +161,15 @@
             <key>scale</key>
             <double>1</double>
             <key>scaleMode</key>
-            <enum type="ScaleMode">Fast</enum>
+            <enum type="ScaleMode">Smooth</enum>
             <key>extrude</key>
             <uint>0</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMargin</key>
-            <uint>4</uint>
+            <uint>1</uint>
             <key>trimMode</key>
-            <enum type="SpriteSettings::TrimMode">Trim</enum>
+            <enum type="SpriteSettings::TrimMode">None</enum>
             <key>tracerTolerance</key>
             <int>200</int>
             <key>heuristicMask</key>
@@ -181,25 +181,25 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">anim_ryman_jab_0.png</key>
-            <key type="filename">anim_ryman_jab_1.png</key>
-            <key type="filename">anim_ryman_jab_2.png</key>
-            <key type="filename">anim_ryman_jab_3.png</key>
-            <key type="filename">anim_ryman_jab_4.png</key>
-            <key type="filename">anim_ryman_straight_0.png</key>
-            <key type="filename">anim_ryman_straight_1.png</key>
-            <key type="filename">anim_ryman_straight_2.png</key>
-            <key type="filename">anim_ryman_straight_3.png</key>
-            <key type="filename">anim_ryman_straight_4.png</key>
-            <key type="filename">anim_ryman_wait_0.png</key>
-            <key type="filename">anim_ryman_wait_1.png</key>
-            <key type="filename">anim_ryman_wait_2.png</key>
-            <key type="filename">ui_menu_1.png</key>
-            <key type="filename">ui_menu_2.png</key>
-            <key type="filename">ui_menu_3.png</key>
-            <key type="filename">ui_menu_4.png</key>
-            <key type="filename">ui_menu_5.png</key>
-            <key type="filename">ui_menu_6.png</key>
+            <key type="filename">../anim_ryman_jab_0.png</key>
+            <key type="filename">../anim_ryman_jab_1.png</key>
+            <key type="filename">../anim_ryman_jab_2.png</key>
+            <key type="filename">../anim_ryman_jab_3.png</key>
+            <key type="filename">../anim_ryman_jab_4.png</key>
+            <key type="filename">../anim_ryman_straight_0.png</key>
+            <key type="filename">../anim_ryman_straight_1.png</key>
+            <key type="filename">../anim_ryman_straight_2.png</key>
+            <key type="filename">../anim_ryman_straight_3.png</key>
+            <key type="filename">../anim_ryman_straight_4.png</key>
+            <key type="filename">../anim_ryman_wait_0.png</key>
+            <key type="filename">../anim_ryman_wait_1.png</key>
+            <key type="filename">../anim_ryman_wait_2.png</key>
+            <key type="filename">../ui_menu_1.png</key>
+            <key type="filename">../ui_menu_2.png</key>
+            <key type="filename">../ui_menu_3.png</key>
+            <key type="filename">../ui_menu_4.png</key>
+            <key type="filename">../ui_menu_5.png</key>
+            <key type="filename">../ui_menu_6.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -214,10 +214,10 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">btn_vol_off.png</key>
-            <key type="filename">btn_vol_off_o.png</key>
-            <key type="filename">btn_vol_on.png</key>
-            <key type="filename">btn_vol_on_o.png</key>
+            <key type="filename">../btn_vol_off.png</key>
+            <key type="filename">../btn_vol_off_o.png</key>
+            <key type="filename">../btn_vol_on.png</key>
+            <key type="filename">../btn_vol_on_o.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -232,7 +232,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">logo_change.png</key>
+            <key type="filename">../logo_change.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -247,7 +247,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">logo_dna.png</key>
+            <key type="filename">../logo_dna.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -262,8 +262,8 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">tmp_result.png</key>
-            <key type="filename">tmp_title.png</key>
+            <key type="filename">../tmp_result.png</key>
+            <key type="filename">../tmp_title.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -278,7 +278,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">txt_myname.png</key>
+            <key type="filename">../txt_myname.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -293,9 +293,9 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">ui_bg_menu_blue.png</key>
-            <key type="filename">ui_bg_menu_green.png</key>
-            <key type="filename">ui_bg_text_slice.png</key>
+            <key type="filename">../ui_bg_menu_blue.png</key>
+            <key type="filename">../ui_bg_menu_green.png</key>
+            <key type="filename">../ui_bg_text_slice.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -313,37 +313,37 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>anim_ryman_jab_0.png</filename>
-            <filename>anim_ryman_jab_1.png</filename>
-            <filename>anim_ryman_jab_2.png</filename>
-            <filename>anim_ryman_jab_3.png</filename>
-            <filename>anim_ryman_jab_4.png</filename>
-            <filename>anim_ryman_straight_0.png</filename>
-            <filename>anim_ryman_straight_1.png</filename>
-            <filename>anim_ryman_straight_2.png</filename>
-            <filename>anim_ryman_straight_3.png</filename>
-            <filename>anim_ryman_straight_4.png</filename>
-            <filename>anim_ryman_wait_0.png</filename>
-            <filename>anim_ryman_wait_1.png</filename>
-            <filename>anim_ryman_wait_2.png</filename>
-            <filename>btn_vol_off.png</filename>
-            <filename>btn_vol_off_o.png</filename>
-            <filename>btn_vol_on.png</filename>
-            <filename>btn_vol_on_o.png</filename>
-            <filename>logo_change.png</filename>
-            <filename>logo_dna.png</filename>
-            <filename>tmp_result.png</filename>
-            <filename>tmp_title.png</filename>
-            <filename>txt_myname.png</filename>
-            <filename>ui_bg_menu_blue.png</filename>
-            <filename>ui_bg_menu_green.png</filename>
-            <filename>ui_bg_text_slice.png</filename>
-            <filename>ui_menu_1.png</filename>
-            <filename>ui_menu_2.png</filename>
-            <filename>ui_menu_3.png</filename>
-            <filename>ui_menu_4.png</filename>
-            <filename>ui_menu_5.png</filename>
-            <filename>ui_menu_6.png</filename>
+            <filename>../anim_ryman_jab_0.png</filename>
+            <filename>../anim_ryman_jab_1.png</filename>
+            <filename>../anim_ryman_jab_2.png</filename>
+            <filename>../anim_ryman_jab_3.png</filename>
+            <filename>../anim_ryman_jab_4.png</filename>
+            <filename>../anim_ryman_straight_0.png</filename>
+            <filename>../anim_ryman_straight_1.png</filename>
+            <filename>../anim_ryman_straight_2.png</filename>
+            <filename>../anim_ryman_straight_3.png</filename>
+            <filename>../anim_ryman_straight_4.png</filename>
+            <filename>../anim_ryman_wait_0.png</filename>
+            <filename>../anim_ryman_wait_1.png</filename>
+            <filename>../anim_ryman_wait_2.png</filename>
+            <filename>../btn_vol_off.png</filename>
+            <filename>../btn_vol_off_o.png</filename>
+            <filename>../btn_vol_on.png</filename>
+            <filename>../btn_vol_on_o.png</filename>
+            <filename>../logo_change.png</filename>
+            <filename>../logo_dna.png</filename>
+            <filename>../tmp_result.png</filename>
+            <filename>../tmp_title.png</filename>
+            <filename>../txt_myname.png</filename>
+            <filename>../ui_bg_menu_blue.png</filename>
+            <filename>../ui_bg_menu_green.png</filename>
+            <filename>../ui_bg_text_slice.png</filename>
+            <filename>../ui_menu_1.png</filename>
+            <filename>../ui_menu_2.png</filename>
+            <filename>../ui_menu_3.png</filename>
+            <filename>../ui_menu_4.png</filename>
+            <filename>../ui_menu_5.png</filename>
+            <filename>../ui_menu_6.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

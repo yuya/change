@@ -10,10 +10,11 @@ PIXI.TextMetrics.BASELINE_SYMBOL += "あ｜";
 PixiPlugin.registerPIXI(PIXI);
 gsap.registerPlugin(PixiPlugin);
 
-export const CONST = {
-  SPINNER_EL       : document.getElementById("spinner"),
-  CANVAS_TARGET_EL : document.getElementById("container"),
-  CANVAS_WIDTH     : 640,
-  CANVAS_HEIGHT    : 960,
-  CANVAS_BGCOLOR   : 0xCFCBB1
+export const conf = {
+  spinner_el     : document.getElementById("spinner"),
+  canvas_el      : document.getElementById("container"),
+  canvas_width   : 640,
+  canvas_height  : 960,
+  canvas_bgcolor : 0xCFCBB1,
+  pixel_ratio    : window.devicePixelRatio || 1
 };

@@ -1,14 +1,16 @@
-import { CONST } from "config";
+import * as WebFont from "webfontloader";
+import { conf } from "conf";
+import { util } from "util";
 import { GameController } from "controllers/gameController";
 import { AssetData } from "models/assetData";
 
 const gameController = GameController.instance;
 const assetData      = AssetData.instance;
-const spritePath     = "/assets/texture.json";
+const spritePath     = "/assets/spritesheet.json";
 
 const init = () => {
   const _hideSpinner = () => {
-    const spinner = CONST.SPINNER_EL;
+    const spinner = conf.spinner_el;
     spinner.style.display = "none";
   };
 
@@ -19,13 +21,26 @@ const init = () => {
     gameController.route(matched ? matched[1] : "");
   };
 
+  const _loadWebFont = () => {
+    WebFont.load({
+      custom: {
+        families: ["Pixel-Mplus"]
+        // urls: ["/assets/style.css"]
+      },
+      active: () => {
+        _hideSpinner();
+        _routeScene();
+      }
+    });
+  };
+
   gameController.loader
     .add(spritePath)
     .load((loader, resources) => {
       assetData.save("textures", resources[spritePath].spritesheet.textures);
-
-      _hideSpinner();
-      _routeScene();
+      _loadWebFont();
+      // _hideSpinner();
+      // _routeScene();
     })
   ;
 };

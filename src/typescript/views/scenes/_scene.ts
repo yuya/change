@@ -1,5 +1,5 @@
 import * as PIXI from "pixi.js";
-import { Howl, Howler } from "howler";
+import { conf } from "conf";
 import { GameController } from "controllers/gameController";
 import { UserData } from "models/userData";
 import { AssetData } from "models/assetData";
@@ -21,8 +21,8 @@ export abstract class Scene extends PIXI.Container {
     this.se   = {};
     this.display = {
       "pos" : {
-        "centerX" : this.game.renderer.width / (2 * devicePixelRatio),
-        "centerY" : this.game.renderer.height / (2 * devicePixelRatio),
+        "centerX" : conf.canvas_width / 2,
+        "centerY" : conf.canvas_height / 2,
       }
     };
 
@@ -32,36 +32,12 @@ export abstract class Scene extends PIXI.Container {
     this.container      = new PIXI.Container();
     this.container.name = "container";
 
-    this.game.stage.width  = this.game.renderer.width;
-    this.game.stage.height = this.game.renderer.height;
+    this.game.stage.width  = conf.canvas_width,
+    this.game.stage.height = conf.canvas_height;
     this.game.stage.pivot.set(0, 0);
     this.game.stage.position.set(0, 0);
 
     this.game.stage.addChild(this.container);
-  }
-
-  public createSprite(texture: PIXI.Texture): PIXI.Sprite {
-    const sprite = PIXI.Sprite.from(texture);
-    const regex  = /\.(png|jpg)$/;
-
-    sprite.name = texture.textureCacheIds.length ?
-        texture.textureCacheIds[0].replace(/\.(jpg|png)$/, "") :
-        ""
-    ;
-
-    return sprite;
-  }
-
-  public createTransparentRect(width: number, height: number): PIXI.Sprite {
-    const rect = new PIXI.Graphics()
-        .beginFill(0xffffff, 0)
-        .drawRect(0, 0, width, height)
-        .endFill()
-    ;
-    const texture = this.game.renderer.generateTexture(rect, 1, 1);
-    const sprite  = new PIXI.Sprite(texture);
-
-    return sprite;
   }
 
   public onUpdate(delta: number): void {

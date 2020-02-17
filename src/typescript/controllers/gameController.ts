@@ -1,12 +1,11 @@
 import * as PIXI from "pixi.js";
-import * as WebFont from "webfontloader";
-import PixiPlugin from "gsap/PixiPlugin";
-import gsap from "gsap";
-import { CONST } from "config";
+import { conf } from "conf";
+import { AssetData } from "models/assetData";
 import { UserData } from "models/userData";
 import { Scene } from "views/scenes/_scene";
 import { BootScene } from "views/scenes/bootScene";
 import { TitleScene } from "views/scenes/titleScene";
+import { HomeScene } from "views/scenes/homeScene";
 
 export class GameController {
   public renderer      : PIXI.Renderer;
@@ -17,7 +16,8 @@ export class GameController {
   public currentScene  : Scene;
   public nextSceneName : string;
 
-  public userData : UserData;
+  public assetData : AssetData;
+  public userData  : UserData;
 
   private static _instance: GameController;
   public static get instance(): GameController {
@@ -30,12 +30,13 @@ export class GameController {
 
   private constructor() {
     this.renderer = PIXI.autoDetectRenderer({
-      // width  : CONST.CANVAS_WIDTH,
-      // height : CONST.CANVAS_HEIGHT,
-      width  : CONST.CANVAS_WIDTH / devicePixelRatio,
-      height : CONST.CANVAS_HEIGHT / devicePixelRatio,
+      width  : conf.canvas_width,
+      height : conf.canvas_height,
+      // width  : conf.canvas_width * conf.pixel_ratio,
+      // height : conf.canvas_height * conf.pixel_ratio,
+      autoDensity: true,
       resolution: devicePixelRatio,
-      backgroundColor : CONST.CANVAS_BGCOLOR
+      backgroundColor : conf.canvas_bgcolor
     });
 
     this.loader = PIXI.Loader.shared;
@@ -45,7 +46,9 @@ export class GameController {
       "initRenderer" : () => this.initRenderer(),
       "onUpdate"     : () => this.onUpdate()
     };
-    this.userData = UserData.instance;
+
+    this.assetData = AssetData.instance;
+    this.userData  = UserData.instance;
 
     this.initTicker();
     this.initRenderer();
@@ -63,7 +66,9 @@ export class GameController {
   }
 
   public initRenderer(): void {
-    CONST.CANVAS_TARGET_EL.appendChild(this.renderer.view);
+    // const scale = 1 / devicePixelRatio;
+    // conf.canvas_el.style.cssText =`scale3d(${scale}, ${scale}, ${scale}`;
+    conf.canvas_el.appendChild(this.renderer.view);
 
     this.stage.name = "stage";
     this.renderer.render(this.stage);
@@ -84,21 +89,15 @@ export class GameController {
         this.userData.save("nextSceneName", "home");
         this.currentScene = new TitleScene();
         break;
-      // case "home":
-      //   console.log(this, this.userData);
-      //   this.userData.save("nextSceneName", "ingame");
-      //   // this.nextSceneName = "ingame";
-      //   // this.currentScene = new TitleScene();
-      //   break;
+      case "home":
+        this.userData.save("nextSceneName", "ingame");
+        this.currentScene = new HomeScene();
+        break;
       default:
         return;
     }
 
     // console.log(this.nextSceneName);
-  }
-
-  public get _nextSceneName(): string {
-    return this.nextSceneName;
   }
 
   public onUpdate(): void {
