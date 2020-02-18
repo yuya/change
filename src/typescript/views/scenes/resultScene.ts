@@ -4,7 +4,7 @@ import { utils } from "utils";
 import { Howl, Howler } from "howler";
 import { Scene } from "views/scenes/_scene";
 
-export class TitleScene extends Scene {
+export class ResultScene extends Scene {
   private textures: any;
   
   public constructor() {
@@ -12,22 +12,20 @@ export class TitleScene extends Scene {
 
     this.textures     = this.assetData.load("textures");
     this.el.coverRect = utils.createTransparentRect(conf.canvas_width, conf.canvas_height);
-    this.el.titleLogo = utils.createSprite(this.textures["logo_dna.png"]);
+    this.el.resultImg = utils.createSprite(this.textures["tmp_result.png"]);
 
     this.initLayout();
     this.attachEvent();
-
-    this.renderTitleLogo();
   }
 
   private initLayout(): void {
-    this.el.titleLogo.pivot.set(this.el.titleLogo.width / 2, this.el.titleLogo.height / 2);
-    this.el.titleLogo.width *= 2;
-    this.el.titleLogo.height *= 2;
-    this.el.titleLogo.position.set(utils.display.centerX, utils.display.centerY);
+    this.el.resultImg.pivot.set(this.el.resultImg.width / 2, this.el.resultImg.height / 2);
+    this.el.resultImg.width *= 2;
+    this.el.resultImg.height *= 2;
+    this.el.resultImg.position.set(utils.display.centerX, utils.display.centerY);
     this.el.coverRect.interactive = this.el.coverRect.buttonMode = true;
 
-    this.container.addChild(this.el.titleLogo, this.el.coverRect);
+    this.container.addChild(this.el.resultImg, this.el.coverRect);
     this.game.ticker.start();
   }
 
@@ -60,15 +58,5 @@ export class TitleScene extends Scene {
     });
 
     bgm.play();
-  }
-
-  private renderTitleLogo(): void {
-    gsap.to(this.el.titleLogo, {
-      duration: utils.msec2sec(660),
-      ease: "linear",
-      pixi: { scale: 2.05 },
-      repeat: -1,
-      // yoyo: true
-    });
   }
 }

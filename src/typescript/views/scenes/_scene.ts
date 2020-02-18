@@ -8,7 +8,6 @@ export abstract class Scene extends PIXI.Container {
   protected game: GameController;
   protected el        : { [key : string] : PIXI.Sprite };
   protected se        : { [key : string] : Howl };
-  protected display   : { [key : string] : any };
   protected userData  : UserData;
   protected assetData : AssetData;
   protected container : PIXI.Container;
@@ -19,12 +18,6 @@ export abstract class Scene extends PIXI.Container {
     this.game = GameController.instance;
     this.el   = {};
     this.se   = {};
-    this.display = {
-      "pos" : {
-        "centerX" : conf.canvas_width / 2,
-        "centerY" : conf.canvas_height / 2,
-      }
-    };
 
     this.userData  = UserData.instance;
     this.assetData = AssetData.instance;

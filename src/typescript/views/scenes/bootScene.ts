@@ -18,16 +18,21 @@ export class BootScene extends Scene {
   }
 
   private initLayout(): void {
-    const btnVolOnPosX  = this.display.pos.centerX + (this.el.btnVolOn.width*0.875);
-    const btnVolOffPosX = this.display.pos.centerX - (this.el.btnVolOff.width*0.875);
+    const btnVolOnPosX  = utils.display.centerX + (this.el.btnVolOn.width*1.2);
+    const btnVolOffPosX = utils.display.centerX - (this.el.btnVolOff.width*1.2);
 
     // this.el.btnVolOn.scale.set(2, 2);
     // this.el.btnVolOff.scale.set(2, 2);
-
     this.el.btnVolOn.pivot.set(this.el.btnVolOn.width / 2, this.el.btnVolOn.height / 2);
     this.el.btnVolOff.pivot.set(this.el.btnVolOff.width / 2, this.el.btnVolOff.height / 2);
-    this.el.btnVolOn.position.set(btnVolOnPosX, this.display.pos.centerY);
-    this.el.btnVolOff.position.set(btnVolOffPosX, this.display.pos.centerY);
+
+    this.el.btnVolOn.width *= 2;
+    this.el.btnVolOn.height *= 2;
+    this.el.btnVolOff.width *= 2;
+    this.el.btnVolOff.height *= 2;
+
+    this.el.btnVolOn.position.set(btnVolOnPosX, utils.display.centerY);
+    this.el.btnVolOff.position.set(btnVolOffPosX, utils.display.centerY);
     this.el.btnVolOn.interactive  = this.el.btnVolOn.buttonMode  = true;
     this.el.btnVolOff.interactive = this.el.btnVolOff.buttonMode = true;
 
@@ -87,12 +92,14 @@ export class BootScene extends Scene {
 
     this.el.bootLogo = utils.createSprite(this.textures["logo_change.png"]);
     this.el.bootLogo.pivot.set(this.el.bootLogo.width / 2, this.el.bootLogo.height / 2);
-    this.el.bootLogo.position.set(this.display.pos.centerX, -this.el.bootLogo.height);
+    this.el.bootLogo.width *= 2;
+    this.el.bootLogo.height *= 2;
+    this.el.bootLogo.position.set(utils.display.centerX, -this.el.bootLogo.height);
 
     gsap.to(this.el.bootLogo, {
       duration: utils.msec2sec(2750),
       ease: "linear",
-      pixi: { y: this.display.pos.centerY },
+      pixi: { y: utils.display.centerY },
       onComplete: () => {
         if (isEnableVol) {
           this.se.finish.on("end", onAnimationEnd);

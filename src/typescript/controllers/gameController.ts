@@ -6,6 +6,7 @@ import { Scene } from "views/scenes/_scene";
 import { BootScene } from "views/scenes/bootScene";
 import { TitleScene } from "views/scenes/titleScene";
 import { HomeScene } from "views/scenes/homeScene";
+import { ResultScene } from "views/scenes/resultScene";
 
 export class GameController {
   public renderer      : PIXI.Renderer;
@@ -82,6 +83,7 @@ export class GameController {
     switch (sceneName) {
       case "":
       case "boot":
+      default:
         this.userData.save("nextSceneName", "title");
         this.currentScene = new BootScene();
         break;
@@ -93,8 +95,10 @@ export class GameController {
         this.userData.save("nextSceneName", "ingame");
         this.currentScene = new HomeScene();
         break;
-      default:
-        return;
+      case "result":
+        this.userData.save("nextSceneName", "home");
+        this.currentScene = new ResultScene();
+        break;
     }
 
     // console.log(this.nextSceneName);

@@ -12,15 +12,40 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  /* background-color: #CFCBB1; */
+  background-color: #CFCBB1;
   text-align: center;
   vertical-align: middle;
 }
 canvas {
   position: relative;
-  outline: 6px solid #222;
+  /* outline: 6px solid #222; */
   /* outline: 6px solid red; */
   /* border: 6px solid red; */
+}
+#container::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-repeat: repeat-x;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUCAIAAAA/ees8AAAABnRSTlMAAAAAAABupgeRAAAAJklEQVR4AWMgHZw/vRGISJCgwA4EG6cE2fqAGI7Q1cIR1e0YBBIAse3JyY0XPFUAAAAASUVORK5CYII=");
+  -webkit-transform: scale(1, -1);
+  transform: scale(1, -1);
+  content: "";
+  z-index: 1;
+}
+#container::after {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-repeat: repeat-x;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUCAIAAAA/ees8AAAABnRSTlMAAAAAAABupgeRAAAAJklEQVR4AWMgHZw/vRGISJCgwA4EG6cE2fqAGI7Q1cIR1e0YBBIAse3JyY0XPFUAAAAASUVORK5CYII=");
+  content: "";
 }
 #container {
   display: inline-block;
@@ -48,11 +73,4 @@ canvas {
   width: 24px;
   height: 24px;
   pointer-events: none;
-}
-
-canvas {
-  width: 50%;
-  height: 50%;
-  /* -webkit-transform-origin: 0 0;
-  -webkit-transform: scale(0.5, 0.5); */
 }
