@@ -1,7 +1,3 @@
-// interface Asset {
-//   textures: PIXI.Spritesheet,
-// }
-
 export class AssetData {
   private _assetData: { [key:string] : any };
 

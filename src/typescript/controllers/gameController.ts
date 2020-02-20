@@ -1,7 +1,6 @@
 import * as PIXI from "pixi.js";
 import { conf } from "conf";
-import { AssetData } from "models/assetData";
-import { UserData } from "models/userData";
+import { UserData, AssetData } from "models";
 import { Scene, BootScene, TitleScene, HomeScene, ResultScene } from "views";
 
 export class GameController {
@@ -13,8 +12,8 @@ export class GameController {
   public currentScene  : Scene;
   public nextSceneName : string;
 
-  public assetData : AssetData;
   public userData  : UserData;
+  public assetData : AssetData;
 
   private static _instance: GameController;
   public static get instance(): GameController {
@@ -44,8 +43,8 @@ export class GameController {
       "onUpdate"     : () => this.onUpdate()
     };
 
-    this.assetData = AssetData.instance;
     this.userData  = UserData.instance;
+    this.assetData = AssetData.instance;
 
     this.initTicker();
     this.initRenderer();

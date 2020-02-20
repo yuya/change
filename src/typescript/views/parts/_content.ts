@@ -21,7 +21,7 @@ export abstract class Content {
 
     this.txtStyle = {
       fill: 0x222222,
-      fontFamily: "Pixel-Mplus",
+      fontFamily: "Nu Kinako Mochi Ct",
       fontSize: 20,
       breakWords: true,
       wordWrap: true,

@@ -10,9 +10,10 @@ export class ResultScene extends Scene {
   public constructor() {
     super();
 
-    this.textures     = this.assetData.load("textures");
-    this.el.coverRect = utils.createTransparentRect(conf.canvas_width, conf.canvas_height);
-    this.el.resultImg = utils.createSprite(this.textures["tmp_result.png"]);
+    this.textures      = this.assetData.load("textures");
+    this.el.background = utils.createRect(conf.canvas_width, conf.canvas_height, 0x222222);
+    this.el.coverRect  = utils.createRect(conf.canvas_width, conf.canvas_height);
+    this.el.resultImg  = utils.createSprite(this.textures["tmp_result.png"]);
 
     this.initLayout();
     this.attachEvent();
@@ -25,7 +26,7 @@ export class ResultScene extends Scene {
     this.el.resultImg.position.set(utils.display.centerX, utils.display.centerY);
     this.el.coverRect.interactive = this.el.coverRect.buttonMode = true;
 
-    this.container.addChild(this.el.resultImg, this.el.coverRect);
+    this.container.addChild(this.el.background, this.el.resultImg, this.el.coverRect);
     this.game.ticker.start();
   }
 

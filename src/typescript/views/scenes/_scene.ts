@@ -1,12 +1,11 @@
 import * as PIXI from "pixi.js";
 import { conf } from "conf";
 import { GameController } from "controllers/gameController";
-import { UserData } from "models/userData";
-import { AssetData } from "models/assetData";
+import { UserData, AssetData } from "models";
 
 export abstract class Scene extends PIXI.Container {
   protected game: GameController;
-  protected el        : { [key : string] : PIXI.Sprite };
+  protected el        : { [key : string] : any };
   protected se        : { [key : string] : Howl };
   protected userData  : UserData;
   protected assetData : AssetData;

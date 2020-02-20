@@ -2,7 +2,7 @@ import * as WebFont from "webfontloader";
 import { conf } from "conf";
 import { util } from "util";
 import { GameController } from "controllers/gameController";
-import { AssetData } from "models/assetData";
+import { AssetData } from "models";
 
 const gameController = GameController.instance;
 const assetData      = AssetData.instance;
@@ -24,7 +24,8 @@ const init = () => {
   const _loadWebFont = () => {
     WebFont.load({
       custom: {
-        families: ["Pixel-Mplus"]
+        // families: ["MisakiGothic2nd", "Nu Kinako Mochi Ct", "Pixel-Mplus"]
+        families: ["Nu Kinako Mochi Ct"]
         // urls: ["/assets/style.css"]
       },
       active: () => {

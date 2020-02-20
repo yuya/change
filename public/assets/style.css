@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Pixel-Mplus";
-  src: url("/assets/PixelMplus10-Regular.ttf");
+  font-family: "Nu Kinako Mochi Ct";
+  src: url("/assets/NuKinakoMochiCt-Reg.otf");
 }
 html {
   display: table;
@@ -18,35 +18,31 @@ body {
 }
 canvas {
   position: relative;
-  /* outline: 6px solid #222; */
+  outline: 6px solid #222;
   /* outline: 6px solid red; */
   /* border: 6px solid red; */
 }
-#container::before {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background-repeat: repeat-x;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUCAIAAAA/ees8AAAABnRSTlMAAAAAAABupgeRAAAAJklEQVR4AWMgHZw/vRGISJCgwA4EG6cE2fqAGI7Q1cIR1e0YBBIAse3JyY0XPFUAAAAASUVORK5CYII=");
-  -webkit-transform: scale(1, -1);
-  transform: scale(1, -1);
-  content: "";
-  z-index: 1;
-}
+#container::before,
 #container::after {
   display: block;
   position: absolute;
-  bottom: 0;
   left: 0;
   width: 100%;
   height: 20px;
+  /* background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUCAIAAAA/ees8AAAABnRSTlMAAAAAAABupgeRAAAAJklEQVR4AWMgHZw/vRGISJCgwA4EG6cE2fqAGI7Q1cIR1e0YBBIAse3JyY0XPFUAAAAASUVORK5CYII="); */
   background-repeat: repeat-x;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUCAIAAAA/ees8AAAABnRSTlMAAAAAAABupgeRAAAAJklEQVR4AWMgHZw/vRGISJCgwA4EG6cE2fqAGI7Q1cIR1e0YBBIAse3JyY0XPFUAAAAASUVORK5CYII=");
+  z-index: 1;
   content: "";
 }
+#container::before {
+  top: 0;
+  -webkit-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+#container::after {
+  bottom: 0;
+}
+
 #container {
   display: inline-block;
   position: relative;

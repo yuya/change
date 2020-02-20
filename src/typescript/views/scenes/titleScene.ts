@@ -11,7 +11,7 @@ export class TitleScene extends Scene {
     super();
 
     this.textures     = this.assetData.load("textures");
-    this.el.coverRect = utils.createTransparentRect(conf.canvas_width, conf.canvas_height);
+    this.el.coverRect = utils.createRect(conf.canvas_width, conf.canvas_height);
     this.el.titleLogo = utils.createSprite(this.textures["logo_dna.png"]);
 
     this.initLayout();
