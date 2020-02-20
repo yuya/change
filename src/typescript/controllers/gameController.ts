@@ -2,11 +2,7 @@ import * as PIXI from "pixi.js";
 import { conf } from "conf";
 import { AssetData } from "models/assetData";
 import { UserData } from "models/userData";
-import { Scene } from "views/scenes/_scene";
-import { BootScene } from "views/scenes/bootScene";
-import { TitleScene } from "views/scenes/titleScene";
-import { HomeScene } from "views/scenes/homeScene";
-import { ResultScene } from "views/scenes/resultScene";
+import { Scene, BootScene, TitleScene, HomeScene, ResultScene } from "views";
 
 export class GameController {
   public renderer      : PIXI.Renderer;

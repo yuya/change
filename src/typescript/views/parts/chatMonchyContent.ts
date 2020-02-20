@@ -1,5 +1,5 @@
 import { utils } from "utils";
-import { Content } from "views/parts/_content"
+import { Content } from "views"
 
 export class ChatMonchyContent extends Content {
   public constructor() {

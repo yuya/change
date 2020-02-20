@@ -2,21 +2,21 @@ import { gsap } from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
 import { Howl, Howler } from "howler";
-import { Scene } from "views/scenes/_scene";
-import { CircleMenu, AboutContent, ContactContent, ProfileContent,
+import { Scene, CircleMenu,
+         AboutContent, ContactContent, ProfileContent,
          SharamQContent, ChatMonchyContent, BeyooOoondsContent
-       } from "views/parts/";
+       } from "views";
 
 export class HomeScene extends Scene {
   private textures   : any;
   private content    : any;
-  private prevIndex  : number;
+  private lastIndex  : number;
   private circleMenu : CircleMenu;
   
   public constructor() {
     super();
 
-    this.prevIndex = 0;
+    this.lastIndex = 0;
 
     this.initLayout();
     this.attachEvent();
@@ -33,22 +33,20 @@ export class HomeScene extends Scene {
     this.game.events["refreshContent"] = (event) => {
       const currentIndex = (event as any).detail.currentIndex;
 
-      if (currentIndex === this.prevIndex || this.content.isDestroyed) {
+      if (currentIndex === this.lastIndex || this.content.isDestroyed) {
         return;
       }
 
       this.content.destroy();
       this.renderContent(currentIndex);
 
-      this.prevIndex = currentIndex;
+      this.lastIndex = currentIndex;
     };
 
     this.game.renderer.view.addEventListener("onmovecomplete", this.game.events.refreshContent, false);
   }
 
-  private renderContent(index?: number): void {
-    index = 0 || index;
-
+  private renderContent(index: number = 0): void {
     switch (index) {
       case 0:
       default:
@@ -73,6 +71,7 @@ export class HomeScene extends Scene {
         // break;
     }
 
+    this.lastIndex = index;
     this.container.addChild(this.content.element);
   }
 

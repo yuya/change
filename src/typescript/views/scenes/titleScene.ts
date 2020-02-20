@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
 import { Howl, Howler } from "howler";
-import { Scene } from "views/scenes/_scene";
+import { Scene } from "views";
 
 export class TitleScene extends Scene {
   private textures: any;
