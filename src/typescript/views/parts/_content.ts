@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 import { conf } from "conf";
 import { utils } from "utils";
-import { GameController } from "controllers/gameController";
+import { GameController } from "controllers";
 
 export abstract class Content {
   public element     : PIXI.Container;
@@ -22,13 +22,13 @@ export abstract class Content {
 
     this.txtStyle = {
       fill: utils.color.black,
-      fontFamily: "Nu Kinako Mochi Ct",
+      fontFamily: "Nu Kinako Mochi",
       fontSize: 20,
       breakWords: true,
       wordWrap: true,
       wordWrapWidth: 480
     };
-    this.txtStyle.lineHeight = this.txtStyle.fontSize * 1.5;
+    this.txtStyle.lineHeight = this.txtStyle.fontSize * 2;
   }
 
   public makeBackground(): void {
@@ -47,7 +47,7 @@ export abstract class Content {
     this.bg.txtHead.position.set(40, 40);
 
     this.bg.txtBody.width  = this.bg.content.width - 80;
-    this.bg.txtBody.height = this.bg.content.height - (this.bg.txtHead.position.y + this.bg.txtHead.height + 30) - 60;
+    this.bg.txtBody.height = this.bg.content.height - (this.bg.txtHead.position.y + this.bg.txtHead.height + 30) - 50;
     this.bg.txtBody.position.set(40, 40+100);
 
     this.bg.content.addChild(this.bg.txtHead, this.bg.txtBody);

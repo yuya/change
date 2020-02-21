@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
-import { Howl, Howler } from "howler";
 import { Scene } from "views";
 
 export class TitleScene extends Scene {
@@ -33,21 +32,11 @@ export class TitleScene extends Scene {
 
   private attachEvent(): void {
     const nextSceneName = this.userData.load("nextSceneName");
-    const bgm = new Howl({
-      src: "/assets/audio/bgm_title.mp3",
-      loop: true
-    });
-    const clickSe = new Howl({
-      src: "/assets/audio/se_spring.mp3"
-      // onend: () => {
-      //   bgm.fade(1, 0, 500);
-      // }
-    });
 
     this.rect.cover.addListener("pointerdown", () => {
-      clickSe.play();
+      this.sound.play("se", "spring");
       setTimeout(() => {
-        bgm.fade(1, 0, 750);
+        this.sound.fade("bgm", "title", 1, 0, 750);
       }, 1250);
       gsap.to(this.container, {
         duration: utils.msec2sec(100),
@@ -59,7 +48,7 @@ export class TitleScene extends Scene {
       });
     });
 
-    bgm.play();
+    this.sound.play("bgm", "title");
   }
 
   private renderTitleLogo(): void {
@@ -68,7 +57,6 @@ export class TitleScene extends Scene {
       ease: "linear",
       pixi: { scale: 2.05 },
       repeat: -1,
-      // yoyo: true
     });
   }
 }

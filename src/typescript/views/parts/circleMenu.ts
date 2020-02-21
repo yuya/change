@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
 import { Howl, Howler } from "howler";
-import { GameController } from "controllers/gameController";
+import { GameController } from "controllers";
 
 export class CircleMenu {
   public element    : PIXI.Container;

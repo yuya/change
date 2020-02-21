@@ -1,6 +1,5 @@
 import { gsap } from "gsap";
 import { utils } from "utils";
-import { Howl, Howler } from "howler";
 import { Scene } from "views";
 
 export class BootScene extends Scene {
@@ -58,7 +57,7 @@ export class BootScene extends Scene {
 
     this.el.btnVolOn.addListener("pointerdown", () => {
       this.userData.save("is_enabled_volume", true);
-      this.se.finish = new Howl({ src: "/assets/audio/poiiiiin.mp3" });
+      this.sound.initSound();
       gsap.to(this.container, animateOption);
     });
     this.el.btnVolOn.addListener("pointerover", () => {
@@ -100,8 +99,8 @@ export class BootScene extends Scene {
       pixi: { y: utils.display.centerY },
       onComplete: () => {
         if (isEnableVol) {
-          this.se.finish.on("end", onAnimationEnd);
-          this.se.finish.play();
+          this.sound.play("se", "poiiiiin");
+          this.sound.se.poiiiiin.on("end", onAnimationEnd);
         } 
         else {
           setTimeout(onAnimationEnd, 1000);

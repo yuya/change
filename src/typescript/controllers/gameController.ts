@@ -26,13 +26,11 @@ export class GameController {
 
   private constructor() {
     this.renderer = PIXI.autoDetectRenderer({
-      width  : conf.canvas_width,
-      height : conf.canvas_height,
-      // width  : conf.canvas_width * conf.pixel_ratio,
-      // height : conf.canvas_height * conf.pixel_ratio,
-      autoDensity: true,
-      resolution: devicePixelRatio,
-      backgroundColor : conf.canvas_bgcolor
+      width           : conf.canvas_width,
+      height          : conf.canvas_height,
+      autoDensity     : true,
+      resolution      : devicePixelRatio,
+      backgroundColor : conf.canvas_bgcolor,
     });
 
     this.loader = PIXI.Loader.shared;
@@ -62,8 +60,6 @@ export class GameController {
   }
 
   public initRenderer(): void {
-    // const scale = 1 / devicePixelRatio;
-    // conf.canvas_el.style.cssText =`scale3d(${scale}, ${scale}, ${scale}`;
     conf.canvas_el.appendChild(this.renderer.view);
 
     this.stage.name = "stage";
@@ -95,8 +91,6 @@ export class GameController {
         this.currentScene = new ResultScene();
         break;
     }
-
-    // console.log(this.nextSceneName);
   }
 
   public onUpdate(): void {

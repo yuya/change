@@ -1,7 +1,7 @@
 import * as WebFont from "webfontloader";
 import { conf } from "conf";
 import { util } from "util";
-import { GameController } from "controllers/gameController";
+import { GameController } from "controllers";
 import { AssetData } from "models";
 
 const gameController = GameController.instance;
@@ -24,7 +24,7 @@ const init = () => {
   const _loadWebFont = () => {
     WebFont.load({
       custom: {
-        families: ["Nu Kinako Mochi Ct"]
+        families: ["Nu Kinako Mochi"]
       },
       active: () => {
         _hideSpinner();

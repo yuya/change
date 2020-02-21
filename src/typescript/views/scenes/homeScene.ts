@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
-import { Howl, Howler } from "howler";
 import { Scene, CircleMenu,
          AboutContent, ContactContent, ProfileContent,
          SharamQContent, ChatMonchyContent, BeyooOoondsContent

@@ -1,10 +1,12 @@
 import * as PIXI from "pixi.js";
 import { conf } from "conf";
-import { GameController } from "controllers/gameController";
+import { GameController, SoundController } from "controllers";
 import { UserData, AssetData } from "models";
 
 export abstract class Scene extends PIXI.Container {
-  protected game: GameController;
+  protected game  : GameController;
+  protected sound : SoundController;
+
   protected se        : { [key : string] : Howl };
   protected el        : { [key : string] : PIXI.Sprite };
   protected rect      : { [key : string] : PIXI.Graphics };
@@ -15,7 +17,9 @@ export abstract class Scene extends PIXI.Container {
   protected constructor() {
     super();
 
-    this.game = GameController.instance;
+    this.game  = GameController.instance;
+    this.sound = SoundController.instance;
+
     this.se   = {};
     this.el   = {};
     this.rect = {};

@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
-import { Howl, Howler } from "howler";
 import { Scene } from "views";
 
 export class ResultScene extends Scene {
@@ -35,7 +34,7 @@ export class ResultScene extends Scene {
 
   private showResult(): void {
     const msgFromStr = "にしお いしん より";
-    const msgBodyStr = "う〜ん まぁまぁ かな ...\nでも 気分 は 上々！";
+    const msgBodyStr = "う〜ん まぁまぁ かな 。｡・･.．\nでも 気分 は 上々！";
 
     this.txt["msgFrom"] = new PIXI.Text(msgFromStr, {
       fill: utils.color.black,
@@ -96,19 +95,13 @@ export class ResultScene extends Scene {
 
   private attachEvent(): void {
     const nextSceneName = this.userData.load("nextSceneName");
-    const bgm = new Howl({
-      src: "/assets/audio/bgm_title.mp3",
-      loop: true
-    });
-    const clickSe = new Howl({
-      src: "/assets/audio/se_spring.mp3"
-    });
+
+    const se_1 = new Howl({ src: "/assets/audio/se_po.wav" });
+    const se_2 = new Howl({ src: "/assets/audio/se_puin.wav" });
 
     this.rect.coverResult.addListener("pointerdown", () => {
-      clickSe.play();
-      setTimeout(() => {
-        bgm.fade(1, 0, 750);
-      }, 1250);
+      this.sound.play("se", "po");
+
       gsap.to(this.container, {
         duration: utils.msec2sec(100),
         pixi: { alpha: 0 },
@@ -120,10 +113,8 @@ export class ResultScene extends Scene {
     });
 
     this.rect.coverOutro.addListener("pointerdown", () => {
-      clickSe.play();
-      setTimeout(() => {
-        bgm.fade(1, 0, 750);
-      }, 1250);
+      this.sound.play("se", "po");
+
       gsap.to(this.container, {
         duration: utils.msec2sec(100),
         pixi: { alpha: 0 },
@@ -135,6 +126,5 @@ export class ResultScene extends Scene {
       });
     });
 
-    bgm.play();
   }
 }

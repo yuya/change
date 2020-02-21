@@ -18,21 +18,24 @@ export class BeyooOoondsContent extends Content {
   }
 
   private setText() {
-    const str = [
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-      "ニッポンノ D・N・A！Beyooooonds!！！！！！！！",
-    ].join("\n");
+    const str = `
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ Ｄ・Ｎ・Ａ！ＢＥＹＯＯＯＯＯＮＤＳ 沼
+ニッポンノ D・N・A！BEYooOooNDS！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+ニッポンノ D・N・A！Beyooooonds！！！！！
+`.replace(/(^\n|\n$)/g, "");
 
     const txt = new PIXI.Text(str, this.txtStyle);
     txt.position.set(20, 20);
