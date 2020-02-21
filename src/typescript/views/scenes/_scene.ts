@@ -5,8 +5,9 @@ import { UserData, AssetData } from "models";
 
 export abstract class Scene extends PIXI.Container {
   protected game: GameController;
-  protected el        : { [key : string] : any };
   protected se        : { [key : string] : Howl };
+  protected el        : { [key : string] : PIXI.Sprite };
+  protected rect      : { [key : string] : PIXI.Graphics };
   protected userData  : UserData;
   protected assetData : AssetData;
   protected container : PIXI.Container;
@@ -15,8 +16,9 @@ export abstract class Scene extends PIXI.Container {
     super();
 
     this.game = GameController.instance;
-    this.el   = {};
     this.se   = {};
+    this.el   = {};
+    this.rect = {};
 
     this.userData  = UserData.instance;
     this.assetData = AssetData.instance;

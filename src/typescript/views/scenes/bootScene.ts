@@ -21,20 +21,18 @@ export class BootScene extends Scene {
     const btnVolOnPosX  = utils.display.centerX + (this.el.btnVolOn.width*1.2);
     const btnVolOffPosX = utils.display.centerX - (this.el.btnVolOff.width*1.2);
 
-    // this.el.btnVolOn.scale.set(2, 2);
-    // this.el.btnVolOff.scale.set(2, 2);
     this.el.btnVolOn.pivot.set(this.el.btnVolOn.width / 2, this.el.btnVolOn.height / 2);
     this.el.btnVolOff.pivot.set(this.el.btnVolOff.width / 2, this.el.btnVolOff.height / 2);
 
-    this.el.btnVolOn.width *= 2;
-    this.el.btnVolOn.height *= 2;
-    this.el.btnVolOff.width *= 2;
+    this.el.btnVolOn.width   *= 2;
+    this.el.btnVolOn.height  *= 2;
+    this.el.btnVolOff.width  *= 2;
     this.el.btnVolOff.height *= 2;
+    this.el.btnVolOn.interactive  = this.el.btnVolOn.buttonMode  = true;
+    this.el.btnVolOff.interactive = this.el.btnVolOff.buttonMode = true;
 
     this.el.btnVolOn.position.set(btnVolOnPosX, utils.display.centerY);
     this.el.btnVolOff.position.set(btnVolOffPosX, utils.display.centerY);
-    this.el.btnVolOn.interactive  = this.el.btnVolOn.buttonMode  = true;
-    this.el.btnVolOff.interactive = this.el.btnVolOff.buttonMode = true;
 
     this.container.addChild(
       this.el.btnVolOn,

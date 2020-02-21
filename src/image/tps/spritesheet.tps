@@ -194,12 +194,16 @@
             <key type="filename">../anim_ryman_wait_0.png</key>
             <key type="filename">../anim_ryman_wait_1.png</key>
             <key type="filename">../anim_ryman_wait_2.png</key>
+            <key type="filename">../ui_beyo.png</key>
+            <key type="filename">../ui_chat.png</key>
             <key type="filename">../ui_menu_1.png</key>
             <key type="filename">../ui_menu_2.png</key>
             <key type="filename">../ui_menu_3.png</key>
             <key type="filename">../ui_menu_4.png</key>
             <key type="filename">../ui_menu_5.png</key>
             <key type="filename">../ui_menu_6.png</key>
+            <key type="filename">../ui_prof.png</key>
+            <key type="filename">../ui_tunk.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -259,6 +263,51 @@
                 <rect>48,40,96,80</rect>
                 <key>scale9Paddings</key>
                 <rect>48,40,96,80</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../result_grade_high.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>64,12,128,24</rect>
+                <key>scale9Paddings</key>
+                <rect>64,12,128,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../result_grade_low.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>60,14,120,28</rect>
+                <key>scale9Paddings</key>
+                <rect>60,14,120,28</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../result_grade_mid.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,14,64,28</rect>
+                <key>scale9Paddings</key>
+                <rect>32,14,64,28</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -344,6 +393,13 @@
             <filename>../ui_menu_4.png</filename>
             <filename>../ui_menu_5.png</filename>
             <filename>../ui_menu_6.png</filename>
+            <filename>../result_grade_high.png</filename>
+            <filename>../result_grade_low.png</filename>
+            <filename>../result_grade_mid.png</filename>
+            <filename>../ui_beyo.png</filename>
+            <filename>../ui_chat.png</filename>
+            <filename>../ui_prof.png</filename>
+            <filename>../ui_tunk.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

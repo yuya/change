@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { utils } from "utils";
 import { Howl, Howler } from "howler";
-import { Content } from "views"
+import { Content } from "views";
 
 export class AboutContent extends Content {
   public constructor() {

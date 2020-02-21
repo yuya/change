@@ -1,5 +1,5 @@
 import { utils } from "utils";
-import { Content } from "views"
+import { Content } from "views";
 
 export class BeyooOoondsContent extends Content {
   public constructor() {

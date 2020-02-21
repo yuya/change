@@ -11,8 +11,8 @@ export class TitleScene extends Scene {
     super();
 
     this.textures     = this.assetData.load("textures");
-    this.el.coverRect = utils.createRect(conf.canvas_width, conf.canvas_height);
     this.el.titleLogo = utils.createSprite(this.textures["logo_dna.png"]);
+    this.rect.cover   = utils.createRect(conf.canvas_width, conf.canvas_height);
 
     this.initLayout();
     this.attachEvent();
@@ -25,9 +25,9 @@ export class TitleScene extends Scene {
     this.el.titleLogo.width *= 2;
     this.el.titleLogo.height *= 2;
     this.el.titleLogo.position.set(utils.display.centerX, utils.display.centerY);
-    this.el.coverRect.interactive = this.el.coverRect.buttonMode = true;
+    this.rect.cover.interactive = this.rect.cover.buttonMode = true;
 
-    this.container.addChild(this.el.titleLogo, this.el.coverRect);
+    this.container.addChild(this.el.titleLogo, this.rect.cover);
     this.game.ticker.start();
   }
 
@@ -44,7 +44,7 @@ export class TitleScene extends Scene {
       // }
     });
 
-    this.el.coverRect.addListener("pointerdown", () => {
+    this.rect.cover.addListener("pointerdown", () => {
       clickSe.play();
       setTimeout(() => {
         bgm.fade(1, 0, 750);

@@ -24,9 +24,7 @@ const init = () => {
   const _loadWebFont = () => {
     WebFont.load({
       custom: {
-        // families: ["MisakiGothic2nd", "Nu Kinako Mochi Ct", "Pixel-Mplus"]
         families: ["Nu Kinako Mochi Ct"]
-        // urls: ["/assets/style.css"]
       },
       active: () => {
         _hideSpinner();

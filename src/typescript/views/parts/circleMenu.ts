@@ -2,7 +2,7 @@ import * as PIXI from "pixi.js";
 import gsap from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
-import { Howl, Howler } from "howler"
+import { Howl, Howler } from "howler";
 import { GameController } from "controllers/gameController";
 
 export class CircleMenu {

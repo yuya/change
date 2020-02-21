@@ -1,5 +1,5 @@
 import { utils } from "utils";
-import { Content } from "views"
+import { Content } from "views";
 
 export class SharamQContent extends Content {
   public constructor() {
@@ -22,7 +22,7 @@ export class SharamQContent extends Content {
 さみしいユルはごめんどぅあああっはっはいい！
 
 【最近ハマってる沼】
-BEYOOOOONDS
+BEYOOOOONDS沼
 
 【最近の】
 さいきん
