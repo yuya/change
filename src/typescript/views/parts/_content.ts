@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
 import { conf } from "conf";
+import { utils } from "utils";
 import { GameController } from "controllers/gameController";
 
 export abstract class Content {
@@ -20,7 +21,7 @@ export abstract class Content {
     this.textures = this.game.assetData.load("textures");
 
     this.txtStyle = {
-      fill: 0x222222,
+      fill: utils.color.black,
       fontFamily: "Nu Kinako Mochi Ct",
       fontSize: 20,
       breakWords: true,

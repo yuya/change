@@ -20,22 +20,25 @@ export class ResultScene extends Scene {
       // result : utils.createSprite(this.textures["result_grade_low.png"]),
       // result : utils.createSprite(this.textures["result_grade_mid.png"]),
       result : utils.createSprite(this.textures["result_grade_high.png"]),
+      outro  : utils.createSprite(this.textures["tmp_result.png"]),
     };
     this.rect = {
-      bg    : utils.createRect(conf.canvas_width, conf.canvas_height, 0x222222),
-      cover : utils.createRect(conf.canvas_width, conf.canvas_height),
+      background  : utils.createRect(conf.canvas_width, conf.canvas_height, utils.color.black),
+      coverResult : utils.createRect(conf.canvas_width, conf.canvas_height),
+      coverOutro  : utils.createRect(conf.canvas_width, conf.canvas_height),
     };
+    utils.setNameToObj(this.rect);
 
     this.initLayout();
     this.attachEvent();
   }
 
-  private initLayout(): void {
+  private showResult(): void {
     const msgFromStr = "にしお いしん より";
     const msgBodyStr = "う〜ん まぁまぁ かな ...\nでも 気分 は 上々！";
 
     this.txt["msgFrom"] = new PIXI.Text(msgFromStr, {
-      fill: 0x222222,
+      fill: utils.color.black,
       fontFamily: "Nu Kinako Mochi Ct",
       fontSize: 24,
       align: "center",
@@ -48,7 +51,7 @@ export class ResultScene extends Scene {
     this.bgMsgFrom.addChild(this.txt.msgFrom);
 
     this.txt["msgBody"] = new PIXI.Text(msgBodyStr, {
-      fill: 0xFFFFFF,
+      fill: utils.color.white,
       fontFamily: "Nu Kinako Mochi Ct",
       fontSize: 32,
     });
@@ -57,13 +60,37 @@ export class ResultScene extends Scene {
 
     this.el.result.pivot.set(this.el.result.width, this.el.result.height);
     this.el.result.position.set(conf.canvas_width - 40, conf.canvas_height - 200);
-    // this.el.resultImg.pivot.set(this.el.resultImg.width / 2, this.el.resultImg.height / 2);
-    // this.el.resultImg.width *= 2;
-    // this.el.resultImg.height *= 2;
-    // this.el.resultImg.position.set(utils.display.centerX, utils.display.centerY);
-    // this.rect.cover.interactive = this.rect.cover.buttonMode = true;
+    this.rect.coverResult.interactive = this.rect.coverResult.buttonMode = true;
 
-    this.container.addChild(this.rect.bg, this.bgMsgFrom, this.txt.msgBody, this.el.result, this.rect.cover);
+    this.game.stage.addChildAt(this.rect.background, 0);
+    this.container.addChild(this.bgMsgFrom, this.txt.msgBody, this.el.result, this.rect.coverResult);
+  }
+
+  private showOutro(): void {
+    this.container = new PIXI.Container();
+    this.container.name = "container";
+
+    this.el.outro.pivot.set(this.el.outro.width / 2, this.el.outro.height / 2);
+    this.el.outro.position.set(utils.display.centerX, utils.display.centerY);
+
+    const msgOutroStr = "あぁ〜 いっぱい 出た";
+    
+    this.txt["msgOutro"] = new PIXI.Text(msgOutroStr, {
+      fill: utils.color.white,
+      fontFamily: "Nu Kinako Mochi Ct",
+      fontSize: 24,
+      align: "center",
+    });
+    this.txt.msgOutro.pivot.set(this.txt.msgOutro.width / 2, 0);
+    this.txt.msgOutro.position.set(utils.display.centerX, this.el.outro.y + (this.el.outro.height/2) + 30);
+    this.rect.coverOutro.interactive = this.rect.coverOutro.buttonMode = true;
+
+    this.container.addChild(this.el.outro, this.txt.msgOutro, this.rect.coverOutro);
+    this.game.stage.addChild(this.container);
+  }
+
+  private initLayout(): void {
+    this.showResult();
     this.game.ticker.start();
   }
 
@@ -75,12 +102,9 @@ export class ResultScene extends Scene {
     });
     const clickSe = new Howl({
       src: "/assets/audio/se_spring.mp3"
-      // onend: () => {
-      //   bgm.fade(1, 0, 500);
-      // }
     });
 
-    this.rect.cover.addListener("pointerdown", () => {
+    this.rect.coverResult.addListener("pointerdown", () => {
       clickSe.play();
       setTimeout(() => {
         bgm.fade(1, 0, 750);
@@ -89,6 +113,22 @@ export class ResultScene extends Scene {
         duration: utils.msec2sec(100),
         pixi: { alpha: 0 },
         onComplete: () => {
+          this.container.destroy({ children: true });
+          this.showOutro();
+        }
+      });
+    });
+
+    this.rect.coverOutro.addListener("pointerdown", () => {
+      clickSe.play();
+      setTimeout(() => {
+        bgm.fade(1, 0, 750);
+      }, 1250);
+      gsap.to(this.container, {
+        duration: utils.msec2sec(100),
+        pixi: { alpha: 0 },
+        onComplete: () => {
+          this.rect.background.destroy();
           this.destroy();
           this.game.route(nextSceneName);
         }

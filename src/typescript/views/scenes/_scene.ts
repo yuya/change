@@ -23,7 +23,7 @@ export abstract class Scene extends PIXI.Container {
     this.userData  = UserData.instance;
     this.assetData = AssetData.instance;
 
-    this.container      = new PIXI.Container();
+    this.container = new PIXI.Container();
     this.container.name = "container";
 
     this.game.stage.width  = conf.canvas_width,
