@@ -22,8 +22,8 @@ export abstract class Content {
     this.textures = this.game.assetData.load("textures");
 
     this.txtStyle = {
-      fill: utils.color.black,
-      fontFamily: "Nu Kinako Mochi, MisakiGothic2nd, sans-serif",
+      fill: conf.color.black,
+      fontFamily: conf.font.family,
       fontSize: 20,
       breakWords: true,
       wordWrap: true,

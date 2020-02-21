@@ -10,11 +10,22 @@ PIXI.TextMetrics.BASELINE_SYMBOL += "あ｜";
 PixiPlugin.registerPIXI(PIXI);
 gsap.registerPlugin(PixiPlugin);
 
+const color = {
+  "black" : 0x222222,
+  "white" : 0xFFFFFF,
+};
+
+const font = {
+  "family" : "Nu Kinako Mochi, MisakiGothic2nd, sans-serif",
+};
+
 export const conf = {
-  spinner_el     : document.getElementById("spinner"),
-  canvas_el      : document.getElementById("container"),
-  canvas_width   : 640,
-  canvas_height  : 960,
-  canvas_bgcolor : 0xCFCBB1,
-  pixel_ratio    : window.devicePixelRatio || 1
+  "spinner_el"     : document.getElementById("spinner"),
+  "canvas_el"      : document.getElementById("container"),
+  "canvas_width"   : 640,
+  "canvas_height"  : 960,
+  "canvas_bgcolor" : 0xCFCBB1,
+  "pixel_ratio"    : window.devicePixelRatio || 1,
+  "color"          : color,
+  "font"           : font,
 };

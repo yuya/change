@@ -6,17 +6,8 @@ const display = {
   centerY: conf.canvas_height / 2,
 };
 
-const color = {
-  "black" : 0x222222,
-  "white" : 0xFFFFFF,
-};
-
 const msec2sec = (msec: number): number => {
   return msec / 1000;
-};
-
-const sleep = (ms: number) => {
-  new Promise(resolve => setTimeout(resolve, ms));
 };
 
 const createRect = (width: number, height: number, color?: number): PIXI.Graphics => {
@@ -50,8 +41,6 @@ const setNameToObj = (obj: object): void => {
 
 export const utils = {
   "display"      : display,
-  "color"        : color,
-  "sleep"        : sleep,
   "msec2sec"     : msec2sec,
   "createRect"   : createRect,
   "createSprite" : createSprite,
