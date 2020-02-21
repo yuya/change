@@ -39,7 +39,7 @@ export class SoundController {
     this.se["puin"]     = new Howl({ src : "/assets/audio/se_puin.wav" });
 
     // BGM
-    this.bgm["title"] = new Howl({ src: "/assets/audio/bgm_title.mp3", loop: true });
+    this.bgm["title"]   = new Howl({ src: "/assets/audio/bgm_title.mp3", loop: true });
 
     // JINGLE
 

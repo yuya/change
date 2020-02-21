@@ -6,6 +6,7 @@ import { GameController } from "controllers";
 export abstract class Content {
   public element     : PIXI.Container;
   public isDestroyed : boolean;
+
   protected bg       : { [key : string] : PIXI.NineSlicePlane };
   protected game     : GameController;
   protected textures : any;
@@ -22,7 +23,7 @@ export abstract class Content {
 
     this.txtStyle = {
       fill: utils.color.black,
-      fontFamily: "Nu Kinako Mochi",
+      fontFamily: "Nu Kinako Mochi, MisakiGothic2nd, sans-serif",
       fontSize: 20,
       breakWords: true,
       wordWrap: true,

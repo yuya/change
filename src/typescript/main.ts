@@ -24,7 +24,7 @@ const init = () => {
   const _loadWebFont = () => {
     WebFont.load({
       custom: {
-        families: ["Nu Kinako Mochi"]
+        families: ["Nu Kinako Mochi", "MisakiGothic2nd"]
       },
       active: () => {
         _hideSpinner();

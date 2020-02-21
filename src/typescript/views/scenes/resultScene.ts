@@ -96,9 +96,6 @@ export class ResultScene extends Scene {
   private attachEvent(): void {
     const nextSceneName = this.userData.load("nextSceneName");
 
-    const se_1 = new Howl({ src: "/assets/audio/se_po.wav" });
-    const se_2 = new Howl({ src: "/assets/audio/se_puin.wav" });
-
     this.rect.coverResult.addListener("pointerdown", () => {
       this.sound.play("se", "po");
 

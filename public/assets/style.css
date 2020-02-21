@@ -2,6 +2,10 @@
   font-family: "Nu Kinako Mochi";
   src: url("/assets/NuKinakoMochi-Reg.otf");
 }
+@font-face {
+  font-family: "MisakiGothic2nd";
+  src: url("/assets/misaki_gothic_2nd.ttf");
+}
 html {
   display: table;
   width: 100%;
