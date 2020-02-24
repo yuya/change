@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 import { conf } from "conf";
 import { UserData, AssetData } from "models";
-import { Scene, BootScene, TitleScene, HomeScene, ResultScene } from "views";
+import { Scene, BootScene, TitleScene, HomeScene, IngameScene, ResultScene } from "views";
 
 export class GameController {
   public renderer      : PIXI.Renderer;
@@ -85,6 +85,10 @@ export class GameController {
       case "home":
         this.userData.save("nextSceneName", "ingame");
         this.currentScene = new HomeScene();
+        break;
+      case "ingame":
+        this.userData.save("nextSceneName", "result");
+        this.currentScene = new IngameScene();
         break;
       case "result":
         this.userData.save("nextSceneName", "home");

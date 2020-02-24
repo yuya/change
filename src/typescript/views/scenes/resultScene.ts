@@ -28,8 +28,20 @@ export class ResultScene extends Scene {
     };
     utils.setNameToObj(this.rect);
 
-    this.initLayout();
-    this.attachEvent();
+    const init = () => {
+      this.initLayout();
+      this.attachEvent();
+    };
+
+    if (!this.sound.isLoaded) {
+      document.addEventListener("click", () => {
+        this.sound.initSound();
+        init();
+      }, { once: true });
+      return;
+    }
+
+    init();
   }
 
   private makeMsgHead(): void {

@@ -3,11 +3,10 @@ import { conf } from "conf";
 import { UserData, AssetData } from "models";
 
 export class SoundController {
-  public se     : { [key : string] : Howl };
-  public bgm    : { [key : string] : Howl };
-  public jingle : { [key : string] : Howl };
-
-  private isLoaded : boolean;
+  public se       : { [key : string] : Howl };
+  public bgm      : { [key : string] : Howl };
+  public jingle   : { [key : string] : Howl };
+  public isLoaded : boolean;
 
   private static _instance: SoundController;
   public static get instance(): SoundController {

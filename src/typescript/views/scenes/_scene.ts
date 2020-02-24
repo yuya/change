@@ -45,6 +45,7 @@ export abstract class Scene extends PIXI.Container {
   public destroy(): void {
     this.game.ticker.stop();
     this.container.destroy({ children: true });
+    this.game.stage.removeChildren();
 
     this.game.renderer.render(this.game.stage);
   }

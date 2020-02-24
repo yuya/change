@@ -167,7 +167,7 @@
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMargin</key>
-            <uint>1</uint>
+            <uint>0</uint>
             <key>trimMode</key>
             <enum type="SpriteSettings::TrimMode">None</enum>
             <key>tracerTolerance</key>
@@ -181,29 +181,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../anim_ryman_jab_0.png</key>
-            <key type="filename">../anim_ryman_jab_1.png</key>
-            <key type="filename">../anim_ryman_jab_2.png</key>
-            <key type="filename">../anim_ryman_jab_3.png</key>
-            <key type="filename">../anim_ryman_jab_4.png</key>
-            <key type="filename">../anim_ryman_straight_0.png</key>
-            <key type="filename">../anim_ryman_straight_1.png</key>
-            <key type="filename">../anim_ryman_straight_2.png</key>
-            <key type="filename">../anim_ryman_straight_3.png</key>
-            <key type="filename">../anim_ryman_straight_4.png</key>
-            <key type="filename">../anim_ryman_wait_0.png</key>
-            <key type="filename">../anim_ryman_wait_1.png</key>
-            <key type="filename">../anim_ryman_wait_2.png</key>
-            <key type="filename">../ui_beyo.png</key>
-            <key type="filename">../ui_chat.png</key>
-            <key type="filename">../ui_menu_1.png</key>
-            <key type="filename">../ui_menu_2.png</key>
-            <key type="filename">../ui_menu_3.png</key>
-            <key type="filename">../ui_menu_4.png</key>
-            <key type="filename">../ui_menu_5.png</key>
-            <key type="filename">../ui_menu_6.png</key>
-            <key type="filename">../ui_prof.png</key>
-            <key type="filename">../ui_tunk.png</key>
+            <key type="filename">../../../../../Desktop/txt_beyooooonds.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -212,9 +190,9 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>32,32,64,64</rect>
+                <rect>70,12,140,24</rect>
                 <key>scale9Paddings</key>
-                <rect>32,32,64,64</rect>
+                <rect>70,12,140,24</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -327,6 +305,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../txt_chatmonchy.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>37,12,73,24</rect>
+                <key>scale9Paddings</key>
+                <rect>37,12,73,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../txt_myname.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -339,6 +332,41 @@
                 <rect>48,12,96,24</rect>
                 <key>scale9Paddings</key>
                 <rect>48,12,96,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../txt_sharamq.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>60,12,120,24</rect>
+                <key>scale9Paddings</key>
+                <rect>60,12,120,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../ui_beyo.png</key>
+            <key type="filename">../ui_chat.png</key>
+            <key type="filename">../ui_menu_4.png</key>
+            <key type="filename">../ui_menu_5.png</key>
+            <key type="filename">../ui_prof.png</key>
+            <key type="filename">../ui_tunk.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,32,64,64</rect>
+                <key>scale9Paddings</key>
+                <rect>32,32,64,64</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -359,22 +387,24 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../ui_button.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>120,32,240,64</rect>
+                <key>scale9Paddings</key>
+                <rect>120,32,240,64</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../anim_ryman_jab_0.png</filename>
-            <filename>../anim_ryman_jab_1.png</filename>
-            <filename>../anim_ryman_jab_2.png</filename>
-            <filename>../anim_ryman_jab_3.png</filename>
-            <filename>../anim_ryman_jab_4.png</filename>
-            <filename>../anim_ryman_straight_0.png</filename>
-            <filename>../anim_ryman_straight_1.png</filename>
-            <filename>../anim_ryman_straight_2.png</filename>
-            <filename>../anim_ryman_straight_3.png</filename>
-            <filename>../anim_ryman_straight_4.png</filename>
-            <filename>../anim_ryman_wait_0.png</filename>
-            <filename>../anim_ryman_wait_1.png</filename>
-            <filename>../anim_ryman_wait_2.png</filename>
             <filename>../btn_vol_off.png</filename>
             <filename>../btn_vol_off_o.png</filename>
             <filename>../btn_vol_on.png</filename>
@@ -387,12 +417,7 @@
             <filename>../ui_bg_menu_blue.png</filename>
             <filename>../ui_bg_menu_green.png</filename>
             <filename>../ui_bg_text_slice.png</filename>
-            <filename>../ui_menu_1.png</filename>
-            <filename>../ui_menu_2.png</filename>
-            <filename>../ui_menu_3.png</filename>
-            <filename>../ui_menu_4.png</filename>
             <filename>../ui_menu_5.png</filename>
-            <filename>../ui_menu_6.png</filename>
             <filename>../result_grade_high.png</filename>
             <filename>../result_grade_low.png</filename>
             <filename>../result_grade_mid.png</filename>
@@ -400,6 +425,11 @@
             <filename>../ui_chat.png</filename>
             <filename>../ui_prof.png</filename>
             <filename>../ui_tunk.png</filename>
+            <filename>../txt_chatmonchy.png</filename>
+            <filename>../txt_sharamq.png</filename>
+            <filename>../ui_menu_4.png</filename>
+            <filename>../../../../../Desktop/txt_beyooooonds.png</filename>
+            <filename>../ui_button.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

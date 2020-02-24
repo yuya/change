@@ -3,6 +3,7 @@ export { Scene } from "./scenes/_scene";
 export { BootScene } from "./scenes/bootScene";
 export { TitleScene } from "./scenes/titleScene";
 export { HomeScene } from "./scenes/homeScene";
+export { IngameScene } from "./scenes/ingameScene";
 export { ResultScene } from "./scenes/resultScene";
 
 // parts
