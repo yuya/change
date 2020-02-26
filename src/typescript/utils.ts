@@ -10,6 +10,10 @@ const msec2sec = (msec: number): number => {
   return msec / 1000;
 };
 
+const sec2msec = (sec: number): number => {
+  return sec * 1000;
+};
+
 const createRect = (width: number, height: number, color?: number): PIXI.Graphics => {
   const hasColor  = (color != null);
   const rectangle = new PIXI.Graphics()
@@ -39,10 +43,25 @@ const setNameToObj = (obj: object): void => {
   });
 };
 
+const triggerEvent = (element: HTMLElement, eventName: string, bubbles: boolean, cancelable: boolean, data?: object) => {
+  const detail = {};
+
+  if (data) {
+    Object.keys(data).forEach((key, index) => {
+      detail[key] = data[key];
+    });
+  }
+
+  const event = new CustomEvent(eventName, { "detail" : detail });
+  element.dispatchEvent(event);
+};
+
 export const utils = {
   "display"      : display,
   "msec2sec"     : msec2sec,
+  "sec2msec"     : sec2msec,
   "createRect"   : createRect,
   "createSprite" : createSprite,
   "setNameToObj" : setNameToObj,
+  "triggerEvent" : triggerEvent,
 };

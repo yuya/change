@@ -46,6 +46,7 @@ export class HomeScene extends Scene {
   }
 
   private renderContent(index: number = 0): void {
+    // TODO
     switch (index) {
       case 0:
       default:

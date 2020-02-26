@@ -3,6 +3,10 @@ import * as WebFont from "webfontloader";
 import PixiPlugin from "gsap/PixiPlugin";
 import gsap from "gsap";
 
+const CANVAS_WIDTH   = 640;
+const CANVAS_HEIGHT  = 960;
+const CANVAS_BGCOLOR = 0xCFCBB1;
+
 window.PIXI = PIXI;
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 PIXI.TextMetrics.BASELINE_SYMBOL += "あ｜";
@@ -20,11 +24,13 @@ const font = {
 };
 
 export const conf = {
+  "root_el"        : document.getElementsByTagName("html")[0],
   "spinner_el"     : document.getElementById("spinner"),
   "canvas_el"      : document.getElementById("container"),
-  "canvas_width"   : 640,
-  "canvas_height"  : 960,
-  "canvas_bgcolor" : 0xCFCBB1,
+  "player_el"      : document.getElementById("youtube"),
+  "canvas_width"   : CANVAS_WIDTH,
+  "canvas_height"  : CANVAS_HEIGHT,
+  "canvas_bgcolor" : CANVAS_BGCOLOR,
   "pixel_ratio"    : window.devicePixelRatio || 1,
   "color"          : color,
   "font"           : font,

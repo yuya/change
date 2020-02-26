@@ -22,7 +22,7 @@ body {
 }
 canvas {
   position: relative;
-  outline: 6px solid #222;
+  /* outline: 6px solid #222; */
   /* outline: 6px solid red; */
   /* border: 6px solid red; */
 }
@@ -33,9 +33,10 @@ canvas {
   left: 0;
   width: 100%;
   height: 20px;
-  /* background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUCAIAAAA/ees8AAAABnRSTlMAAAAAAABupgeRAAAAJklEQVR4AWMgHZw/vRGISJCgwA4EG6cE2fqAGI7Q1cIR1e0YBBIAse3JyY0XPFUAAAAASUVORK5CYII="); */
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUCAIAAAA/ees8AAAABnRSTlMAAAAAAABupgeRAAAAJklEQVR4AWMgHZw/vRGISJCgwA4EG6cE2fqAGI7Q1cIR1e0YBBIAse3JyY0XPFUAAAAASUVORK5CYII=");
   background-repeat: repeat-x;
   z-index: 1;
+  pointer-events: none;
   content: "";
 }
 #container::before {
@@ -51,7 +52,7 @@ canvas {
   display: inline-block;
   position: relative;
 }
-#yt {
+#youtube {
   position: fixed;
   bottom: 16px;
   right: 0;
@@ -59,10 +60,13 @@ canvas {
   margin: 0 auto;
   border: 4px solid #FFF;
   outline: 4px solid #222;
-  /* pointer-events: none; */
+  z-index: 1;
+  opacity: 0;
+  /* pointer-events: none;
+  user-select: none; */
 }
-.show { opacity: 1; }
-.hide { opacity: 0; }
+.yt-loaded #youtube { opacity: 1; }
+
 #spinner {
   position: fixed;
   top: 0;

@@ -29,7 +29,7 @@ export class GameController {
       width           : conf.canvas_width,
       height          : conf.canvas_height,
       autoDensity     : true,
-      resolution      : devicePixelRatio,
+      resolution      : conf.pixel_ratio,
       backgroundColor : conf.canvas_bgcolor,
     });
 

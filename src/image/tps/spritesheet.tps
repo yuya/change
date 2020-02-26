@@ -289,7 +289,22 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../tmp_result.png</key>
+            <key type="filename">../tmp_intro.png</key>
+            <key type="filename">../tmp_outro.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>120,80,240,160</rect>
+                <key>scale9Paddings</key>
+                <rect>120,80,240,160</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../tmp_title.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -411,7 +426,6 @@
             <filename>../btn_vol_on_o.png</filename>
             <filename>../logo_change.png</filename>
             <filename>../logo_dna.png</filename>
-            <filename>../tmp_result.png</filename>
             <filename>../tmp_title.png</filename>
             <filename>../txt_myname.png</filename>
             <filename>../ui_bg_menu_blue.png</filename>
@@ -430,6 +444,8 @@
             <filename>../ui_menu_4.png</filename>
             <filename>../../../../../Desktop/txt_beyooooonds.png</filename>
             <filename>../ui_button.png</filename>
+            <filename>../tmp_intro.png</filename>
+            <filename>../tmp_outro.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

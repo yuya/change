@@ -19,7 +19,7 @@ export class ResultScene extends Scene {
       // result : utils.createSprite(this.textures["result_grade_low.png"]),
       // result : utils.createSprite(this.textures["result_grade_mid.png"]),
       msgFoot   : utils.createSprite(this.textures["result_grade_high.png"]),
-      outroImg  : utils.createSprite(this.textures["tmp_result.png"]),
+      outroImg  : utils.createSprite(this.textures["tmp_outro.png"]),
     };
     this.rect = {
       background  : utils.createRect(conf.canvas_width, conf.canvas_height, conf.color.black),
@@ -28,7 +28,7 @@ export class ResultScene extends Scene {
     };
     utils.setNameToObj(this.rect);
 
-    const init = () => {
+    const initialize = () => {
       this.initLayout();
       this.attachEvent();
     };
@@ -36,12 +36,12 @@ export class ResultScene extends Scene {
     if (!this.sound.isLoaded) {
       document.addEventListener("click", () => {
         this.sound.initSound();
-        init();
+        initialize();
       }, { once: true });
       return;
     }
 
-    init();
+    initialize();
   }
 
   private makeMsgHead(): void {
@@ -85,32 +85,6 @@ export class ResultScene extends Scene {
     this.el.msgFoot.alpha = 0;
   }
 
-  private playResultTimeline(): void {
-    gsap.timeline()
-        .to(this.bgMsgHead, {
-          delay: utils.msec2sec(750),
-          duration: utils.msec2sec(10),
-          ease: "linear",
-          onStart: () => this.sound.play("se", "po"),
-          pixi: { alpha: 1 }
-        })
-        .to(this.txt.msgBody, {
-          delay: utils.msec2sec(1250),
-          duration: utils.msec2sec(10),
-          ease: "linear",
-          onStart: () => this.sound.play("se", "puin"),
-          pixi: { alpha: 1 }
-        })
-        .to(this.el.msgFoot, {
-          delay: utils.msec2sec(1650),
-          duration: utils.msec2sec(10),
-          ease: "linear",
-          onStart: () => this.sound.play("se", "spring"),
-          pixi: { alpha: 1 }
-        })
-    ;
-  }
-
   private showOutro(): void {
     this.container = new PIXI.Container();
     this.container.name = "container";
@@ -146,6 +120,32 @@ export class ResultScene extends Scene {
 
     this.playResultTimeline();
     this.game.ticker.start();
+  }
+
+  private playResultTimeline(): void {
+    gsap.timeline()
+        .to(this.bgMsgHead, {
+          delay: utils.msec2sec(750),
+          duration: utils.msec2sec(10),
+          ease: "linear",
+          onStart: () => this.sound.play("se", "po"),
+          pixi: { alpha: 1 }
+        })
+        .to(this.txt.msgBody, {
+          delay: utils.msec2sec(1250),
+          duration: utils.msec2sec(10),
+          ease: "linear",
+          onStart: () => this.sound.play("se", "puin"),
+          pixi: { alpha: 1 }
+        })
+        .to(this.el.msgFoot, {
+          delay: utils.msec2sec(1650),
+          duration: utils.msec2sec(10),
+          ease: "linear",
+          onStart: () => this.sound.play("se", "spring"),
+          pixi: { alpha: 1 }
+        })
+    ;
   }
 
   private attachEvent(): void {

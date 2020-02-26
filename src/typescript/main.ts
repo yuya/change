@@ -37,6 +37,7 @@ const init = () => {
     .add(spritePath)
     .load((loader, resources) => {
       assetData.save("textures", resources[spritePath].spritesheet.textures);
+      assetData.save("spriteData", resources[spritePath].data);
       _loadWebFont();
       // _hideSpinner();
       // _routeScene();

@@ -2,7 +2,6 @@ import * as PIXI from "pixi.js";
 import gsap from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
-import { Howl, Howler } from "howler";
 import { GameController } from "controllers";
 
 export class CircleMenu {
@@ -166,7 +165,7 @@ export class CircleMenu {
       },
       onComplete: () => {
         if (callback) { callback() }
-        this.triggerEvent(this.game.renderer.view, "onmovecomplete", false, false, {
+        utils.triggerEvent(this.game.renderer.view, "onmovecomplete", false, false, {
           "currentIndex" : this.idx.now
         });
       }
@@ -192,21 +191,6 @@ export class CircleMenu {
     this.idx.now = this.getIndex();
   }
 
-  private triggerEvent(element: HTMLElement, eventName: string, bubbles: boolean, cancelable: boolean, data?: object) {
-    let detail = {};
-
-    if (data) {
-      Object.keys(data).forEach((key, index) => {
-        detail[key] = data[key];
-      });
-    }
-
-    const event = new CustomEvent(eventName, {
-      "detail": detail
-    });
-    element.dispatchEvent(event);
-  }
-
   private onTouchStart(event): void {
     const posX = event.data.global.x;
     const posY = event.data.global.y;
@@ -220,7 +204,7 @@ export class CircleMenu {
     this.element.addListener("pointermove", this.fn.onTouchMove, this.element);
     document.addEventListener("pointerup", this.fn.onTouchEnd, false);
 
-    this.triggerEvent(this.game.renderer.view, "ontouchstart", false, false);
+    utils.triggerEvent(this.game.renderer.view, "ontouchstart", false, false);
   }
 
   private onTouchMove(event): void {
@@ -267,7 +251,7 @@ export class CircleMenu {
 
     this.pos.baseX = posX;
     this.pos.baseY = posY;
-    this.triggerEvent(this.game.renderer.view, "ontouchmove", false, false);
+    utils.triggerEvent(this.game.renderer.view, "ontouchmove", false, false);
   }
 
   private onTouchEnd(event): void {
@@ -285,7 +269,7 @@ export class CircleMenu {
     setTimeout(() => {
       document.removeEventListener("click", this.fn.onClick, true);
     }, 200);
-    this.triggerEvent(this.game.renderer.view, "ontouchend", false, false);
+    utils.triggerEvent(this.game.renderer.view, "ontouchend", false, false);
   }
 
   private onClick(event): void {

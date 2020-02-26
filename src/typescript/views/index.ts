@@ -6,14 +6,14 @@ export { HomeScene } from "./scenes/homeScene";
 export { IngameScene } from "./scenes/ingameScene";
 export { ResultScene } from "./scenes/resultScene";
 
-// parts
-export { CircleMenu } from "./parts/circleMenu";
+// home -> parts
+export { CircleMenu } from "./home/circleMenu";
 
-// parts -> content
-export { Content } from "./parts/_content";
-export { AboutContent } from "./parts/aboutContent";
-export { ContactContent } from "./parts/contactContent";
-export { ProfileContent } from "./parts/profileContent";
-export { SharamQContent } from "./parts/sharamQContent";
-export { ChatMonchyContent } from "./parts/chatMonchyContent";
-export { BeyooOoondsContent } from "./parts/beyooOoondsContent";
+// home -> parts -> content
+export { Content } from "./home/_content";
+export { AboutContent } from "./home/aboutContent";
+export { ContactContent } from "./home/contactContent";
+export { ProfileContent } from "./home/profileContent";
+export { SharamQContent } from "./home/sharamQContent";
+export { ChatMonchyContent } from "./home/chatMonchyContent";
+export { BeyooOoondsContent } from "./home/beyooOoondsContent";
