@@ -4,24 +4,29 @@ import { util } from "util";
 import { GameController } from "controllers";
 import { AssetData } from "models";
 
-const gameController = GameController.instance;
-const assetData      = AssetData.instance;
-const spritePath     = "/assets/spritesheet.json";
+const gameController: GameController = GameController.instance;
+const assetData: AssetData = AssetData.instance;
+const loadTarget: { [key:string] : string } = {
+  "spritePath"  : "/assets/spritesheet.json",
+  "beyooOoonds" : "/assets/json/ingame_beyooooonds.json",
+};
+const loadTargetArr: string[] = Object.keys(loadTarget).map((key) => {
+  return loadTarget[key];
+});
 
-const init = () => {
+const init = (): void => {
   const _hideSpinner = () => {
-    const spinner = conf.spinner_el;
-    spinner.style.display = "none";
+    conf.spinner_el.classList.add("hide");
   };
 
-  const _routeScene = () => {
+  const _routeScene = (): void => {
     const regex   = /\/(\w+)/;
     const matched = location.pathname.match(regex);
 
     gameController.route(matched ? matched[1] : "");
   };
 
-  const _loadWebFont = () => {
+  const _loadWebFont = (): void => {
     WebFont.load({
       custom: {
         families: ["Nu Kinako Mochi", "MisakiGothic2nd"]
@@ -34,10 +39,12 @@ const init = () => {
   };
 
   gameController.loader
-    .add(spritePath)
+    .add(loadTargetArr)
     .load((loader, resources) => {
-      assetData.save("textures", resources[spritePath].spritesheet.textures);
-      assetData.save("spriteData", resources[spritePath].data);
+      assetData.save("textures", resources[loadTarget.spritePath].spritesheet.textures);
+      assetData.save("spriteData", resources[loadTarget.spritePath].data);
+      assetData.save("beyooOoondsData", resources[loadTarget.beyooOoonds].data);
+
       _loadWebFont();
       // _hideSpinner();
       // _routeScene();

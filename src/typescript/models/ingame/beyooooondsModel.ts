@@ -1,7 +1,12 @@
+import { AssetData } from "models";
+
 export class BeyooOoondsModel {
-  public ytOptions : object;
+  public ytOptions  : object;
+  public ingameData : JSON;
 
   public constructor() {
+    const assetData = AssetData.instance;
+
     this.ytOptions = {
       videoId    : "KYVMtijS74U",
       width      : 320,
@@ -16,5 +21,8 @@ export class BeyooOoondsModel {
         "host"           : `${location.protocol}//www.youtube.com`,
       }
     };
+
+    this.ingameData = assetData.load("beyooOoondsData");
   }
+
 }

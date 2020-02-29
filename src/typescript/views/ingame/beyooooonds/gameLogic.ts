@@ -1,4 +1,4 @@
-export class Main {
+export class GameLogic {
   public constructor() {
   }
 

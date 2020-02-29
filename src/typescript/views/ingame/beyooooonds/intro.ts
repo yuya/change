@@ -34,10 +34,10 @@ export class Intro {
       "cover" : this.cover,
     });
 
-    this.initLayout();
+    this.initKeyv();
   }
 
-  private initLayout(): void {
+  private initKeyv(): void {
     this.keyv.pivot.set(this.keyv.width / 2, this.keyv.height / 2);
     this.keyv.position.set(utils.display.centerX, utils.display.centerY);
 
@@ -53,7 +53,7 @@ export class Intro {
   private attachEvent(): void {
     this.cover.interactive = this.cover.buttonMode = true;
     this.cover.addListener("pointerdown", () => {
-      utils.triggerEvent(this.game.renderer.view, "onintroend", false, false);
+      utils.triggerEvent(this.game.renderer.view, "introPlayed", false, false);
       this.element.destroy({ children: true });
     });
   }

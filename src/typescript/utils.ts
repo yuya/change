@@ -43,7 +43,8 @@ const setNameToObj = (obj: object): void => {
   });
 };
 
-const triggerEvent = (element: HTMLElement, eventName: string, bubbles: boolean, cancelable: boolean, data?: object) => {
+const triggerEvent = (element: HTMLElement, eventName: string,
+      bubbles: boolean, cancelable: boolean, data?: object): void => {
   const detail = {};
 
   if (data) {
@@ -56,12 +57,25 @@ const triggerEvent = (element: HTMLElement, eventName: string, bubbles: boolean,
   element.dispatchEvent(event);
 };
 
+const getApproximate = (list: number[], num: number): number => {
+  let diff  = [];
+  let index = 0;
+
+  list.forEach(function (li, i) {
+    diff[i] = Math.abs(num - li);
+    index   = (diff[index] < diff[i]) ? index : i;
+  });
+
+  return list[index];
+}
+
 export const utils = {
-  "display"      : display,
-  "msec2sec"     : msec2sec,
-  "sec2msec"     : sec2msec,
-  "createRect"   : createRect,
-  "createSprite" : createSprite,
-  "setNameToObj" : setNameToObj,
-  "triggerEvent" : triggerEvent,
+  "display"        : display,
+  "msec2sec"       : msec2sec,
+  "sec2msec"       : sec2msec,
+  "createRect"     : createRect,
+  "createSprite"   : createSprite,
+  "setNameToObj"   : setNameToObj,
+  "triggerEvent"   : triggerEvent,
+  "getApproximate" : getApproximate,
 };

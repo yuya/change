@@ -10,6 +10,8 @@ html {
   display: table;
   width: 100%;
   height: 100%;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 body {
   display: table-cell;
@@ -66,6 +68,7 @@ canvas {
   user-select: none; */
 }
 .yt-loaded #youtube { opacity: 1; }
+/* .yt-loaded #youtube { opacity: 0.1; } */
 
 #spinner {
   position: fixed;
@@ -78,3 +81,5 @@ canvas {
   height: 24px;
   pointer-events: none;
 }
+#spinner.show { display: block; }
+#spinner.hide { display: none; }
