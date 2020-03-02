@@ -2,3 +2,6 @@
 
 .ignore
 node_modules
+
+.firebase
+auth_info.txt
