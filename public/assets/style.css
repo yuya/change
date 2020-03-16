@@ -3,9 +3,98 @@
   src: url("/assets/NuKinakoMochi-Reg.otf");
 }
 @font-face {
+  font-family: "JF Dot M+H 10";
+  src: url("/assets/JF-Dot-MPlusH10.ttf");
+}
+@font-face {
   font-family: "MisakiGothic2nd";
   src: url("/assets/misaki_gothic_2nd.ttf");
 }
+html, body, ul, li, dl, dt, dd, hr {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li { list-style: none; }
+hr {
+  height: 0px;
+  margin: 16px 0;
+  border-top: 3px dashed #222;
+}
+
+a {
+  text-decoration: none;
+}
+a:link, a:visited { color: #222; }
+
+.nowrap { white-space: nowrap; }
+.mod-mochi-alphabet { vertical-align: -1px; }
+
+.icon {
+  display: inline-block;
+  position: relative;
+  padding: 0 3px 0 28px;
+}
+.icon::before {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 24px;
+  height: 36px;
+  line-height: 36px;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  content: "";
+}
+.icon.twitter::before { background-image: url("/assets/icon_twitter.png"); }
+.icon.github::before  { background-image: url("/assets/icon_github.png"); }
+.icon.gmail::before   { background-image: url("/assets/icon_gmail.png"); }
+.icon.youtube::before { background-image: url("/assets/icon_youtube.png"); }
+.icon.amazon::before  { background-image: url("/assets/icon_amazon.png"); }
+
+.icon:hover::after,
+.icon:active::after,
+.icon:focus::after {
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  border-width: 2px;
+  border-image-slice: 2;
+  border-image-width: 2;
+  border-image-repeat: space;
+  border-image-source: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg version="1.1" width="5" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M2 1 h1 v1 h-1 z M1 2 h1 v1 h-1 z M3 2 h1 v1 h-1 z M2 3 h1 v1 h-1 z" fill="rgb(34,34,34)" /></svg>');
+  border-image-outset: 1;
+  content: "";
+}
+
+.icon:hover,
+.icon:active,
+.icon:focus {
+  color: #FFF;
+  background-color: #222;
+}
+.icon:hover::before,
+.icon:active::before,
+.icon:focus::before {
+  filter: invert(100%);
+}
+.table {
+  display: table;
+  width: 100%;
+}
+.table li {
+  display: table-cell;
+  vertical-align: middle;
+}
+.table.col2 li {
+  width: 50%;
+}
+
 html {
   display: table;
   width: 100%;
@@ -16,8 +105,6 @@ html {
 body {
   display: table-cell;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
   background-color: #CFCBB1;
   text-align: center;
   vertical-align: middle;
@@ -83,3 +170,25 @@ canvas {
 }
 #spinner.show { display: block; }
 #spinner.hide { display: none; }
+
+#debug-timer {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  font-family: monospace;
+}
+
+.txt-body {
+  position: absolute;
+  top: 178px;
+  left: 80px;
+  width: 480px;
+  font-size: 20px;
+  font-family: "Nu Kinako Mochi", "JF Dot M+H 10", sans-serif;
+  line-height: 36px;
+  text-align: left;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
+}

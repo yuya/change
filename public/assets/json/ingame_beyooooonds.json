@@ -1,23 +1,142 @@
 {
+	"31100": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_S"
+	},
 	"32000": {
-		"act": "PUNCH_L"
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_S"
 	},
 	"44900": {
-		"act": "PUNCH_S"
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_S"
 	},
 	"45300": {
-		"act": "PUNCH_S"
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_S"
 	},
 	"45700": {
-		"act": "PUNCH_L"
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_S"
 	},
 	"58600": {
-		"act": "PUNCH_S"
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_S"
 	},
 	"58900": {
-		"act": "PUNCH_S"
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_S"
 	},
 	"59400": {
-		"act": "PUNCH_L"
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_S"
+	},
+	"75700": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"77400": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"80800": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"81300": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"81700": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"82500": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"84300": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"87700": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"88100": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"88600": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"89400": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"91100": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"94600": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_M"
+	},
+	"95000": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_L"
+	},
+	"95500": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_L"
+	},
+	"96300": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_L"
+	},
+	"98000": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_L"
+	},
+	"101400": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_L"
+	},
+	"101900": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_L"
+	},
+	"102300": {
+		"act": "PUNCH_L",
+		"obj": "ROCK",
+		"se": "HIT_L"
 	}
 }

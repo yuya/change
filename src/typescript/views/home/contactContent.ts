@@ -11,7 +11,7 @@ export class ContactContent extends Content {
   }
 
   private setTitle() {
-    const title = utils.createSprite(this.textures["txt_myname.png"]);
+    const title = utils.createSprite(this.textures["ttl_profile.png"]);
 
     title.position.set(8, 6);
     this.bg.txtHead.addChild(title);

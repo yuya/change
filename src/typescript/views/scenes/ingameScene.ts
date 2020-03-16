@@ -7,15 +7,15 @@ import { BeyooOoondsModel } from "models/ingame/beyooooondsModel";
 import { Scene } from "views";
 import { Intro } from "views/ingame/beyooooonds/intro";
 
-// const YT = (window as any).YT;
 const YT_STATE = {
-  "UNSTARTED" : -1,
-  "ENDED"     :  0,
-  "PLAYING"   :  1,
-  "PAUSED"    :  2,
-  "BUFFERING" :  3,
-  "CUED"      :  5,
-};
+  UNSTARTED : -1,
+  ENDED     :  0,
+  PLAYING   :  1,
+  PAUSED    :  2,
+  BUFFERING :  3,
+  CUED      :  5,
+} as const;
+type YT_STATE = typeof YT_STATE[keyof typeof YT_STATE];
 
 export class IngameScene extends Scene {
   private textures    : any;
@@ -23,6 +23,8 @@ export class IngameScene extends Scene {
   private player      : YouTubePlayer;
   private model       : BeyooOoondsModel;
   private timingList  : number[];
+  private prevTiming  : number;
+  private rawScore    : number;
   private isLoaded    : boolean;
   private playerState : number;
   private startTime   : number;
@@ -32,28 +34,52 @@ export class IngameScene extends Scene {
   private loopTimer   : number;
   private interval    : number;
   private ytOptions   : object;
-  // private updateQueue : any[];
-  
+
   public constructor() {
     super();
 
     this.model       = new BeyooOoondsModel();
     this.timingList  = Object.keys(this.model.ingameData).map((v) => { return +v });
     this.isLoaded    = false;
+    this.rawScore    = 0;
     this.rect.cover  = utils.createRect(conf.canvas_width, conf.canvas_height);
-    // this.updateQueue = [];
 
-    this.game.events["handleStateChange"] = this.handleStateChange;
+    this.player = YTPlayer(conf.player_el, this.model.ytOptions);
+    this.player.setPlaybackQuality("small");
+    this.player.setVolume(0);
 
+    // this.game.events["handleStateChange"] = this.handleStateChange;
     this.game.renderer.view.addEventListener("introPlayed", () => {
-      this.initGame();
+      conf.root_el.classList.add("yt-loaded");
+      this.player.unMute();
+      this.player.setVolume(100);
+
+      this.setYoutubeParam();
+      this.initLayout();
+      this.game.ticker.start();
     }, false);
 
-    this.showIntro();
+    this.player.on("ready",       () => { this.showIntro() });
+    this.player.on("stateChange", (event) => { this.handleStateChange(event) });
+
+    //   this.setYoutubeParam();
+    //   this.game.ticker.start();
+    //   this.player.setVolume(100);
+    // });
+    
+
+    // this.rect.cover.addListener("pointerdown", (event) => {
+    //   this.handleTouchEvent();
+    // }, this.rect.cover);
+
+  }
+
+  private get currentScore(): number {
+    return Math.floor(this.rawScore);
   }
 
   private showIntro(): void {
-    this.intro = new Intro({});
+    this.intro = new Intro(this.player);
     this.container.addChild(this.intro.element);
   }
 
@@ -67,12 +93,44 @@ export class IngameScene extends Scene {
     this.currentTime = utils.sec2msec(time);
   }
 
+  // TODO: DEBUG
+  private enableDebug(): void {
+    const timerEl = document.createElement("p");
+
+    timerEl.id = "debug-timer";
+    timerEl.appendChild(document.createTextNode("00:00:000"));
+
+    document.body.appendChild(timerEl);
+  }
+
+  // TODO: DEBUG
+  private updateDebug(): void {
+    const timerEl = document.getElementById("debug-timer");
+
+    timerEl.innerText = this.getTimerText(this.currentTime);
+  }
+
+  // TODO: DEBUG
+  private getTimerText(elapsedTime: number): string {
+    let m  : string = Math.floor(elapsedTime / (1000 * 60)) + "";
+    let s  : string = Math.floor(elapsedTime % (1000 * 60) / 1000) + "";
+    let ms : string = Math.round(elapsedTime % 1000) + "";
+  
+    m  = String(m).padStart(2,  "0");
+    s  = String(s).padStart(2,  "0");
+    ms = String(ms).padStart(3, "0");
+  
+    return `${m}:${s}:${ms}`;
+  }
+
   private initLayout(): void {
     this.rect.cover.interactive = this.rect.cover.buttonMode = true;
     this.rect.cover.addListener("pointerdown", (event) => {
-      this.handleTouchEvent();
+      this.judgeTiming();
     }, this.rect.cover);
+
     this.container.addChild(this.rect.cover);
+    this.enableDebug();  // TODO: DEBUG
   }
 
   private setYoutubeParam(): void {
@@ -86,49 +144,72 @@ export class IngameScene extends Scene {
   }
 
   private initGame(): void { 
-    this.game.ticker.stop();
+    // this.game.ticker.stop();
 
-    this.player = YTPlayer(conf.player_el, this.model.ytOptions);
-    this.player.setPlaybackQuality("small");
-    this.player.setVolume(0);
+    this.rect.cover.addListener("pointerdown", (event) => {
+      this.judgeTiming();
+    }, this.rect.cover);
 
     this.player.on("stateChange", (event) => {
       this.handleStateChange(event);
     });
-    this.player.on("ready", () => {
-      this.setYoutubeParam();
-      this.initLayout();
 
-      conf.root_el.classList.add("yt-loaded");
-      this.player.playVideo();
-      this.fadeVolume(0, 100, 1000);
-
-      this.game.ticker.start();
-    });
+    this.container.addChild(this.rect.cover);
+    this.enableDebug();  // TODO: DEBUG
+    this.game.ticker.start();
   }
 
-  private handleTouchEvent(): void {
-    const currentTime = this.currentTime;
-    const timingList  = this.timingList;
-    const approximate = utils.getApproximate(timingList, currentTime);
-    const absDiff     = Math.abs(currentTime - approximate);
+  private judgeTiming(): void {
+    const approximate = utils.getApproximate(this.timingList, this.currentTime);
+    const absDiff     = Math.abs(approximate - this.currentTime);
 
-    console.log(absDiff);
-    if (absDiff <= 500) {
+    if (absDiff > this.model.judgeTiming.bad ||
+        this.prevTiming === approximate) {
+      this.sound.se.suburi.play();
+      return;
+    }
+
+    if (absDiff <= this.model.judgeTiming.perfect) {
       this.sound.se.hit.play();
+      this.rawScore += this.model.scoreTable.perfect;
+      console.log(`perfect, currentScore : ${this.currentScore}`);
+    }
+    else if (absDiff <= this.model.judgeTiming.great &&
+             absDiff > this.model.judgeTiming.perfect) {
+      this.sound.se.hit.play();
+      this.rawScore += this.model.scoreTable.great;
+      console.log(`great, currentScore : ${this.currentScore}`);
+    }
+    else if (absDiff <= this.model.judgeTiming.good &&
+             absDiff > this.model.judgeTiming.great) {
+      this.sound.se.hit.play();
+      this.rawScore += this.model.scoreTable.good;
+      console.log(`good, currentScore : ${this.currentScore}`);
+    }
+    else if (absDiff <= this.model.judgeTiming.bad &&
+             absDiff > this.model.judgeTiming.good) {
+      this.sound.se.miss.play();
+      this.rawScore += this.model.scoreTable.bad;
+      console.log(`bad, currentScore : ${this.currentScore}`);
     }
     else {
-      this.sound.se.miss.play();
+      this.sound.se.suburi.play();
     }
+
+    this.prevTiming = approximate;
+    // this.timingList.shift();
   }
 
   private handleStateChange(event: CustomEvent): void {
     const state = event["data"];
+    console.log(state);
 
     switch (state) {
       case YT_STATE.UNSTARTED:
         break;
       case YT_STATE.ENDED:
+        this.game.ticker.stop();
+        this.syncCurrentTime();
         break;
       case YT_STATE.PLAYING:
         if (!this.game.ticker.started) {
@@ -146,6 +227,8 @@ export class IngameScene extends Scene {
       default:
         break;
     }
+
+    this.playerState = state;
   }
 
   private fadeVolume(from: number, to: number, duration: number) {
@@ -193,5 +276,7 @@ export class IngameScene extends Scene {
 
     this.lastTime = now;
     this.game.renderer.render(this.game.stage);
+    
+    this.updateDebug();  // TODO: DEBUG
   }
 }

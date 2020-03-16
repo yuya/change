@@ -181,21 +181,6 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../../../Desktop/txt_beyooooonds.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>70,12,140,24</rect>
-                <key>scale9Paddings</key>
-                <rect>70,12,140,24</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">../btn_vol_off.png</key>
             <key type="filename">../btn_vol_off_o.png</key>
             <key type="filename">../btn_vol_on.png</key>
@@ -320,7 +305,22 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../txt_chatmonchy.png</key>
+            <key type="filename">../ttl_beyooooonds.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>70,12,140,24</rect>
+                <key>scale9Paddings</key>
+                <rect>70,12,140,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../ttl_chatmonchy.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -335,7 +335,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../txt_myname.png</key>
+            <key type="filename">../ttl_profile.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -350,7 +350,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../txt_sharamq.png</key>
+            <key type="filename">../ttl_sharamq.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -359,9 +359,9 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>60,12,120,24</rect>
+                <rect>50,12,100,24</rect>
                 <key>scale9Paddings</key>
-                <rect>60,12,120,24</rect>
+                <rect>50,12,100,24</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -427,7 +427,6 @@
             <filename>../logo_change.png</filename>
             <filename>../logo_dna.png</filename>
             <filename>../tmp_title.png</filename>
-            <filename>../txt_myname.png</filename>
             <filename>../ui_bg_menu_blue.png</filename>
             <filename>../ui_bg_menu_green.png</filename>
             <filename>../ui_bg_text_slice.png</filename>
@@ -439,13 +438,14 @@
             <filename>../ui_chat.png</filename>
             <filename>../ui_prof.png</filename>
             <filename>../ui_tunk.png</filename>
-            <filename>../txt_chatmonchy.png</filename>
-            <filename>../txt_sharamq.png</filename>
             <filename>../ui_menu_4.png</filename>
-            <filename>../../../../../Desktop/txt_beyooooonds.png</filename>
             <filename>../ui_button.png</filename>
             <filename>../tmp_intro.png</filename>
             <filename>../tmp_outro.png</filename>
+            <filename>../ttl_beyooooonds.png</filename>
+            <filename>../ttl_chatmonchy.png</filename>
+            <filename>../ttl_profile.png</filename>
+            <filename>../ttl_sharamq.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

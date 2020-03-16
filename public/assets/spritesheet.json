@@ -96,7 +96,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":32},
 	"sourceSize": {"w":192,"h":32}
 },
-"txt_beyooooonds.png":
+"ttl_beyooooonds.png":
 {
 	"frame": {"x":0,"y":1088,"w":280,"h":48},
 	"rotated": false,
@@ -104,7 +104,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":280,"h":48},
 	"sourceSize": {"w":280,"h":48}
 },
-"txt_chatmonchy.png":
+"ttl_chatmonchy.png":
 {
 	"frame": {"x":256,"y":1280,"w":146,"h":48},
 	"rotated": false,
@@ -112,7 +112,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":146,"h":48},
 	"sourceSize": {"w":146,"h":48}
 },
-"txt_myname.png":
+"ttl_profile.png":
 {
 	"frame": {"x":320,"y":200,"w":192,"h":48},
 	"rotated": true,
@@ -120,7 +120,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":48},
 	"sourceSize": {"w":192,"h":48}
 },
-"txt_sharamq.png":
+"ttl_sharamq.png":
 {
 	"frame": {"x":320,"y":0,"w":200,"h":48},
 	"rotated": true,
@@ -218,6 +218,6 @@
 	"format": "RGBA8888",
 	"size": {"w":496,"h":1344},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:112dcd9132557bc9ec7220bc95b36ec9:b913a2cdb146909dea3273dbfe6c7a26:729adc6043343cfda41c447ce8f464d6$"
+	"smartupdate": "$TexturePacker:SmartUpdate:953f9aae3c88721bd5f5ebc2c65cfa0c:b913a2cdb146909dea3273dbfe6c7a26:729adc6043343cfda41c447ce8f464d6$"
 }
 }

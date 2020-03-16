@@ -11,7 +11,7 @@ export class ChatMonchyContent extends Content {
   }
 
   private setTitle() {
-    const title = utils.createSprite(this.textures["txt_chatmonchy.png"]);
+    const title = utils.createSprite(this.textures["ttl_chatmonchy.png"]);
 
     title.position.set(8, 6);
     this.bg.txtHead.addChild(title);

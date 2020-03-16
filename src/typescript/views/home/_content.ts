@@ -29,7 +29,7 @@ export abstract class Content {
       wordWrap: true,
       wordWrapWidth: 480
     };
-    this.txtStyle.lineHeight = this.txtStyle.fontSize * 2;
+    this.txtStyle.lineHeight = this.txtStyle.fontSize * 1.8;
   }
 
   public makeBackground(): void {
@@ -57,5 +57,10 @@ export abstract class Content {
   public destroy(): void {
     this.isDestroyed = true;
     this.element.destroy({ children: true });
+
+    const dom = document.getElementById("dom");
+    if (dom) {
+      conf.canvas_el.removeChild(dom);
+    }
   }
 }
