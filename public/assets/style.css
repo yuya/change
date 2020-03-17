@@ -6,10 +6,7 @@
   font-family: "JF Dot M+H 10";
   src: url("/assets/JF-Dot-MPlusH10.ttf");
 }
-@font-face {
-  font-family: "MisakiGothic2nd";
-  src: url("/assets/misaki_gothic_2nd.ttf");
-}
+
 html, body, ul, li, dl, dt, dd, hr {
   margin: 0;
   padding: 0;
@@ -141,7 +138,7 @@ canvas {
   display: inline-block;
   position: relative;
 }
-#youtube {
+iframe#youtube {
   position: fixed;
   bottom: 16px;
   right: 0;
@@ -154,7 +151,7 @@ canvas {
   /* pointer-events: none;
   user-select: none; */
 }
-.yt-loaded #youtube { opacity: 1; }
+.yt-loaded iframe#youtube { opacity: 1; }
 /* .yt-loaded #youtube { opacity: 0.1; } */
 
 #spinner {

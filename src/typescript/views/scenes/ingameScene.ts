@@ -17,6 +17,13 @@ const YT_STATE = {
 } as const;
 type YT_STATE = typeof YT_STATE[keyof typeof YT_STATE];
 
+type AnimSprites = {
+  wait    : PIXI.AnimatedSprite,
+  punch_l : PIXI.AnimatedSprite,
+  punch_r : PIXI.AnimatedSprite,
+  all     : PIXI.AnimatedSprite,
+}
+
 export class IngameScene extends Scene {
   private textures    : any;
   private intro       : Intro;
@@ -26,6 +33,7 @@ export class IngameScene extends Scene {
   private prevTiming  : number;
   private rawScore    : number;
   private isLoaded    : boolean;
+  private isPaused    : boolean;
   private playerState : number;
   private startTime   : number;
   private elapsedTime : number;
@@ -34,21 +42,42 @@ export class IngameScene extends Scene {
   private loopTimer   : number;
   private interval    : number;
   private ytOptions   : object;
+  private animSprites : AnimSprites;
+  private currentAnim : PIXI.AnimatedSprite;
 
   public constructor() {
     super();
 
     this.model       = new BeyooOoondsModel();
+    this.textures    = this.assetData.load("textures");
     this.timingList  = Object.keys(this.model.ingameData).map((v) => { return +v });
     this.isLoaded    = false;
+    this.isPaused    = false;
     this.rawScore    = 0;
     this.rect.cover  = utils.createRect(conf.canvas_width, conf.canvas_height);
+
+    this.initAnimSprites();
 
     this.player = YTPlayer(conf.player_el, this.model.ytOptions);
     this.player.setPlaybackQuality("small");
     this.player.setVolume(0);
 
-    // this.game.events["handleStateChange"] = this.handleStateChange;
+    this.attachEvent();
+  }
+
+  private initAnimSprites(): void {
+    this.animSprites = {
+      wait    : this.createAnimatedSprite("wait"),
+      punch_l : this.createAnimatedSprite("punch_l"),
+      punch_r : this.createAnimatedSprite("punch_r"),
+      all     : this.createAnimatedSprite("all"),
+    };
+
+    this.animSprites.all.loop = true;
+    this.animSprites.wait.loop = true;
+  }
+
+  private attachEvent(): void {
     this.game.renderer.view.addEventListener("introPlayed", () => {
       conf.root_el.classList.add("yt-loaded");
       this.player.unMute();
@@ -62,16 +91,32 @@ export class IngameScene extends Scene {
     this.player.on("ready",       () => { this.showIntro() });
     this.player.on("stateChange", (event) => { this.handleStateChange(event) });
 
-    //   this.setYoutubeParam();
-    //   this.game.ticker.start();
-    //   this.player.setVolume(100);
-    // });
-    
+    document.addEventListener("visibilitychange", () => {
+      console.log("fired visibilitychange");
+      this.togglePause();
+    }, false);
+    // window.addEventListener("pagehide", () => {
+    //   console.log("fired pagehide");
+    //   this.togglePause();
+    // }, false);
+  }
 
-    // this.rect.cover.addListener("pointerdown", (event) => {
-    //   this.handleTouchEvent();
-    // }, this.rect.cover);
+  private createAnimatedSprite(name: string): PIXI.AnimatedSprite {
+    const resource = this.assetData.load("animation");
+    const textures = resource.textures;
+    const data     = resource.data.animations;
+    const animInfo = data[name].map((anim, index) => {
+      return {
+        texture: textures[anim.texture],
+        time: anim.duration,
+      }
+    });
 
+    const animSprite = new PIXI.AnimatedSprite(animInfo);
+    animSprite.loop    = false;
+    animSprite.visible = false;
+
+    return animSprite;
   }
 
   private get currentScore(): number {
@@ -129,8 +174,53 @@ export class IngameScene extends Scene {
       this.judgeTiming();
     }, this.rect.cover);
 
-    this.container.addChild(this.rect.cover);
+    this.animSprites.wait.visible = true;
+    this.animSprites.wait.play();
+    this.currentAnim = this.animSprites.wait;
+
+    this.el.pauseBtn = utils.createSprite(this.textures["btn_pause.png"]);
+    this.el.pauseBtn.buttonMode = this.el.pauseBtn.interactive = true;
+    this.el.pauseBtn.position.set(20, 20);
+
+    this.el.pauseBtn.addListener("pointerdown", () => {
+      this.togglePause();
+    });
+
+    this.container.addChild(
+      this.animSprites.wait,
+      this.animSprites.punch_l,
+      this.animSprites.punch_r,
+      this.rect.cover,
+      this.el.pauseBtn,
+    );
     this.enableDebug();  // TODO: DEBUG
+  }
+
+  private togglePause(): void {
+    // remove overlay
+    if (this.isPaused) {
+      this.isPaused = false;
+      this.player.playVideo();
+      this.rect.overlay.destroy();
+      this.game.ticker.start();
+    }
+    // add overlay
+    else {
+      this.el.txtPause  = utils.createSprite(this.textures["txt_pause.png"]);
+      this.rect.overlay = utils.createRect(conf.canvas_width, conf.canvas_height, 0x222222, 0.75);
+      this.rect.overlay.interactive = this.rect.overlay.buttonMode = true;
+
+      this.el.txtPause.pivot.set(this.el.txtPause.width / 2, this.el.txtPause.height / 2);
+      this.el.txtPause.position.set(utils.display.centerX, utils.display.centerY);
+      this.rect.overlay.addChild(this.el.txtPause);
+      this.container.addChild(this.rect.overlay);
+      
+      this.isPaused = true;
+      this.player.pauseVideo();
+      this.rect.overlay.addListener("pointerdown", () => {
+        this.togglePause();
+      });
+    }
   }
 
   private setYoutubeParam(): void {
@@ -143,20 +233,31 @@ export class IngameScene extends Scene {
     this.interval    = 3000;
   }
 
-  private initGame(): void { 
-    // this.game.ticker.stop();
+  private playAnim(name: string, callback?: any): void {
+    this.currentAnim.visible = false;
+    this.currentAnim.stop();
 
-    this.rect.cover.addListener("pointerdown", (event) => {
-      this.judgeTiming();
-    }, this.rect.cover);
+    this.animSprites[name].visible = true;
+    this.animSprites[name].gotoAndPlay(0);
 
-    this.player.on("stateChange", (event) => {
-      this.handleStateChange(event);
-    });
+    this.currentAnim = this.animSprites[name];
 
-    this.container.addChild(this.rect.cover);
-    this.enableDebug();  // TODO: DEBUG
-    this.game.ticker.start();
+    if (callback) {
+      this.currentAnim.onComplete = () => {
+        callback();
+      };
+    }
+    else {
+      this.currentAnim.onComplete = () => {
+        this.currentAnim.visible = false;
+        this.currentAnim.stop();
+        
+        this.animSprites.wait.visible = true;
+        this.animSprites.wait.play();
+
+        this.currentAnim = this.animSprites.wait;
+      };
+    }
   }
 
   private judgeTiming(): void {
@@ -166,43 +267,46 @@ export class IngameScene extends Scene {
     if (absDiff > this.model.judgeTiming.bad ||
         this.prevTiming === approximate) {
       this.sound.se.suburi.play();
+      this.playAnim("punch_l");
       return;
     }
 
+    this.playAnim(this.model.ingameData[approximate].act);
+
+    // Perfect
     if (absDiff <= this.model.judgeTiming.perfect) {
       this.sound.se.hit.play();
       this.rawScore += this.model.scoreTable.perfect;
       console.log(`perfect, currentScore : ${this.currentScore}`);
     }
+    // Great
     else if (absDiff <= this.model.judgeTiming.great &&
              absDiff > this.model.judgeTiming.perfect) {
       this.sound.se.hit.play();
       this.rawScore += this.model.scoreTable.great;
       console.log(`great, currentScore : ${this.currentScore}`);
     }
+    // Good
     else if (absDiff <= this.model.judgeTiming.good &&
              absDiff > this.model.judgeTiming.great) {
       this.sound.se.hit.play();
       this.rawScore += this.model.scoreTable.good;
       console.log(`good, currentScore : ${this.currentScore}`);
     }
+    // Bad
     else if (absDiff <= this.model.judgeTiming.bad &&
              absDiff > this.model.judgeTiming.good) {
       this.sound.se.miss.play();
       this.rawScore += this.model.scoreTable.bad;
       console.log(`bad, currentScore : ${this.currentScore}`);
     }
-    else {
-      this.sound.se.suburi.play();
-    }
 
     this.prevTiming = approximate;
-    // this.timingList.shift();
   }
 
   private handleStateChange(event: CustomEvent): void {
     const state = event["data"];
-    console.log(state);
+    const nextSceneName = this.userData.load("nextSceneName");
 
     switch (state) {
       case YT_STATE.UNSTARTED:
@@ -210,6 +314,11 @@ export class IngameScene extends Scene {
       case YT_STATE.ENDED:
         this.game.ticker.stop();
         this.syncCurrentTime();
+        this.userData.save("latest_score", this.currentScore);
+
+        this.player.destroy();
+        this.game.currentScene.destroy();
+        this.game.route(nextSceneName);
         break;
       case YT_STATE.PLAYING:
         if (!this.game.ticker.started) {
@@ -217,7 +326,7 @@ export class IngameScene extends Scene {
         }
         break;
       case YT_STATE.PAUSED:
-        this.game.ticker.stop();
+        // this.game.ticker.stop();
         this.syncCurrentTime();
         break;
       case YT_STATE.BUFFERING:

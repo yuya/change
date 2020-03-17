@@ -1,6 +1,6 @@
 {"frames": {
 
-"anim_ryman_jab_0.png":
+"anim_punch_l_0.png":
 {
 	"frame": {"x":1,"y":1,"w":128,"h":128},
 	"rotated": false,
@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_jab_1.png":
+"anim_punch_l_1.png":
 {
 	"frame": {"x":131,"y":1,"w":90,"h":128},
 	"rotated": false,
@@ -16,7 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_jab_2.png":
+"anim_punch_l_2.png":
 {
 	"frame": {"x":1,"y":521,"w":81,"h":128},
 	"rotated": false,
@@ -24,7 +24,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":81,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_jab_3.png":
+"anim_punch_l_3.png":
 {
 	"frame": {"x":84,"y":521,"w":71,"h":128},
 	"rotated": false,
@@ -32,7 +32,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":71,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_jab_4.png":
+"anim_punch_l_4.png":
 {
 	"frame": {"x":93,"y":391,"w":64,"h":128},
 	"rotated": false,
@@ -40,7 +40,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_straight_0.png":
+"anim_punch_r_0.png":
 {
 	"frame": {"x":1,"y":131,"w":128,"h":128},
 	"rotated": false,
@@ -48,7 +48,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_straight_1.png":
+"anim_punch_r_1.png":
 {
 	"frame": {"x":1,"y":261,"w":107,"h":128},
 	"rotated": false,
@@ -56,7 +56,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":107,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_straight_2.png":
+"anim_punch_r_2.png":
 {
 	"frame": {"x":1,"y":391,"w":90,"h":128},
 	"rotated": false,
@@ -64,7 +64,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_straight_3.png":
+"anim_punch_r_3.png":
 {
 	"frame": {"x":157,"y":521,"w":68,"h":128},
 	"rotated": false,
@@ -72,7 +72,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_straight_4.png":
+"anim_punch_r_4.png":
 {
 	"frame": {"x":110,"y":261,"w":61,"h":128},
 	"rotated": false,
@@ -80,7 +80,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_wait_0.png":
+"anim_wait_0.png":
 {
 	"frame": {"x":131,"y":131,"w":61,"h":128},
 	"rotated": false,
@@ -88,7 +88,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_wait_1.png":
+"anim_wait_1.png":
 {
 	"frame": {"x":159,"y":391,"w":61,"h":128},
 	"rotated": false,
@@ -96,7 +96,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":61,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"anim_ryman_wait_2.png":
+"anim_wait_2.png":
 {
 	"frame": {"x":173,"y":261,"w":61,"h":128},
 	"rotated": false,
@@ -105,9 +105,43 @@
 	"sourceSize": {"w":128,"h":128}
 }},
 "animations": {
-	"anim_ryman_jab": ["anim_ryman_jab_0.png","anim_ryman_jab_1.png","anim_ryman_jab_2.png","anim_ryman_jab_3.png","anim_ryman_jab_4.png"],
-	"anim_ryman_straight": ["anim_ryman_straight_0.png","anim_ryman_straight_1.png","anim_ryman_straight_2.png","anim_ryman_straight_3.png","anim_ryman_straight_4.png"],
-	"anim_ryman_wait": ["anim_ryman_wait_0.png","anim_ryman_wait_1.png","anim_ryman_wait_2.png"]
+	"anim_punch_l": ["anim_punch_l_0.png","anim_punch_l_1.png","anim_punch_l_2.png","anim_punch_l_3.png","anim_punch_l_4.png"],
+	"anim_punch_r": ["anim_punch_r_0.png","anim_punch_r_1.png","anim_punch_r_2.png","anim_punch_r_3.png","anim_punch_r_4.png"],
+	"anim_wait": ["anim_wait_0.png","anim_wait_1.png","anim_wait_2.png"],
+	"all": [
+		{ "texture": "anim_wait_0.png",    "duration": 400 },
+		{ "texture": "anim_wait_1.png",    "duration":  33 },
+		{ "texture": "anim_wait_2.png",    "duration":  67 },
+		{ "texture": "anim_punch_l_0.png", "duration":  33 },
+		{ "texture": "anim_punch_l_1.png", "duration":  33 },
+		{ "texture": "anim_punch_l_2.png", "duration":  33 },
+		{ "texture": "anim_punch_l_3.png", "duration":  33 },
+		{ "texture": "anim_punch_l_4.png", "duration":  33 },
+		{ "texture": "anim_punch_r_0.png", "duration":  33 },
+		{ "texture": "anim_punch_r_1.png", "duration":  33 },
+		{ "texture": "anim_punch_r_2.png", "duration":  33 },
+		{ "texture": "anim_punch_r_3.png", "duration":  33 },
+		{ "texture": "anim_punch_r_4.png", "duration":  33 }
+	],
+	"wait": [
+		{ "texture": "anim_wait_0.png", "duration": 400 },
+		{ "texture": "anim_wait_1.png", "duration":  33 },
+		{ "texture": "anim_wait_2.png", "duration":  67 }
+	],
+	"punch_l": [
+		{ "texture": "anim_punch_l_0.png", "duration": 33 },
+		{ "texture": "anim_punch_l_1.png", "duration": 33 },
+		{ "texture": "anim_punch_l_2.png", "duration": 33 },
+		{ "texture": "anim_punch_l_3.png", "duration": 33 },
+		{ "texture": "anim_punch_l_4.png", "duration": 33 }
+	],
+	"punch_r": [
+		{ "texture": "anim_punch_r_0.png", "duration": 33 },
+		{ "texture": "anim_punch_r_1.png", "duration": 33 },
+		{ "texture": "anim_punch_r_2.png", "duration": 33 },
+		{ "texture": "anim_punch_r_3.png", "duration": 33 },
+		{ "texture": "anim_punch_r_4.png", "duration": 33 }
+	]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
@@ -116,6 +150,6 @@
 	"format": "RGBA8888",
 	"size": {"w":235,"h":650},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:282035006c416517c3af3b9c70d34eed:2345f652f711d95fbce816ef0ca59cfd:9a4e7f1aae4f9765a57ff756284ef5fc$"
+	"smartupdate": "$TexturePacker:SmartUpdate:4546318a3f9ba3afe7eca3791306a3a0:2345f652f711d95fbce816ef0ca59cfd:9a4e7f1aae4f9765a57ff756284ef5fc$"
 }
 }

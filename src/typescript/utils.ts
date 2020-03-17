@@ -14,13 +14,14 @@ const sec2msec = (sec: number): number => {
   return sec * 1000;
 };
 
-const createRect = (width: number, height: number, color?: number): PIXI.Graphics => {
+const createRect = (width: number, height: number, color?: number, alpha?: number): PIXI.Graphics => {
   const hasColor  = (color != null);
   const rectangle = new PIXI.Graphics()
       .beginFill(hasColor ? color: 0xffffff, hasColor ? 1 : 0)
       .drawRect(0, 0, width, height)
       .endFill()
   ;
+  rectangle.alpha   = alpha ? alpha : 1;
   rectangle.hitArea = new PIXI.Rectangle(0, 0, width, height);
 
   return rectangle;

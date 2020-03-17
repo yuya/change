@@ -181,6 +181,21 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">../btn_pause.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,16,32,32</rect>
+                <key>scale9Paddings</key>
+                <rect>16,16,32,32</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../btn_vol_off.png</key>
             <key type="filename">../btn_vol_off_o.png</key>
             <key type="filename">../btn_vol_on.png</key>
@@ -365,6 +380,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../txt_pause.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>48,16,96,32</rect>
+                <key>scale9Paddings</key>
+                <rect>48,16,96,32</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../ui_beyo.png</key>
             <key type="filename">../ui_chat.png</key>
             <key type="filename">../ui_menu_4.png</key>
@@ -446,6 +476,8 @@
             <filename>../ttl_chatmonchy.png</filename>
             <filename>../ttl_profile.png</filename>
             <filename>../ttl_sharamq.png</filename>
+            <filename>../txt_pause.png</filename>
+            <filename>../btn_pause.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

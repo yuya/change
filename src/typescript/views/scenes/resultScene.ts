@@ -8,7 +8,7 @@ export class ResultScene extends Scene {
   private bgMsgHead : PIXI.NineSlicePlane;
   private txt       : { [key : string] : PIXI.Text };
 
-  public constructor() {
+  public constructor(score: number) {
     super();
 
     this.textures  = this.assetData.load("textures");

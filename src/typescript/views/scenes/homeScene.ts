@@ -6,6 +6,16 @@ import { Scene, CircleMenu,
          SharamQContent, ChatMonchyContent, BeyooOoondsContent
        } from "views";
 
+const ContentType = {
+  SharamQ     : 0,
+  ChatMonchy  : 1,
+  BeyooOoonds : 2,
+  Contact     : 3,
+  Profile     : 4,
+  About       : 5,
+} as const;
+type ContentType = typeof ContentType[keyof typeof ContentType];
+
 export class HomeScene extends Scene {
   private textures   : any;
   private content    : any;
@@ -46,29 +56,26 @@ export class HomeScene extends Scene {
   }
 
   private renderContent(index: number = 0): void {
-    // TODO
     switch (index) {
-      case 0:
       default:
+      case ContentType.SharamQ:
         this.content = new SharamQContent();
         break;
-      case 1:
+      case ContentType.ChatMonchy:
         this.content = new ChatMonchyContent();
         break;
-      case 2:
+      case ContentType.BeyooOoonds:
         this.content = new BeyooOoondsContent();
         break;
-      case 3:
+      case ContentType.Contact:
         this.content = new ContactContent();
         break;
-      case 4:
+      case ContentType.Profile:
         this.content = new ProfileContent();
         break;
-      case 5:
+      case ContentType.About:
         this.content = new AboutContent();
         break;
-        // this.content = new ProfileContent();
-        // break;
     }
 
     this.lastIndex = index;

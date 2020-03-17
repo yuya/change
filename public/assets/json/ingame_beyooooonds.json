@@ -1,142 +1,142 @@
 {
 	"31100": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_S"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_s"
 	},
 	"32000": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_S"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_s"
 	},
 	"44900": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_S"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_s"
 	},
 	"45300": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_S"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_s"
 	},
 	"45700": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_S"
+		"act": "punch_r",
+		"obj": "rock",
+		"se": "hit_s"
 	},
 	"58600": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_S"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_s"
 	},
 	"58900": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_S"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_s"
 	},
 	"59400": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_S"
+		"act": "punch_r",
+		"obj": "rock",
+		"se": "hit_s"
 	},
 	"75700": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"77400": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"80800": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"81300": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"81700": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_r",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"82500": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"84300": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"87700": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"88100": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"88600": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_r",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"89400": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"91100": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"94600": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_M"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_m"
 	},
 	"95000": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_L"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_l"
 	},
 	"95500": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_L"
+		"act": "punch_r",
+		"obj": "rock",
+		"se": "hit_l"
 	},
 	"96300": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_L"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_l"
 	},
 	"98000": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_L"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_l"
 	},
 	"101400": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_L"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_l"
 	},
 	"101900": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_L"
+		"act": "punch_l",
+		"obj": "rock",
+		"se": "hit_l"
 	},
 	"102300": {
-		"act": "PUNCH_L",
-		"obj": "ROCK",
-		"se": "HIT_L"
+		"act": "punch_r",
+		"obj": "rock",
+		"se": "hit_l"
 	}
 }

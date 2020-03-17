@@ -8,6 +8,7 @@ const gameController: GameController = GameController.instance;
 const assetData: AssetData = AssetData.instance;
 const loadTarget: { [key:string] : string } = {
   "spritePath"  : "/assets/spritesheet.json",
+  "animation"   : "/assets/animation.json",
   "beyooOoonds" : "/assets/json/ingame_beyooooonds.json",
 };
 const loadTargetArr: string[] = Object.keys(loadTarget).map((key) => {
@@ -44,6 +45,7 @@ const init = (): void => {
     .load((loader, resources) => {
       assetData.save("textures", resources[loadTarget.spritePath].spritesheet.textures);
       assetData.save("spriteData", resources[loadTarget.spritePath].data);
+      assetData.save("animation", resources[loadTarget.animation]);
       assetData.save("beyooOoondsData", resources[loadTarget.beyooOoonds].data);
 
       _loadWebFont();

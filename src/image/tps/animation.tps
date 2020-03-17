@@ -181,19 +181,19 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../anim_ryman_jab_0.png</key>
-            <key type="filename">../anim_ryman_jab_1.png</key>
-            <key type="filename">../anim_ryman_jab_2.png</key>
-            <key type="filename">../anim_ryman_jab_3.png</key>
-            <key type="filename">../anim_ryman_jab_4.png</key>
-            <key type="filename">../anim_ryman_straight_0.png</key>
-            <key type="filename">../anim_ryman_straight_1.png</key>
-            <key type="filename">../anim_ryman_straight_2.png</key>
-            <key type="filename">../anim_ryman_straight_3.png</key>
-            <key type="filename">../anim_ryman_straight_4.png</key>
-            <key type="filename">../anim_ryman_wait_0.png</key>
-            <key type="filename">../anim_ryman_wait_1.png</key>
-            <key type="filename">../anim_ryman_wait_2.png</key>
+            <key type="filename">../anim_punch_l_0.png</key>
+            <key type="filename">../anim_punch_l_1.png</key>
+            <key type="filename">../anim_punch_l_2.png</key>
+            <key type="filename">../anim_punch_l_3.png</key>
+            <key type="filename">../anim_punch_l_4.png</key>
+            <key type="filename">../anim_punch_r_0.png</key>
+            <key type="filename">../anim_punch_r_1.png</key>
+            <key type="filename">../anim_punch_r_2.png</key>
+            <key type="filename">../anim_punch_r_3.png</key>
+            <key type="filename">../anim_punch_r_4.png</key>
+            <key type="filename">../anim_wait_0.png</key>
+            <key type="filename">../anim_wait_1.png</key>
+            <key type="filename">../anim_wait_2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -211,19 +211,19 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../anim_ryman_jab_0.png</filename>
-            <filename>../anim_ryman_jab_1.png</filename>
-            <filename>../anim_ryman_jab_2.png</filename>
-            <filename>../anim_ryman_jab_3.png</filename>
-            <filename>../anim_ryman_jab_4.png</filename>
-            <filename>../anim_ryman_straight_0.png</filename>
-            <filename>../anim_ryman_straight_1.png</filename>
-            <filename>../anim_ryman_straight_2.png</filename>
-            <filename>../anim_ryman_straight_3.png</filename>
-            <filename>../anim_ryman_straight_4.png</filename>
-            <filename>../anim_ryman_wait_0.png</filename>
-            <filename>../anim_ryman_wait_1.png</filename>
-            <filename>../anim_ryman_wait_2.png</filename>
+            <filename>../anim_punch_l_0.png</filename>
+            <filename>../anim_punch_l_1.png</filename>
+            <filename>../anim_punch_l_2.png</filename>
+            <filename>../anim_punch_l_3.png</filename>
+            <filename>../anim_punch_l_4.png</filename>
+            <filename>../anim_punch_r_0.png</filename>
+            <filename>../anim_punch_r_1.png</filename>
+            <filename>../anim_punch_r_2.png</filename>
+            <filename>../anim_punch_r_3.png</filename>
+            <filename>../anim_punch_r_4.png</filename>
+            <filename>../anim_wait_0.png</filename>
+            <filename>../anim_wait_1.png</filename>
+            <filename>../anim_wait_2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -92,7 +92,7 @@ export class GameController {
         break;
       case "result":
         this.userData.save("nextSceneName", "home");
-        this.currentScene = new ResultScene();
+        this.currentScene = new ResultScene(this.userData.load("latest_score"));
         break;
     }
   }
