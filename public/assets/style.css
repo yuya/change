@@ -91,6 +91,7 @@ a:link, a:visited { color: #222; }
 .table.col2 li {
   width: 50%;
 }
+.cursor-pointer { cursor: pointer; }
 
 html {
   display: table;

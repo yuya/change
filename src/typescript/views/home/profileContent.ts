@@ -9,6 +9,8 @@ export class ProfileContent extends Content {
     this.makeBackground();
     this.setTitle();
     this.setText();
+
+    this.attachEvent();
   }
 
   private setTitle() {
@@ -24,7 +26,7 @@ export class ProfileContent extends Content {
 <dt>【すきな リズム天国 の ステージ】</dt>
 <dd>
   <ul>
-    <li><a class="icon amazon" href="https://www.nintendo.co.jp/n08/brij/" target="_blank" rel="noopener noreferrer">リズム天国 (GBA) 「3rd リミックス」</a></li>
+    <li><a class="icon amazon" href="https://www.nintendo.co.jp/n08/brij/" target="_blank" rel="noopener noreferrer">リズム天国 (GBA) 「<span class="mod-mochi-alphabet">3rd</span> リミックス」</a></li>
     <li class="nowrap"><a class="icon amazon" href="https://www.nintendo.co.jp/3ds/bpjj/" target="_blank" rel="noopener noreferrer">リズム天国 ザ・ベスト＋「ハチハチリミックス」</a></li>
   </ul>
 </dd>
@@ -57,7 +59,7 @@ export class ProfileContent extends Content {
   <li><a class="icon github" href="https://github.com/yuya" target="_blank" rel="noopener noreferrer">@yuya</a></li>
 </ul>
 <ul>
-  <li><span class="icon gmail" data-href="#">mail@yuya.im</span></li>
+  <li><span class="icon gmail cursor-pointer js-mail-addr">&#109;&#97;&#105;&#108;&#64;&#121;&#117;&#121;&#97;&#46;&#105;&#109;</span></li>
 </ul>
 `.replace(/(^\n|\n$)/g, "");
 
@@ -69,5 +71,27 @@ export class ProfileContent extends Content {
     dom.innerHTML = str;
 
     conf.canvas_el.appendChild(dom);
+  }
+
+  private copy2clipboard(text: string): void {
+    const textarea = document.createElement("textarea");
+
+    textarea.textContent = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    alert("クリップボードにコピーしました！");
+  }
+
+  private attachEvent(): void {
+    const element  = document.querySelector(".js-mail-addr");
+    const mailAddr = element.childNodes[0].textContent;
+
+    element.addEventListener("click", () => {
+      this.copy2clipboard(mailAddr);
+    }, false);
   }
 }

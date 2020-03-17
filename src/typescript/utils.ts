@@ -2,7 +2,7 @@ import * as PIXI from "pixi.js";
 import { conf } from "conf";
 
 const display = {
-  centerX: conf.canvas_width / 2,
+  centerX: conf.canvas_width  / 2,
   centerY: conf.canvas_height / 2,
 };
 
