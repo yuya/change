@@ -1,19 +1,22 @@
 import { gsap } from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
+import { ResultData } from "models";
 import { Scene } from "views";
 
 export class ResultScene extends Scene {
-  private textures  : any;
-  private bgMsgHead : PIXI.NineSlicePlane;
-  private txt       : { [key : string] : PIXI.Text };
+  private resultData : ResultData;
+  private textures   : any;
+  private bgMsgHead  : PIXI.NineSlicePlane;
+  private txt        : { [key : string] : PIXI.Text };
 
-  public constructor(score: number) {
+  public constructor(resultData: ResultData) {
     super();
 
-    this.textures  = this.assetData.load("textures");
-    this.bgMsgHead = new PIXI.NineSlicePlane(this.textures["ui_bg_text_slice.png"], 16, 16, 16, 16);
-    
+    this.resultData = resultData;
+    this.textures   = this.assetData.load("textures");
+    this.bgMsgHead  = new PIXI.NineSlicePlane(this.textures["ui_bg_text_slice.png"], 16, 16, 16, 16);
+
     this.txt = {};
     this.el  = {
       // result : utils.createSprite(this.textures["result_grade_low.png"]),
@@ -45,7 +48,7 @@ export class ResultScene extends Scene {
   }
 
   private makeMsgHead(): void {
-    const msgHeadStr = "にしお いしん より";
+    const msgHeadStr = this.resultData.data.eval.from;
 
     this.txt["msgHead"] = new PIXI.Text(msgHeadStr, {
       fill: conf.color.black,
@@ -64,7 +67,7 @@ export class ResultScene extends Scene {
   }
 
   private makeMsgBody(): void {
-    const msgBodyStr = "う〜ん まぁまぁ かな 。｡・･.．\nでも 気分 は 上々！";
+    const msgBodyStr = this.resultData.data.eval.comment;
 
     this.txt["msgBody"] = new PIXI.Text(msgBodyStr, {
       fill: conf.color.white,
@@ -92,7 +95,7 @@ export class ResultScene extends Scene {
     this.el.outroImg.pivot.set(this.el.outroImg.width / 2, this.el.outroImg.height / 2);
     this.el.outroImg.position.set(utils.display.centerX, utils.display.centerY);
 
-    const msgOutroStr = "あぁ〜 いっぱい 出た";
+    const msgOutroStr = this.resultData.data.outro.comment;
     
     this.txt["msgOutro"] = new PIXI.Text(msgOutroStr, {
       fill: conf.color.white,

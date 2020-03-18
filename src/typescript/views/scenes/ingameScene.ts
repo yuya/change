@@ -140,12 +140,15 @@ export class IngameScene extends Scene {
 
   // TODO: DEBUG
   private enableDebug(): void {
+    const debugEl = document.createElement("div");
     const timerEl = document.createElement("p");
 
+    debugEl.id = "debug";
     timerEl.id = "debug-timer";
     timerEl.appendChild(document.createTextNode("00:00:000"));
-
-    document.body.appendChild(timerEl);
+    
+    debugEl.appendChild(timerEl);
+    document.body.appendChild(debugEl);
   }
 
   // TODO: DEBUG
@@ -260,6 +263,10 @@ export class IngameScene extends Scene {
     }
   }
 
+  private spawnNote(): void {
+
+  }
+
   private judgeTiming(): void {
     const approximate = utils.getApproximate(this.timingList, this.currentTime);
     const absDiff     = Math.abs(approximate - this.currentTime);
@@ -316,6 +323,7 @@ export class IngameScene extends Scene {
         this.syncCurrentTime();
         this.userData.save("latest_score", this.currentScore);
 
+        document.body.removeChild(document.getElementById("debug"));
         this.player.destroy();
         this.game.currentScene.destroy();
         this.game.route(nextSceneName);
