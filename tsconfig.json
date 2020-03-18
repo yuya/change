@@ -11,10 +11,13 @@
     ],
     "rootDir": "./src/typescript",
     "baseUrl": "./src/typescript",
-    "outDir": "assets/",
+    "outDir": "./assets/",
     "lib": ["dom", "es2017"]
   },
-  "includes": [
-    "src/typescript/**/*"
+  "exclude": [
+    "./misc/**/*"
+  ],
+  "include": [
+    "./src/typescript/**/*"
   ]
 }
