@@ -40,6 +40,7 @@ export class SharamQContent extends Content {
     button.interactive = button.buttonMode = true;
 
     button.addListener("pointerdown", () => {
+      this.element.parent.destroy({ children: true });
       this.game.currentScene.destroy();
       this.game.route(nextSceneName);
     }, button);

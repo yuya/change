@@ -42,7 +42,7 @@ export class TitleScene extends Scene {
         duration: utils.msec2sec(100),
         pixi: { alpha: 0 },
         onComplete: () => {
-          this.destroy();
+          this.container.destroy({ children: true });
           this.game.route(nextSceneName);
         }
       });

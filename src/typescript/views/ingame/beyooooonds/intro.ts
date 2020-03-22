@@ -57,7 +57,7 @@ export class Intro {
   private attachEvent(): void {
     this.cover.interactive = this.cover.buttonMode = true;
     this.cover.addListener("pointerdown", () => {
-      utils.triggerEvent(this.game.renderer.view, "introPlayed", false, false);
+      this.game.eventHandler.emit("introPlayed");
       this.player.playVideo();
       this.element.destroy({ children: true });
     });

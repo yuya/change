@@ -9,6 +9,7 @@ export class GameController {
   public loader        : PIXI.Loader;
   public ticker        : PIXI.Ticker;
   public events        : { [key : string] : any };
+  public eventHandler  : PIXI.utils.EventEmitter;
   public currentScene  : Scene;
   public nextSceneName : string;
 
@@ -40,6 +41,7 @@ export class GameController {
       "initRenderer" : () => this.initRenderer(),
       "onUpdate"     : () => this.onUpdate()
     };
+    this.eventHandler = new PIXI.utils.EventEmitter();
 
     this.userData  = UserData.instance;
     this.assetData = AssetData.instance;

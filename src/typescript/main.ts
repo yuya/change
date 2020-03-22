@@ -46,7 +46,7 @@ const init = (): void => {
       assetData.save("textures", resources[loadTarget.spritePath].spritesheet.textures);
       assetData.save("spriteData", resources[loadTarget.spritePath].data);
       assetData.save("animation", resources[loadTarget.animation]);
-      assetData.save("beyooOoondsData", resources[loadTarget.beyooOoonds].data);
+      assetData.save("beyooOoondsData", resources[loadTarget.beyooOoonds].data["data"]);
 
       _loadWebFont();
       // _hideSpinner();

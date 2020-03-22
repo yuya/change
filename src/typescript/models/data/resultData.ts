@@ -21,7 +21,7 @@ type Result = {
     imgPath    : string,
     jinglePath : string,
   },
-}
+};
 
 export class ResultData {
   public score : number;

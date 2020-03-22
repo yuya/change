@@ -5,11 +5,11 @@ type Score = {
   great   : number,
   good    : number,
   bad     : number,
-}
+};
 
 export class BeyooOoondsModel {
   public ytOptions   : object;
-  public ingameData  : JSON;
+  public ingameData  : object[];
   public scoreTable  : Score;
   public judgeTiming : Score;
 
@@ -22,7 +22,8 @@ export class BeyooOoondsModel {
       height     : 180,
       playerVars : {
         "start"          : 15,
-        "end"            : 104,
+        // "start"          : 95,
+        "end"            : 105,
         "fs"             : 0,
         "iv_load_policy" : 3,
         "playsinline"    : 1,
@@ -43,17 +44,17 @@ export class BeyooOoondsModel {
     const noteLen   = Object.keys(this.ingameData).length;
     const maxScore  = 100;
     const baseScore = {
-      perfect : 10,
-      great   :  8,
-      good    :  6,
-      bad     :  4,
+      perfect : 100,
+      great   :  90,
+      good    :  70,
+      bad     :  40,
     };
 
     this.scoreTable = {
-      perfect : baseScore.perfect * 10 / noteLen,
-      great   : baseScore.great * 10 / noteLen,
-      good    : baseScore.good * 10 / noteLen,
-      bad     : baseScore.bad * 10 / noteLen,
+      perfect : baseScore.perfect / noteLen,
+      great   : baseScore.great   / noteLen,
+      good    : baseScore.good    / noteLen,
+      bad     : baseScore.bad     / noteLen,
     };
   }
 

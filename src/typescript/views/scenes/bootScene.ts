@@ -83,7 +83,8 @@ export class BootScene extends Scene {
     const isEnableVol    = this.userData.load("is_enabled_volume");
     const nextSceneName  = this.userData.load("nextSceneName");
     const onAnimationEnd = () => {
-      this.destroy();
+      this.container.destroy({ children: true });
+      // this.destroy();
       this.game.route(nextSceneName);
     };
 

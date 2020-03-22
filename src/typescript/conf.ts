@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 import * as WebFont from "webfontloader";
 import PixiPlugin from "gsap/PixiPlugin";
+import MotionPathPlugin from "gsap/MotionPathPlugin";
 import gsap from "gsap";
 
 const CANVAS_WIDTH   = 640;
@@ -13,6 +14,7 @@ PIXI.TextMetrics.BASELINE_SYMBOL += "あ｜";
 
 PixiPlugin.registerPIXI(PIXI);
 gsap.registerPlugin(PixiPlugin);
+gsap.registerPlugin(MotionPathPlugin);
 
 const color = {
   "black" : 0x222222,

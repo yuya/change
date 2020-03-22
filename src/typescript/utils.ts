@@ -44,7 +44,21 @@ const setNameToObj = (obj: object): void => {
   });
 };
 
-const triggerEvent = (element: HTMLElement, eventName: string,
+const getApproximate = (list: number[], num: number): number => {
+  let i     = 0;
+  let len   = list.length;
+  let diff  = [];
+  let index = 0;
+
+  for (; len; ++i, --len) {
+    diff[i] = Math.abs(num - list[i]);
+    index   = (diff[index] < diff[i]) ? index : i;
+  }
+
+  return list[index];
+};
+
+const emitDomEvent = (element: HTMLElement, eventName: string,
       bubbles: boolean, cancelable: boolean, data?: object): void => {
   const detail = {};
 
@@ -58,17 +72,18 @@ const triggerEvent = (element: HTMLElement, eventName: string,
   element.dispatchEvent(event);
 };
 
-const getApproximate = (list: number[], num: number): number => {
-  let diff  = [];
-  let index = 0;
+const appendDom = (idName: string): void => {
+  if (document.getElementById(idName)) { return; }
+  const dom = document.createElement("div");
+  dom.id = idName;
+  document.body.appendChild(dom);
+};
 
-  list.forEach(function (li, i) {
-    diff[i] = Math.abs(num - li);
-    index   = (diff[index] < diff[i]) ? index : i;
-  });
-
-  return list[index];
-}
+const removeDom = (idName: string): void => {
+  const dom = document.getElementById(idName);
+  if (!dom) { return; }
+  document.body.removeChild(dom);
+};
 
 export const utils = {
   "display"        : display,
@@ -77,6 +92,8 @@ export const utils = {
   "createRect"     : createRect,
   "createSprite"   : createSprite,
   "setNameToObj"   : setNameToObj,
-  "triggerEvent"   : triggerEvent,
   "getApproximate" : getApproximate,
+  "emitDomEvent"   : emitDomEvent,
+  "appendDom"      : appendDom,
+  "removeDom"      : removeDom,
 };

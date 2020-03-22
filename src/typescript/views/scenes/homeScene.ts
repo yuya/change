@@ -40,7 +40,7 @@ export class HomeScene extends Scene {
 
   private attachEvent(): void {
     this.game.events["refreshContent"] = (event) => {
-      const currentIndex = (event as any).detail.currentIndex;
+      const currentIndex = (event as any).currentIndex;
 
       if (currentIndex === this.lastIndex || this.content.isDestroyed) {
         return;
@@ -52,7 +52,7 @@ export class HomeScene extends Scene {
       this.lastIndex = currentIndex;
     };
 
-    this.game.renderer.view.addEventListener("onmovecomplete", this.game.events.refreshContent, false);
+    this.game.eventHandler.on("onmovecomplete", this.game.events.refreshContent);
   }
 
   private renderContent(index: number = 0): void {

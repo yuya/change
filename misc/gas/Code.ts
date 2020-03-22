@@ -1,3 +1,5 @@
+const SHEET_ID = "1dujbtz_nZwW-DI2jhQvfUv_ljJkcVD8a4tFZB5LYczc";
+
 function onOpen() {
   const ui = SpreadsheetApp.getUi();
 
@@ -8,19 +10,18 @@ function onOpen() {
 }
 
 function makeJson() {
-  const ssApp    = SpreadsheetApp.openById("1dujbtz_nZwW-DI2jhQvfUv_ljJkcVD8a4tFZB5LYczc");
-  // const sheet    = SpreadsheetApp.getActiveSheet();
-  const sheet    = ssApp.getSheetByName("beyooooonds");
-  const range    = sheet.getRange(2, 1, sheet.getLastRow(), sheet.getLastColumn());
-  const values   = range.getValues();
-  const keyList  = values[0];
-  const rows     = values.splice(2, values.length);
-  const data     = rows.map((row, index) => {
+  const ssApp  = SpreadsheetApp.openById(SHEET_ID);
+  const sheet  = ssApp.getSheetByName("beyooooonds");
+  const range  = sheet.getRange(2, 1, sheet.getLastRow(), sheet.getLastColumn());
+  const values = range.getValues();
+  const keys   = values.shift();
+  const rows   = values.splice(1, values.length - 2);
+  const data   = rows.map((row, index) => {
     const regex = /^(key|__)/;
     let retData = {};
 
     row.map((v, i) => {
-      const keyName = keyList[i];
+      const keyName = keys[i];
       if (regex.test(keyName)) { return; }
       retData[keyName] = (v === "") ? null : v;
     });

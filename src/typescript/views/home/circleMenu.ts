@@ -165,7 +165,7 @@ export class CircleMenu {
       },
       onComplete: () => {
         if (callback) { callback() }
-        utils.triggerEvent(this.game.renderer.view, "onmovecomplete", false, false, {
+        this.game.eventHandler.emit("onmovecomplete", {
           "currentIndex" : this.idx.now
         });
       }
@@ -204,7 +204,7 @@ export class CircleMenu {
     this.element.addListener("pointermove", this.fn.onTouchMove, this.element);
     document.addEventListener("pointerup", this.fn.onTouchEnd, false);
 
-    utils.triggerEvent(this.game.renderer.view, "ontouchstart", false, false);
+    this.game.eventHandler.emit("ontouchstart");
   }
 
   private onTouchMove(event): void {
@@ -251,7 +251,7 @@ export class CircleMenu {
 
     this.pos.baseX = posX;
     this.pos.baseY = posY;
-    utils.triggerEvent(this.game.renderer.view, "ontouchmove", false, false);
+    this.game.eventHandler.emit("ontouchmove");
   }
 
   private onTouchEnd(event): void {
@@ -269,7 +269,7 @@ export class CircleMenu {
     setTimeout(() => {
       document.removeEventListener("click", this.fn.onClick, true);
     }, 200);
-    utils.triggerEvent(this.game.renderer.view, "ontouchend", false, false);
+    this.game.eventHandler.emit("ontouchend");
   }
 
   private onClick(event): void {
