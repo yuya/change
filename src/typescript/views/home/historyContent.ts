@@ -1,3 +1,4 @@
+import { conf } from "conf";
 import { utils } from "utils";
 import { Content } from "views";
 
@@ -11,6 +12,7 @@ export class HistoryContent extends Content {
   }
 
   private setTitle() {
+    // 更新履歴
     const title = utils.createSprite(this.textures["ttl_chatmonchy.png"]);
 
     title.position.set(8, 6);
@@ -19,27 +21,25 @@ export class HistoryContent extends Content {
 
   private setText() {
     const str = `
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
-シャングリラ！！！！！！！！！！！！！！！！！！
+<dl>
+  <dt>【かいはつ リポジトリ】</dt>
+  <dd><a class="icon github" href="https://github.com/yuya/change" target="_blank" rel="noopener noreferrer">yuya/change</a></dd>
+  <dt>【こうしん りれき】</dt>
+  <dd>
+    <ul>
+      <li>- <i class="mod-mochi">2020.03.25</i>　...　さいしょ の 公開</li>
+    </ul>
+  </dd>
+</dl>
 `.replace(/(^\n|\n$)/g, "");
 
-    const txt = new PIXI.Text(str, this.txtStyle);
-    txt.position.set(20, 20);
+    const txt = document.createTextNode(str);
+    const dom = document.createElement("div");
 
-    this.bg.txtBody.addChild(txt);
+    dom.id = "dom";
+    dom.className = "txt-body";
+    dom.innerHTML = str;
+
+    conf.canvas_el.appendChild(dom);
   }
 }

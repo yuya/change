@@ -2,15 +2,15 @@ import { gsap } from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
 import { Scene, CircleMenu,
-         AboutContent, ProfileContent, BeyooOoondsContent,
-         FavoriteContent, HistoryContent, CreditContent
+         AboutContent, ProfileContent, FavoriteContent,
+         BeyooOoondsContent, HistoryContent, CreditContent
        } from "views";
 
 const ContentType = {
   About       : 0,
   Profile     : 1,
-  BeyooOoonds : 2,
-  Favorite    : 3,
+  Favorite    : 2,
+  BeyooOoonds : 3,
   History     : 4,
   Credit      : 5,
 } as const;
@@ -25,7 +25,7 @@ export class HomeScene extends Scene {
   public constructor() {
     super();
 
-    this.lastIndex = 0;
+    this.lastIndex = ContentType.About;
 
     this.initLayout();
     this.attachEvent();
@@ -64,11 +64,11 @@ export class HomeScene extends Scene {
       case ContentType.Profile:
         this.content = new ProfileContent();
         break;
-      case ContentType.BeyooOoonds:
-        this.content = new BeyooOoondsContent();
-        break;
       case ContentType.Favorite:
         this.content = new FavoriteContent();
+        break;
+      case ContentType.BeyooOoonds:
+        this.content = new BeyooOoondsContent();
         break;
       case ContentType.History:
         this.content = new HistoryContent();

@@ -85,8 +85,9 @@ const removeDom = (idName: string): void => {
   document.body.removeChild(dom);
 };
 
-const copy2clipboard = (text: string): void => {
+const copy2clipboard = (text: string, msg?: string): void => {
   const textarea = document.createElement("textarea");
+  const message  = `${msg ? msg + " を " : ""}クリップボードにコピーしました！`; 
 
   textarea.textContent = text;
   document.body.appendChild(textarea);
@@ -95,7 +96,7 @@ const copy2clipboard = (text: string): void => {
   document.execCommand("copy");
   document.body.removeChild(textarea);
 
-  alert("クリップボードにコピーしました！");
+  alert(message);
 };
 
 export const utils = {

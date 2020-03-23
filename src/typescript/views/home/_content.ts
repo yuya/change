@@ -29,7 +29,7 @@ export abstract class Content {
       wordWrap: true,
       wordWrapWidth: 480
     };
-    this.txtStyle.lineHeight = this.txtStyle.fontSize * 1.8;
+    this.txtStyle.lineHeight = this.txtStyle.fontSize * 2;
   }
 
   public makeBackground(): void {
@@ -47,9 +47,9 @@ export abstract class Content {
     this.bg.txtHead.height = 64;
     this.bg.txtHead.position.set(40, 40);
 
-    this.bg.txtBody.width  = this.bg.content.width - 80;
-    this.bg.txtBody.height = this.bg.content.height - (this.bg.txtHead.position.y + this.bg.txtHead.height + 32) - 48;
-    this.bg.txtBody.position.set(40, 138);
+    this.bg.txtBody.width  = 520;
+    this.bg.txtBody.height = 548;
+    this.bg.txtBody.position.set(40, 132);
 
     this.bg.content.addChild(this.bg.txtHead, this.bg.txtBody);
   }
