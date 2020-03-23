@@ -22,6 +22,7 @@ export class BeyooOoondsModel {
       height     : 180,
       playerVars : {
         "start"          : 15,
+        // "start"          : 30,
         // "start"          : 95,
         "end"            : 105,
         "fs"             : 0,

@@ -1,10 +1,14 @@
 @font-face {
   font-family: "Nu Kinako Mochi";
-  src: url("/assets/NuKinakoMochi-Reg.otf");
+  src: url("/assets/NuKinakoMochi-Reg.woff2") format("woff2"),
+       url("/assets/NuKinakoMochi-Reg.woff") format("woff")
+  ;
 }
 @font-face {
   font-family: "JF Dot M+H 10";
-  src: url("/assets/JF-Dot-MPlusH10.ttf");
+  src: url("/assets/JF-Dot-MPlusH10.woff2") format("woff2"),
+       url("/assets/JF-Dot-MPlusH10.woff") format("woff")
+  ;
 }
 
 html, body, ul, li, dl, dt, dd, hr {
@@ -19,9 +23,7 @@ hr {
   border-top: 3px dashed #222;
 }
 
-a {
-  text-decoration: none;
-}
+a { text-decoration: none; }
 a:link, a:visited { color: #222; }
 
 .nowrap { white-space: nowrap; }
@@ -44,11 +46,12 @@ a:link, a:visited { color: #222; }
   background-position: 0 50%;
   content: "";
 }
-.icon.twitter::before { background-image: url("/assets/icon_twitter.png"); }
-.icon.github::before  { background-image: url("/assets/icon_github.png"); }
-.icon.gmail::before   { background-image: url("/assets/icon_gmail.png"); }
-.icon.youtube::before { background-image: url("/assets/icon_youtube.png"); }
-.icon.amazon::before  { background-image: url("/assets/icon_amazon.png"); }
+.icon.favorite::before { background-image: url("/assets/img/icon_favorite.png"); }
+.icon.twitter::before  { background-image: url("/assets/img/icon_twitter.png");  }
+.icon.github::before   { background-image: url("/assets/img/icon_github.png");   }
+.icon.gmail::before    { background-image: url("/assets/img/icon_gmail.png");    }
+.icon.youtube::before  { background-image: url("/assets/img/icon_youtube.png");  }
+.icon.amazon::before   { background-image: url("/assets/img/icon_amazon.png");   }
 
 .icon:hover::after,
 .icon:active::after,

@@ -70,7 +70,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>0</uint>
+        <uint>4</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -169,7 +169,7 @@
             <key>trimMargin</key>
             <uint>0</uint>
             <key>trimMode</key>
-            <enum type="SpriteSettings::TrimMode">None</enum>
+            <enum type="SpriteSettings::TrimMode">Crop</enum>
             <key>tracerTolerance</key>
             <int>200</int>
             <key>heuristicMask</key>
@@ -181,6 +181,21 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">../bg_label.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>42,13,83,26</rect>
+                <key>scale9Paddings</key>
+                <rect>42,13,83,26</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../btn_pause.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -211,6 +226,81 @@
                 <rect>20,20,40,40</rect>
                 <key>scale9Paddings</key>
                 <rect>20,20,40,40</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../label_color.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>27,10,53,19</rect>
+                <key>scale9Paddings</key>
+                <rect>27,10,53,19</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../label_future.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>34,10,67,19</rect>
+                <key>scale9Paddings</key>
+                <rect>34,10,67,19</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../label_job.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>17,10,33,19</rect>
+                <key>scale9Paddings</key>
+                <rect>17,10,33,19</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../label_life.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>20,10,39,19</rect>
+                <key>scale9Paddings</key>
+                <rect>20,10,39,19</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../label_myself.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>33,10,66,19</rect>
+                <key>scale9Paddings</key>
+                <rect>33,10,66,19</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -395,6 +485,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../txt_yhashimoto.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>23,2,45,3</rect>
+                <key>scale9Paddings</key>
+                <rect>23,2,45,3</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../ui_beyo.png</key>
             <key type="filename">../ui_chat.png</key>
             <key type="filename">../ui_menu_4.png</key>
@@ -478,6 +583,13 @@
             <filename>../ttl_sharamq.png</filename>
             <filename>../txt_pause.png</filename>
             <filename>../btn_pause.png</filename>
+            <filename>../bg_label.png</filename>
+            <filename>../label_color.png</filename>
+            <filename>../label_future.png</filename>
+            <filename>../label_job.png</filename>
+            <filename>../label_life.png</filename>
+            <filename>../label_myself.png</filename>
+            <filename>../txt_yhashimoto.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

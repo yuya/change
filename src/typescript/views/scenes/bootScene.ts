@@ -95,7 +95,7 @@ export class BootScene extends Scene {
     this.el.bootLogo.position.set(utils.display.centerX, -this.el.bootLogo.height);
 
     gsap.to(this.el.bootLogo, {
-      duration: utils.msec2sec(2750),
+      duration: utils.msec2sec(2500),
       ease: "linear",
       pixi: { y: utils.display.centerY },
       onComplete: () => {

@@ -245,11 +245,11 @@ export class IngameScene extends Scene {
     });
 
     this.game.eventHandler.once("fadeIn", () => {
-      this.fadeVolume(0, 100, 500);
+      this.fadeVolume(0, 100, 300);
     });
 
     this.game.eventHandler.once("fadeOut", () => {
-      this.fadeVolume(100, 0, 500);
+      this.fadeVolume(100, 0, 300);
     });
 
     this.player.on("ready",       () => { this.showIntro() });
@@ -394,6 +394,7 @@ export class IngameScene extends Scene {
   private spawnNote(): void {
     const approximate = utils.getApproximate(this.spawnTimes, this.currentTime);
     const index       = this.spawnTimes.indexOf(approximate);
+    const noteData    = this.noteDatas[index];
 
     // TODO: DEBUG
     if (approximate >= this.currentTime ||
@@ -407,31 +408,39 @@ export class IngameScene extends Scene {
     ball.scale.set(5, 5);
     this.container.addChild(ball);
 
-    const noteDuration = this.noteTable[approximate].note_duration;
+    const noteDuration = noteData.note_duration;
 
     const timeline = gsap.timeline({
-      ease: "linear",
+      // ease: "linear",
       onComplete: () => {
         // ball.destroy();
       }
     });
 
-    this.noteDatas[index].instance = timeline;
-    this.noteDatas[index].note_object = ball;
+    noteData.instance = timeline;
+    noteData.note_object = ball;
 
     timeline.to(ball, {
       // duration: utils.msec2sec(noteDuration),
-      duration: utils.msec2sec(noteDuration + 192),
-      // motionPath: "M 450 900 Q 250 150 150 400",
-      // motionPath: "M 450 900 Q 250 150 150 400",
-      // motionPath: "M 450 900 Q 250 50 150 500",
+      duration: utils.msec2sec(noteDuration),
+      ease: "linear",
       motionPath: [
         {"x":450,"y":900},
         {"x":316.66666666666663,"y":333.3333333333333},
         {"x":216.66666666666666,"y":200},
-        {"x":150,"y":500}
+        {"x":160,"y":370}
+        // {"x":150,"y":500}
       ],
-      pixi: { scale: 0.75 },
+      pixi: { scale: 1 },
+    });
+    timeline.to(ball, {
+      duration: utils.msec2sec(100),
+      ease: "easeOutExpo",
+      motionPath: [
+        // {"x":160,"y":370},
+        {"x":150,"y":500},
+      ],
+      pixi: { scale: 0.8 }
     });
 
     ball.once("perfect", () => {
@@ -485,36 +494,6 @@ export class IngameScene extends Scene {
         y: 512,
       });
     });
-    
-    // timeline.to(ball, {
-    //   duration: utils.msec2sec(192),
-    //   // motionPath: "M 150 400 Q 128 420 128 490",
-    //   motionPath: "M 150 400 Q 140 450 140 500",
-    //   pixi: { scale: 0.75 },
-    // });
-    
-    // anim.pause();
-
-    // let anim = gsap.to(ball, {
-    //   duration: utils.msec2sec(noteDuration),
-    //   // duration: utils.msec2sec(1000),
-    //   ease: "linear",
-    //   // motionPath: "M 500 950 C 450 150 200 350 200 375",
-    //   // motionPath: "M 600 900 Q 400 100 150 450",
-    //   // motionPath: "M 450 900 Q 250 50 150 500",
-    //   motionPath: "M 450 900 Q 250 150 150 400",
-    //   pixi: { scale: 1 },
-    //   onComplete: () => {
-    //     const actTime = utils.getApproximate(this.judgeTimes, approximate + noteDuration);
-
-    //     if (this.resultTable[actTime] == null) {
-    //       this.resultTable[actTime] = Result.ska;
-    //     }
-        
-    //     console.log(this.resultTable[actTime]);
-    //     ball.destroy();
-    //   }
-    // });
 
     if (this.noteTable[approximate].note_se) {
       this.sound.se[this.noteTable[approximate].note_se].play();
@@ -545,7 +524,6 @@ export class IngameScene extends Scene {
 
     this.playAnim(act);
     note.pause();
-    console.log(ball.position.x, ball.position.y, ball.scale);
 
     // Perfect
     if (absDiff <= this.model.judgeTiming.perfect) {

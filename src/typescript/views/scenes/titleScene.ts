@@ -9,24 +9,56 @@ export class TitleScene extends Scene {
   public constructor() {
     super();
 
-    this.textures     = this.assetData.load("textures");
-    this.el.titleLogo = utils.createSprite(this.textures["logo_dna.png"]);
-    this.rect.cover   = utils.createRect(conf.canvas_width, conf.canvas_height);
+    this.textures       = this.assetData.load("textures");
+    this.el.titleLogo   = utils.createSprite(this.textures["logo_change.png"]);
+    this.el.bgLabel     = utils.createSprite(this.textures["bg_label.png"]);
+    this.el.labelColor  = utils.createSprite(this.textures["label_color.png"]);
+    this.el.labelJob    = utils.createSprite(this.textures["label_job.png"]);
+    this.el.labelLife   = utils.createSprite(this.textures["label_life.png"]);
+    this.el.labelMyself = utils.createSprite(this.textures["label_myself.png"]);
+    this.el.labelFuture = utils.createSprite(this.textures["label_future.png"]);
+    this.rect.cover     = utils.createRect(conf.canvas_width, conf.canvas_height);
 
     this.initLayout();
     this.attachEvent();
 
-    this.renderTitleLogo();
+    // this.renderTitleLogo();
   }
 
   private initLayout(): void {
-    this.el.titleLogo.pivot.set(this.el.titleLogo.width / 2, this.el.titleLogo.height / 2);
-    this.el.titleLogo.width *= 2;
-    this.el.titleLogo.height *= 2;
-    this.el.titleLogo.position.set(utils.display.centerX, utils.display.centerY);
+    this.el.titleLogo.pivot.set(this.el.titleLogo.width / 2, this.el.titleLogo.height);
+    this.el.titleLogo.position.set(utils.display.centerX, utils.display.centerY - 24);
+    this.el.titleLogo.scale.set(2, 2);
+    this.el.bgLabel.pivot.set(this.el.bgLabel.width / 2, 0);
+    this.el.bgLabel.position.set(utils.display.centerX, utils.display.centerY + 24);
+    this.el.bgLabel.scale.set(2, 2);
+
+    this.el.bgLabel.addChild(
+      this.el.labelColor,
+      this.el.labelJob,
+      this.el.labelLife,
+      this.el.labelMyself,
+      this.el.labelFuture,
+    );
+
+    [
+      this.el.labelColor,
+      this.el.labelJob,
+      this.el.labelLife,
+      this.el.labelMyself,
+      this.el.labelFuture,
+    ].forEach((el) => {
+      this.el.bgLabel.addChild(el);
+      el.pivot.set(el.width / 2, el.height / 2);
+      el.position.set(this.el.bgLabel.width / 4, this.el.bgLabel.height / 4);
+      el.alpha = 0;
+    })
+
+    this.el.labelLife.alpha = 1;
+
     this.rect.cover.interactive = this.rect.cover.buttonMode = true;
 
-    this.container.addChild(this.el.titleLogo, this.rect.cover);
+    this.container.addChild(this.el.titleLogo, this.el.bgLabel, this.rect.cover);
     this.game.ticker.start();
   }
 
