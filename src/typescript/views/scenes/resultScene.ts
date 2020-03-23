@@ -21,7 +21,7 @@ export class ResultScene extends Scene {
     this.el  = {
       // result : utils.createSprite(this.textures["result_grade_low.png"]),
       // result : utils.createSprite(this.textures["result_grade_mid.png"]),
-      msgFoot   : utils.createSprite(this.textures["result_grade_high.png"]),
+      msgFoot   : utils.createSprite(this.textures[this.resultData.data.eval.labelPath]),
       outroImg  : utils.createSprite(this.textures["img_intro_beyooooonds.png"]),
     };
     this.rect = {
@@ -33,7 +33,6 @@ export class ResultScene extends Scene {
 
     const initialize = () => {
       this.initLayout();
-      this.attachEvent();
     };
 
     if (!this.sound.isLoaded) {
@@ -92,7 +91,8 @@ export class ResultScene extends Scene {
     this.container = new PIXI.Container();
     this.container.name = "container";
 
-    this.el.outroImg.pivot.set(this.el.outroImg.width / 2, this.el.outroImg.height / 2);
+    this.el.outroImg.scale.set(2, 2);
+    this.el.outroImg.pivot.set(this.el.outroImg.width / 4, this.el.outroImg.height / 4);
     this.el.outroImg.position.set(utils.display.centerX, utils.display.centerY);
 
     const msgOutroStr = this.resultData.data.outro.comment;
@@ -108,6 +108,7 @@ export class ResultScene extends Scene {
     this.rect.coverOutro.interactive = this.rect.coverOutro.buttonMode = true;
 
     this.sound.play("se", "poiiiiin");
+    this.attachEvent();
     this.container.addChild(this.el.outroImg, this.txt.msgOutro, this.rect.coverOutro);
     this.game.stage.addChild(this.container);
   }
@@ -126,44 +127,47 @@ export class ResultScene extends Scene {
   }
 
   private playResultTimeline(): void {
-    gsap.timeline()
-        .to(this.bgMsgHead, {
-          delay: utils.msec2sec(750),
-          duration: utils.msec2sec(10),
-          ease: "linear",
-          onStart: () => this.sound.play("se", "po"),
-          pixi: { alpha: 1 }
-        })
-        .to(this.txt.msgBody, {
-          delay: utils.msec2sec(1250),
-          duration: utils.msec2sec(10),
-          ease: "linear",
-          onStart: () => this.sound.play("se", "puin"),
-          pixi: { alpha: 1 }
-        })
-        .to(this.el.msgFoot, {
-          delay: utils.msec2sec(1650),
-          duration: utils.msec2sec(10),
-          ease: "linear",
-          onStart: () => this.sound.play("se", "spring"),
-          pixi: { alpha: 1 }
-        })
-    ;
+    const completeFn = () => {
+      this.rect.coverResult.addListener("pointerdown", () => {
+        gsap.to(this.container, {
+          duration: utils.msec2sec(100),
+          pixi: { alpha: 0 },
+          onComplete: () => {
+            this.container.destroy({ children: true });
+            this.showOutro();
+          }
+        });
+      });
+    };
+    const timeline = gsap.timeline({
+      onComplete: completeFn
+    });
+
+    timeline.to(this.bgMsgHead, {
+      delay: utils.msec2sec(750),
+      duration: utils.msec2sec(10),
+      ease: "linear",
+      onStart: () => this.sound.play("se", "po"),
+      pixi: { alpha: 1 }
+    });
+    timeline.to(this.txt.msgBody, {
+      delay: utils.msec2sec(1250),
+      duration: utils.msec2sec(10),
+      ease: "linear",
+      onStart: () => this.sound.play("se", "puin"),
+      pixi: { alpha: 1 }
+    });
+    timeline.to(this.el.msgFoot, {
+      delay: utils.msec2sec(1650),
+      duration: utils.msec2sec(10),
+      ease: "linear",
+      onStart: () => this.sound.play("se", "spring"),
+      pixi: { alpha: 1 }
+    });
   }
 
   private attachEvent(): void {
     const nextSceneName = this.userData.load("nextSceneName");
-
-    this.rect.coverResult.addListener("pointerdown", () => {
-      gsap.to(this.container, {
-        duration: utils.msec2sec(100),
-        pixi: { alpha: 0 },
-        onComplete: () => {
-          this.container.destroy({ children: true });
-          this.showOutro();
-        }
-      });
-    });
 
     this.rect.coverOutro.addListener("pointerdown", () => {
       gsap.to(this.container, {

@@ -413,7 +413,7 @@ export class IngameScene extends Scene {
     const timeline = gsap.timeline({
       // ease: "linear",
       onComplete: () => {
-        // ball.destroy();
+        ball.destroy();
       }
     });
 
@@ -453,6 +453,7 @@ export class IngameScene extends Scene {
         ease: "linear",
         x: 640,
         y: 120,
+        onComplete: () => { ball.destroy() }
       });
     });
 
@@ -466,6 +467,7 @@ export class IngameScene extends Scene {
         ease: "linear",
         x: 640,
         y: 240,
+        onComplete: () => { ball.destroy() }
       });
     });
 
@@ -479,6 +481,7 @@ export class IngameScene extends Scene {
         ease: "linear",
         x: 512,
         y: 320,
+        onComplete: () => { ball.destroy() }
       });
     });
 
@@ -492,6 +495,7 @@ export class IngameScene extends Scene {
         ease: "linear",
         x: 320,
         y: 512,
+        onComplete: () => { ball.destroy() }
       });
     });
 

@@ -42,7 +42,8 @@ export class Intro {
   }
 
   private initKeyv(): void {
-    this.keyv.pivot.set(this.keyv.width / 2, this.keyv.height / 2);
+    this.keyv.scale.set(2, 2);
+    this.keyv.pivot.set(this.keyv.width / 4, this.keyv.height / 4);
     this.keyv.position.set(utils.display.centerX, utils.display.centerY);
 
     this.sound.play("jingle", "intro");
