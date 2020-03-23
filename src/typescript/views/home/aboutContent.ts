@@ -12,10 +12,11 @@ export class AboutContent extends Content {
   }
 
   private setTitle() {
-    // このサイトはなに？
-    const title = utils.createSprite(this.textures["ttl_profile.png"]);
+    // ここは何？
+    const title = utils.createSprite(this.textures["ttl_about.png"]);
 
-    title.position.set(10, 12);
+    title.scale.set(2, 2);
+    title.position.set(12, 7);
     this.bg.txtHead.addChild(title);
   }
 

@@ -17,7 +17,7 @@ export class BeyooOoondsContent extends Content {
     // ニッポンノ D・N・A！
     const title = utils.createSprite(this.textures["ttl_beyooooonds.png"]);
 
-    title.position.set(8, 6);
+    title.position.set(12, 7);
     this.bg.txtHead.addChild(title);
   }
 

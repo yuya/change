@@ -24,18 +24,18 @@ export class CircleMenu {
     this.game     = GameController.instance;
     this.textures = this.game.assetData.load("textures");
     this.circles  = [
-      utils.createSprite(this.textures["ui_tunk.png"]),
-      utils.createSprite(this.textures["ui_chat.png"]),
-      utils.createSprite(this.textures["ui_beyo.png"]),
-      utils.createSprite(this.textures["ui_menu_4.png"]),
-      utils.createSprite(this.textures["ui_menu_5.png"]),
-      utils.createSprite(this.textures["ui_prof.png"]),
-      utils.createSprite(this.textures["ui_tunk.png"]),
-      utils.createSprite(this.textures["ui_chat.png"]),
-      utils.createSprite(this.textures["ui_beyo.png"]),
-      utils.createSprite(this.textures["ui_menu_4.png"]),
-      utils.createSprite(this.textures["ui_menu_5.png"]),
-      utils.createSprite(this.textures["ui_prof.png"])
+      utils.createSprite(this.textures["menu_about.png"]),
+      utils.createSprite(this.textures["menu_profile.png"]),
+      utils.createSprite(this.textures["menu_favorite.png"]),
+      utils.createSprite(this.textures["menu_beyooooonds.png"]),
+      utils.createSprite(this.textures["menu_history.png"]),
+      utils.createSprite(this.textures["menu_credit.png"]),
+      utils.createSprite(this.textures["menu_about.png"]),
+      utils.createSprite(this.textures["menu_profile.png"]),
+      utils.createSprite(this.textures["menu_favorite.png"]),
+      utils.createSprite(this.textures["menu_beyooooonds.png"]),
+      utils.createSprite(this.textures["menu_history.png"]),
+      utils.createSprite(this.textures["menu_credit.png"])
     ];
 
     this.state = {};

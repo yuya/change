@@ -197,6 +197,12 @@
                 <false/>
             </struct>
             <key type="filename">../btn_pause.png</key>
+            <key type="filename">../menu_about.png</key>
+            <key type="filename">../menu_beyooooonds.png</key>
+            <key type="filename">../menu_credit.png</key>
+            <key type="filename">../menu_favorite.png</key>
+            <key type="filename">../menu_history.png</key>
+            <key type="filename">../menu_profile.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -226,6 +232,21 @@
                 <rect>20,20,40,40</rect>
                 <key>scale9Paddings</key>
                 <rect>20,20,40,40</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../img_intro_beyooooonds.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>60,40,120,80</rect>
+                <key>scale9Paddings</key>
+                <rect>60,40,120,80</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -259,21 +280,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../label_job.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>17,10,33,19</rect>
-                <key>scale9Paddings</key>
-                <rect>17,10,33,19</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">../label_life.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -301,6 +307,21 @@
                 <rect>33,10,66,19</rect>
                 <key>scale9Paddings</key>
                 <rect>33,10,66,19</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../label_rule.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>21,10,42,19</rect>
+                <key>scale9Paddings</key>
+                <rect>21,10,42,19</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -379,8 +400,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../tmp_intro.png</key>
-            <key type="filename">../tmp_outro.png</key>
+            <key type="filename">../ttl_about.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -389,24 +409,9 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>120,80,240,160</rect>
+                <rect>32,8,64,16</rect>
                 <key>scale9Paddings</key>
-                <rect>120,80,240,160</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../tmp_title.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>48,8,96,16</rect>
-                <key>scale9Paddings</key>
-                <rect>48,8,96,16</rect>
+                <rect>32,8,64,16</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -425,7 +430,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../ttl_chatmonchy.png</key>
+            <key type="filename">../ttl_favorite.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -434,9 +439,9 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>37,12,73,24</rect>
+                <rect>33,7,65,13</rect>
                 <key>scale9Paddings</key>
-                <rect>37,12,73,24</rect>
+                <rect>33,7,65,13</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -449,24 +454,9 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>48,12,96,24</rect>
+                <rect>33,8,66,16</rect>
                 <key>scale9Paddings</key>
-                <rect>48,12,96,24</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../ttl_sharamq.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>50,12,100,24</rect>
-                <key>scale9Paddings</key>
-                <rect>50,12,100,24</rect>
+                <rect>33,8,66,16</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -497,26 +487,6 @@
                 <rect>23,2,45,3</rect>
                 <key>scale9Paddings</key>
                 <rect>23,2,45,3</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../ui_beyo.png</key>
-            <key type="filename">../ui_chat.png</key>
-            <key type="filename">../ui_menu_4.png</key>
-            <key type="filename">../ui_menu_5.png</key>
-            <key type="filename">../ui_prof.png</key>
-            <key type="filename">../ui_tunk.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>32,32,64,64</rect>
-                <key>scale9Paddings</key>
-                <rect>32,32,64,64</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -561,35 +531,33 @@
             <filename>../btn_vol_on_o.png</filename>
             <filename>../logo_change.png</filename>
             <filename>../logo_dna.png</filename>
-            <filename>../tmp_title.png</filename>
             <filename>../ui_bg_menu_blue.png</filename>
             <filename>../ui_bg_menu_green.png</filename>
             <filename>../ui_bg_text_slice.png</filename>
-            <filename>../ui_menu_5.png</filename>
             <filename>../result_grade_high.png</filename>
             <filename>../result_grade_low.png</filename>
             <filename>../result_grade_mid.png</filename>
-            <filename>../ui_beyo.png</filename>
-            <filename>../ui_chat.png</filename>
-            <filename>../ui_prof.png</filename>
-            <filename>../ui_tunk.png</filename>
-            <filename>../ui_menu_4.png</filename>
             <filename>../ui_button.png</filename>
-            <filename>../tmp_intro.png</filename>
-            <filename>../tmp_outro.png</filename>
             <filename>../ttl_beyooooonds.png</filename>
-            <filename>../ttl_chatmonchy.png</filename>
-            <filename>../ttl_profile.png</filename>
-            <filename>../ttl_sharamq.png</filename>
             <filename>../txt_pause.png</filename>
             <filename>../btn_pause.png</filename>
             <filename>../bg_label.png</filename>
             <filename>../label_color.png</filename>
             <filename>../label_future.png</filename>
-            <filename>../label_job.png</filename>
             <filename>../label_life.png</filename>
             <filename>../label_myself.png</filename>
             <filename>../txt_yhashimoto.png</filename>
+            <filename>../img_intro_beyooooonds.png</filename>
+            <filename>../label_rule.png</filename>
+            <filename>../ttl_about.png</filename>
+            <filename>../ttl_favorite.png</filename>
+            <filename>../menu_beyooooonds.png</filename>
+            <filename>../menu_profile.png</filename>
+            <filename>../menu_about.png</filename>
+            <filename>../menu_favorite.png</filename>
+            <filename>../menu_credit.png</filename>
+            <filename>../menu_history.png</filename>
+            <filename>../ttl_profile.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

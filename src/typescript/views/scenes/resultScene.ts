@@ -22,7 +22,7 @@ export class ResultScene extends Scene {
       // result : utils.createSprite(this.textures["result_grade_low.png"]),
       // result : utils.createSprite(this.textures["result_grade_mid.png"]),
       msgFoot   : utils.createSprite(this.textures["result_grade_high.png"]),
-      outroImg  : utils.createSprite(this.textures["tmp_outro.png"]),
+      outroImg  : utils.createSprite(this.textures["img_intro_beyooooonds.png"]),
     };
     this.rect = {
       background  : utils.createRect(conf.canvas_width, conf.canvas_height, conf.color.black),

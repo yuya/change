@@ -13,16 +13,21 @@ export class CreditContent extends Content {
 
   private setTitle() {
     // クレジット
-    const title = utils.createSprite(this.textures["ttl_profile.png"]);
+    // TODO
+    const title = new PIXI.Text("クレジット", {
+      fill: conf.color.black,
+      fontFamily: conf.font.family,
+      fontSize: 32,
+    });
 
-    title.position.set(8, 6);
+    title.position.set(12, 3);
     this.bg.txtHead.addChild(title);
   }
 
   private setText() {
     const str = `
 <dl>
-  <dt>【きかく デザイン じっそう】</dt>
+  <dt>【きかく/デザイン/じっそう】</dt>
   <dd>橋本 雄也</dd>
   <dt>【えいぞう】</dt>
   <dd><a class="icon youtube" href="https://www.youtube.com/watch?v=KYVMtijS74U" target="_blank" rel="noopener noreferrer">ニッポンノ<i class="mod-mochi">D・N・A</i>！</a> <i class="mod-mochi">(<a class="icon favorite" href="http://www.helloproject.com/beyooooonds/" target="_blank" rel="noopener noreferrer">Beyooooonds</a>)</i>

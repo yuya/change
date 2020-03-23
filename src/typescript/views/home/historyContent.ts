@@ -13,9 +13,14 @@ export class HistoryContent extends Content {
 
   private setTitle() {
     // 更新履歴
-    const title = utils.createSprite(this.textures["ttl_chatmonchy.png"]);
+    // TODO
+    const title = new PIXI.Text("更新履歴", {
+      fill: conf.color.black,
+      fontFamily: "JF Dot M+H 10, sans-serif",
+      fontSize: 32,
+    });
 
-    title.position.set(8, 6);
+    title.position.set(12, 14);
     this.bg.txtHead.addChild(title);
   }
 

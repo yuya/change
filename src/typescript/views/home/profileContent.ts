@@ -17,7 +17,8 @@ export class ProfileContent extends Content {
     // 橋本雄也
     const title = utils.createSprite(this.textures["ttl_profile.png"]);
 
-    title.position.set(10, 12);
+    title.scale.set(2, 2);
+    title.position.set(12, 7);
     this.bg.txtHead.addChild(title);
   }
 
