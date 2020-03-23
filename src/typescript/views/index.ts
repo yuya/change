@@ -9,11 +9,11 @@ export { ResultScene } from "./scenes/resultScene";
 // home -> parts
 export { CircleMenu } from "./home/circleMenu";
 
-// home -> parts -> content
+// home -> content
 export { Content } from "./home/_content";
 export { AboutContent } from "./home/aboutContent";
-export { ContactContent } from "./home/contactContent";
 export { ProfileContent } from "./home/profileContent";
-export { SharamQContent } from "./home/sharamQContent";
-export { ChatMonchyContent } from "./home/chatMonchyContent";
 export { BeyooOoondsContent } from "./home/beyooOoondsContent";
+export { FavoriteContent } from "./home/favoriteContent";
+export { HistoryContent } from "./home/historyContent";
+export { CreditContent } from "./home/creditContent";

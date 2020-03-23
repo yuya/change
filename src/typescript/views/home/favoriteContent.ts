@@ -2,7 +2,7 @@ import { utils } from "utils";
 import { UserData } from "models";
 import { Content } from "views";
 
-export class SharamQContent extends Content {
+export class FavoriteContent extends Content {
   public constructor() {
     super();
 

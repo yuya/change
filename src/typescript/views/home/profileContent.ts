@@ -1,6 +1,6 @@
+import { conf } from "conf";
 import { utils } from "utils";
 import { Content } from "views";
-import { conf } from "conf";
 
 export class ProfileContent extends Content {
   public constructor() {
@@ -10,13 +10,13 @@ export class ProfileContent extends Content {
     this.setTitle();
     this.setText();
 
-    this.attachEvent();
+    // this.attachEvent();
   }
 
   private setTitle() {
     const title = utils.createSprite(this.textures["ttl_profile.png"]);
 
-    title.position.set(8, 6);
+    title.position.set(10, 12);
     this.bg.txtHead.addChild(title);
   }
 
@@ -51,16 +51,6 @@ export class ProfileContent extends Content {
   </ul>
 </dd>
 </dl>
-
-<hr>
-
-<ul class="table col-2">
-  <li><a class="icon twitter" href="https://twitter.com/yuya" target="_blank" rel="noopener noreferrer">@yuya</a></li>
-  <li><a class="icon github" href="https://github.com/yuya" target="_blank" rel="noopener noreferrer">@yuya</a></li>
-</ul>
-<ul>
-  <li><span class="icon gmail cursor-pointer js-mail-addr">&#109;&#97;&#105;&#108;&#64;&#121;&#117;&#121;&#97;&#46;&#105;&#109;</span></li>
-</ul>
 `.replace(/(^\n|\n$)/g, "");
 
     const txt = document.createTextNode(str);
@@ -73,25 +63,12 @@ export class ProfileContent extends Content {
     conf.canvas_el.appendChild(dom);
   }
 
-  private copy2clipboard(text: string): void {
-    const textarea = document.createElement("textarea");
+  // private attachEvent(): void {
+  //   const element  = document.querySelector(".js-mail-addr");
+  //   const mailAddr = element.childNodes[0].textContent;
 
-    textarea.textContent = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-
-    alert("クリップボードにコピーしました！");
-  }
-
-  private attachEvent(): void {
-    const element  = document.querySelector(".js-mail-addr");
-    const mailAddr = element.childNodes[0].textContent;
-
-    element.addEventListener("click", () => {
-      this.copy2clipboard(mailAddr);
-    }, false);
-  }
+  //   element.addEventListener("click", () => {
+  //     this.copy2clipboard(mailAddr);
+  //   }, false);
+  // }
 }

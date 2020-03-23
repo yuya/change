@@ -1,7 +1,7 @@
 import { utils } from "utils";
 import { Content } from "views";
 
-export class ContactContent extends Content {
+export class CreditContent extends Content {
   public constructor() {
     super();
 

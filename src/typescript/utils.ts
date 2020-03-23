@@ -85,6 +85,19 @@ const removeDom = (idName: string): void => {
   document.body.removeChild(dom);
 };
 
+const copy2clipboard = (text: string): void => {
+  const textarea = document.createElement("textarea");
+
+  textarea.textContent = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+
+  alert("クリップボードにコピーしました！");
+};
+
 export const utils = {
   "display"        : display,
   "msec2sec"       : msec2sec,
@@ -96,4 +109,5 @@ export const utils = {
   "emitDomEvent"   : emitDomEvent,
   "appendDom"      : appendDom,
   "removeDom"      : removeDom,
+  "copy2clipboard" : copy2clipboard,
 };

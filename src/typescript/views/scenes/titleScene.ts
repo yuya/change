@@ -22,12 +22,13 @@ export class TitleScene extends Scene {
     this.initLayout();
     this.attachEvent();
 
+    // TODO
     // this.renderTitleLogo();
   }
 
   private initLayout(): void {
-    this.el.titleLogo.pivot.set(this.el.titleLogo.width / 2, this.el.titleLogo.height);
-    this.el.titleLogo.position.set(utils.display.centerX, utils.display.centerY - 24);
+    this.el.titleLogo.pivot.set(this.el.titleLogo.width / 2, 0);
+    this.el.titleLogo.position.set(utils.display.centerX, 400);
     this.el.titleLogo.scale.set(2, 2);
     this.el.bgLabel.pivot.set(this.el.bgLabel.width / 2, 0);
     this.el.bgLabel.position.set(utils.display.centerX, utils.display.centerY + 24);
@@ -80,7 +81,8 @@ export class TitleScene extends Scene {
       });
     });
 
-    this.sound.play("bgm", "title");
+    // TODO
+    // this.sound.play("bgm", "title");
   }
 
   private renderTitleLogo(): void {

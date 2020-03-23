@@ -40,8 +40,8 @@ a:link, a:visited { color: #222; }
   top: 0;
   left: 4px;
   width: 24px;
-  height: 36px;
-  line-height: 36px;
+  height: 40px;
+  line-height: 40px;
   background-repeat: no-repeat;
   background-position: 0 50%;
   content: "";
@@ -198,13 +198,15 @@ iframe#youtube {
 
 .txt-body {
   position: absolute;
-  top: 178px;
-  left: 80px;
+  top: 174px;
+  left: 78px;
   width: 480px;
   font-size: 20px;
   font-family: "Nu Kinako Mochi", "JF Dot M+H 10", sans-serif;
-  line-height: 36px;
+  line-height: 40px;
   text-align: left;
   -ms-interpolation-mode: nearest-neighbor;
   image-rendering: pixelated;
 }
+.txt-body dd { margin-bottom: 1em; }
+.txt-body dd:last-child { margin-bottom: 0; }

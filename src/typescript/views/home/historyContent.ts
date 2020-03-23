@@ -1,7 +1,7 @@
 import { utils } from "utils";
 import { Content } from "views";
 
-export class ChatMonchyContent extends Content {
+export class HistoryContent extends Content {
   public constructor() {
     super();
 

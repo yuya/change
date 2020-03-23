@@ -48,8 +48,8 @@ export abstract class Content {
     this.bg.txtHead.position.set(40, 40);
 
     this.bg.txtBody.width  = this.bg.content.width - 80;
-    this.bg.txtBody.height = this.bg.content.height - (this.bg.txtHead.position.y + this.bg.txtHead.height + 30) - 50;
-    this.bg.txtBody.position.set(40, 40+100);
+    this.bg.txtBody.height = this.bg.content.height - (this.bg.txtHead.position.y + this.bg.txtHead.height + 32) - 48;
+    this.bg.txtBody.position.set(40, 138);
 
     this.bg.content.addChild(this.bg.txtHead, this.bg.txtBody);
   }

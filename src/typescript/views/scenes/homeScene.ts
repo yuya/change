@@ -2,17 +2,17 @@ import { gsap } from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
 import { Scene, CircleMenu,
-         AboutContent, ContactContent, ProfileContent,
-         SharamQContent, ChatMonchyContent, BeyooOoondsContent
+         AboutContent, ProfileContent, BeyooOoondsContent,
+         FavoriteContent, HistoryContent, CreditContent
        } from "views";
 
 const ContentType = {
-  SharamQ     : 0,
-  ChatMonchy  : 1,
+  About       : 0,
+  Profile     : 1,
   BeyooOoonds : 2,
-  Contact     : 3,
-  Profile     : 4,
-  About       : 5,
+  Favorite    : 3,
+  History     : 4,
+  Credit      : 5,
 } as const;
 type ContentType = typeof ContentType[keyof typeof ContentType];
 
@@ -58,23 +58,23 @@ export class HomeScene extends Scene {
   private renderContent(index: number = 0): void {
     switch (index) {
       default:
-      case ContentType.SharamQ:
-        this.content = new SharamQContent();
-        break;
-      case ContentType.ChatMonchy:
-        this.content = new ChatMonchyContent();
-        break;
-      case ContentType.BeyooOoonds:
-        this.content = new BeyooOoondsContent();
-        break;
-      case ContentType.Contact:
-        this.content = new ContactContent();
+      case ContentType.About:
+        this.content = new AboutContent();
         break;
       case ContentType.Profile:
         this.content = new ProfileContent();
         break;
-      case ContentType.About:
-        this.content = new AboutContent();
+      case ContentType.BeyooOoonds:
+        this.content = new BeyooOoondsContent();
+        break;
+      case ContentType.Favorite:
+        this.content = new FavoriteContent();
+        break;
+      case ContentType.History:
+        this.content = new HistoryContent();
+        break;
+      case ContentType.Credit:
+        this.content = new CreditContent();
         break;
     }
 
