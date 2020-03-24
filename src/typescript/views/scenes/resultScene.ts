@@ -30,6 +30,7 @@ export class ResultScene extends Scene {
       coverOutro  : utils.createRect(conf.canvas_width, conf.canvas_height),
     };
     utils.setNameToObj(this.rect);
+    conf.root_el.classList.add("bg-black");
 
     const initialize = () => {
       this.initLayout();
@@ -174,6 +175,7 @@ export class ResultScene extends Scene {
         duration: utils.msec2sec(100),
         pixi: { alpha: 0 },
         onComplete: () => {
+          conf.root_el.classList.remove("bg-black");
           this.rect.background.destroy();
           this.destroy();
           this.game.route(nextSceneName);

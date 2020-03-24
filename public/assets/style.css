@@ -123,8 +123,13 @@ body {
   vertical-align: middle;
 }
 .is-paused body { background-color: #4E4D47; }
+.bg-black  body { background-color: #222; }
 .is-paused #container::before,
-.is-paused #container::after { display: none; }
+.is-paused #container::after,
+.bg-black #container::before,
+.bg-black #container::after {
+  display: none;
+}
 canvas {
   position: relative;
   /* outline: 6px solid #222; */
@@ -198,15 +203,6 @@ iframe#youtube {
 }
 #spinner.show { display: block; }
 #spinner.hide { display: none; }
-
-#debug-timer {
-  position: absolute;
-  top: 10px;
-  right: 0;
-  left: 0;
-  margin: auto;
-  font-family: monospace;
-}
 
 .txt-body {
   position: absolute;

@@ -13,7 +13,7 @@ export class TitleScene extends Scene {
     this.el.titleLogo   = utils.createSprite(this.textures["logo_change.png"]);
     this.el.bgLabel     = utils.createSprite(this.textures["bg_label.png"]);
     this.el.labelColor  = utils.createSprite(this.textures["label_color.png"]);
-    this.el.labelJob    = utils.createSprite(this.textures["label_job.png"]);
+    this.el.labelRule   = utils.createSprite(this.textures["label_rule.png"]);
     this.el.labelLife   = utils.createSprite(this.textures["label_life.png"]);
     this.el.labelMyself = utils.createSprite(this.textures["label_myself.png"]);
     this.el.labelFuture = utils.createSprite(this.textures["label_future.png"]);
@@ -36,7 +36,7 @@ export class TitleScene extends Scene {
 
     this.el.bgLabel.addChild(
       this.el.labelColor,
-      this.el.labelJob,
+      this.el.labelRule,
       this.el.labelLife,
       this.el.labelMyself,
       this.el.labelFuture,
@@ -44,7 +44,7 @@ export class TitleScene extends Scene {
 
     [
       this.el.labelColor,
-      this.el.labelJob,
+      this.el.labelRule,
       this.el.labelLife,
       this.el.labelMyself,
       this.el.labelFuture,
