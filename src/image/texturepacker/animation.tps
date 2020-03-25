@@ -151,7 +151,7 @@
         <key>autoAliasEnabled</key>
         <true/>
         <key>trimSpriteNames</key>
-        <false/>
+        <true/>
         <key>prependSmartFolderName</key>
         <false/>
         <key>autodetectAnimations</key>
@@ -161,7 +161,7 @@
             <key>scale</key>
             <double>1</double>
             <key>scaleMode</key>
-            <enum type="ScaleMode">Smooth</enum>
+            <enum type="ScaleMode">Fast</enum>
             <key>extrude</key>
             <uint>1</uint>
             <key>trimThreshold</key>
@@ -181,6 +181,23 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">../anim_note_bomb.png</key>
+            <key type="filename">../anim_note_chaos.png</key>
+            <key type="filename">../anim_note_virus.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,16,32,32</rect>
+                <key>scale9Paddings</key>
+                <rect>16,16,32,32</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../anim_punch_l_0.png</key>
             <key type="filename">../anim_punch_l_1.png</key>
             <key type="filename">../anim_punch_l_2.png</key>
@@ -224,6 +241,9 @@
             <filename>../anim_wait_0.png</filename>
             <filename>../anim_wait_1.png</filename>
             <filename>../anim_wait_2.png</filename>
+            <filename>../anim_note_bomb.png</filename>
+            <filename>../anim_note_chaos.png</filename>
+            <filename>../anim_note_virus.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
