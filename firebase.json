@@ -4,6 +4,7 @@
     "rewrites": [
       {
         "source": "**",
+        "destination": "/index.html",
         "function": "app"
       }
     ],
@@ -18,6 +19,7 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "predeploy": "yarn run build:prod"
   }
 }
