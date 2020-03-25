@@ -7,7 +7,7 @@ import { AssetData } from "models";
 const gameController: GameController = GameController.instance;
 const assetData: AssetData = AssetData.instance;
 const loadTarget: { [key:string] : string } = {
-  "spritePath"  : "/assets/spritesheet.json",
+  "spritePath"  : "/assets/json/spritesheet_ui.json",
   "animation"   : "/assets/animation.json",
   "beyooOoonds" : "/assets/json/ingame_beyooooonds.json",
 };

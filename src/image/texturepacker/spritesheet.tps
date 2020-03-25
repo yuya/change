@@ -401,6 +401,7 @@
                 <false/>
             </struct>
             <key type="filename">../ttl_about.png</key>
+            <key type="filename">../ttl_credit.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -442,6 +443,21 @@
                 <rect>33,7,65,13</rect>
                 <key>scale9Paddings</key>
                 <rect>33,7,65,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../ttl_history.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,8,63,16</rect>
+                <key>scale9Paddings</key>
+                <rect>32,8,63,16</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -558,6 +574,8 @@
             <filename>../menu_credit.png</filename>
             <filename>../menu_history.png</filename>
             <filename>../ttl_profile.png</filename>
+            <filename>../ttl_credit.png</filename>
+            <filename>../ttl_history.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

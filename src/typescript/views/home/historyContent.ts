@@ -13,14 +13,10 @@ export class HistoryContent extends Content {
 
   private setTitle() {
     // 更新履歴
-    // TODO
-    const title = new PIXI.Text("更新履歴", {
-      fill: conf.color.black,
-      fontFamily: "JF Dot M+H 10, sans-serif",
-      fontSize: 32,
-    });
+    const title = utils.createSprite(this.textures["ttl_history"]);
 
-    title.position.set(12, 14);
+    title.scale.set(2, 2);
+    title.position.set(12, 7);
     this.bg.txtHead.addChild(title);
   }
 

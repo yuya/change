@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Nu Kinako Mochi";
-  src: url("/assets/NuKinakoMochi-Reg.woff2") format("woff2"),
-       url("/assets/NuKinakoMochi-Reg.woff") format("woff")
+  src: url("/assets/font/NuKinakoMochi-Reg.woff2") format("woff2"),
+       url("/assets/font/NuKinakoMochi-Reg.woff") format("woff")
   ;
 }
 @font-face {
   font-family: "JF Dot M+H 10";
-  src: url("/assets/JF-Dot-MPlusH10.woff2") format("woff2"),
-       url("/assets/JF-Dot-MPlusH10.woff") format("woff")
+  src: url("/assets/font/JF-Dot-MPlusH10.woff2") format("woff2"),
+       url("/assets/font/JF-Dot-MPlusH10.woff") format("woff")
   ;
 }
 

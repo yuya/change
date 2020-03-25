@@ -13,14 +13,10 @@ export class CreditContent extends Content {
 
   private setTitle() {
     // クレジット
-    // TODO
-    const title = new PIXI.Text("クレジット", {
-      fill: conf.color.black,
-      fontFamily: conf.font.family,
-      fontSize: 32,
-    });
+    const title = utils.createSprite(this.textures["ttl_credit"]);
 
-    title.position.set(12, 3);
+    title.scale.set(2, 2);
+    title.position.set(12, 7);
     this.bg.txtHead.addChild(title);
   }
 
