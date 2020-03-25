@@ -1,9 +1,12 @@
 import { conf } from "conf";
 import { utils } from "utils";
 import { UserData } from "models";
+import { SoundController } from "controllers";
 import { Content } from "views";
 
 export class BeyooOoondsContent extends Content {
+  private sound : SoundController;
+
   public constructor() {
     super();
 
@@ -11,11 +14,13 @@ export class BeyooOoondsContent extends Content {
     this.setTitle();
     this.setText();
     this.setButton();
+
+    this.sound = SoundController.instance;
   }
 
   private setTitle() {
     // ニッポンノ D・N・A！
-    const title = utils.createSprite(this.textures["ttl_beyooooonds.png"]);
+    const title = utils.createSprite(this.textures["ttl_beyooooonds"]);
 
     title.position.set(12, 7);
     this.bg.txtHead.addChild(title);
@@ -43,7 +48,7 @@ export class BeyooOoondsContent extends Content {
   }
 
   private setButton() {
-    const button = utils.createSprite(this.textures["ui_button.png"]);
+    const button = utils.createSprite(this.textures["ui_button"]);
     const nextSceneName = UserData.instance.load("nextSceneName");
 
     button.pivot.set(button.width / 2, 0);
@@ -52,6 +57,7 @@ export class BeyooOoondsContent extends Content {
 
     button.addListener("pointerdown", () => {
       this.destroy();
+      this.sound.bgm["home"].fade(1, 0, 1000);
       this.game.currentScene.destroy();
       this.game.route(nextSceneName);
     }, button);

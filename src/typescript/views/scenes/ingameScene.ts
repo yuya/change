@@ -123,6 +123,7 @@ export class IngameScene extends Scene {
   private loopTimer   : number;
   private interval    : number;
   private ytOptions   : object;
+  private animParts   : any;
   private animSprites : AnimSprites;
   private currentAnim : PIXI.AnimatedSprite;
 
@@ -142,6 +143,7 @@ export class IngameScene extends Scene {
     this.isPaused    = false;
     this.rawScore    = 0;
     this.rect.cover  = utils.createRect(conf.canvas_width, conf.canvas_height);
+    this.animParts   = this.assetData.load("animation").spritesheet.textures;
 
     this.game.events["enablePause"] = this.enablePause.bind(this);
 
@@ -306,7 +308,7 @@ export class IngameScene extends Scene {
     this.animSprites.wait.play();
     this.currentAnim = this.animSprites.wait;
 
-    this.el.pauseBtn = utils.createSprite(this.textures["btn_pause.png"]);
+    this.el.pauseBtn = utils.createSprite(this.textures["btn_pause"]);
     this.el.pauseBtn.buttonMode = this.el.pauseBtn.interactive = true;
     this.el.pauseBtn.position.set(20, 20);
 
@@ -329,7 +331,7 @@ export class IngameScene extends Scene {
     this.game.ticker.stop();
     utils.appendDom("yt-overlay");
     conf.root_el.classList.toggle("is-paused");
-    this.el.txtPause  = utils.createSprite(this.textures["txt_pause.png"]);
+    this.el.txtPause  = utils.createSprite(this.textures["txt_pause"]);
     this.rect.overlay = utils.createRect(conf.canvas_width, conf.canvas_height, 0x222222, 0.75);
     this.rect.overlay.interactive = this.rect.overlay.buttonMode = true;
 
@@ -402,9 +404,9 @@ export class IngameScene extends Scene {
       return;
     }
 
-    const ball = utils.createSprite(this.textures["btn_pause.png"]);
-    // ball.pivot.set(ball.width, ball.height);
-    ball.position.set(conf.canvas_width, conf.canvas_height);
+    const ball = utils.createSprite(this.animParts[`anim_note_${noteData.note_type}`]);
+    // ball.position.set(conf.canvas_width, conf.canvas_height);
+    ball.position.set(450, 900);
     ball.scale.set(5, 5);
     this.container.addChild(ball);
 

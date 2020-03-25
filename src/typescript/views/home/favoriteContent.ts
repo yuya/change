@@ -14,7 +14,7 @@ export class FavoriteContent extends Content {
 
   private setTitle() {
     // 私の沼事情
-    const title = utils.createSprite(this.textures["ttl_favorite.png"]);
+    const title = utils.createSprite(this.textures["ttl_favorite"]);
 
     title.scale.set(2, 2);
     title.position.set(12, 7);

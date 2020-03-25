@@ -10,13 +10,13 @@ export class TitleScene extends Scene {
     super();
 
     this.textures       = this.assetData.load("textures");
-    this.el.titleLogo   = utils.createSprite(this.textures["logo_change.png"]);
-    this.el.bgLabel     = utils.createSprite(this.textures["bg_label.png"]);
-    this.el.labelColor  = utils.createSprite(this.textures["label_color.png"]);
-    this.el.labelRule   = utils.createSprite(this.textures["label_rule.png"]);
-    this.el.labelLife   = utils.createSprite(this.textures["label_life.png"]);
-    this.el.labelMyself = utils.createSprite(this.textures["label_myself.png"]);
-    this.el.labelFuture = utils.createSprite(this.textures["label_future.png"]);
+    this.el.titleLogo   = utils.createSprite(this.textures["logo_change"]);
+    this.el.bgLabel     = utils.createSprite(this.textures["bg_label"]);
+    this.el.labelColor  = utils.createSprite(this.textures["label_color"]);
+    this.el.labelRule   = utils.createSprite(this.textures["label_rule"]);
+    this.el.labelLife   = utils.createSprite(this.textures["label_life"]);
+    this.el.labelMyself = utils.createSprite(this.textures["label_myself"]);
+    this.el.labelFuture = utils.createSprite(this.textures["label_future"]);
     this.rect.cover     = utils.createRect(conf.canvas_width, conf.canvas_height);
 
     this.initLayout();

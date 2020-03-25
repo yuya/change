@@ -2,12 +2,13 @@ import * as PIXI from "pixi.js";
 import gsap from "gsap";
 import { conf } from "conf";
 import { utils } from "utils";
-import { GameController } from "controllers";
+import { GameController, SoundController } from "controllers";
 
 export class CircleMenu {
   public element    : PIXI.Container;
 
   private game      : GameController;
+  private sound     : SoundController;
   private textures  : any;
   private circles   : PIXI.Sprite[];
   private state     : { [key : string] : any };
@@ -22,20 +23,21 @@ export class CircleMenu {
     this.element.name = "circle_menu";
 
     this.game     = GameController.instance;
+    this.sound    = SoundController.instance;
     this.textures = this.game.assetData.load("textures");
     this.circles  = [
-      utils.createSprite(this.textures["menu_about.png"]),
-      utils.createSprite(this.textures["menu_profile.png"]),
-      utils.createSprite(this.textures["menu_favorite.png"]),
-      utils.createSprite(this.textures["menu_beyooooonds.png"]),
-      utils.createSprite(this.textures["menu_history.png"]),
-      utils.createSprite(this.textures["menu_credit.png"]),
-      utils.createSprite(this.textures["menu_about.png"]),
-      utils.createSprite(this.textures["menu_profile.png"]),
-      utils.createSprite(this.textures["menu_favorite.png"]),
-      utils.createSprite(this.textures["menu_beyooooonds.png"]),
-      utils.createSprite(this.textures["menu_history.png"]),
-      utils.createSprite(this.textures["menu_credit.png"])
+      utils.createSprite(this.textures["menu_about"]),
+      utils.createSprite(this.textures["menu_profile"]),
+      utils.createSprite(this.textures["menu_favorite"]),
+      utils.createSprite(this.textures["menu_beyooooonds"]),
+      utils.createSprite(this.textures["menu_history"]),
+      utils.createSprite(this.textures["menu_credit"]),
+      utils.createSprite(this.textures["menu_about"]),
+      utils.createSprite(this.textures["menu_profile"]),
+      utils.createSprite(this.textures["menu_favorite"]),
+      utils.createSprite(this.textures["menu_beyooooonds"]),
+      utils.createSprite(this.textures["menu_history"]),
+      utils.createSprite(this.textures["menu_credit"])
     ];
 
     this.state = {};
@@ -165,6 +167,8 @@ export class CircleMenu {
       },
       onComplete: () => {
         if (callback) { callback() }
+        
+        this.sound.se["select"].play();
         this.game.eventHandler.emit("onmovecomplete", {
           "currentIndex" : this.idx.now
         });
@@ -204,6 +208,7 @@ export class CircleMenu {
     this.element.addListener("pointermove", this.fn.onTouchMove, this.element);
     document.addEventListener("pointerup", this.fn.onTouchEnd, false);
 
+    // this.sound.se["select_start"].play();
     this.game.eventHandler.emit("ontouchstart");
   }
 

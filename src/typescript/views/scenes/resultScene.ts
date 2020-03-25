@@ -15,14 +15,14 @@ export class ResultScene extends Scene {
 
     this.resultData = resultData;
     this.textures   = this.assetData.load("textures");
-    this.bgMsgHead  = new PIXI.NineSlicePlane(this.textures["ui_bg_text_slice.png"], 16, 16, 16, 16);
+    this.bgMsgHead  = new PIXI.NineSlicePlane(this.textures["ui_bg_text_slice"], 16, 16, 16, 16);
 
     this.txt = {};
     this.el  = {
-      // result : utils.createSprite(this.textures["result_grade_low.png"]),
-      // result : utils.createSprite(this.textures["result_grade_mid.png"]),
+      // result : utils.createSprite(this.textures["result_grade_low"]),
+      // result : utils.createSprite(this.textures["result_grade_mid"]),
       msgFoot   : utils.createSprite(this.textures[this.resultData.data.eval.labelPath]),
-      outroImg  : utils.createSprite(this.textures["img_intro_beyooooonds.png"]),
+      outroImg  : utils.createSprite(this.textures["img_intro_beyooooonds"]),
     };
     this.rect = {
       background  : utils.createRect(conf.canvas_width, conf.canvas_height, conf.color.black),
@@ -108,7 +108,7 @@ export class ResultScene extends Scene {
     this.txt.msgOutro.position.set(utils.display.centerX, this.el.outroImg.y + (this.el.outroImg.height/2) + 30);
     this.rect.coverOutro.interactive = this.rect.coverOutro.buttonMode = true;
 
-    this.sound.play("se", "poiiiiin");
+    this.sound.play("jingle", this.resultData.data.outro.jinglePath);
     this.attachEvent();
     this.container.addChild(this.el.outroImg, this.txt.msgOutro, this.rect.coverOutro);
     this.game.stage.addChild(this.container);
@@ -148,21 +148,21 @@ export class ResultScene extends Scene {
       delay: utils.msec2sec(750),
       duration: utils.msec2sec(10),
       ease: "linear",
-      onStart: () => this.sound.play("se", "po"),
+      onStart: () => this.sound.play("se", "eval_from"),
       pixi: { alpha: 1 }
     });
     timeline.to(this.txt.msgBody, {
       delay: utils.msec2sec(1250),
       duration: utils.msec2sec(10),
       ease: "linear",
-      onStart: () => this.sound.play("se", "puin"),
+      onStart: () => this.sound.play("se", "eval_msg"),
       pixi: { alpha: 1 }
     });
     timeline.to(this.el.msgFoot, {
       delay: utils.msec2sec(1650),
       duration: utils.msec2sec(10),
       ease: "linear",
-      onStart: () => this.sound.play("se", "spring"),
+      onStart: () => this.sound.play("se", this.resultData.data.eval.sePath),
       pixi: { alpha: 1 }
     });
   }

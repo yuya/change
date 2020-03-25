@@ -13,7 +13,7 @@ export class AboutContent extends Content {
 
   private setTitle() {
     // ここは何？
-    const title = utils.createSprite(this.textures["ttl_about.png"]);
+    const title = utils.createSprite(this.textures["ttl_about"]);
 
     title.scale.set(2, 2);
     title.position.set(12, 7);
@@ -32,11 +32,11 @@ export class AboutContent extends Content {
 <table>
 <caption class="l"><span>CHANGE</span></caption>
 <tbody>
-<tr><td>[</td><td class="c">&nbsp;<i class="mod-mochi">COLOR</i>&nbsp;</td><td>]</td><td>　...　</td><td class="c">いろ</td><td>&nbsp;を&nbsp;</td><td>かえ、</td></tr>
-<tr><td>[</td><td class="c">&nbsp;<i class="mod-mochi">LIFE</i>&nbsp;</td><td>]</td><td>　...　</td><td class="c">せいかつ</td><td>&nbsp;を&nbsp;</td><td>かえ、</td></tr>
+<tr><td>[</td><td class="c">&nbsp;<i class="mod-mochi">COLOR</i>&nbsp;</td><td>]</td><td>　...　</td><td class="c">色</td><td>&nbsp;を&nbsp;</td><td>かえ、</td></tr>
+<tr><td>[</td><td class="c">&nbsp;<i class="mod-mochi">LIFE</i>&nbsp;</td><td>]</td><td>　...　</td><td class="c">くらし</td><td>&nbsp;を&nbsp;</td><td>かえ、</td></tr>
 <tr><td>[</td><td class="c">&nbsp;<i class="mod-mochi">MYSELF</i>&nbsp;</td><td>]</td><td>　...　</td><td class="c">じぶん</td><td>&nbsp;を&nbsp;</td><td>かえ、</td></tr>
 <tr><td>[</td><td class="c">&nbsp;<i class="mod-mochi">RULE</i>&nbsp;</td><td>]</td><td>　...　</td><td class="c">ルール</td><td>&nbsp;を&nbsp;</td><td>かえ、</td></tr>
-<tr><td>[</td><td class="c">&nbsp;<i class="mod-mochi">FUTURE</i>&nbsp;</td><td>]</td><td>　...　</td><td class="c">みらい</td><td>&nbsp;を&nbsp;</td><td>かえていく</td></tr>
+<tr><td>[</td><td class="c">&nbsp;<i class="mod-mochi">FUTURE</i>&nbsp;</td><td>]</td><td>　...　</td><td class="c">未来</td><td>&nbsp;を&nbsp;</td><td>かえていく</td></tr>
 </tbody>
 </table>
 `.replace(/(^\n|\n$)/g, "");

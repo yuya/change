@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 import { conf } from "conf";
 import { utils } from "utils";
-import { GameController } from "controllers";
+import { GameController, SoundController } from "controllers";
 
 export abstract class Content {
   public element     : PIXI.Container;
@@ -33,9 +33,9 @@ export abstract class Content {
   }
 
   public makeBackground(): void {
-    this.bg["content"] = new PIXI.NineSlicePlane(this.textures["ui_bg_menu_blue.png"], 16, 16, 16, 16);
-    this.bg["txtHead"] = new PIXI.NineSlicePlane(this.textures["ui_bg_text_slice.png"], 16, 16, 16, 16);
-    this.bg["txtBody"] = new PIXI.NineSlicePlane(this.textures["ui_bg_text_slice.png"], 16, 16, 16, 16);
+    this.bg["content"] = new PIXI.NineSlicePlane(this.textures["ui_bg_menu_blue"], 16, 16, 16, 16);
+    this.bg["txtHead"] = new PIXI.NineSlicePlane(this.textures["ui_bg_text_slice"], 16, 16, 16, 16);
+    this.bg["txtBody"] = new PIXI.NineSlicePlane(this.textures["ui_bg_text_slice"], 16, 16, 16, 16);
 
     this.bg.content.width  = conf.canvas_width - 40;
     this.bg.content.height = conf.canvas_height - 240;

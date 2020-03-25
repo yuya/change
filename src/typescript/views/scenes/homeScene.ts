@@ -27,6 +27,10 @@ export class HomeScene extends Scene {
 
     this.lastIndex = ContentType.About;
 
+    if (!this.sound.bgm || !this.sound.bgm["home"]) {
+      this.sound.initSound();
+    }
+    this.sound.bgm["home"].play();
     this.initLayout();
     this.attachEvent();
 

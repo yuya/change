@@ -3,10 +3,11 @@ import { conf } from "conf";
 import { UserData, AssetData } from "models";
 
 export class SoundController {
-  public se       : { [key : string] : Howl };
-  public bgm      : { [key : string] : Howl };
-  public jingle   : { [key : string] : Howl };
-  public isLoaded : boolean;
+  public se        : { [key : string] : Howl };
+  public bgm       : { [key : string] : Howl };
+  public jingle    : { [key : string] : Howl };
+  public isLoaded  : boolean;
+  private userData : UserData;
 
   private static _instance: SoundController;
   public static get instance(): SoundController {
@@ -23,6 +24,7 @@ export class SoundController {
     this.jingle = {};
 
     this.isLoaded = false;
+    this.userData = UserData.instance;
   }
 
   // mobile browser の touch event で発火することを想定
@@ -30,22 +32,36 @@ export class SoundController {
     if (this.isLoaded) {
       return;
     }
-
+    
     // SE
-    this.se["poiiiiin"] = new Howl({ src : "/assets/audio/poiiiiin.mp3" });
-    this.se["spring"]   = new Howl({ src : "/assets/audio/se_spring.mp3" });
-    this.se["po"]       = new Howl({ src : "/assets/audio/se_po.wav" });
-    this.se["puin"]     = new Howl({ src : "/assets/audio/se_puin.wav" });
-    this.se["hit"]      = new Howl({ src : "/assets/audio/hit.wav" });
-    this.se["miss"]     = new Howl({ src : "/assets/audio/miss.wav" });
-    this.se["suburi"]   = new Howl({ src : "/assets/audio/suburi.wav" });
-    this.se["throw"]    = new Howl({ src : "/assets/audio/throw.wav" });
+    this.se["boot"]      = new Howl({ src : "/assets/audio/se_boot.mp3" });
+    this.se["select"]    = new Howl({ src : "/assets/audio/se_select.mp3" });
+    this.se["hit"]       = new Howl({ src : "/assets/audio/se_hit.mp3" });
+    this.se["miss"]      = new Howl({ src : "/assets/audio/se_miss.mp3" });
+    this.se["eval_from"] = new Howl({ src : "/assets/audio/se_eval_from.mp3" });
+    this.se["eval_msg"]  = new Howl({ src : "/assets/audio/se_eval_msg.mp3" });
+    // TODO: dummy
+    this.se["eval_high"] = new Howl({ src : "/assets/audio/se_eval_low.mp3" });
+    // TODO: dummy
+    this.se["eval_mid"]  = new Howl({ src : "/assets/audio/se_eval_low.mp3" });
+    this.se["eval_low"]  = new Howl({ src : "/assets/audio/se_eval_low.mp3" });
+    this.se["spring"]    = new Howl({ src : "/assets/audio/se_spring.mp3" });
+    this.se["suburi"]    = new Howl({ src : "/assets/audio/suburi.wav" });
+    this.se["throw"]     = new Howl({ src : "/assets/audio/throw.wav" });
 
     // BGM
-    this.bgm["title"] = new Howl({ src: "/assets/audio/bgm_title.mp3", loop: true });
+    this.bgm["title"]     = new Howl({ src : "/assets/audio/bgm_title.mp3", loop     : true });
+    this.bgm["home"]      = new Howl({ src : "/assets/audio/bgm_home.mp3", loop      : true });
+    this.bgm["eval_high"] = new Howl({ src : "/assets/audio/bgm_eval_high.mp3", loop : true });
+    this.bgm["eval_mid"]  = new Howl({ src : "/assets/audio/bgm_eval_mid.mp3", loop  : true });
+    this.bgm["eval_low"]  = new Howl({ src : "/assets/audio/bgm_eval_low.mp3", loop  : true });
+    this.bgm["home"]      = new Howl({ src : "/assets/audio/bgm_home.mp3", loop      : true });
+    this.bgm["home"]      = new Howl({ src : "/assets/audio/bgm_home.mp3", loop      : true });
 
     // JINGLE
-    this.jingle["intro"] = new Howl({ src : "/assets/audio/intro.mp3" });
+    this.jingle["intro"]      = new Howl({ src : "/assets/audio/jingle_intro.mp3" });
+    this.jingle["outro"]      = new Howl({ src : "/assets/audio/jingle_outro.mp3" });
+    this.jingle["outro_high"] = new Howl({ src : "/assets/audio/jingle_outro_high.mp3" });
 
     this.isLoaded = true;
   }
@@ -53,7 +69,7 @@ export class SoundController {
   public play(type: string, name: string): void{
     if (this[type][name] == null) {
       this.initSound();
-      this.play(type, name);
+      // this.play(type, name);
     }
 
     this[type][name].play();

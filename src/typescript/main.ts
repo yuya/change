@@ -43,7 +43,6 @@ const init = (): void => {
     .add(loadTargetArr)
     .load((loader, resources) => {
       assetData.save("textures", resources[loadTarget.spritePath].spritesheet.textures);
-      assetData.save("spriteData", resources[loadTarget.spritePath].data);
       assetData.save("animation", resources[loadTarget.animation]);
       assetData.save("beyooOoondsData", resources[loadTarget.beyooOoonds].data["data"]);
 

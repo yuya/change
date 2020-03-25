@@ -9,26 +9,25 @@ export class BootScene extends Scene {
     super();
 
     this.textures     = this.assetData.load("textures");
-    this.el.btnVolOn  = utils.createSprite(this.textures["btn_vol_on.png"]);
-    this.el.btnVolOff = utils.createSprite(this.textures["btn_vol_off.png"]);
+    this.el.btnVolOn  = utils.createSprite(this.textures["btn_vol_on"]);
+    this.el.btnVolOff = utils.createSprite(this.textures["btn_vol_off"]);
 
     this.initLayout();
     this.attachEvent();
   }
 
   private initLayout(): void {
-    const btnVolOnPosX  = utils.display.centerX + (this.el.btnVolOn.width*1.2);
-    const btnVolOffPosX = utils.display.centerX - (this.el.btnVolOff.width*1.2);
+    const btnVolOnPosX  = utils.display.centerX + 32;
+    const btnVolOffPosX = utils.display.centerX - 32;
 
-    this.el.btnVolOn.pivot.set(this.el.btnVolOn.width / 2, this.el.btnVolOn.height / 2);
-    this.el.btnVolOff.pivot.set(this.el.btnVolOff.width / 2, this.el.btnVolOff.height / 2);
+    this.el.btnVolOn.pivot.set(0, this.el.btnVolOn.height / 2);
+    this.el.btnVolOff.pivot.set(this.el.btnVolOff.width, this.el.btnVolOff.height / 2);
 
-    this.el.btnVolOn.width   *= 2;
-    this.el.btnVolOn.height  *= 2;
-    this.el.btnVolOff.width  *= 2;
-    this.el.btnVolOff.height *= 2;
+    this.el.btnVolOn.scale.set(2, 2);
+    this.el.btnVolOff.scale.set(2, 2);
     this.el.btnVolOn.interactive  = this.el.btnVolOn.buttonMode  = true;
-    this.el.btnVolOff.interactive = this.el.btnVolOff.buttonMode = true;
+    // TODO:
+    // this.el.btnVolOff.interactive = this.el.btnVolOff.buttonMode = true;
 
     this.el.btnVolOn.position.set(btnVolOnPosX, utils.display.centerY);
     this.el.btnVolOff.position.set(btnVolOffPosX, utils.display.centerY);
@@ -56,31 +55,35 @@ export class BootScene extends Scene {
     };
 
     this.el.btnVolOn.addListener("pointerdown", () => {
-      this.userData.save("is_enabled_volume", true);
+      this.userData.save("isEnabledVolume", true);
       this.sound.initSound();
       gsap.to(this.container, animateOption);
     });
     this.el.btnVolOn.addListener("pointerover", () => {
-      this.el.btnVolOn.texture = this.textures["btn_vol_on_o.png"];
+      this.el.btnVolOn.texture = this.textures["btn_vol_on_o"];
+      this.el.btnVolOn.position.y += 4;
     });
     this.el.btnVolOn.addListener("pointerout", () => {
-      this.el.btnVolOn.texture = this.textures["btn_vol_on.png"];
+      this.el.btnVolOn.texture = this.textures["btn_vol_on"];
+      this.el.btnVolOn.position.y -= 4;
     });
 
     this.el.btnVolOff.addListener("pointerdown", () => {
-      this.userData.save("is_enabled_volume", false);
+      this.userData.save("isEnabledVolume", false);
       gsap.to(this.container, animateOption);
     });
     this.el.btnVolOff.addListener("pointerover", () => {
-      this.el.btnVolOff.texture = this.textures["btn_vol_off_o.png"];
+      this.el.btnVolOff.texture = this.textures["btn_vol_off_o"];
+      this.el.btnVolOff.position.y += 4;
     });
     this.el.btnVolOff.addListener("pointerout", () => {
-      this.el.btnVolOff.texture = this.textures["btn_vol_off.png"];
+      this.el.btnVolOff.texture = this.textures["btn_vol_off"];
+      this.el.btnVolOff.position.y -= 4;
     });
   }
 
   private renderBootLogo(): void {
-    const isEnableVol    = this.userData.load("is_enabled_volume");
+    const isEnableVol    = this.userData.load("isEnabledVolume");
     const nextSceneName  = this.userData.load("nextSceneName");
     const onAnimationEnd = () => {
       this.container.destroy({ children: true });
@@ -88,7 +91,7 @@ export class BootScene extends Scene {
       this.game.route(nextSceneName);
     };
 
-    this.el.bootLogo = utils.createSprite(this.textures["logo_change.png"]);
+    this.el.bootLogo = utils.createSprite(this.textures["logo_change"]);
     this.el.bootLogo.pivot.set(this.el.bootLogo.width / 2, 0);
     this.el.bootLogo.width *= 2;
     this.el.bootLogo.height *= 2;
@@ -100,8 +103,8 @@ export class BootScene extends Scene {
       pixi: { y: 400 },
       onComplete: () => {
         if (isEnableVol) {
-          this.sound.play("se", "poiiiiin");
-          this.sound.se.poiiiiin.on("end", onAnimationEnd);
+          this.sound.play("se", "boot");
+          this.sound.se.boot.on("end", onAnimationEnd);
         } 
         else {
           setTimeout(onAnimationEnd, 1000);

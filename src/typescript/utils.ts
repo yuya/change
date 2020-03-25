@@ -29,10 +29,9 @@ const createRect = (width: number, height: number, color?: number, alpha?: numbe
 
 const createSprite = (texture: PIXI.Texture): PIXI.Sprite => {
   const sprite = PIXI.Sprite.from(texture);
-  const regex  = /\.(png|jpg)$/;
 
   if (texture.textureCacheIds.length) {
-    sprite.name = texture.textureCacheIds[0].replace(/\.(jpg|png)$/, "");
+    sprite.name = texture.textureCacheIds[0];
   }
 
   return sprite;

@@ -29,7 +29,7 @@ export class Intro {
     this.assetData = AssetData.instance;
     this.textures  = this.assetData.load("textures");
 
-    this.keyv  = utils.createSprite(this.textures["img_intro_beyooooonds.png"]);
+    this.keyv  = utils.createSprite(this.textures["img_intro_beyooooonds"]);
     this.bg    = utils.createRect(conf.canvas_width, conf.canvas_height, conf.color.black);
     this.cover = utils.createRect(conf.canvas_width, conf.canvas_height);
 
