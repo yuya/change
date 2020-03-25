@@ -134,6 +134,11 @@ export class ResultScene extends Scene {
           duration: utils.msec2sec(100),
           pixi: { alpha: 0 },
           onComplete: () => {
+            // this.sound.bgm[this.resultData.data.eval.bgmPath].stop();
+
+            this.sound.bgm[this.resultData.data.eval.bgmPath].fade(1, 0, 200);
+            // console.log(this.sound.bgm[this.resultData.data.eval.bgmPath]);
+            // this.sound.play("bgm", this.resultData.data.eval.bgmPath);
             this.container.destroy({ children: true });
             this.showOutro();
           }
@@ -163,6 +168,11 @@ export class ResultScene extends Scene {
       duration: utils.msec2sec(10),
       ease: "linear",
       onStart: () => this.sound.play("se", this.resultData.data.eval.sePath),
+      onComplete: (() => {
+        setTimeout(() => {
+          this.sound.play("bgm", this.resultData.data.eval.bgmPath);
+        }, 500);
+      }),
       pixi: { alpha: 1 }
     });
   }
