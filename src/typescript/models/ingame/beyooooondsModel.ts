@@ -22,14 +22,13 @@ export class BeyooOoondsModel {
       height     : 180,
       playerVars : {
         "start"          : 15,
-        // "start"          : 30,
-        // "start"          : 95,
+        // "start"          : 100,
         "end"            : 105,
         "fs"             : 0,
         "iv_load_policy" : 3,
         "playsinline"    : 1,
         "rel"            : 0,
-        // "disablekb"      : 1,
+        "disablekb"      : 1,
         "origin"         : `${location.protocol}//${location.host}`,
         "host"           : `${location.protocol}//www.youtube.com`,
       }

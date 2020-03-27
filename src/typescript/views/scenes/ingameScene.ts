@@ -251,7 +251,23 @@ export class IngameScene extends Scene {
     });
 
     this.game.eventHandler.once("fadeOut", () => {
+      const nextSceneName = this.userData.load("nextSceneName");
+
       this.fadeVolume(100, 0, 300);
+      this.fadeScreen(0, 1, 300, () => {
+        this.game.ticker.stop();
+        this.syncCurrentTime();
+        this.userData.save("latest_score", this.currentScore);
+
+        conf.root_el.classList.toggle("yt-loaded");
+        document.removeEventListener("visibilitychange", this.game.events.enablePause, false);
+        this.player.destroy();
+        this.game.currentScene.destroy();
+
+        setTimeout(() => {
+          this.game.route(nextSceneName);
+        }, 200);
+      });
     });
 
     this.player.on("ready",       () => { this.showIntro() });

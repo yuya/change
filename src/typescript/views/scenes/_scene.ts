@@ -42,10 +42,46 @@ export abstract class Scene extends PIXI.Container {
     this.game.renderer.render(this.game.stage);
   }
 
+  public fadeScreen(from: number, to: number, duration: number, callback?: any, delay?: number) {
+    const isFadeIn = (from === 0 && to === 1);
+    const addValue = isFadeIn ? 0.1 : -0.1;
+    const interval = duration / (1 / Math.abs(addValue));
+
+    const coverDom = document.createElement("div");
+    coverDom.id = "cover";
+    coverDom.style.opacity = `${from}`;
+    document.body.appendChild(coverDom);
+
+    let lastVal = from;
+    let timerId = setInterval(() => {
+      lastVal = Math.round((lastVal + addValue) * 100) / 100;
+      coverDom.style.opacity = `${lastVal}`;
+
+      if (isFadeIn && lastVal >= to ||
+        !isFadeIn && lastVal <= to) {
+       clearInterval(timerId);
+
+       if (callback && delay) {
+         setTimeout(() => {
+          callback();
+          document.body.removeChild(coverDom);
+         }, delay);
+       }
+       else if (callback) {
+         callback();
+         document.body.removeChild(coverDom);
+       }
+     }
+    }, interval);
+  }
+
   public destroy(): void {
     this.game.ticker.stop();
     this.container.destroy({ children: true });
     this.game.stage.removeChildren();
+
+    const dom = document.getElementById("dom");
+    dom && conf.canvas_el.removeChild(dom);
 
     this.game.renderer.render(this.game.stage);
   }
