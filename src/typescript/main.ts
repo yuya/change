@@ -8,7 +8,7 @@ const gameController: GameController = GameController.instance;
 const assetData: AssetData = AssetData.instance;
 const loadTarget: { [key:string] : string } = {
   "spritePath"  : "/assets/json/spritesheet_ui.json",
-  "animation"   : "/assets/animation.json",
+  "animation"   : "/assets/json/spritesheet_anim.json",
   "beyooOoonds" : "/assets/json/ingame_beyooooonds.json",
 };
 const loadTargetArr: string[] = Object.keys(loadTarget).map((key) => {

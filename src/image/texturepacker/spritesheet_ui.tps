@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>pixijs4</string>
         <key>textureFileName</key>
-        <filename></filename>
+        <filename>../../../public/assets/img/spritesheet_ui.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -74,11 +74,11 @@
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
-        <uint>0</uint>
+        <uint>1</uint>
         <key>webpQualityLevel</key>
         <uint>101</uint>
         <key>textureSubPath</key>
-        <string></string>
+        <string>/assets/img/</string>
         <key>atfFormats</key>
         <string></string>
         <key>textureFormat</key>
@@ -132,7 +132,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../../../public/assets/spritesheet.json</filename>
+                <filename>../../../public/assets/json/spritesheet_ui.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -214,6 +214,22 @@
                 <rect>16,16,32,32</rect>
                 <key>scale9Paddings</key>
                 <rect>16,16,32,32</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../btn_sound_toggle_off.png</key>
+            <key type="filename">../btn_sound_toggle_on.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>12,6,24,12</rect>
+                <key>scale9Paddings</key>
+                <rect>12,6,24,12</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -576,6 +592,8 @@
             <filename>../ttl_profile.png</filename>
             <filename>../ttl_credit.png</filename>
             <filename>../ttl_history.png</filename>
+            <filename>../btn_sound_toggle_off.png</filename>
+            <filename>../btn_sound_toggle_on.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

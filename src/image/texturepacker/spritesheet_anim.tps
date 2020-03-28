@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>pixijs4</string>
         <key>textureFileName</key>
-        <filename></filename>
+        <filename>../../../public/assets/img/spritesheet_anim.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -78,7 +78,7 @@
         <key>webpQualityLevel</key>
         <uint>101</uint>
         <key>textureSubPath</key>
-        <string></string>
+        <string>/assets/img/</string>
         <key>atfFormats</key>
         <string></string>
         <key>textureFormat</key>
@@ -132,7 +132,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../../../public/assets/animation.json</filename>
+                <filename>../../../public/assets/json/spritesheet_anim.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
