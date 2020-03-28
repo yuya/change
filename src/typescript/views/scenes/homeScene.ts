@@ -89,6 +89,7 @@ export class HomeScene extends Scene {
   private renderCircleMenu(): void {
     this.circleMenu = new CircleMenu();
 
+    // this.circleMenu.element.position.set(0, 20);
     this.container.addChild(this.circleMenu.element);
   }
 }

@@ -102,7 +102,7 @@ export class CircleMenu {
     this.element.y = conf.canvas_height / 2;
 
     this.element.interactive = this.element.buttonMode = true;
-    this.element.y = conf.canvas_height + (this.element.height/4.5);
+    this.element.y = conf.canvas_height + (this.element.height/4.5)+30;
   }
 
   private getIndex() {

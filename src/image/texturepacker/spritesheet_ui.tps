@@ -181,6 +181,38 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">../bg_content_blue.png</key>
+            <key type="filename">../bg_content_green.png</key>
+            <key type="filename">../bg_content_text.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>12,12,24,24</rect>
+                <key>scale9Paddings</key>
+                <rect>12,12,24,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../bg_content_tryangle_blue.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>22,14,44,27</rect>
+                <key>scale9Paddings</key>
+                <rect>22,14,44,27</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../bg_label.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -522,23 +554,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../ui_bg_menu_blue.png</key>
-            <key type="filename">../ui_bg_menu_green.png</key>
-            <key type="filename">../ui_bg_text_slice.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>12,12,24,24</rect>
-                <key>scale9Paddings</key>
-                <rect>12,12,24,24</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">../ui_button.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -563,9 +578,6 @@
             <filename>../btn_vol_on_o.png</filename>
             <filename>../logo_change.png</filename>
             <filename>../logo_dna.png</filename>
-            <filename>../ui_bg_menu_blue.png</filename>
-            <filename>../ui_bg_menu_green.png</filename>
-            <filename>../ui_bg_text_slice.png</filename>
             <filename>../result_grade_high.png</filename>
             <filename>../result_grade_low.png</filename>
             <filename>../result_grade_mid.png</filename>
@@ -594,6 +606,10 @@
             <filename>../ttl_history.png</filename>
             <filename>../btn_sound_toggle_off.png</filename>
             <filename>../btn_sound_toggle_on.png</filename>
+            <filename>../bg_content_blue.png</filename>
+            <filename>../bg_content_green.png</filename>
+            <filename>../bg_content_text.png</filename>
+            <filename>../bg_content_tryangle_blue.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

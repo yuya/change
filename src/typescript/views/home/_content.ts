@@ -33,15 +33,19 @@ export abstract class Content {
   }
 
   public makeBackground(): void {
-    this.bg["content"] = new PIXI.NineSlicePlane(this.textures["ui_bg_menu_blue"], 16, 16, 16, 16);
-    this.bg["txtHead"] = new PIXI.NineSlicePlane(this.textures["ui_bg_text_slice"], 16, 16, 16, 16);
-    this.bg["txtBody"] = new PIXI.NineSlicePlane(this.textures["ui_bg_text_slice"], 16, 16, 16, 16);
+    const tryangle = utils.createSprite(this.textures["bg_content_tryangle_blue"]);
+
+    this.bg["content"] = new PIXI.NineSlicePlane(this.textures["bg_content_blue"], 16, 16, 16, 16);
+    this.bg["txtHead"] = new PIXI.NineSlicePlane(this.textures["bg_content_text"], 16, 16, 16, 16);
+    this.bg["txtBody"] = new PIXI.NineSlicePlane(this.textures["bg_content_text"], 16, 16, 16, 16);
 
     this.bg.content.width  = conf.canvas_width - 40;
     this.bg.content.height = conf.canvas_height - 240;
     this.bg.content.position.set(20, 20);
 
-    this.element.addChild(this.bg.content);
+    tryangle.pivot.set(tryangle.width / 2, 0);
+    tryangle.position.set(utils.display.centerX, this.bg.content.height + 8);
+    this.element.addChild(this.bg.content, tryangle);
 
     this.bg.txtHead.width  = 320;
     this.bg.txtHead.height = 64;
