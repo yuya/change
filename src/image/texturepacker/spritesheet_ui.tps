@@ -249,22 +249,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../btn_sound_toggle_off.png</key>
-            <key type="filename">../btn_sound_toggle_on.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>12,6,24,12</rect>
-                <key>scale9Paddings</key>
-                <rect>12,6,24,12</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">../btn_vol_off.png</key>
             <key type="filename">../btn_vol_off_o.png</key>
             <key type="filename">../btn_vol_on.png</key>
@@ -604,8 +588,6 @@
             <filename>../ttl_profile.png</filename>
             <filename>../ttl_credit.png</filename>
             <filename>../ttl_history.png</filename>
-            <filename>../btn_sound_toggle_off.png</filename>
-            <filename>../btn_sound_toggle_on.png</filename>
             <filename>../bg_content_blue.png</filename>
             <filename>../bg_content_green.png</filename>
             <filename>../bg_content_text.png</filename>

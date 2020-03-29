@@ -3,6 +3,7 @@ import { conf } from "conf";
 import { UserData, AssetData } from "models";
 
 export class SoundController {
+  public howler    : HowlerGlobal;
   public se        : { [key : string] : Howl };
   public bgm       : { [key : string] : Howl };
   public jingle    : { [key : string] : Howl };
@@ -19,6 +20,7 @@ export class SoundController {
   }
 
   private constructor() {
+    this.howler = Howler;
     this.se     = {};
     this.bgm    = {};
     this.jingle = {};
@@ -66,8 +68,12 @@ export class SoundController {
     this.isLoaded = true;
   }
 
-  public play(type: string, name: string): void{
-    if (this[type][name] == null) {
+  public play(type: string, name: string): void {
+    console.log(this.userData.load("isEnabledVolume"));
+    if (this.userData.load("isEnabledVolume")) {
+      return;
+    }
+    else if (this[type][name] == null) {
       this.initSound();
       // this.play(type, name);
     }

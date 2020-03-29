@@ -55,7 +55,7 @@ export class BootScene extends Scene {
     };
 
     this.el.btnVolOn.addListener("pointerdown", () => {
-      this.userData.save("isEnabledVolume", true);
+      this.userData.save("isEnabledVolume", true, true);
       this.sound.initSound();
       gsap.to(this.container, animateOption);
     });

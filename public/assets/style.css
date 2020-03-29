@@ -243,3 +243,28 @@ iframe#youtube {
   height: 100%;
   background-color: #222;
 }
+
+#btn-sound-toggle {
+  overflow: hidden;
+  position: absolute;
+  top: -40px;
+  right: 20px;
+  z-index: 2;
+  width: 96px;
+  height: 48px;
+  cursor: pointer;
+}
+#btn-sound-toggle img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -224px;
+  margin-top: 8px;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+#btn-sound-toggle[data-is-mute="true"] img {
+  left: -368px;
+  margin-top: 0;
+}
+

@@ -98,6 +98,29 @@ const copy2clipboard = (text: string, msg?: string): void => {
   alert(message);
 };
 
+const getCookie = (name) => {
+  const regex = /([\.$?*|{}\(\)\[\]\\\/\+^])/g;
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(regex, "\\$1") + "=([^;]*)"
+  ));
+
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+};
+
+const setCookie = (name, value, options?: {}) => {
+  if (options["expires"]) {
+    options["expires"] = options["expires"].toUTCString();
+  }
+
+  let updatedCookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
+
+  Object.keys(options).forEach((key, index) => {
+    updatedCookie += `; ${key}${options[key] ? "" : "=" + options[key]}`;
+  });
+
+  document.cookie = updatedCookie;
+};
+
 export const utils = {
   "display"        : display,
   "msec2sec"       : msec2sec,
@@ -110,4 +133,6 @@ export const utils = {
   "appendDom"      : appendDom,
   "removeDom"      : removeDom,
   "copy2clipboard" : copy2clipboard,
+  "getCookie"      : getCookie,
+  "setCookie"      : setCookie,
 };

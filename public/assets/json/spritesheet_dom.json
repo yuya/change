@@ -1,0 +1,92 @@
+{"frames": {
+
+"btn_sound_toggle_off":
+{
+	"frame": {"x":184,"y":0,"w":48,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":24},
+	"sourceSize": {"w":48,"h":24}
+},
+"btn_sound_toggle_on":
+{
+	"frame": {"x":112,"y":0,"w":48,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":48,"h":16},
+	"sourceSize": {"w":48,"h":24}
+},
+"icon_amazon":
+{
+	"frame": {"x":92,"y":0,"w":16,"h":15},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":16,"h":15},
+	"sourceSize": {"w":16,"h":16}
+},
+"icon_favorite":
+{
+	"frame": {"x":55,"y":0,"w":15,"h":13},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":15,"h":13},
+	"sourceSize": {"w":16,"h":16}
+},
+"icon_github":
+{
+	"frame": {"x":164,"y":0,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+"icon_gmail":
+{
+	"frame": {"x":0,"y":0,"w":14,"h":10},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":3,"w":14,"h":10},
+	"sourceSize": {"w":16,"h":16}
+},
+"icon_newtab":
+{
+	"frame": {"x":74,"y":0,"w":14,"h":14},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":14,"h":14},
+	"sourceSize": {"w":16,"h":16}
+},
+"icon_twitter":
+{
+	"frame": {"x":36,"y":0,"w":15,"h":12},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":2,"w":15,"h":12},
+	"sourceSize": {"w":16,"h":16}
+},
+"icon_youtube":
+{
+	"frame": {"x":18,"y":0,"w":14,"h":11},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":3,"w":14,"h":11},
+	"sourceSize": {"w":16,"h":16}
+},
+"pic_yhashimoto":
+{
+	"frame": {"x":0,"y":28,"w":240,"h":135},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":240,"h":135},
+	"sourceSize": {"w":240,"h":135}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "/assets/img/spritesheet_dom.png",
+	"format": "RGBA8888",
+	"size": {"w":240,"h":163},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:02826993d347961ca852a29de7cf2135:3db9f64f06c22189000de2688d245ab9:f9b0137a982a5719555a3991698f3ac0$"
+}
+}

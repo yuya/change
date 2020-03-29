@@ -131,7 +131,26 @@
 "animations": {
 	"anim_punch_l": ["anim_punch_l_0","anim_punch_l_1","anim_punch_l_2","anim_punch_l_3","anim_punch_l_4"],
 	"anim_punch_r": ["anim_punch_r_0","anim_punch_r_1","anim_punch_r_2","anim_punch_r_3","anim_punch_r_4"],
-	"anim_wait": ["anim_wait_0","anim_wait_1","anim_wait_2"]
+	"anim_wait": ["anim_wait_0","anim_wait_1","anim_wait_2"],
+	"wait": [
+		{ "texture": "anim_wait_0", "duration": 400 },
+		{ "texture": "anim_wait_1", "duration":  33 },
+		{ "texture": "anim_wait_2", "duration":  67 }
+	],
+	"punch_l": [
+		{ "texture": "anim_punch_l_0", "duration": 33 },
+		{ "texture": "anim_punch_l_1", "duration": 33 },
+		{ "texture": "anim_punch_l_2", "duration": 33 },
+		{ "texture": "anim_punch_l_3", "duration": 33 },
+		{ "texture": "anim_punch_l_4", "duration": 33 }
+	],
+	"punch_r": [
+		{ "texture": "anim_punch_r_0", "duration": 33 },
+		{ "texture": "anim_punch_r_1", "duration": 33 },
+		{ "texture": "anim_punch_r_2", "duration": 33 },
+		{ "texture": "anim_punch_r_3", "duration": 33 },
+		{ "texture": "anim_punch_r_4", "duration": 33 }
+	]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
