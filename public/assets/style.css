@@ -46,21 +46,20 @@ a:link, a:visited { color: #222; }
 .icon::before {
   display: inline-block;
   position: absolute;
-  top: 0;
+  top: 12px;
   left: 4px;
-  width: 24px;
-  height: 40px;
-  line-height: 40px;
+  width: 16px;
+  height: 16px;
+  background-image: url("/assets/img/spritesheet_dom.png");
   background-repeat: no-repeat;
-  background-position: 0 50%;
   content: "";
 }
-.icon.favorite::before { background-image: url("/assets/img/icon_favorite.png"); }
-.icon.twitter::before  { background-image: url("/assets/img/icon_twitter.png");  }
-.icon.github::before   { background-image: url("/assets/img/icon_github.png");   }
-.icon.gmail::before    { background-image: url("/assets/img/icon_gmail.png");    }
-.icon.youtube::before  { background-image: url("/assets/img/icon_youtube.png");  }
-.icon.amazon::before   { background-image: url("/assets/img/icon_amazon.png");   }
+.icon.gmail::before    { background-position:    0   0; }
+.icon.youtube::before  { background-position:  -18px 0; }
+.icon.twitter::before  { background-position:  -36px 0; }
+.icon.favorite::before { background-position:  -55px 0; }
+.icon.amazon::before   { background-position:  -92px 0; }
+.icon.github::before   { background-position: -164px 0; }
 
 .icon:hover::after,
 .icon:active::after,
@@ -266,5 +265,18 @@ iframe#youtube {
 #btn-sound-toggle[data-is-mute="true"] img {
   left: -368px;
   margin-top: 0;
+}
+
+.pic-profile {
+  position: relative;
+  overflow: hidden;
+  height: 270px;
+  margin-bottom: 15px;
+}
+.pic-profile img {
+  display: block;
+  position: absolute;
+  top: -56px;
+  left: 0;
 }
 

@@ -24,7 +24,7 @@ export class ProfileContent extends Content {
 
   private setText() {
     const str = `
-<div class="pic"><img src="/assets/img/pic_yhashimoto.png" width="480" height="270"></div>
+<div class="pic-profile"></div>
 <p>都内の <i class="mod-mochi">IT</i>ベンチャーで しゃかりき はたらいた後、<i class="mod-mochi">2011</i>年 カヤック に 入社。ソーシャルゲーム の うんよう・開発に 関わるうちに いだいた「夢」に向かうため、このサイトを つくりはじめた。</p>
 <ul class="table col-3">
   <li><a class="icon twitter" href="https://twitter.com/yuya" target="_blank" rel="noopener noreferrer">@yuya</a></li>
@@ -43,6 +43,12 @@ export class ProfileContent extends Content {
     dom.innerHTML = str;
 
     conf.canvas_el.appendChild(dom);
+
+    const picProfile  = document.querySelector(".pic-profile");
+    const spriteImage = this.game.assetData.load("spriteSheetDom").data;
+    spriteImage.width = 480;
+    spriteImage.height = 326;
+    picProfile.appendChild(spriteImage);
   }
 
   private attachEvent(): void {

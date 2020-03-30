@@ -69,9 +69,8 @@ export class SoundController {
   }
 
   public play(type: string, name: string): void {
-    console.log(this.userData.load("isEnabledVolume"));
-    if (this.userData.load("isEnabledVolume")) {
-      return;
+    if (!this.userData.load("isEnabledVolume")) {
+      this.howler.mute(true);
     }
     else if (this[type][name] == null) {
       this.initSound();

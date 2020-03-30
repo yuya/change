@@ -59,10 +59,10 @@ export class TitleScene extends Scene {
     this.rect.cover.interactive = this.rect.cover.buttonMode = true;
 
     const btnSoundToggle = document.createElement("div");
-    const image = this.assetData.load("spriteSheetDom").data;
-    image.width = 480;
-    image.height = 326;
-    btnSoundToggle.appendChild(image);
+    const spriteImage    = this.assetData.load("spriteSheetDom").data;
+    spriteImage.width  = 480;
+    spriteImage.height = 326;
+    btnSoundToggle.appendChild(spriteImage);
 
     btnSoundToggle.id = "btn-sound-toggle";
     // let hoge = this.userData.load("isEnabledVolume");
