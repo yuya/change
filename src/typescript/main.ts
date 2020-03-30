@@ -19,6 +19,7 @@ const loadTargetArr: string[] = Object.keys(loadTarget).map((key) => {
 const init = (): void => {
   const _hideSpinner = () => {
     document.body.removeChild(conf.spinner_el);
+    console.log(document.cookie);
     // conf.spinner_el.classList.add("hide");
   };
 
@@ -45,6 +46,7 @@ const init = (): void => {
     .add(loadTargetArr)
     .load((loader, resources) => {
       assetData.save("textures", resources[loadTarget.spriteSheetUi].spritesheet.textures);
+      assetData.save("spriteSheetUi", resources[loadTarget.spriteSheetUi]);
       assetData.save("animation", resources[loadTarget.spriteSheetAnim]);
       assetData.save("beyooOoondsData", resources[loadTarget.beyooOoonds].data["data"]);
       assetData.save("spriteSheetDom", resources[loadTarget.spriteSheetDom]);

@@ -32,6 +32,7 @@ export class HomeScene extends Scene {
     }
     this.sound.bgm["home"].play();
     this.initLayout();
+    this.initSiteLogo();
     this.initVolumeButton();
     this.attachEvent();
 

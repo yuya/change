@@ -41,7 +41,7 @@ export class ResultData {
         eval: {
           from: "しゃちょー の おことば",
           comment: "パンチにキレがある！ きみ、昇給！",
-          labelPath: "result_grade_high",
+          labelPath: "label_eval_high",
           sePath: "eval_high",
           bgmPath: "eval_high",
         },
@@ -59,7 +59,7 @@ export class ResultData {
         eval: {
           from: "しゃちょー の おことば",
           comment: "とりあえず...",
-          labelPath: "result_grade_mid",
+          labelPath: "label_eval_mid",
           sePath: "eval_mid",
           bgmPath: "eval_mid",
         },
@@ -76,7 +76,7 @@ export class ResultData {
         eval: {
           from: "しゃちょー の おことば",
           comment: "ぜんっぜん あってない！",
-          labelPath: "result_grade_low",
+          labelPath: "label_eval_low",
           sePath: "eval_low",
           bgmPath: "eval_low",
         },

@@ -15,7 +15,7 @@ export class ResultScene extends Scene {
 
     this.resultData = resultData;
     this.textures   = this.assetData.load("textures");
-    this.bgMsgHead  = new PIXI.NineSlicePlane(this.textures["ui_bg_text_slice"], 16, 16, 16, 16);
+    this.bgMsgHead  = new PIXI.NineSlicePlane(this.textures["bg_content_text"], 16, 16, 16, 16);
 
     this.txt = {};
     this.el  = {
@@ -83,6 +83,7 @@ export class ResultScene extends Scene {
 
   private makeMsgFoot(): void {
     this.el.msgFoot.pivot.set(this.el.msgFoot.width, this.el.msgFoot.height);
+    this.el.msgFoot.scale.set(2, 2);
     this.el.msgFoot.position.set(conf.canvas_width - 40, conf.canvas_height - 200);
 
     this.el.msgFoot.alpha = 0;

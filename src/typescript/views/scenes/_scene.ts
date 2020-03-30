@@ -42,13 +42,32 @@ export abstract class Scene extends PIXI.Container {
     this.game.renderer.render(this.game.stage);
   }
 
+  public initSiteLogo(): void {
+    if (document.getElementById("logo")) {
+      return;
+    }
+
+    const logoElement = document.createElement("div");
+    const sprite      = this.assetData.load("spriteSheetUi");
+    const spriteImage = sprite.children[0].data;
+    console.log(this.assetData.load("spriteSheetUi"));
+    spriteImage.width  = sprite.data.meta.size.w;
+    spriteImage.height = sprite.data.meta.size.h;
+    spriteImage.style.top = `-${sprite.spritesheet.textures.logo_change.orig.y}px`;
+    spriteImage.style.left = `-${sprite.spritesheet.textures.logo_change.orig.x}px`;
+    logoElement.appendChild(spriteImage);
+
+    logoElement.id = "logo";
+    conf.canvas_el.appendChild(logoElement);
+  }
+
   public initVolumeButton(): void {
     if (document.getElementById("btn-sound-toggle")) {
       return;
     }
 
     const btnSoundToggle = document.createElement("div");
-    const spriteImage    = this.assetData.load("spriteSheetDom").data;
+    const spriteImage    = this.assetData.load("spriteSheetDom").data.cloneNode();
     spriteImage.width  = 480;
     spriteImage.height = 326;
     btnSoundToggle.appendChild(spriteImage);

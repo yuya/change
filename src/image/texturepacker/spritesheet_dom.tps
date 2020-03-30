@@ -181,42 +181,6 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../public/assets/img/icon_amazon.png</key>
-            <key type="filename">../../../public/assets/img/icon_favorite.png</key>
-            <key type="filename">../../../public/assets/img/icon_github.png</key>
-            <key type="filename">../../../public/assets/img/icon_gmail.png</key>
-            <key type="filename">../../../public/assets/img/icon_newtab.png</key>
-            <key type="filename">../../../public/assets/img/icon_twitter.png</key>
-            <key type="filename">../../../public/assets/img/icon_youtube.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>4,4,8,8</rect>
-                <key>scale9Paddings</key>
-                <rect>4,4,8,8</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../../public/assets/img/pic_yhashimoto.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>120,68,240,135</rect>
-                <key>scale9Paddings</key>
-                <rect>120,68,240,135</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">../btn_sound_toggle_off.png</key>
             <key type="filename">../btn_sound_toggle_on.png</key>
             <struct type="IndividualSpriteSettings">
@@ -233,19 +197,55 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../icon_amazon.png</key>
+            <key type="filename">../icon_favorite.png</key>
+            <key type="filename">../icon_github.png</key>
+            <key type="filename">../icon_gmail.png</key>
+            <key type="filename">../icon_newtab.png</key>
+            <key type="filename">../icon_twitter.png</key>
+            <key type="filename">../icon_youtube.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,8,8</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,8,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../pic_yhashimoto.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>60,34,120,67</rect>
+                <key>scale9Paddings</key>
+                <rect>60,34,120,67</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
             <filename>../btn_sound_toggle_off.png</filename>
             <filename>../btn_sound_toggle_on.png</filename>
-            <filename>../../../public/assets/img/icon_amazon.png</filename>
-            <filename>../../../public/assets/img/icon_favorite.png</filename>
-            <filename>../../../public/assets/img/icon_github.png</filename>
-            <filename>../../../public/assets/img/icon_gmail.png</filename>
-            <filename>../../../public/assets/img/icon_newtab.png</filename>
-            <filename>../../../public/assets/img/icon_twitter.png</filename>
-            <filename>../../../public/assets/img/icon_youtube.png</filename>
-            <filename>../../../public/assets/img/pic_yhashimoto.png</filename>
+            <filename>../icon_amazon.png</filename>
+            <filename>../icon_favorite.png</filename>
+            <filename>../icon_github.png</filename>
+            <filename>../icon_gmail.png</filename>
+            <filename>../icon_newtab.png</filename>
+            <filename>../icon_twitter.png</filename>
+            <filename>../icon_youtube.png</filename>
+            <filename>../pic_yhashimoto.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

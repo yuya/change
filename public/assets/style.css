@@ -243,6 +243,23 @@ iframe#youtube {
   background-color: #222;
 }
 
+#logo {
+  overflow: hidden;
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  z-index: 2;
+  width: 163px;
+  height: 29px;
+}
+
+#logo img {
+  display: block;
+  position: absolute;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
 #btn-sound-toggle {
   overflow: hidden;
   position: absolute;

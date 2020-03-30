@@ -297,6 +297,53 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../label_eval_high.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>35,8,70,16</rect>
+                <key>scale9Paddings</key>
+                <rect>35,8,70,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../label_eval_low.png</key>
+            <key type="filename">../ttl_about.png</key>
+            <key type="filename">../ttl_credit.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,8,64,16</rect>
+                <key>scale9Paddings</key>
+                <rect>32,8,64,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../label_eval_mid.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>18,8,36,16</rect>
+                <key>scale9Paddings</key>
+                <rect>18,8,36,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../label_future.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -384,67 +431,6 @@
                 <rect>48,40,96,80</rect>
                 <key>scale9Paddings</key>
                 <rect>48,40,96,80</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../result_grade_high.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>64,12,128,24</rect>
-                <key>scale9Paddings</key>
-                <rect>64,12,128,24</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../result_grade_low.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>60,14,120,28</rect>
-                <key>scale9Paddings</key>
-                <rect>60,14,120,28</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../result_grade_mid.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>32,14,64,28</rect>
-                <key>scale9Paddings</key>
-                <rect>32,14,64,28</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../ttl_about.png</key>
-            <key type="filename">../ttl_credit.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>32,8,64,16</rect>
-                <key>scale9Paddings</key>
-                <rect>32,8,64,16</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -562,9 +548,6 @@
             <filename>../btn_vol_on_o.png</filename>
             <filename>../logo_change.png</filename>
             <filename>../logo_dna.png</filename>
-            <filename>../result_grade_high.png</filename>
-            <filename>../result_grade_low.png</filename>
-            <filename>../result_grade_mid.png</filename>
             <filename>../ui_button.png</filename>
             <filename>../ttl_beyooooonds.png</filename>
             <filename>../txt_pause.png</filename>
@@ -592,6 +575,9 @@
             <filename>../bg_content_green.png</filename>
             <filename>../bg_content_text.png</filename>
             <filename>../bg_content_tryangle_blue.png</filename>
+            <filename>../label_eval_high.png</filename>
+            <filename>../label_eval_low.png</filename>
+            <filename>../label_eval_mid.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
