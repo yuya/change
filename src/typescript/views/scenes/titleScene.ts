@@ -58,27 +58,8 @@ export class TitleScene extends Scene {
     this.el.labelLife.alpha = 1;
     this.rect.cover.interactive = this.rect.cover.buttonMode = true;
 
-    const btnSoundToggle = document.createElement("div");
-    const spriteImage    = this.assetData.load("spriteSheetDom").data;
-    spriteImage.width  = 480;
-    spriteImage.height = 326;
-    btnSoundToggle.appendChild(spriteImage);
-
-    btnSoundToggle.id = "btn-sound-toggle";
-    // let hoge = this.userData.load("isEnabledVolume");
-    // console.log(typeof this.userData.load("isEnabledVolume"));
-    btnSoundToggle.setAttribute("data-is-mute", !this.userData.load("isEnabledVolume") + "");
-
-    btnSoundToggle.addEventListener("click", () => {
-      const isEnabledVolume = this.userData.load("isEnabledVolume");
-
-      this.sound.howler.mute(!isEnabledVolume);
-      btnSoundToggle.setAttribute("data-is-mute", !isEnabledVolume + "");
-      this.userData.save("isEnabledVolume", !isEnabledVolume, true);
-    });
-    conf.canvas_el.appendChild(btnSoundToggle);
-
     this.container.addChild(this.el.titleLogo, this.el.bgLabel, this.rect.cover);
+    this.initVolumeButton();
     this.game.ticker.start();
   }
 

@@ -42,6 +42,31 @@ export abstract class Scene extends PIXI.Container {
     this.game.renderer.render(this.game.stage);
   }
 
+  public initVolumeButton(): void {
+    if (document.getElementById("btn-sound-toggle")) {
+      return;
+    }
+
+    const btnSoundToggle = document.createElement("div");
+    const spriteImage    = this.assetData.load("spriteSheetDom").data;
+    spriteImage.width  = 480;
+    spriteImage.height = 326;
+    btnSoundToggle.appendChild(spriteImage);
+
+    btnSoundToggle.id = "btn-sound-toggle";
+    btnSoundToggle.setAttribute("data-is-mute", !this.userData.load("isEnabledVolume") + "");
+
+    btnSoundToggle.addEventListener("click", () => {
+      const isEnabledVolume = this.userData.load("isEnabledVolume");
+
+      this.sound.howler.mute(!isEnabledVolume);
+      btnSoundToggle.setAttribute("data-is-mute", !isEnabledVolume + "");
+      this.userData.save("isEnabledVolume", !isEnabledVolume, true);
+    });
+
+    conf.canvas_el.appendChild(btnSoundToggle);
+  }
+
   public fadeScreen(from: number, to: number, duration: number, callback?: any, delay?: number) {
     const isFadeIn = (from === 0 && to === 1);
     const addValue = isFadeIn ? 0.1 : -0.1;

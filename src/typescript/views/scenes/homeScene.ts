@@ -32,6 +32,7 @@ export class HomeScene extends Scene {
     }
     this.sound.bgm["home"].play();
     this.initLayout();
+    this.initVolumeButton();
     this.attachEvent();
 
     this.renderContent();
@@ -59,7 +60,7 @@ export class HomeScene extends Scene {
     this.game.eventHandler.on("onmovecomplete", this.game.events.refreshContent);
   }
 
-  private renderContent(index: number = 0): void {
+  private renderContent(index: number = ContentType.About): void {
     switch (index) {
       default:
       case ContentType.About:

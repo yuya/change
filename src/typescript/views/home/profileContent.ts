@@ -45,7 +45,7 @@ export class ProfileContent extends Content {
     conf.canvas_el.appendChild(dom);
 
     const picProfile  = document.querySelector(".pic-profile");
-    const spriteImage = this.game.assetData.load("spriteSheetDom").data;
+    const spriteImage = this.game.assetData.load("spriteSheetDom").data.cloneNode();
     spriteImage.width = 480;
     spriteImage.height = 326;
     picProfile.appendChild(spriteImage);
