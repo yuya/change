@@ -48,6 +48,7 @@ export class GameController {
 
     this.initTicker();
     this.initRenderer();
+    this.attachEvent();
   }
 
   private initTicker(): void {
@@ -68,6 +69,17 @@ export class GameController {
     this.renderer.render(this.stage);
   }  
 
+  private attachEvent(): void {
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        Howler.mute(true);
+      }
+      else {
+        Howler.mute(false);
+      }
+    });
+  }
+
   public route(sceneName: string): void {
     if (sceneName) {
       history.pushState(null, sceneName, sceneName);
@@ -76,25 +88,25 @@ export class GameController {
     switch (sceneName) {
       default:
       case "boot":
-        this.userData.save("nextSceneName", "title");
+        this.userData.save("next_scene_name", "title");
         this.currentScene = new BootScene();
         break;
       case "title":
-        this.userData.save("nextSceneName", "home");
+        this.userData.save("next_scene_name", "home");
         this.currentScene = new TitleScene();
         break;
       case "home":
-        this.userData.save("nextSceneName", "ingame");
+        this.userData.save("next_scene_name", "ingame");
         this.currentScene = new HomeScene();
         break;
       case "ingame":
-        this.userData.save("nextSceneName", "result");
+        this.userData.save("next_scene_name", "result");
         this.currentScene = new IngameScene();
         break;
       case "result":
         const resultData = new ResultData(this.userData.load("latest_score"));
 
-        this.userData.save("nextSceneName", "home");
+        this.userData.save("next_scene_name", "home");
         this.currentScene = new ResultScene(resultData);
         break;
     }

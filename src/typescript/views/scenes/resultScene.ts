@@ -179,7 +179,7 @@ export class ResultScene extends Scene {
   }
 
   private attachEvent(): void {
-    const nextSceneName = this.userData.load("nextSceneName");
+    const nextSceneName = this.userData.load("next_scene_name");
 
     this.rect.coverOutro.addListener("pointerdown", () => {
       gsap.to(this.container, {

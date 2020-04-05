@@ -64,7 +64,7 @@ export class TitleScene extends Scene {
   }
 
   private attachEvent(): void {
-    const nextSceneName = this.userData.load("nextSceneName");
+    const nextSceneName = this.userData.load("next_scene_name");
 
     this.rect.cover.addListener("pointerdown", () => {
       this.sound.play("se", "spring");

@@ -83,7 +83,7 @@ export class BootScene extends Scene {
 
   private renderBootLogo(): void {
     const isMuteVolume   = this.userData.load("is_mute_volume");
-    const nextSceneName  = this.userData.load("nextSceneName");
+    const nextSceneName  = this.userData.load("next_scene_name");
     const onAnimationEnd = () => {
       this.container.destroy({ children: true });
       // this.destroy();

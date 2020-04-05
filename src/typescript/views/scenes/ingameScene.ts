@@ -192,7 +192,7 @@ export class IngameScene extends Scene {
     });
 
     this.game.eventHandler.once("fadeOut", () => {
-      const nextSceneName = this.userData.load("nextSceneName");
+      const nextSceneName = this.userData.load("next_scene_name");
 
       this.fadeVolume(100, 0, 300);
       this.fadeScreen(0, 1, 300, () => {
@@ -703,7 +703,7 @@ export class IngameScene extends Scene {
 
   private handleStateChange(event: CustomEvent): void {
     const state = event["data"];
-    const nextSceneName = this.userData.load("nextSceneName");
+    const nextSceneName = this.userData.load("next_scene_name");
 
     switch (state) {
       case YT_STATE.UNSTARTED:
