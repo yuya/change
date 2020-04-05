@@ -24,9 +24,9 @@ const init = (): void => {
   };
 
   const _setVolume = () => {
-    const isMuteVolume = userData.load("is_mute_volume");
+    const isMuteVolume = +userData.load("is_mute_volume");
 
-    if (isMuteVolume == null || isMuteVolume === true) {
+    if (isMuteVolume == null || isMuteVolume) {
       Howler.mute(true);
     }
   };

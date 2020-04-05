@@ -54,7 +54,7 @@ export class BootScene extends Scene {
     };
 
     this.el.btnVolOn.addListener("pointerdown", () => {
-      this.userData.save("is_mute_volume", false, true);
+      this.userData.save("is_mute_volume", 0, true);
       this.sound.initSound();
       gsap.to(this.container, animateOption);
     });
@@ -68,7 +68,7 @@ export class BootScene extends Scene {
     });
 
     this.el.btnVolOff.addListener("pointerdown", () => {
-      this.userData.save("is_mute_volume", true, true);
+      this.userData.save("is_mute_volume", 1, true);
       gsap.to(this.container, animateOption);
     });
     this.el.btnVolOff.addListener("pointerover", () => {
@@ -82,7 +82,7 @@ export class BootScene extends Scene {
   }
 
   private renderBootLogo(): void {
-    const isMuteVolume   = this.userData.load("is_mute_volume");
+    const isMuteVolume   = +this.userData.load("is_mute_volume");
     const nextSceneName  = this.userData.load("next_scene_name");
     const onAnimationEnd = () => {
       this.container.destroy({ children: true });

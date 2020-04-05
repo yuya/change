@@ -71,10 +71,12 @@ export class GameController {
 
   private attachEvent(): void {
     document.addEventListener("visibilitychange", () => {
+      const isMuteVolume = +this.userData.load("is_mute_volume");
+
       if (document.hidden) {
         Howler.mute(true);
       }
-      else {
+      else if (!isMuteVolume) {
         Howler.mute(false);
       }
     });

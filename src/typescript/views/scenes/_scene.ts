@@ -75,22 +75,22 @@ export abstract class Scene extends PIXI.Container {
     btnSoundToggle.appendChild(spriteImage);
 
     btnSoundToggle.id = "btn-sound-toggle";
-    btnSoundToggle.setAttribute("data-is-mute", this.userData.load("is_mute_volume") + "");
+    btnSoundToggle.setAttribute("data-is-mute", +this.userData.load("is_mute_volume") ? "true" : "false");
 
     btnSoundToggle.addEventListener("click", () => {
-      const currentMuteState = this.userData.load("is_mute_volume");
+      const currentMuteState = +this.userData.load("is_mute_volume");
 
       // mute -> unmute
-      if (currentMuteState === true) {
+      if (currentMuteState) {
         this.sound.howler.mute(false);
         btnSoundToggle.setAttribute("data-is-mute", "false");
-        this.userData.save("is_mute_volume", false, true);
+        this.userData.save("is_mute_volume", 0, true);
       }
       // unmute -> mute
       else {
         this.sound.howler.mute(true);
         btnSoundToggle.setAttribute("data-is-mute", "true");
-        this.userData.save("is_mute_volume", true, true);
+        this.userData.save("is_mute_volume", 1, true);
       }
     });
 
