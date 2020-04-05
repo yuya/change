@@ -9,7 +9,7 @@ const assetData: AssetData = AssetData.instance;
 const loadTarget: { [key:string] : string } = {
   "spriteSheetUi"   : "/assets/json/spritesheet_ui.json",
   "spriteSheetAnim" : "/assets/json/spritesheet_anim.json",
-  "spriteSheetDom"  : "/assets/img/spritesheet_dom.png",
+  "spriteSheetDom"  : "/assets/json/spritesheet_dom.json",
   "beyooOoonds"     : "/assets/json/ingame_beyooooonds.json",
 };
 const loadTargetArr: string[] = Object.keys(loadTarget).map((key) => {
@@ -19,7 +19,6 @@ const loadTargetArr: string[] = Object.keys(loadTarget).map((key) => {
 const init = (): void => {
   const _hideSpinner = () => {
     document.body.removeChild(conf.spinner_el);
-    console.log(document.cookie);
     // conf.spinner_el.classList.add("hide");
   };
 

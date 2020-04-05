@@ -16,8 +16,10 @@ gsap.registerPlugin(PixiPlugin);
 gsap.registerPlugin(MotionPathPlugin);
 
 const color = {
-  "black" : 0x222222,
-  "white" : 0xFFFFFF,
+  "black"  : 0x222222,
+  "white"  : 0xFFFFFF,
+  "yellow" : 0xFAFF99,
+  "gray"   : 0xCFCBB1,
 };
 
 const font = {

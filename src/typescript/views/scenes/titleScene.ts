@@ -23,7 +23,7 @@ export class TitleScene extends Scene {
     this.attachEvent();
 
     // TODO
-    // this.renderTitleLogo();
+    this.renderTitleLogo();
   }
 
   private initLayout(): void {
@@ -55,7 +55,7 @@ export class TitleScene extends Scene {
       el.alpha = 0;
     })
 
-    this.el.labelLife.alpha = 1;
+    this.el.labelColor.alpha = 1;
     this.rect.cover.interactive = this.rect.cover.buttonMode = true;
 
     this.container.addChild(this.el.titleLogo, this.el.bgLabel, this.rect.cover);
@@ -82,12 +82,19 @@ export class TitleScene extends Scene {
     });
 
     // TODO
-    // this.sound.play("bgm", "title");
+    this.sound.play("bgm", "title");
+    this.sound.bgm.title.on("end", () => {
+      const bgColor = utils.choice([0xCFCBB1,0xE8C4A5,0xFFC2D0,0xC1A5E8,0xB5DDFF]);
+      setTimeout(() => {
+        this.game.renderer.backgroundColor = bgColor;
+        document.body.style.backgroundColor = `#${bgColor.toString(16)}`;
+      }, 200);
+    });
   }
 
   private renderTitleLogo(): void {
     gsap.to(this.el.titleLogo, {
-      duration: utils.msec2sec(660),
+      duration: utils.msec2sec(1000),
       ease: "linear",
       pixi: { scale: 2.05 },
       repeat: -1,

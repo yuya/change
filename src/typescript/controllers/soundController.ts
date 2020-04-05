@@ -52,7 +52,10 @@ export class SoundController {
     this.se["throw"]     = new Howl({ src : "/assets/audio/throw.wav" });
 
     // BGM
-    this.bgm["title"]     = new Howl({ src : "/assets/audio/bgm_title.mp3", loop     : true });
+    // TODO: 
+    // this.bgm["title"]     = new Howl({ src : "/assets/audio/bgm_title.mp3", loop     : true });
+    // TODO: tmp
+    this.bgm["title"]     = new Howl({ src : "/assets/audio/bgm_title_tmp.wav", loop : true });
     this.bgm["home"]      = new Howl({ src : "/assets/audio/bgm_home.mp3", loop      : true });
     this.bgm["eval_high"] = new Howl({ src : "/assets/audio/bgm_eval_high.mp3", loop : true });
     this.bgm["eval_mid"]  = new Howl({ src : "/assets/audio/bgm_eval_mid.mp3", loop  : true });
@@ -72,7 +75,7 @@ export class SoundController {
     if (!this.userData.load("isEnabledVolume")) {
       this.howler.mute(true);
     }
-    else if (this[type][name] == null) {
+    if (this[type][name] == null) {
       this.initSound();
       // this.play(type, name);
     }

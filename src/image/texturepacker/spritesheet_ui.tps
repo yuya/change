@@ -149,7 +149,7 @@
             <string></string>
         </struct>
         <key>autoAliasEnabled</key>
-        <false/>
+        <true/>
         <key>trimSpriteNames</key>
         <true/>
         <key>prependSmartFolderName</key>
@@ -228,6 +228,36 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../btn_base.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>31,10,61,20</rect>
+                <key>scale9Paddings</key>
+                <rect>31,10,61,20</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../btn_base_o.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,10,64,20</rect>
+                <key>scale9Paddings</key>
+                <rect>32,10,64,20</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../btn_pause.png</key>
             <key type="filename">../menu_about.png</key>
             <key type="filename">../menu_beyooooonds.png</key>
@@ -264,6 +294,25 @@
                 <rect>20,20,40,40</rect>
                 <key>scale9Paddings</key>
                 <rect>20,20,40,40</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../icon_nori_1.png</key>
+            <key type="filename">../icon_nori_2.png</key>
+            <key type="filename">../icon_nori_3.png</key>
+            <key type="filename">../icon_nori_4.png</key>
+            <key type="filename">../icon_nori_5.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,8,8</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,8,8</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -386,6 +435,36 @@
                 <rect>33,10,66,19</rect>
                 <key>scale9Paddings</key>
                 <rect>33,10,66,19</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../label_nori.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,8,8,16</rect>
+                <key>scale9Paddings</key>
+                <rect>4,8,8,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../label_play.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>22,5,44,9</rect>
+                <key>scale9Paddings</key>
+                <rect>22,5,44,9</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -524,21 +603,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../ui_button.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>120,32,240,64</rect>
-                <key>scale9Paddings</key>
-                <rect>120,32,240,64</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
         </map>
         <key>fileList</key>
         <array>
@@ -548,7 +612,6 @@
             <filename>../btn_vol_on_o.png</filename>
             <filename>../logo_change.png</filename>
             <filename>../logo_dna.png</filename>
-            <filename>../ui_button.png</filename>
             <filename>../ttl_beyooooonds.png</filename>
             <filename>../txt_pause.png</filename>
             <filename>../btn_pause.png</filename>
@@ -578,6 +641,15 @@
             <filename>../label_eval_high.png</filename>
             <filename>../label_eval_low.png</filename>
             <filename>../label_eval_mid.png</filename>
+            <filename>../icon_nori_1.png</filename>
+            <filename>../icon_nori_2.png</filename>
+            <filename>../icon_nori_3.png</filename>
+            <filename>../icon_nori_4.png</filename>
+            <filename>../icon_nori_5.png</filename>
+            <filename>../label_nori.png</filename>
+            <filename>../label_play.png</filename>
+            <filename>../btn_base_o.png</filename>
+            <filename>../btn_base.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

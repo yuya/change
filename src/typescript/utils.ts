@@ -27,10 +27,13 @@ const createRect = (width: number, height: number, color?: number, alpha?: numbe
   return rectangle;
 };
 
-const createSprite = (texture: PIXI.Texture): PIXI.Sprite => {
+const createSprite = (texture: PIXI.Texture, name?: string): PIXI.Sprite => {
   const sprite = PIXI.Sprite.from(texture);
 
-  if (texture.textureCacheIds.length) {
+  if (name) {
+    sprite.name = name;
+  }
+  else if (texture.textureCacheIds.length) {
     sprite.name = texture.textureCacheIds[0];
   }
 
@@ -71,17 +74,29 @@ const emitDomEvent = (element: HTMLElement, eventName: string,
   element.dispatchEvent(event);
 };
 
-const appendDom = (idName: string): void => {
+const appendDom = (idName: string, targetDom?: HTMLElement): void => {
   if (document.getElementById(idName)) { return; }
   const dom = document.createElement("div");
   dom.id = idName;
-  document.body.appendChild(dom);
+
+  if (targetDom) {
+    targetDom.appendChild(dom);
+  }
+  else {
+    document.body.appendChild(dom);
+  }
 };
 
-const removeDom = (idName: string): void => {
+const removeDom = (idName: string, targetDom?: HTMLElement): void => {
   const dom = document.getElementById(idName);
   if (!dom) { return; }
-  document.body.removeChild(dom);
+
+  if (targetDom) {
+    targetDom.removeChild(dom);
+  }
+  else {
+    document.body.removeChild(dom);
+  }
 };
 
 const copy2clipboard = (text: string, msg?: string): void => {
@@ -98,7 +113,7 @@ const copy2clipboard = (text: string, msg?: string): void => {
   alert(message);
 };
 
-const getCookie = (name) => {
+const getCookie = (name): string => {
   const regex = /([\.$?*|{}\(\)\[\]\\\/\+^])/g;
   let matches = document.cookie.match(new RegExp(
     "(?:^|; )" + name.replace(regex, "\\$1") + "=([^;]*)"
@@ -107,7 +122,7 @@ const getCookie = (name) => {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 };
 
-const setCookie = (name, value, options?: {}) => {
+const setCookie = (name, value, options?: {}): void => {
   if (options["expires"]) {
     options["expires"] = options["expires"].toUTCString();
   }
@@ -119,6 +134,15 @@ const setCookie = (name, value, options?: {}) => {
   });
 
   document.cookie = updatedCookie;
+};
+
+const choice = (list: number[]): number => {
+  return list[Math.floor(Math.random() * list.length)];
+};
+
+const setBgColor = (renderer: PIXI.Renderer, color: number): void => {
+  renderer.backgroundColor = color;
+  document.body.style.backgroundColor = color.toString(16);
 };
 
 export const utils = {
@@ -135,4 +159,6 @@ export const utils = {
   "copy2clipboard" : copy2clipboard,
   "getCookie"      : getCookie,
   "setCookie"      : setCookie,
+  "choice"         : choice,
+  "setBgColor"     : setBgColor,
 };

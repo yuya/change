@@ -56,10 +56,10 @@ a:link, a:visited { color: #222; }
 }
 .icon.gmail::before    { background-position:    0   0; }
 .icon.youtube::before  { background-position:  -18px 0; }
-.icon.twitter::before  { background-position:  -36px 0; }
-.icon.favorite::before { background-position:  -55px 0; }
-.icon.amazon::before   { background-position:  -92px 0; }
-.icon.github::before   { background-position: -164px 0; }
+.icon.twitter::before  { background-position:  -77px 0; }
+.icon.favorite::before { background-position:  -96px 0; }
+.icon.amazon::before   { background-position: -133px 0; }
+.icon.github::before   { background-position: -194px 0; }
 
 .icon:hover::after,
 .icon:active::after,
@@ -121,8 +121,9 @@ body {
   text-align: center;
   vertical-align: middle;
 }
-.is-paused body { background-color: #4E4D47; }
-.bg-black  body { background-color: #222; }
+.is-paused  body { background-color: #4E4D47; }
+.bg-yellow  body { background-color: #FAFF99; }
+.bg-black   body { background-color: #222; }
 .is-paused #container::before,
 .is-paused #container::after,
 .bg-black #container::before,
@@ -161,31 +162,40 @@ canvas {
   display: inline-block;
   position: relative;
 }
+/*
 iframe#youtube {
   position: fixed;
   bottom: 16px;
   right: 0;
   left: 0;
   margin: 0 auto;
-  /* border: 4px solid #FFF; */
-  /* outline: 4px solid #222; */
   z-index: 1;
   opacity: 0;
-  /* pointer-events: none;
-  user-select: none; */
+}
+*/
+iframe#youtube {
+  position: absolute;
+  top: 41px;
+  left: 258px;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-transform: scale(0.5625);
+  -moz-transform: scale(0.5625);
+  -ms-transform: scale(0.5625);
+  -o-transform: scale(0.5625);
+  transform: scale(0.5625);
 }
 .yt-loaded iframe#youtube { opacity: 1; }
 /* .yt-loaded #youtube { opacity: 0.1; } */
 #yt-overlay {
-  display: block;
-  position: fixed;
-  bottom: 16px;
-  right: 0;
-  left: 0;
+  position: absolute;
+  top: 80px;
+  left: 328px;
   z-index: 1;
-  margin: 0 auto;
-  width: 320px;
-  height: 180px;
+  width: 180px;
+  height: 102px;
   background-color: rgba(34, 34, 34, 0.75);
 }
 
@@ -263,24 +273,24 @@ iframe#youtube {
 #btn-sound-toggle {
   overflow: hidden;
   position: absolute;
-  top: -40px;
+  top: -32px;
   right: 20px;
   z-index: 2;
-  width: 96px;
-  height: 48px;
+  width: 76px;
+  height: 32px;
   cursor: pointer;
 }
 #btn-sound-toggle img {
   display: block;
   position: absolute;
   top: 0;
-  left: -224px;
-  margin-top: 8px;
+  left: -72px;
+  margin-top: 4px;
   image-rendering: pixelated;
   pointer-events: none;
 }
 #btn-sound-toggle[data-is-mute="true"] img {
-  left: -368px;
+  left: -306px;
   margin-top: 0;
 }
 

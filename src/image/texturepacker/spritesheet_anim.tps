@@ -70,7 +70,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>0</uint>
+        <uint>4</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -167,7 +167,7 @@
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMargin</key>
-            <uint>4</uint>
+            <uint>0</uint>
             <key>trimMode</key>
             <enum type="SpriteSettings::TrimMode">Trim</enum>
             <key>tracerTolerance</key>
@@ -225,6 +225,51 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../bg_fever_1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>40,60,80,120</rect>
+                <key>scale9Paddings</key>
+                <rect>40,60,80,120</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../bg_fever_2.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>45,68,90,135</rect>
+                <key>scale9Paddings</key>
+                <rect>45,68,90,135</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../bg_youtube.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>40,57,80,114</rect>
+                <key>scale9Paddings</key>
+                <rect>40,57,80,114</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
@@ -244,6 +289,9 @@
             <filename>../anim_note_bomb.png</filename>
             <filename>../anim_note_chaos.png</filename>
             <filename>../anim_note_virus.png</filename>
+            <filename>../bg_youtube.png</filename>
+            <filename>../bg_fever_1.png</filename>
+            <filename>../bg_fever_2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

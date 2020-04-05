@@ -2,23 +2,23 @@
 
 "btn_sound_toggle_off":
 {
-	"frame": {"x":184,"y":0,"w":48,"h":24},
+	"frame": {"x":153,"y":0,"w":37,"h":16},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":24},
-	"sourceSize": {"w":48,"h":24}
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":37,"h":16},
+	"sourceSize": {"w":38,"h":16}
 },
 "btn_sound_toggle_on":
 {
-	"frame": {"x":112,"y":0,"w":48,"h":16},
+	"frame": {"x":36,"y":0,"w":37,"h":12},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":4,"w":48,"h":16},
-	"sourceSize": {"w":48,"h":24}
+	"spriteSourceSize": {"x":0,"y":2,"w":37,"h":12},
+	"sourceSize": {"w":38,"h":16}
 },
 "icon_amazon":
 {
-	"frame": {"x":92,"y":0,"w":16,"h":15},
+	"frame": {"x":133,"y":0,"w":16,"h":15},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":1,"w":16,"h":15},
@@ -26,7 +26,7 @@
 },
 "icon_favorite":
 {
-	"frame": {"x":55,"y":0,"w":15,"h":13},
+	"frame": {"x":96,"y":0,"w":15,"h":13},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":2,"w":15,"h":13},
@@ -34,7 +34,7 @@
 },
 "icon_github":
 {
-	"frame": {"x":164,"y":0,"w":16,"h":16},
+	"frame": {"x":194,"y":0,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -50,7 +50,7 @@
 },
 "icon_newtab":
 {
-	"frame": {"x":74,"y":0,"w":14,"h":14},
+	"frame": {"x":115,"y":0,"w":14,"h":14},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":14,"h":14},
@@ -58,7 +58,7 @@
 },
 "icon_twitter":
 {
-	"frame": {"x":36,"y":0,"w":15,"h":12},
+	"frame": {"x":77,"y":0,"w":15,"h":12},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":2,"w":15,"h":12},
@@ -74,7 +74,7 @@
 },
 "pic_yhashimoto":
 {
-	"frame": {"x":0,"y":28,"w":240,"h":135},
+	"frame": {"x":0,"y":20,"w":240,"h":135},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":240,"h":135},
@@ -85,8 +85,8 @@
 	"version": "1.0",
 	"image": "/assets/img/spritesheet_dom.png",
 	"format": "RGBA8888",
-	"size": {"w":240,"h":163},
+	"size": {"w":240,"h":155},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:02826993d347961ca852a29de7cf2135:3db9f64f06c22189000de2688d245ab9:f9b0137a982a5719555a3991698f3ac0$"
+	"smartupdate": "$TexturePacker:SmartUpdate:510b4a71494d615c253c74da23211426:6600d2546dad620c61921ca8fedbe688:f9b0137a982a5719555a3991698f3ac0$"
 }
 }

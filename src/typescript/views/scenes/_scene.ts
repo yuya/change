@@ -48,16 +48,16 @@ export abstract class Scene extends PIXI.Container {
     }
 
     const logoElement = document.createElement("div");
-    const sprite      = this.assetData.load("spriteSheetUi");
-    const spriteImage = sprite.children[0].data;
-    console.log(this.assetData.load("spriteSheetUi"));
-    spriteImage.width  = sprite.data.meta.size.w;
-    spriteImage.height = sprite.data.meta.size.h;
-    spriteImage.style.top = `-${sprite.spritesheet.textures.logo_change.orig.y}px`;
-    spriteImage.style.left = `-${sprite.spritesheet.textures.logo_change.orig.x}px`;
-    logoElement.appendChild(spriteImage);
+    const spriteInfo  = this.assetData.load("spriteSheetUi");
+    const spriteImage = spriteInfo.children[0].data;
+
+    spriteImage.width  = spriteInfo.data.meta.size.w;
+    spriteImage.height = spriteInfo.data.meta.size.h;
+    spriteImage.style.top  = `-${spriteInfo.spritesheet.textures.logo_change.orig.y}px`;
+    spriteImage.style.left = `-${spriteInfo.spritesheet.textures.logo_change.orig.x}px`;
 
     logoElement.id = "logo";
+    logoElement.appendChild(spriteImage);
     conf.canvas_el.appendChild(logoElement);
   }
 
@@ -67,9 +67,11 @@ export abstract class Scene extends PIXI.Container {
     }
 
     const btnSoundToggle = document.createElement("div");
-    const spriteImage    = this.assetData.load("spriteSheetDom").data.cloneNode();
-    spriteImage.width  = 480;
-    spriteImage.height = 326;
+    const spriteInfo     = this.assetData.load("spriteSheetDom");
+    const spriteImage    = spriteInfo.children[0].data;
+
+    spriteImage.width  = spriteInfo.data.meta.size.w * 2;
+    spriteImage.height = spriteInfo.data.meta.size.h * 2;
     btnSoundToggle.appendChild(spriteImage);
 
     btnSoundToggle.id = "btn-sound-toggle";
