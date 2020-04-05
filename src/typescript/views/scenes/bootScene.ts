@@ -26,8 +26,7 @@ export class BootScene extends Scene {
     this.el.btnVolOn.scale.set(2, 2);
     this.el.btnVolOff.scale.set(2, 2);
     this.el.btnVolOn.interactive  = this.el.btnVolOn.buttonMode  = true;
-    // TODO:
-    // this.el.btnVolOff.interactive = this.el.btnVolOff.buttonMode = true;
+    this.el.btnVolOff.interactive = this.el.btnVolOff.buttonMode = true;
 
     this.el.btnVolOn.position.set(btnVolOnPosX, utils.display.centerY);
     this.el.btnVolOff.position.set(btnVolOffPosX, utils.display.centerY);
@@ -55,7 +54,7 @@ export class BootScene extends Scene {
     };
 
     this.el.btnVolOn.addListener("pointerdown", () => {
-      this.userData.save("isEnabledVolume", true, true);
+      this.userData.save("is_mute_volume", false, true);
       this.sound.initSound();
       gsap.to(this.container, animateOption);
     });
@@ -69,7 +68,7 @@ export class BootScene extends Scene {
     });
 
     this.el.btnVolOff.addListener("pointerdown", () => {
-      this.userData.save("isEnabledVolume", false);
+      this.userData.save("is_mute_volume", true, true);
       gsap.to(this.container, animateOption);
     });
     this.el.btnVolOff.addListener("pointerover", () => {
@@ -83,7 +82,7 @@ export class BootScene extends Scene {
   }
 
   private renderBootLogo(): void {
-    const isEnableVol    = this.userData.load("isEnabledVolume");
+    const isMuteVolume   = this.userData.load("is_mute_volume");
     const nextSceneName  = this.userData.load("nextSceneName");
     const onAnimationEnd = () => {
       this.container.destroy({ children: true });
@@ -102,7 +101,7 @@ export class BootScene extends Scene {
       ease: "linear",
       pixi: { y: 400 },
       onComplete: () => {
-        if (isEnableVol) {
+        if (!isMuteVolume) {
           this.sound.play("se", "boot");
           this.sound.se.boot.on("end", onAnimationEnd);
         } 

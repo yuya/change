@@ -2,9 +2,10 @@ import * as WebFont from "webfontloader";
 import { conf } from "conf";
 import { util } from "util";
 import { GameController } from "controllers";
-import { AssetData } from "models";
+import { UserData, AssetData } from "models";
 
 const gameController: GameController = GameController.instance;
+const userData: UserData = UserData.instance;
 const assetData: AssetData = AssetData.instance;
 const loadTarget: { [key:string] : string } = {
   "spriteSheetUi"   : "/assets/json/spritesheet_ui.json",
@@ -22,6 +23,14 @@ const init = (): void => {
     // conf.spinner_el.classList.add("hide");
   };
 
+  const _setVolume = () => {
+    const isMuteVolume = userData.load("is_mute_volume");
+
+    if (isMuteVolume == null || isMuteVolume === true) {
+      Howler.mute(true);
+    }
+  };
+
   const _routeScene = (): void => {
     const regex   = /\/(\w+)/;
     const matched = location.pathname.match(regex);
@@ -35,6 +44,7 @@ const init = (): void => {
         families: ["Nu Kinako Mochi", "JF Dot M+H 10"]
       },
       active: () => {
+        _setVolume();
         _hideSpinner();
         _routeScene();
       }
