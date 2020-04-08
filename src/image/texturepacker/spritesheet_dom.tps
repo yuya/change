@@ -26,7 +26,7 @@
             </struct>
         </array>
         <key>allowRotation</key>
-        <true/>
+        <false/>
         <key>shapeDebug</key>
         <false/>
         <key>dpi</key>
@@ -198,11 +198,12 @@
                 <false/>
             </struct>
             <key type="filename">../icon_amazon.png</key>
+            <key type="filename">../icon_facebook_rect.png</key>
             <key type="filename">../icon_favorite.png</key>
             <key type="filename">../icon_github.png</key>
             <key type="filename">../icon_gmail.png</key>
-            <key type="filename">../icon_newtab.png</key>
             <key type="filename">../icon_twitter.png</key>
+            <key type="filename">../icon_twitter_rect.png</key>
             <key type="filename">../icon_youtube.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -242,10 +243,11 @@
             <filename>../icon_favorite.png</filename>
             <filename>../icon_github.png</filename>
             <filename>../icon_gmail.png</filename>
-            <filename>../icon_newtab.png</filename>
             <filename>../icon_twitter.png</filename>
             <filename>../icon_youtube.png</filename>
             <filename>../pic_yhashimoto.png</filename>
+            <filename>../icon_facebook_rect.png</filename>
+            <filename>../icon_twitter_rect.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

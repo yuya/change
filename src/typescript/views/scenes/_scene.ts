@@ -95,6 +95,7 @@ export abstract class Scene extends PIXI.Container {
     });
 
     conf.canvas_el.appendChild(btnSoundToggle);
+    setTimeout(() => btnSoundToggle.classList.add("show"), 100);
   }
 
   public fadeScreen(from: number, to: number, duration: number, callback?: any, delay?: number) {

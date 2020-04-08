@@ -24,7 +24,7 @@ export class HistoryContent extends Content {
     const str = `
 <dl>
   <dt>【かいはつ リポジトリ】</dt>
-  <dd><a class="icon github" href="https://github.com/yuya/change" target="_blank" rel="noopener noreferrer">yuya/change</a></dd>
+  <dd><a class="icon github" href="https://github.com/yuya/change" target="_blank" rel="noopener">yuya/change</a></dd>
   <dt>【こうしん りれき】</dt>
   <dd>
     <ul>

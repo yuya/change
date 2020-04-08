@@ -483,6 +483,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../label_tap2start.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>36,6,72,13</rect>
+                <key>scale9Paddings</key>
+                <rect>36,6,72,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../logo_change.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -495,21 +510,6 @@
                 <rect>48,32,96,64</rect>
                 <key>scale9Paddings</key>
                 <rect>48,32,96,64</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../logo_dna.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>48,40,96,80</rect>
-                <key>scale9Paddings</key>
-                <rect>48,40,96,80</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -573,6 +573,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../txt_developed.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>44,2,88,4</rect>
+                <key>scale9Paddings</key>
+                <rect>44,2,88,4</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../txt_pause.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -588,21 +603,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../txt_yhashimoto.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>23,2,45,3</rect>
-                <key>scale9Paddings</key>
-                <rect>23,2,45,3</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
         </map>
         <key>fileList</key>
         <array>
@@ -611,7 +611,6 @@
             <filename>../btn_vol_on.png</filename>
             <filename>../btn_vol_on_o.png</filename>
             <filename>../logo_change.png</filename>
-            <filename>../logo_dna.png</filename>
             <filename>../ttl_beyooooonds.png</filename>
             <filename>../txt_pause.png</filename>
             <filename>../btn_pause.png</filename>
@@ -620,7 +619,6 @@
             <filename>../label_future.png</filename>
             <filename>../label_life.png</filename>
             <filename>../label_myself.png</filename>
-            <filename>../txt_yhashimoto.png</filename>
             <filename>../img_intro_beyooooonds.png</filename>
             <filename>../label_rule.png</filename>
             <filename>../ttl_about.png</filename>
@@ -650,6 +648,8 @@
             <filename>../label_play.png</filename>
             <filename>../btn_base_o.png</filename>
             <filename>../btn_base.png</filename>
+            <filename>../txt_developed.png</filename>
+            <filename>../label_tap2start.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

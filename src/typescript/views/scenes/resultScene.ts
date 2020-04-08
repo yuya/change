@@ -25,9 +25,9 @@ export class ResultScene extends Scene {
       outroImg  : utils.createSprite(this.textures["img_intro_beyooooonds"]),
     };
     this.rect = {
-      background  : utils.createRect(conf.canvas_width, conf.canvas_height, conf.color.black),
-      coverResult : utils.createRect(conf.canvas_width, conf.canvas_height),
-      coverOutro  : utils.createRect(conf.canvas_width, conf.canvas_height),
+      background  : utils.createRect("bg", conf.canvas_width, conf.canvas_height, conf.color.black),
+      coverResult : utils.createRect("coverResult", conf.canvas_width, conf.canvas_height),
+      coverOutro  : utils.createRect("coverOutro", conf.canvas_width, conf.canvas_height),
     };
     utils.setNameToObj(this.rect);
     conf.root_el.classList.add("bg-black");

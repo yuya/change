@@ -30,7 +30,9 @@ export class HomeScene extends Scene {
     if (!this.sound.bgm || !this.sound.bgm["home"]) {
       this.sound.initSound();
     }
-    this.sound.bgm["home"].play();
+    setTimeout(() => {
+      this.sound.bgm["home"].play();
+    }, 500);
     this.initLayout();
     this.initSiteLogo();
     this.initVolumeButton();

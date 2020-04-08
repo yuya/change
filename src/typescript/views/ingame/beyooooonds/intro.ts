@@ -30,8 +30,8 @@ export class Intro {
     this.textures  = this.assetData.load("textures");
 
     this.keyv  = utils.createSprite(this.textures["img_intro_beyooooonds"]);
-    this.bg    = utils.createRect(conf.canvas_width, conf.canvas_height, conf.color.black);
-    this.cover = utils.createRect(conf.canvas_width, conf.canvas_height);
+    this.bg    = utils.createRect("bg", conf.canvas_width, conf.canvas_height, conf.color.black);
+    this.cover = utils.createRect("cover", conf.canvas_width, conf.canvas_height);
 
     utils.setNameToObj({
       "bg"    : this.bg,

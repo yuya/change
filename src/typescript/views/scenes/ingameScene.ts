@@ -110,7 +110,7 @@ export class IngameScene extends Scene {
     this.isPaused    = false;
     this.rawScore    = 0;
     this.norikan     = 0;
-    this.rect.cover  = utils.createRect(conf.canvas_width, conf.canvas_height);
+    this.rect.cover  = utils.createRect("cover", conf.canvas_width, conf.canvas_height);
     this.animParts   = this.assetData.load("animation").spritesheet.textures;
 
     this.game.events["enablePause"] = this.enablePause.bind(this);
@@ -370,7 +370,7 @@ export class IngameScene extends Scene {
     utils.appendDom("yt-overlay", conf.canvas_el);
     conf.root_el.classList.toggle("is-paused");
     this.el.txtPause  = utils.createSprite(this.textures["txt_pause"]);
-    this.rect.overlay = utils.createRect(conf.canvas_width, conf.canvas_height, 0x222222, 0.75);
+    this.rect.overlay = utils.createRect("overlay", conf.canvas_width, conf.canvas_height, 0x222222, 0.75);
     this.rect.overlay.interactive = this.rect.overlay.buttonMode = true;
 
     this.el.txtPause.pivot.set(this.el.txtPause.width / 2, this.el.txtPause.height / 2);
@@ -389,6 +389,7 @@ export class IngameScene extends Scene {
     this.isPaused = false;
     utils.removeDom("yt-overlay", conf.canvas_el);
     conf.root_el.classList.toggle("is-paused");
+    this.sound.play("se", "cancel");
     this.player.playVideo();
     this.rect.overlay.destroy();
     this.game.ticker.start();

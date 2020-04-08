@@ -37,6 +37,8 @@ export class SoundController {
     
     // SE
     this.se["boot"]      = new Howl({ src : "/assets/audio/se_boot.mp3" });
+    this.se["decide"]    = new Howl({ src : "/assets/audio/se_decide.mp3" });
+    this.se["cancel"]    = new Howl({ src : "/assets/audio/se_cancel.mp3" });
     this.se["select"]    = new Howl({ src : "/assets/audio/se_select.mp3" });
     this.se["hit"]       = new Howl({ src : "/assets/audio/se_hit.wav" });
     this.se["miss"]      = new Howl({ src : "/assets/audio/se_miss.mp3" });
@@ -52,18 +54,16 @@ export class SoundController {
     this.se["throw"]     = new Howl({ src : "/assets/audio/throw.wav" });
 
     // BGM
-    // TODO: 
-    // this.bgm["title"]     = new Howl({ src : "/assets/audio/bgm_title.mp3", loop     : true });
-    // TODO: tmp
-    this.bgm["title"]     = new Howl({ src : "/assets/audio/bgm_title_tmp.wav", loop : true });
-    this.bgm["home"]      = new Howl({ src : "/assets/audio/bgm_home.mp3", loop      : true });
+    this.bgm["title"]     = new Howl({ src : "/assets/audio/bgm_title.mp3", loop : true });
+    this.bgm["home"]      = new Howl({ src : "/assets/audio/bgm_home.mp3", loop : true });
     this.bgm["eval_high"] = new Howl({ src : "/assets/audio/bgm_eval_high.mp3", loop : true });
     this.bgm["eval_mid"]  = new Howl({ src : "/assets/audio/bgm_eval_mid.mp3", loop  : true });
     this.bgm["eval_low"]  = new Howl({ src : "/assets/audio/bgm_eval_low.mp3", loop  : true });
-    this.bgm["home"]      = new Howl({ src : "/assets/audio/bgm_home.mp3", loop      : true });
-    this.bgm["home"]      = new Howl({ src : "/assets/audio/bgm_home.mp3", loop      : true });
+    // this.bgm["home"]      = new Howl({ src : "/assets/audio/bgm_home.mp3", loop      : true });
+    // this.bgm["home"]      = new Howl({ src : "/assets/audio/bgm_home.mp3", loop      : true });
 
     // JINGLE
+    this.jingle["metronome"]  = new Howl({ src : "/assets/audio/jingle_metronome.mp3" });
     this.jingle["intro"]      = new Howl({ src : "/assets/audio/jingle_intro.mp3" });
     this.jingle["outro"]      = new Howl({ src : "/assets/audio/jingle_outro.mp3" });
     this.jingle["outro_high"] = new Howl({ src : "/assets/audio/jingle_outro_high.mp3" });

@@ -33,7 +33,7 @@ export class BeyooOoondsContent extends Content {
 そんな こうきしん から、<i class="mod-mochi">YouTube</i> で 公開されている <i class="mod-mochi">MV</i> を はいしゃくして、作ってみました。
 </p>
 <p>
-とんでくる モノを、リズムにノッて タイミングよく パンチ！！ タイミング が わからなければ、<a class="icon youtube" href="https://www.youtube.com/watch?v=KYVMtijS74U" target="_blank" rel="noopener noreferrer"><i class="mod-mochi">MV</i></a> を みて べんきょうだ！
+とんでくる モノを、リズムにノッて タイミングよく パンチ！！ タイミング が わからなければ、<a class="icon youtube" href="https://www.youtube.com/watch?v=KYVMtijS74U" target="_blank" rel="noopener"><i class="mod-mochi">MV</i></a> を みて べんきょうだ！
 </p>
 `.replace(/(^\n|\n$)/g, "");
 
@@ -48,7 +48,7 @@ export class BeyooOoondsContent extends Content {
   }
 
   private setButton() {
-    const nextSceneName = UserData.instance.load("nextSceneName");
+    const nextSceneName = UserData.instance.load("next_scene_name");
     const btnBase  = utils.createSprite(this.textures["btn_base"]);
     const btnHover = utils.createSprite(this.textures["btn_base_o"]);
     const btnLabel = utils.createSprite(this.textures["label_play"]);
@@ -70,8 +70,14 @@ export class BeyooOoondsContent extends Content {
     });
 
     btnBase.addListener("pointerdown", () => {
+      const logo = document.getElementById("logo");
+      const btn  = document.getElementById("btn-sound-toggle");
+
       this.destroy();
+      this.sound.play("se", "decide");
       this.sound.bgm["home"].fade(1, 0, 1000);
+      conf.canvas_el.removeChild(logo);
+      conf.canvas_el.removeChild(btn);
       this.game.currentScene.destroy();
       this.game.route(nextSceneName);
     });
