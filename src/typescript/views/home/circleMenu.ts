@@ -205,7 +205,7 @@ export class CircleMenu {
     this.pos.startY = this.pos.baseY = posY;
 
     this.element.addListener("pointermove", this.fn.onTouchMove, this.element);
-    document.addEventListener(utils.touch.end, this.fn.onTouchEnd, false);
+    document.addEventListener(utils.pointer.up, this.fn.onTouchEnd, false);
 
     this.game.eventHandler.emit("ontouchstart");
   }

@@ -5,12 +5,14 @@ const display = {
   centerX: conf.canvas_width  / 2,
   centerY: conf.canvas_height / 2,
 };
+const hasPointer = "onpointerdown" in window;
+const hasTouch   = "ontouchstart" in window;
 
-const touch = {
-  start  : PIXI.utils.isMobile ? "touchstart"  : "mousedown",
-  move   : PIXI.utils.isMobile ? "touchmove"   : "mousemove",
-  end    : PIXI.utils.isMobile ? "touchend"    : "mouseup",
-  cancel : PIXI.utils.isMobile ? "touchcancel" : "mouseleave",
+const pointer = {
+  down   : hasPointer ? "pointerdown"   : (hasTouch ? "touchstart"  : "mousedown"),
+  move   : hasPointer ? "pointermove"   : (hasTouch ? "touchmove"   : "mousemove"),
+  up     : hasPointer ? "pointerup"     : (hasTouch ? "touchend"    : "mouseup"),
+  cancel : hasPointer ? "pointercancel" : (hasTouch ? "touchcancel" : "mouseleave"),
 };
 
 const msec2sec = (msec: number): number => {
@@ -155,7 +157,7 @@ const setBgColor = (renderer: PIXI.Renderer, color: number): void => {
 
 export const utils = {
   "display"        : display,
-  "touch"          : touch,
+  "pointer"        : pointer,
   "msec2sec"       : msec2sec,
   "sec2msec"       : sec2msec,
   "createRect"     : createRect,
