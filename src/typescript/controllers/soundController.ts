@@ -48,8 +48,8 @@ export class SoundController {
     this.se["eval_mid"]  = new Howl({ src : "/assets/audio/se_eval_mid.mp3" });
     this.se["eval_low"]  = new Howl({ src : "/assets/audio/se_eval_low.mp3" });
     this.se["spring"]    = new Howl({ src : "/assets/audio/se_spring.mp3" });
-    this.se["suburi"]    = new Howl({ src : "/assets/audio/suburi.wav" });
-    this.se["throw"]     = new Howl({ src : "/assets/audio/throw.wav" });
+    this.se["swing"]     = new Howl({ src : "/assets/audio/se_swing.wav" });
+    this.se["throw"]     = new Howl({ src : "/assets/audio/se_throw.wav" });
 
     // BGM
     this.bgm["title"]     = new Howl({ src : "/assets/audio/bgm_title.mp3", loop : true });

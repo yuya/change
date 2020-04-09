@@ -645,7 +645,7 @@ export class IngameScene extends Scene {
 
     if (absDiff > this.model.judgeTiming.bad ||
         this.prevJudge === approximate) {
-      this.sound.se.suburi.play();
+      this.sound.se.swing.play();
       this.playAnim("punch_l");
       return;
     }
