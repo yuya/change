@@ -2,7 +2,7 @@ const functions = require("firebase-functions");
 const express   = require("express");
 const basicAuth = require("basic-auth-connect");
 const fs        = require("fs");
-const filename  = "auth_info.txt";
+const filename  = "auth_info.example.txt";
 
 const app  = express();
 const text = fs.readFileSync(`${__dirname}/${filename}`, "utf8");
