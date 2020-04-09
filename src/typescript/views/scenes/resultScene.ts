@@ -19,8 +19,6 @@ export class ResultScene extends Scene {
 
     this.txt = {};
     this.el  = {
-      // result : utils.createSprite(this.textures["result_grade_low"]),
-      // result : utils.createSprite(this.textures["result_grade_mid"]),
       msgFoot   : utils.createSprite(this.textures[this.resultData.data.eval.labelPath]),
       outroImg  : utils.createSprite(this.textures["img_intro_beyooooonds"]),
     };
@@ -135,11 +133,8 @@ export class ResultScene extends Scene {
           duration: utils.msec2sec(100),
           pixi: { alpha: 0 },
           onComplete: () => {
-            // this.sound.bgm[this.resultData.data.eval.bgmPath].stop();
 
             this.sound.bgm[this.resultData.data.eval.bgmPath].fade(1, 0, 200);
-            // console.log(this.sound.bgm[this.resultData.data.eval.bgmPath]);
-            // this.sound.play("bgm", this.resultData.data.eval.bgmPath);
             this.container.destroy({ children: true });
             this.showOutro();
           }
@@ -193,6 +188,5 @@ export class ResultScene extends Scene {
         }
       });
     });
-
   }
 }

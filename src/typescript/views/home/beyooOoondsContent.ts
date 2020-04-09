@@ -61,6 +61,7 @@ export class BeyooOoondsContent extends Content {
     btnLabel.position.set(25, 5);
 
     btnBase.addListener("pointerover", () => {
+      this.sound.se["select"].play();
       btnBase.texture = this.textures["btn_base_o"];
       btnLabel.y += 6;
     });

@@ -127,14 +127,14 @@ body {
   text-align: center;
   vertical-align: middle;
 }
-.is-paused  body { background-color: #4E4D47; }
+.is-paused  body { background-color: #222; }
 .bg-yellow  body { background-color: #FAFF99; }
 .bg-black   body { background-color: #222; }
 .is-paused #container::before,
 .is-paused #container::after,
 .bg-black #container::before,
 .bg-black #container::after {
-  display: none;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUCAAAAACVcCO3AAAAAnRSTlMAAHaTzTgAAAAhSURBVHjaY2DAAEpK6AzsasDScAammBIYgPlQBi41JDIAqeILsWyojF4AAAAASUVORK5CYII=");
 }
 canvas {
   position: relative;
@@ -181,7 +181,7 @@ iframe#youtube {
 */
 iframe#youtube {
   position: absolute;
-  top: 41px;
+  top: 61px;
   left: 258px;
   z-index: 1;
   opacity: 0;
@@ -197,7 +197,7 @@ iframe#youtube {
 /* .yt-loaded #youtube { opacity: 0.1; } */
 #yt-overlay {
   position: absolute;
-  top: 80px;
+  top: 100px;
   left: 328px;
   z-index: 1;
   width: 180px;

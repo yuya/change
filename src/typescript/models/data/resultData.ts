@@ -40,7 +40,7 @@ export class ResultData {
       ret = {
         eval: {
           from: "しゃちょー の おことば",
-          comment: "パンチにキレがある！ きみ、昇給！",
+          comment: "パンチにキレがある！ きみ、いいね！",
           labelPath: "label_eval_high",
           sePath: "eval_high",
           bgmPath: "eval_high",
@@ -57,7 +57,7 @@ export class ResultData {
              this.score < ResultThreshold.Superb) {
       ret = {
         eval: {
-          from: "しゃちょー の おことば",
+          from: "じょうし の おことば",
           comment: "とりあえず...",
           labelPath: "label_eval_mid",
           sePath: "eval_mid",
@@ -74,8 +74,8 @@ export class ResultData {
     else {
       ret = {
         eval: {
-          from: "しゃちょー の おことば",
-          comment: "ぜんっぜん あってない！",
+          from: "どうりょう の おことば",
+          comment: "ぜんぜん あってない・・・",
           labelPath: "label_eval_low",
           sePath: "eval_low",
           bgmPath: "eval_low",

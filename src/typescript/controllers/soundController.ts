@@ -44,10 +44,8 @@ export class SoundController {
     this.se["miss"]      = new Howl({ src : "/assets/audio/se_miss.mp3" });
     this.se["eval_from"] = new Howl({ src : "/assets/audio/se_eval_from.mp3" });
     this.se["eval_msg"]  = new Howl({ src : "/assets/audio/se_eval_msg.mp3" });
-    // TODO: dummy
-    this.se["eval_high"] = new Howl({ src : "/assets/audio/se_eval_low.mp3" });
-    // TODO: dummy
-    this.se["eval_mid"]  = new Howl({ src : "/assets/audio/se_eval_low.mp3" });
+    this.se["eval_high"] = new Howl({ src : "/assets/audio/se_eval_high.mp3" });
+    this.se["eval_mid"]  = new Howl({ src : "/assets/audio/se_eval_mid.mp3" });
     this.se["eval_low"]  = new Howl({ src : "/assets/audio/se_eval_low.mp3" });
     this.se["spring"]    = new Howl({ src : "/assets/audio/se_spring.mp3" });
     this.se["suburi"]    = new Howl({ src : "/assets/audio/suburi.wav" });

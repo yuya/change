@@ -37,9 +37,26 @@ const LogoPos = {
 } as const;
 type LogoPos = typeof LogoPos[keyof typeof LogoPos];
 
+const StarPos = {
+  star_1  : { x:  93, y:  18 },
+  star_2  : { x: 275, y:  22 },
+  star_3  : { x: 167, y:  66 },
+  star_4  : { x:  25, y:  86 },
+  star_5  : { x: 255, y: 120 },
+  star_6  : { x:  85, y: 140 },
+  star_7  : { x:  10, y: 217 },
+  star_8  : { x: 277, y: 251 },
+  star_9  : { x:  40, y: 325 },
+  star_10 : { x: 193, y: 364 },
+  star_11 : { x:  92, y: 400 },
+  star_12 : { x: 284, y: 420 },
+} as const;
+type StarPos = typeof StarPos[keyof typeof StarPos];
+
+
 export class TitleScene extends Scene {
   private textures: any;
-  private bg: PIXI.Container;
+  private background: PIXI.Container;
   private logo: PIXI.Container;
   private logoParts: { [key : string] : PIXI.Sprite[] };
   private animParts: any;
@@ -48,13 +65,15 @@ export class TitleScene extends Scene {
     super();
 
     this.textures    = this.assetData.load("textures");
-    this.bg          = new PIXI.Container();
+    this.background  = new PIXI.Container();
     this.logo        = new PIXI.Container();
-    this.logo.name   = "logo";
     this.logoParts   = {};
     this.animParts   = this.assetData.load("animation").spritesheet.textures;
     this.rect.bgFoot = utils.createRect("bgFoot", conf.canvas_width, 64, conf.color.black);
     this.rect.cover  = utils.createRect("cover", conf.canvas_width, conf.canvas_height);
+
+    this.background.name = "bg";
+    this.logo.name = "logo";
 
     this.initLayout();
     this.initTitleLogo();
@@ -62,6 +81,8 @@ export class TitleScene extends Scene {
 
   private initLayout(): void {
     const stashParts = new Array(18);
+
+    this.initBackground();
 
     this.logoParts["c"] = [];
     this.logoParts["h"] = [];
@@ -96,7 +117,7 @@ export class TitleScene extends Scene {
     this.logo.width  = 206;
     this.logo.height = 66;
     this.logo.pivot.set(this.logo.width / 2, 0);
-    this.logo.position.set(utils.display.centerX, conf.canvas_height + this.logo.height*2.5);
+    this.logo.position.set(utils.display.centerX, conf.canvas_height + this.logo.height*2.75);
     this.logo.scale.set(2.5, 2.5);
     // this.logo.scale.set(2, 2);
 
@@ -116,7 +137,7 @@ export class TitleScene extends Scene {
 
     this.rect.cover.interactive = this.rect.cover.buttonMode = true;
 
-    this.container.addChild(this.logo, this.el.tap2start, this.rect.bgFoot, this.el.txtFoot, this.rect.cover);
+    this.container.addChild(this.background, this.logo, this.el.tap2start, this.rect.bgFoot, this.el.txtFoot, this.rect.cover);
     this.game.ticker.start();
   }
 
@@ -209,6 +230,81 @@ export class TitleScene extends Scene {
     // });
   }
 
+  private initBackground(): void {
+    const starList = [
+      utils.createSprite(this.animParts["anim_bg_star_1"],   "star_1"),
+      utils.createSprite(this.animParts["anim_bg_star_2"],   "star_2"),
+      utils.createSprite(this.animParts["anim_bg_star_3"],   "star_3"),
+      utils.createSprite(this.animParts["anim_bg_star_4"],   "star_4"),
+      utils.createSprite(this.animParts["anim_bg_star_5"],   "star_5"),
+      utils.createSprite(this.animParts["anim_bg_star_6"],   "star_6"),
+      utils.createSprite(this.animParts["anim_bg_star_7"],   "star_7"),
+      utils.createSprite(this.animParts["anim_bg_star_8"],   "star_8"),
+      utils.createSprite(this.animParts["anim_bg_star_9"],   "star_9"),
+      utils.createSprite(this.animParts["anim_bg_star_10"], "star_10"),
+      utils.createSprite(this.animParts["anim_bg_star_11"], "star_11"),
+      utils.createSprite(this.animParts["anim_bg_star_12"], "star_12"),
+    ];
+    starList.forEach((star, index) => {
+      const name = `star_${index + 1}`;
+
+      star.anchor.set(0.5, 0.5);
+      star.position.set(StarPos[name].x + star.width/2, StarPos[name].y + star.height/2);
+      this.background.addChild(star);
+    })
+
+    this.background.scale.set(2, 2);
+
+    let timeline = gsap.timeline({
+      repeat: 3,
+      delay: utils.msec2sec(130),
+      repeatDelay: utils.msec2sec(300),
+      onComplete: () => {
+        this.loopBackground(starList);
+      }
+    });
+
+    timeline.to(starList, {
+      duration: utils.msec2sec(100),
+      ease: "easeOutCubic",
+      pixi: { scale: "+=0.5" },
+    });
+
+    timeline.to(starList, {
+      duration: utils.msec2sec(50),
+      ease: "easeInCubic",
+      pixi: { scale: "-=0.5" },
+    });
+
+    timeline.play();
+  }
+
+  private loopBackground(starList: PIXI.Sprite[]): void {
+    let timeline = gsap.timeline({
+      repeat: -1,
+    });
+
+    starList.forEach((star, index) => {
+      // star.alpha=0
+      // console.log(star);
+      // star.rotation = 180*PIXI.DEG_TO_RAD
+      timeline.to(star, {
+        ease: "linear",
+        duration: utils.msec2sec(500),
+        // rotate: 180*PIXI.DEG_TO_RAD
+        pixi: { alpha: 0.2 }
+      }, `-=${utils.msec2sec(500)}`);
+      timeline.to(star, {
+        ease: "linear",
+        duration: utils.msec2sec(500),
+        // rotate: 180*PIXI.DEG_TO_RAD
+        pixi: { alpha: 1 }
+      });
+    });
+
+    timeline.play();
+  }
+
   private initTitleLogo(): void {
     const height: number = conf.canvas_height / 2;
     let timeline: any = {
@@ -252,6 +348,7 @@ export class TitleScene extends Scene {
     };
 
     timeline.intro = gsap.timeline({
+      delay: utils.msec2sec(500),
       onComplete: () => {
         this.initVolumeButton();
         this.initShareButton();
@@ -308,10 +405,7 @@ export class TitleScene extends Scene {
     timeline.intro.pause();
 
     this.sound.play("jingle", "metronome");
-    setTimeout(() => {
-      timeline.intro.play();
-    }, 390);
-    // ();
+    timeline.intro.play();
   }
 
   private loopTitleLogo(): void {
@@ -331,7 +425,6 @@ export class TitleScene extends Scene {
       const part = this.logoParts[key];
 
       timeline.zoom.to(part, {
-        // delay: utils.msec2sec(50),
         duration: utils.msec2sec(80),
         ease: "easeOutElastic",
         pixi: { scale: "+=0.5" }
@@ -342,31 +435,6 @@ export class TitleScene extends Scene {
         pixi: { scale: "-=0.5" }
       });
     });
-
-    // timeline.zoom.to([
-    //   this.logoParts["c"],
-    //   this.logoParts["h"],
-    //   this.logoParts["a"],
-    //   this.logoParts["n"],
-    //   this.logoParts["g"],
-    //   this.logoParts["e"],
-    // ], {
-    //   duration: utils.msec2sec(80),
-    //   ease: "easeOutElastic",
-    //   pixi: { scale: "+=0.5" }
-    // });
-    // timeline.zoom.to([
-    //   this.logoParts["c"],
-    //   this.logoParts["h"],
-    //   this.logoParts["a"],
-    //   this.logoParts["n"],
-    //   this.logoParts["g"],
-    //   this.logoParts["e"],
-    // ], {
-    //   duration: utils.msec2sec(40),
-    //   ease: "easeInElastic",
-    //   pixi: { scale: "-=0.5" }
-    // });
 
     timeline.wave.to(this.logoParts["c"], {
       duration: utils.msec2sec(80),

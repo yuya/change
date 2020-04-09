@@ -224,7 +224,6 @@ export class IngameScene extends Scene {
 
     this.game.events["animFeverBg"] = setInterval(() => {
       const textureName = (this.el.feverBg.texture.textureCacheIds[0] === "bg_fever_1") ? "bg_fever_2" : "bg_fever_1";
-      console.log(textureName);
 
       this.el.feverBg.texture = this.animParts[textureName];
     }, 1000);
@@ -290,18 +289,18 @@ export class IngameScene extends Scene {
     this.el.pauseBtn = utils.createSprite(this.textures["btn_pause"]);
     this.el.pauseBtn.buttonMode = this.el.pauseBtn.interactive = true;
     this.el.pauseBtn.scale.set(2, 2);
-    this.el.pauseBtn.position.set(30, 30);
+    this.el.pauseBtn.position.set(30, 50);
 
     this.el.pauseBtn.addListener("pointerdown", this.enablePause, this);
 
     this.el.volumeToggleBtn = utils.createSprite(spriteSheetDom["btn_sound_toggle_on"]);
     this.el.volumeToggleBtn.buttonMode = this.el.volumeToggleBtn.interactive = true;
     this.el.volumeToggleBtn.scale.set(2, 2);
-    this.el.volumeToggleBtn.position.set(82, 32);
+    this.el.volumeToggleBtn.position.set(82, 52);
 
     this.el.youtubeBg = utils.createSprite(this.animParts["bg_youtube"]);
     this.el.youtubeBg.scale.set(2, 2);
-    this.el.youtubeBg.position.set(280, 28);
+    this.el.youtubeBg.position.set(280, 48);
 
     this.el.norikan_icon_1 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_1");
     this.el.norikan_icon_2 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_2");
@@ -332,7 +331,7 @@ export class IngameScene extends Scene {
 
     this.norikanEl.pivot.set(this.norikanEl.width, 0);
     this.norikanEl.scale.set(2, 2);
-    this.norikanEl.position.set(conf.canvas_width - 30, 30);
+    this.norikanEl.position.set(conf.canvas_width - 30, 50);
 
     this.norikanEl.on("increment", () => {
       this.norikan++;

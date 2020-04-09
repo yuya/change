@@ -61,7 +61,6 @@ export class Intro {
     this.cover.addListener("pointerdown", () => {
       this.game.eventHandler.emit("introPlayed");
       this.player.playVideo();
-      conf.root_el.classList.remove("bg-black");
       this.element.destroy({ children: true });
     });
   }

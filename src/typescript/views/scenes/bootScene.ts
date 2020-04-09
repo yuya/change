@@ -91,7 +91,8 @@ export class BootScene extends Scene {
     };
 
     this.el.bootLogo = utils.createSprite(this.textures["logo_change"]);
-    this.el.bootLogo.pivot.set(this.el.bootLogo.width / 2, 0);
+    this.el.bootLogo.anchor.set(0.5, 0.5);
+    // this.el.bootLogo.pivot.set(this.el.bootLogo.width / 2, 0);
     this.el.bootLogo.width *= 2;
     this.el.bootLogo.height *= 2;
     this.el.bootLogo.position.set(utils.display.centerX, -this.el.bootLogo.height);
@@ -99,7 +100,7 @@ export class BootScene extends Scene {
     gsap.to(this.el.bootLogo, {
       duration: utils.msec2sec(2500),
       ease: "linear",
-      pixi: { y: 400 },
+      pixi: { y: utils.display.centerY - this.el.bootLogo.height/4 },
       onComplete: () => {
         if (!isMuteVolume) {
           this.sound.play("se", "boot");

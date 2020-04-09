@@ -26,18 +26,18 @@ export class CircleMenu {
     this.sound    = SoundController.instance;
     this.textures = this.game.assetData.load("textures");
     this.circles  = [
-      utils.createSprite(this.textures["menu_about"]),
+      utils.createSprite(this.textures["menu_beyooooonds"]),
       utils.createSprite(this.textures["menu_profile"]),
       utils.createSprite(this.textures["menu_favorite"]),
-      utils.createSprite(this.textures["menu_beyooooonds"]),
       utils.createSprite(this.textures["menu_history"]),
       utils.createSprite(this.textures["menu_credit"]),
       utils.createSprite(this.textures["menu_about"]),
+      utils.createSprite(this.textures["menu_beyooooonds"]),
       utils.createSprite(this.textures["menu_profile"]),
       utils.createSprite(this.textures["menu_favorite"]),
-      utils.createSprite(this.textures["menu_beyooooonds"]),
       utils.createSprite(this.textures["menu_history"]),
-      utils.createSprite(this.textures["menu_credit"])
+      utils.createSprite(this.textures["menu_credit"]),
+      utils.createSprite(this.textures["menu_about"]),
     ];
 
     this.state = {};
@@ -92,7 +92,6 @@ export class CircleMenu {
       circle.width = circle.height = circleRadius * 2;
       circle.x     = menuRadius*cos + utils.display.centerX;
       circle.y     = menuRadius*sin + utils.display.centerY;
-      // if (index > 5) { circle.alpha = 0.75 }
 
       circle.rotation = this.deg.distance*index * PIXI.DEG_TO_RAD;
       this.element.addChild(circle);
@@ -208,7 +207,6 @@ export class CircleMenu {
     this.element.addListener("pointermove", this.fn.onTouchMove, this.element);
     document.addEventListener("pointerup", this.fn.onTouchEnd, false);
 
-    // this.sound.se["select_start"].play();
     this.game.eventHandler.emit("ontouchstart");
   }
 
@@ -220,12 +218,8 @@ export class CircleMenu {
       let newX = this.pos.currentX + distX;
       let newY = this.pos.currentY + distY;
 
-      // TODO
-      // if (newX >= 0) { newX - Math.round(this.pos.currentX + distX / 3) }
-      // if (newY >= 0) { newY - Math.round(this.pos.currentY + distY / 3) }
       if (newX >= 0) { newX - Math.round(this.pos.currentX + distX) }
       if (newY >= 0) { newY - Math.round(this.pos.currentY + distY) }
-
 
       return newX;
     };
