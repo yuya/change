@@ -6,6 +6,13 @@ const display = {
   centerY: conf.canvas_height / 2,
 };
 
+const touch = {
+  start  : PIXI.utils.isMobile ? "touchstart"  : "mousedown",
+  move   : PIXI.utils.isMobile ? "touchmove"   : "mousemove",
+  end    : PIXI.utils.isMobile ? "touchend"    : "mouseup",
+  cancel : PIXI.utils.isMobile ? "touchcancel" : "mouseleave",
+};
+
 const msec2sec = (msec: number): number => {
   return msec / 1000;
 };
@@ -148,6 +155,7 @@ const setBgColor = (renderer: PIXI.Renderer, color: number): void => {
 
 export const utils = {
   "display"        : display,
+  "touch"          : touch,
   "msec2sec"       : msec2sec,
   "sec2msec"       : sec2msec,
   "createRect"     : createRect,

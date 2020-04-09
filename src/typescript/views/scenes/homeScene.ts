@@ -32,7 +32,6 @@ export class HomeScene extends Scene {
     }
     setTimeout(() => {
       this.sound.bgm["home"].play();
-      console.log("home bgm play");
     }, 500);
     this.initLayout();
     this.initSiteLogo();

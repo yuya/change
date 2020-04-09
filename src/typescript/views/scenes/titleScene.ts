@@ -141,27 +141,6 @@ export class TitleScene extends Scene {
     this.game.ticker.start();
   }
 
-  private setLogoPosition(parts: PIXI.Sprite[], x: number, y: number, dfX?: number, dfY?: number): void {
-    let idx = 0;
-    let len = parts.length;
-
-    for (; len; ++idx, --len) {
-      let part = parts[idx];
-      // if (x) part.position.x = (idx === 2 && dfX) ? x+dfX : x;
-      // if (y) part.position.y = (idx === 2 && dfY) ? x+dfY : y;
-      if (x) {
-        let numX = (idx === 2 && dfX) ? x+dfX : x;
-        console.log(numX);
-        part.position.x = x;
-      }
-      if (y) {
-        let numY = (idx === 2 && dfY) ? y+dfY : y;
-        console.log(numY);
-        part.position.y = numY;
-      }
-    }
-  }
-
   private initShareButton(): void {
     const str = `
     <ul>
@@ -199,11 +178,6 @@ export class TitleScene extends Scene {
     const nextSceneName = this.userData.load("next_scene_name");
 
     this.rect.cover.addListener("pointerdown", () => {
-      // TODO
-      // this.sound.play("se", "spring");
-      // setTimeout(() => {
-      //   this.sound.fade("bgm", "title", 1, 0, 750);
-      // }, 1250);
       this.sound.play("se", "decide");
       gsap.to(this.container, {
         duration: utils.msec2sec(100),
@@ -218,16 +192,6 @@ export class TitleScene extends Scene {
         }
       });
     });
-
-    // TODO
-    // this.sound.play("bgm", "title");
-    // this.sound.bgm.title.on("end", () => {
-    //   const bgColor = utils.choice([0xCFCBB1,0xE8C4A5,0xFFC2D0,0xC1A5E8,0xB5DDFF]);
-    //   setTimeout(() => {
-    //     this.game.renderer.backgroundColor = bgColor;
-    //     document.body.style.backgroundColor = `#${bgColor.toString(16)}`;
-    //   }, 200);
-    // });
   }
 
   private initBackground(): void {
@@ -285,19 +249,14 @@ export class TitleScene extends Scene {
     });
 
     starList.forEach((star, index) => {
-      // star.alpha=0
-      // console.log(star);
-      // star.rotation = 180*PIXI.DEG_TO_RAD
       timeline.to(star, {
         ease: "linear",
         duration: utils.msec2sec(500),
-        // rotate: 180*PIXI.DEG_TO_RAD
-        pixi: { alpha: 0.2 }
+        pixi: { alpha: 0.4 }
       }, `-=${utils.msec2sec(500)}`);
       timeline.to(star, {
         ease: "linear",
         duration: utils.msec2sec(500),
-        // rotate: 180*PIXI.DEG_TO_RAD
         pixi: { alpha: 1 }
       });
     });
