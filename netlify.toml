@@ -1,0 +1,5 @@
+[[redirects]]
+from = "https://yhashimoto-change.netlify.com/*"
+to = "https://change.yuya.im/:splat"
+status = 301
+force = true
