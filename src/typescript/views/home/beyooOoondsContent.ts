@@ -74,13 +74,17 @@ export class BeyooOoondsContent extends Content {
       const logo = document.getElementById("logo");
       const btn  = document.getElementById("btn-sound-toggle");
 
-      this.destroy();
+      btnBase.texture = this.textures["btn_base_o"];
+      btnLabel.y += 6;
       this.sound.play("se", "decide");
-      this.sound.bgm["home"].fade(1, 0, 1000);
-      conf.canvas_el.removeChild(logo);
-      conf.canvas_el.removeChild(btn);
-      this.game.currentScene.destroy();
-      this.game.route(nextSceneName);
+      setTimeout(() => {
+        this.sound.bgm["home"].fade(1, 0, 1000);
+        this.destroy();
+        conf.canvas_el.removeChild(logo);
+        conf.canvas_el.removeChild(btn);
+        this.game.currentScene.destroy();
+        this.game.route(nextSceneName);
+      }, 330);
     });
 
     this.bg.txtBody.addChild(btnBase);
