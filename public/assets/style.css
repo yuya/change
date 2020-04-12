@@ -142,6 +142,13 @@ canvas {
   /* outline: 6px solid red; */
   /* border: 6px solid red; */
 }
+#container {
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
 #container::before,
 #container::after {
   display: block;

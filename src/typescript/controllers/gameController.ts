@@ -2,6 +2,7 @@ import * as PIXI from "pixi.js";
 import { conf } from "conf";
 import { UserData, AssetData, ResultData } from "models";
 import { Scene, BootScene, TitleScene, HomeScene, IngameScene, ResultScene } from "views";
+import { utils } from "utils";
 
 export class GameController {
   public renderer      : PIXI.Renderer;
@@ -64,12 +65,15 @@ export class GameController {
 
   public initRenderer(): void {
     conf.canvas_el.appendChild(this.renderer.view);
+    utils.resizeCanvas();
 
     this.stage.name = "stage";
     this.renderer.render(this.stage);
   }  
 
   private attachEvent(): void {
+    window.addEventListener("resize", utils.resizeCanvas, false);
+
     document.addEventListener("visibilitychange", () => {
       const isMuteVolume = +this.userData.load("is_mute_volume");
 
@@ -79,7 +83,7 @@ export class GameController {
       else if (!isMuteVolume) {
         Howler.mute(false);
       }
-    });
+    }, false);
   }
 
   public route(sceneName: string): void {

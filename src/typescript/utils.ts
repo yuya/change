@@ -155,6 +155,22 @@ const setBgColor = (renderer: PIXI.Renderer, color: number): void => {
   document.body.style.backgroundColor = color.toString(16);
 };
 
+const resizeCanvas = (): void => {
+  const winHeight = window.innerHeight;
+
+  if (winHeight < conf.canvas_height) {
+    const scale = winHeight / conf.canvas_height;
+    conf.canvas_el.style.cssText = `-webkit-transform: scale(${scale}, ${scale});
+    -moz-transform: scale(${scale}, ${scale});
+    -ms-transform: scale(${scale}, ${scale});
+    -o-transform: scale(${scale}, ${scale});
+    transform: scale(${scale}, ${scale});`;
+  }
+  else if (conf.canvas_el.style.cssText !== "") {
+    conf.canvas_el.style.cssText = "";
+  }
+};
+
 export const utils = {
   "display"        : display,
   "pointer"        : pointer,
@@ -172,4 +188,5 @@ export const utils = {
   "setCookie"      : setCookie,
   "choice"         : choice,
   "setBgColor"     : setBgColor,
+  "resizeCanvas"   : resizeCanvas,
 };
