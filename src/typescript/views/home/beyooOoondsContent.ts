@@ -52,22 +52,23 @@ export class BeyooOoondsContent extends Content {
     const btnBase  = utils.createSprite(this.textures["btn_base"]);
     const btnHover = utils.createSprite(this.textures["btn_base_o"]);
     const btnLabel = utils.createSprite(this.textures["label_play"]);
+    const defaultY = 5;
 
     btnBase.pivot.set(btnBase.width / 2, btnBase.height);
     btnBase.scale.set(3, 3);
     btnBase.position.set(this.bg.txtBody.width / 2, this.bg.txtBody.height - 40);
     btnBase.interactive = btnBase.buttonMode = true;
     btnBase.addChild(btnLabel);
-    btnLabel.position.set(25, 5);
+    btnLabel.position.set(25, defaultY);
 
     btnBase.addListener("pointerover", () => {
       this.sound.se["select"].play();
       btnBase.texture = this.textures["btn_base_o"];
-      btnLabel.y += 6;
+      btnLabel.y = defaultY + 5;
     });
     btnBase.addListener("pointerout", () => {
       btnBase.texture = this.textures["btn_base"];
-      btnLabel.y -= 6;
+      btnLabel.y = defaultY;
     });
 
     btnBase.addListener("pointerdown", () => {
@@ -75,7 +76,7 @@ export class BeyooOoondsContent extends Content {
       const btn  = document.getElementById("btn-sound-toggle");
 
       btnBase.texture = this.textures["btn_base_o"];
-      if (PIXI.utils.isMobile) btnLabel.y += 6;
+      btnLabel.y = defaultY + 5;
       this.sound.play("se", "decide");
       setTimeout(() => {
         this.sound.bgm["home"].fade(1, 0, 1000);
