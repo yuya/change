@@ -1,13 +1,26 @@
+-
+  var title  = "CHANGE - 橋本雄也のポートフォリオサイト"
+  var description = "ポートフォリオサイトというテイのはずですが、主に YouTube を使った『リズム天国”風”』なリズムゲームが遊べます。"
+  var url  = "https://change.yuya.im/";
 doctype html
 html
   head
     script(async, src="https://www.googletagmanager.com/gtag/js?id=UA-159365564-1")
     script.
       window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-159365564-1');
-    title="CHANGE"
+    title=`${title}`
     meta(charset="utf-8")
     meta(name="viewport" content="width=640")
     link(rel="stylesheet" href="/assets/style.css")
+    meta(name="description" content=`${description}`)
+    meta(name="keywords" content="橋本雄也,ポートフォリオ,")
+    link(rel="canonical" href=`${url}`)
+    meta(name="twitter:card" content="summary_large_image")
+    meta(name="twitter:creator" content="@yuya")
+    meta(property="og:url" content=`${url}`)
+    meta(property="og:title" content=`${title}`)
+    meta(property="og:description" content=`${description}`)
+    meta(property="og:image" content="/assets/ogp.png")
     script(src="https://www.youtube.com/iframe_api")
   body
     div(id="container")
