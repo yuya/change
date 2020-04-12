@@ -26,9 +26,6 @@ export class CircleMenu {
     this.sound    = SoundController.instance;
     this.textures = this.game.assetData.load("textures");
     this.circles  = [
-      utils.createSprite(this.textures["menu_beyooooonds"]),
-      utils.createSprite(this.textures["menu_profile"]),
-      utils.createSprite(this.textures["menu_favorite"]),
       utils.createSprite(this.textures["menu_history"]),
       utils.createSprite(this.textures["menu_credit"]),
       utils.createSprite(this.textures["menu_about"]),
@@ -38,6 +35,9 @@ export class CircleMenu {
       utils.createSprite(this.textures["menu_history"]),
       utils.createSprite(this.textures["menu_credit"]),
       utils.createSprite(this.textures["menu_about"]),
+      utils.createSprite(this.textures["menu_beyooooonds"]),
+      utils.createSprite(this.textures["menu_profile"]),
+      utils.createSprite(this.textures["menu_favorite"]),
     ];
 
     this.state = {};
@@ -73,38 +73,33 @@ export class CircleMenu {
   }
 
   private initLayout(): void {
-    // TODO
-    const startDeg     : number = -89.530;
     const circleRadius : number = 64;
-    const menutMargin  : number = -40;
-    const menuRadius   : number = (conf.canvas_width - circleRadius*2 - menutMargin*2) / 2;
+    const menuRadius   : number = conf.canvas_width / 2;
     const pi2          : number = Math.PI * 2;
 
     this.element.width = conf.canvas_width;
-    this.element.height = conf.canvas_height;
-    this.element.pivot.set(conf.canvas_width / 2, conf.canvas_height / 2);
+    this.element.height = conf.canvas_width;
+    this.element.x = conf.canvas_width / 2;
+    this.element.y = conf.canvas_height + 200;
+    this.element.pivot.set(this.element.width / 2, this.element.height / 2);
+    this.element.interactive = this.element.buttonMode = true;
 
     this.circles.forEach((circle, index) => {
-      const cos = Math.cos(startDeg+index/this.idx.max * pi2);
-      const sin = Math.sin(startDeg+index/this.idx.max * pi2);
+      const cos = Math.cos(index/this.idx.max * pi2);
+      const sin = Math.sin(index/this.idx.max * pi2);
 
-      circle.pivot.set(circleRadius, circleRadius);
-      circle.width = circle.height = circleRadius * 2;
-      circle.x     = menuRadius*cos + utils.display.centerX;
-      circle.y     = menuRadius*sin + utils.display.centerY;
+      circle.anchor.set(0.5, 0.5);
+      circle.width  = circleRadius*2;
+      circle.height = circleRadius*2;
+      circle.x = menuRadius*cos;
+      circle.y = menuRadius*sin;
+      circle.rotation = (this.deg.distance*(index+3)) * PIXI.DEG_TO_RAD;
 
-      circle.rotation = this.deg.distance*index * PIXI.DEG_TO_RAD;
       this.element.addChild(circle);
     });
-
-    this.element.x = conf.canvas_width / 2;
-    this.element.y = conf.canvas_height / 2;
-
-    this.element.interactive = this.element.buttonMode = true;
-    this.element.y = conf.canvas_height + (this.element.height/4.5)+16;
   }
 
-  private getIndex() {
+  private getIndex(): number {
     this.deg.current = this.element.rotation;
     let newIndex = this.deg.current*PIXI.RAD_TO_DEG / this.deg.distance;
 
@@ -125,7 +120,7 @@ export class CircleMenu {
     return (newIndex >= this.idx.max) ? 0 : newIndex;
   }
 
-  public moveToIndex(index: number) {
+  public moveToIndex(index: number): void {
     let idx, deg, callback;
 
     if (index < this.idx.mid) {
@@ -157,7 +152,15 @@ export class CircleMenu {
     this.idx.now = idx;
   }
 
-  private setAngle(r: number, callback?: any) {
+  public moveToNext(): void {
+    this.moveToIndex(this.idx.now + 1);
+  }
+
+  public moveToPrev(): void {
+    this.moveToIndex(this.idx.now - 1);
+  }
+
+  private setAngle(r: number, callback?: any): void {
     let animParam: gsap.AnimationVars = {
       duration: 0.5,
       ease: "power2.out",
@@ -179,7 +182,7 @@ export class CircleMenu {
     this.deg.current = this.element.rotation;
   }
 
-  private addAngle(r: number) {
+  private addAngle(r: number): void {
     const deg = r - this.element.rotation;
 
     gsap.to(this.element, {

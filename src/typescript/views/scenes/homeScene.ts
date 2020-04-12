@@ -75,7 +75,6 @@ export class HomeScene extends Scene {
       case ContentType.Favorite:
         this.content = new FavoriteContent();
         break;
-      
       case ContentType.History:
         this.content = new HistoryContent();
         break;
@@ -88,12 +87,24 @@ export class HomeScene extends Scene {
     }
 
     this.lastIndex = index;
-    this.container.addChild(this.content.element);
+    this.container.addChildAt(this.content.element, 0);
   }
 
   private renderCircleMenu(): void {
     this.circleMenu = new CircleMenu();
+    
+    this.rect["moveToPrev"] = utils.createRect("move_to_prev", 60, conf.canvas_height);
+    this.rect["moveToNext"] = utils.createRect("move_to_prev", 60, conf.canvas_height);
 
-    this.container.addChild(this.circleMenu.element);
+    this.rect.moveToNext.pivot.set(this.rect.moveToNext.width, 0);
+    this.rect.moveToNext.position.set(conf.canvas_width, 0);
+
+    this.rect.moveToPrev.buttonMode = this.rect.moveToPrev.interactive = true;
+    this.rect.moveToNext.buttonMode = this.rect.moveToNext.interactive = true;
+
+    this.rect.moveToPrev.addListener("pointerdown", this.circleMenu.moveToPrev, this.circleMenu);
+    this.rect.moveToNext.addListener("pointerdown", this.circleMenu.moveToNext, this.circleMenu);
+
+    this.container.addChild(this.rect.moveToPrev, this.rect.moveToNext, this.circleMenu.element);
   }
 }

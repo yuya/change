@@ -169,8 +169,8 @@ export class TitleScene extends Scene {
     fb.appendChild(spriteImage.cloneNode());
     gh.appendChild(spriteImage.cloneNode());
 
-    tw.setAttribute("href", `https://twitter.com/share?url=${location.origin}&text=${document.title}`);
-    fb.setAttribute("href", `https://www.facebook.com/share.php?u=${location.origin}`);
+    tw.setAttribute("href", `https://twitter.com/share?url=${location.origin}/&text=${document.title}`);
+    fb.setAttribute("href", `https://www.facebook.com/share.php?u=${location.origin}/`);
     setTimeout(() => dom.classList.add("show"), 100);
   }
 
