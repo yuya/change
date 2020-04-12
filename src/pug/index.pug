@@ -1,7 +1,7 @@
 -
-  var title  = "CHANGE - 橋本雄也のポートフォリオサイト"
-  var description = "ポートフォリオサイトというテイのはずですが、主に YouTube を使った『リズム天国”風”』なリズムゲームが遊べます。"
-  var url  = "https://change.yuya.im/";
+  var title = "CHANGE - 橋本雄也のポートフォリオ"
+  var desc  = "YouTube を使った『リズム天国“風”』なリズムゲームが遊べます。どうやらポートフォリオとしての体裁は成していなさそうです。"
+  var url   = "https://change.yuya.im/"
 doctype html
 html
   head
@@ -12,15 +12,16 @@ html
     meta(charset="utf-8")
     meta(name="viewport" content="width=640")
     link(rel="stylesheet" href="/assets/style.css")
-    meta(name="description" content=`${description}`)
-    meta(name="keywords" content="橋本雄也,ポートフォリオ,")
+    meta(name="description" content=`${desc}`)
     link(rel="canonical" href=`${url}`)
     meta(name="twitter:card" content="summary_large_image")
     meta(name="twitter:creator" content="@yuya")
     meta(property="og:url" content=`${url}`)
     meta(property="og:title" content=`${title}`)
-    meta(property="og:description" content=`${description}`)
+    meta(property="og:description" content=`${desc}`)
     meta(property="og:image" content=`${url}assets/ogp.png`)
+    meta(property="fb:app_id" content="276422493376771")
+    meta(property="og:type" content="website")
     script(src="https://www.youtube.com/iframe_api")
   body
     div(id="container")
