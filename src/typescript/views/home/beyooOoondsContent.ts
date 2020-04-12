@@ -75,7 +75,7 @@ export class BeyooOoondsContent extends Content {
       const btn  = document.getElementById("btn-sound-toggle");
 
       btnBase.texture = this.textures["btn_base_o"];
-      btnLabel.y += 6;
+      if (PIXI.utils.isMobile) btnLabel.y += 6;
       this.sound.play("se", "decide");
       setTimeout(() => {
         this.sound.bgm["home"].fade(1, 0, 1000);
