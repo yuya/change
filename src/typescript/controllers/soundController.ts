@@ -52,8 +52,8 @@ export class SoundController {
     this.se["throw"]     = new Howl({ src : "/assets/audio/se_throw.wav" });
 
     // BGM
-    this.bgm["title"]     = new Howl({ src : "/assets/audio/bgm_title.mp3", loop : true });
-    this.bgm["home"]      = new Howl({ src : "/assets/audio/bgm_home.mp3", loop : true });
+    this.bgm["title"]     = new Howl({ src : ["/assets/audio/bgm_title.ogg", "/assets/audio/bgm_title.mp3"], loop : true });
+    this.bgm["home"]      = new Howl({ src : ["/assets/audio/bgm_home.ogg", "/assets/audio/bgm_home.mp3"], loop : true });
     this.bgm["eval_high"] = new Howl({ src : "/assets/audio/bgm_eval_high.mp3", loop : true });
     this.bgm["eval_mid"]  = new Howl({ src : "/assets/audio/bgm_eval_mid.mp3", loop  : true });
     this.bgm["eval_low"]  = new Howl({ src : "/assets/audio/bgm_eval_low.mp3", loop  : true });
