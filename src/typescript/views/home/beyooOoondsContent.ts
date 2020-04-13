@@ -54,12 +54,10 @@ export class BeyooOoondsContent extends Content {
     const btnLabel = utils.createSprite(this.textures["label_play"]);
     const defaultY = 5;
     const defaultH = btnBase.height * 3;
-    console.log(defaultH);
 
     btnBase.pivot.set(btnBase.width / 2, btnBase.height);
     btnBase.scale.set(3, 3);
     btnBase.height = defaultH + 16;
-    console.log(btnBase.height);
     btnBase.position.set(this.bg.txtBody.width / 2, this.bg.txtBody.height - 40);
     btnBase.interactive = btnBase.buttonMode = true;
     btnBase.addChild(btnLabel);

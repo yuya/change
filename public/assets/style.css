@@ -275,6 +275,14 @@ iframe#youtube {
   z-index: 2;
   width: 163px;
   height: 29px;
+  cursor: pointer;
+}
+#logo:hover {
+  -webkit-filter: brightness(200%);
+  -moz-filter: brightness(200%);
+  -ms-filter: brightness(200%);
+  -o-filter: brightness(200%);
+  filter: brightness(200%);
 }
 
 #logo img {
@@ -300,6 +308,7 @@ iframe#youtube {
   -o-transition: opacity 250ms;
   transition: opacity 250ms;
 }
+
 #btn-sound-toggle.show {
   opacity: 1;
 }

@@ -59,6 +59,13 @@ export abstract class Scene extends PIXI.Container {
     logoElement.id = "logo";
     logoElement.appendChild(spriteImage);
     conf.canvas_el.appendChild(logoElement);
+
+    logoElement.addEventListener("click", () => {
+      this.sound.play("se", "decide");
+      setTimeout(() => {
+        location.assign(`${location.origin}/`);
+      }, 330);
+    }, false);
   }
 
   public initVolumeButton(): void {
