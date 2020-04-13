@@ -23,7 +23,7 @@ export class UserData {
       return;
     }
 
-    const EXPIRE_DAY = 14;
+    const EXPIRE_DAY = 7;
     let expireTime = new Date();
 
     expireTime.setTime(expireTime.getTime() + (EXPIRE_DAY * 24 * 60 * 60 * 1000));
