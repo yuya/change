@@ -83,7 +83,7 @@ export class BeyooOoondsContent extends Content {
       btnLabel.y = defaultY + 5;
       this.sound.play("se", "decide");
       setTimeout(() => {
-        this.sound.bgm["home"].fade(1, 0, 1000);
+        this.sound.bgm.home.fade(1, 0, 1000);
         this.destroy();
         conf.canvas_el.removeChild(logo);
         conf.canvas_el.removeChild(btn);

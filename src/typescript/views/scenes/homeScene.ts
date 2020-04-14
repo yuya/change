@@ -20,6 +20,7 @@ export class HomeScene extends Scene {
   private textures   : any;
   private content    : any;
   private lastIndex  : number;
+  private homeBgm    : any;
   private circleMenu : CircleMenu;
   
   public constructor() {
@@ -30,8 +31,10 @@ export class HomeScene extends Scene {
     if (!this.sound.bgm || !this.sound.bgm["home"]) {
       this.sound.initSound();
     }
+    this.homeBgm = this.sound.bgm.home;
     setTimeout(() => {
-      this.sound.bgm["home"].play();
+      this.homeBgm.play();
+      this.homeBgm.volume(1);
     }, 500);
     this.initLayout();
     this.initSiteLogo();
