@@ -29,18 +29,29 @@ export class CreditContent extends Content {
   <dd><a class="icon youtube" href="https://www.youtube.com/watch?v=KYVMtijS74U" target="_blank" rel="noopener">ニッポンノ<i class="mod-mochi">D・N・A</i>！</a> <i class="mod-mochi">(<a class="icon newtab" href="http://www.helloproject.com/beyooooonds/" target="_blank" rel="noopener">Beyooooonds</a>)</i>
   <dt>【フォント】</dt>
   <dd>
-    <ul>
-      <li><a class="icon newtab" href="http://kokagem.sakura.ne.jp/font/mochi/" target="_blank" rel="noopener"><i class="mod-mochi">Nu</i> きなこもち</a>&nbsp;<i class="mod-mochi">(<a class="icon twitter" href="https://twitter.com/sayunu/status/1230841977979031552" target="_blank" rel="noopener">@sayunu thx!</a>)</i></li>
-      <li><a class="icon newtab" href="http://jikasei.me/font/jf-dotfont/" target="_blank" rel="noopener">JFドットM+H10</a></li>
-    </ul>
+    <table>
+      <tr>
+        <td colspan="2"><a class="icon newtab" href="http://kokagem.sakura.ne.jp/font/mochi/" target="_blank" rel="noopener"><i class="mod-mochi">Nu</i> きなこもち</a>&nbsp;<i class="mod-mochi">(<a class="icon twitter" href="https://twitter.com/sayunu/status/1230841977979031552" target="_blank" rel="noopener">@sayunu thx!</a>)</i></td>
+      </tr>
+        <td colspan="2"><a class="icon newtab" href="http://jikasei.me/font/jf-dotfont/" target="_blank" rel="noopener">JFドットM+H10</a></td>
+      <tr>
+        <td><a class="icon newtab" href="http://www.ku-da.net/fonts/font-exotic-agent.html" target="_blank" rel="noopener">exotic agent</a></td>
+        <td><a class="icon newtab" href="https://fontdasu.com/179" target="_blank" rel="noopener noreferrer">ヨコスカブロック</a></td>
+      </tr>
+    </table>
   </dd>
   <dt>【サウンド】</dt>
   <dd>
-    <ul>
-      <li><a class="icon newtab" href="https://on-jin.com/" target="_blank" rel="noopener">On-Jin ～音人～</a></li>
-      <li><a class="icon newtab" href="https://pocket-se.info/" target="_blank" rel="noopener">ポケットサウンド</a></li>
-      <li><a class="icon newtab" href="https://soundeffect-lab.info/" target="_blank" rel="noopener">効果音ラボ</a></li>
-    </ul>
+    <table>
+      <tr>
+        <td><a class="icon newtab" href="https://on-jin.com/" target="_blank" rel="noopener">On-Jin ～音人～</a></td>
+        <td><a class="icon newtab" href="https://pocket-se.info/" target="_blank" rel="noopener">ポケットサウンド</a></td>
+      </tr>
+      <tr>
+        <td><a class="icon newtab" href="https://soundeffect-lab.info/" target="_blank" rel="noopener">効果音ラボ</a></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
   </dd>
 </dl>
 `.replace(/(^\n|\n$)/g, "");

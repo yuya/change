@@ -98,9 +98,12 @@ a:link, a:visited { color: #222; }
   -o-filter: invert(100%);
   filter: invert(100%);
 }
+
+table,
 .table {
   display: table;
   width: 100%;
+  border-collapse: collapse;
 }
 .table li {
   display: table-cell;
