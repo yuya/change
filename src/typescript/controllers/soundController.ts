@@ -3,12 +3,13 @@ import { conf } from "conf";
 import { UserData, AssetData } from "models";
 
 export class SoundController {
-  public howler    : HowlerGlobal;
-  public se        : { [key : string] : Howl };
-  public bgm       : { [key : string] : Howl };
-  public jingle    : { [key : string] : Howl };
-  public isLoaded  : boolean;
-  private userData : UserData;
+  public howler      : HowlerGlobal;
+  public se          : { [key : string] : Howl };
+  public bgm         : { [key : string] : Howl };
+  public jingle      : { [key : string] : Howl };
+  public isLoaded    : boolean;
+  public isBgmPlayed : boolean;
+  private userData   : UserData;
 
   private static _instance: SoundController;
   public static get instance(): SoundController {
@@ -25,7 +26,8 @@ export class SoundController {
     this.bgm    = {};
     this.jingle = {};
 
-    this.isLoaded = false;
+    this.isLoaded    = false;
+    this.isBgmPlayed = false;
     this.userData = UserData.instance;
   }
 
@@ -40,16 +42,15 @@ export class SoundController {
     this.se["decide"]    = new Howl({ src : "/assets/audio/se_decide.mp3" });
     this.se["cancel"]    = new Howl({ src : "/assets/audio/se_cancel.mp3" });
     this.se["select"]    = new Howl({ src : "/assets/audio/se_select.mp3" });
-    this.se["hit"]       = new Howl({ src : "/assets/audio/se_hit.wav" });
+    this.se["hit"]       = new Howl({ src : ["/assets/audio/se_hit.ogg", "/assets/audio/se_hit.mp3"] });
     this.se["miss"]      = new Howl({ src : "/assets/audio/se_miss.mp3" });
     this.se["eval_from"] = new Howl({ src : "/assets/audio/se_eval_from.mp3" });
     this.se["eval_msg"]  = new Howl({ src : "/assets/audio/se_eval_msg.mp3" });
     this.se["eval_high"] = new Howl({ src : "/assets/audio/se_eval_high.mp3" });
     this.se["eval_mid"]  = new Howl({ src : "/assets/audio/se_eval_mid.mp3" });
     this.se["eval_low"]  = new Howl({ src : "/assets/audio/se_eval_low.mp3" });
-    this.se["spring"]    = new Howl({ src : "/assets/audio/se_spring.mp3" });
-    this.se["swing"]     = new Howl({ src : "/assets/audio/se_swing.wav" });
-    this.se["throw"]     = new Howl({ src : "/assets/audio/se_throw.wav" });
+    this.se["swing"]     = new Howl({ src : ["/assets/audio/se_swing.ogg", "/assets/audio/se_swing.mp3"] });
+    this.se["throw"]     = new Howl({ src : ["/assets/audio/se_throw.ogg", "/assets/audio/se_throw.mp3"] });
 
     // BGM
     this.bgm["title"]     = new Howl({ src : ["/assets/audio/bgm_title.ogg", "/assets/audio/bgm_title.mp3"], loop : true });
