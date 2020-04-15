@@ -213,21 +213,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../bg_label.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>42,13,83,26</rect>
-                <key>scale9Paddings</key>
-                <rect>42,13,83,26</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">../btn_base.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -614,7 +599,6 @@
             <filename>../ttl_beyooooonds.png</filename>
             <filename>../txt_pause.png</filename>
             <filename>../btn_pause.png</filename>
-            <filename>../bg_label.png</filename>
             <filename>../label_color.png</filename>
             <filename>../label_future.png</filename>
             <filename>../label_life.png</filename>

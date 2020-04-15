@@ -58,11 +58,11 @@ a:link, a:visited { color: #222; }
 .icon.youtube::before       { background-position:  -18px 0; }
 .icon.twitter::before       { background-position:  -77px 0; }
 .icon.favorite::before      { background-position:  -96px 0; }
-.icon.newtab::before        { background-position: -115px 0; }
-.icon.amazon::before        { background-position: -133px 0; }
-.icon.facebook-rect::before { background-position: -194px 0; }
-.icon.github::before        { background-position: -214px 0; }
-.icon.twitter-rect::before  { background-position: -234px 0; }
+.icon.amazon::before        { background-position: -115px 0; }
+.icon.facebook-rect::before { background-position: -176px 0; }
+.icon.github::before        { background-position: -196px 0; }
+.icon.newtab::before        { background-position: -216px 0; }
+.icon.twitter-rect::before  { background-position: -236px 0; }
 
 .icon:hover::after,
 .icon:active::after,
@@ -325,7 +325,7 @@ iframe#youtube {
   pointer-events: none;
 }
 #btn-sound-toggle[data-is-mute="true"] img {
-  left: -306px;
+  left: -270px;
   margin-top: 0;
 }
 
@@ -400,8 +400,8 @@ iframe#youtube {
   filter: grayscale(0%);
 }
 
-#btn-share-tw img { left: -468px; }
-#btn-share-fb img { left: -388px; }
+#btn-share-tw img { left: -472px; }
+#btn-share-fb img { left: -352px; }
 
 .foot-link p {
   position: absolute;
@@ -412,7 +412,7 @@ iframe#youtube {
   height: 32px;
 }
 #link2repo img {
-  left: -428px;
+  left: -392px;
 }
 #link2repo:hover img,
 #link2repo:active img,

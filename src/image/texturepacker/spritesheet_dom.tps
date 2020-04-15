@@ -202,6 +202,7 @@
             <key type="filename">../icon_favorite.png</key>
             <key type="filename">../icon_github.png</key>
             <key type="filename">../icon_gmail.png</key>
+            <key type="filename">../icon_newtab.png</key>
             <key type="filename">../icon_twitter.png</key>
             <key type="filename">../icon_twitter_rect.png</key>
             <key type="filename">../icon_youtube.png</key>
@@ -248,6 +249,7 @@
             <filename>../pic_yhashimoto.png</filename>
             <filename>../icon_facebook_rect.png</filename>
             <filename>../icon_twitter_rect.png</filename>
+            <filename>../icon_newtab.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -2,7 +2,7 @@
 
 "btn_sound_toggle_off":
 {
-	"frame": {"x":153,"y":0,"w":37,"h":16},
+	"frame": {"x":135,"y":0,"w":37,"h":16},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":37,"h":16},
@@ -18,7 +18,7 @@
 },
 "icon_amazon":
 {
-	"frame": {"x":133,"y":0,"w":16,"h":15},
+	"frame": {"x":115,"y":0,"w":16,"h":15},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":1,"w":16,"h":15},
@@ -26,7 +26,7 @@
 },
 "icon_facebook_rect":
 {
-	"frame": {"x":194,"y":0,"w":16,"h":16},
+	"frame": {"x":176,"y":0,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -42,7 +42,7 @@
 },
 "icon_github":
 {
-	"frame": {"x":214,"y":0,"w":16,"h":16},
+	"frame": {"x":196,"y":0,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -58,10 +58,10 @@
 },
 "icon_newtab":
 {
-	"frame": {"x":115,"y":0,"w":14,"h":14},
+	"frame": {"x":216,"y":0,"w":16,"h":16},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":1,"y":1,"w":14,"h":14},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
 	"sourceSize": {"w":16,"h":16}
 },
 "icon_twitter":
@@ -74,7 +74,7 @@
 },
 "icon_twitter_rect":
 {
-	"frame": {"x":234,"y":0,"w":16,"h":16},
+	"frame": {"x":236,"y":0,"w":16,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
@@ -101,8 +101,8 @@
 	"version": "1.0",
 	"image": "/assets/img/spritesheet_dom.png",
 	"format": "RGBA8888",
-	"size": {"w":250,"h":155},
+	"size": {"w":252,"h":155},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:8b07366d77b67a35086a0ec9b1cc0869:04e1255142f5ff2cf556561bd345ecdc:f9b0137a982a5719555a3991698f3ac0$"
+	"smartupdate": "$TexturePacker:SmartUpdate:8a89d5b5ebf2863a756ae52e0c2795a4:b420f07fd9bb4851207086114177f7c8:f9b0137a982a5719555a3991698f3ac0$"
 }
 }
