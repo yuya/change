@@ -17,11 +17,10 @@ const ContentType = {
 type ContentType = typeof ContentType[keyof typeof ContentType];
 
 export class HomeScene extends Scene {
-  private textures   : any;
-  private content    : any;
-  private lastIndex  : number;
-  private homeBgm    : any;
-  private circleMenu : CircleMenu;
+  private textures    : any;
+  private content     : any;
+  private lastIndex   : number;
+  private circleMenu  : CircleMenu;
   
   public constructor() {
     super();
@@ -31,11 +30,17 @@ export class HomeScene extends Scene {
     if (!this.sound.bgm || !this.sound.bgm["home"]) {
       this.sound.initSound();
     }
-    this.homeBgm = this.sound.bgm.home;
-    setTimeout(() => {
-      this.homeBgm.play();
-      this.homeBgm.volume(1);
-    }, 500);
+    if (!this.sound.isBgmPlayed) {
+      setTimeout(() => {
+        this.sound.play("bgm", "home");
+      }, 500);
+
+      this.sound.isBgmPlayed = true;
+    }
+    else {
+      this.sound.bgm.home.volume(1);
+    }
+
     this.initLayout();
     this.initSiteLogo();
     this.initVolumeButton();

@@ -413,6 +413,202 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../anim_txt_a.png</key>
+            <key type="filename">../anim_txt_n.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>23,24,46,48</rect>
+                <key>scale9Paddings</key>
+                <rect>23,24,46,48</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_d.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>23,24,45,48</rect>
+                <key>scale9Paddings</key>
+                <rect>23,24,45,48</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_da.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>24,21,48,41</rect>
+                <key>scale9Paddings</key>
+                <rect>24,21,48,41</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_hey.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>39,22,78,43</rect>
+                <key>scale9Paddings</key>
+                <rect>39,22,78,43</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_japa.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>71,24,141,48</rect>
+                <key>scale9Paddings</key>
+                <rect>71,24,141,48</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_japanese.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>79,26,157,52</rect>
+                <key>scale9Paddings</key>
+                <rect>79,26,157,52</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_nese.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>73,24,146,48</rect>
+                <key>scale9Paddings</key>
+                <rect>73,24,146,48</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_nippon_a.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>22,51,43,101</rect>
+                <key>scale9Paddings</key>
+                <rect>22,51,43,101</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_nippon_d.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>21,51,41,101</rect>
+                <key>scale9Paddings</key>
+                <rect>21,51,41,101</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_nippon_n.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>21,51,42,101</rect>
+                <key>scale9Paddings</key>
+                <rect>21,51,42,101</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_nippon_no.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>8,51,15,101</rect>
+                <key>scale9Paddings</key>
+                <rect>8,51,15,101</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_ybi.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>33,21,65,41</rect>
+                <key>scale9Paddings</key>
+                <rect>33,21,65,41</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../anim_txt_yo.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>31,22,62,43</rect>
+                <key>scale9Paddings</key>
+                <rect>31,22,62,43</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../bg_fever_1.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -500,6 +696,20 @@
             <filename>../anim_logo_txt_g.png</filename>
             <filename>../anim_logo_txt_h.png</filename>
             <filename>../anim_logo_txt_n.png</filename>
+            <filename>../anim_txt_a.png</filename>
+            <filename>../anim_txt_d.png</filename>
+            <filename>../anim_txt_da.png</filename>
+            <filename>../anim_txt_hey.png</filename>
+            <filename>../anim_txt_japa.png</filename>
+            <filename>../anim_txt_japanese.png</filename>
+            <filename>../anim_txt_n.png</filename>
+            <filename>../anim_txt_nese.png</filename>
+            <filename>../anim_txt_nippon_no.png</filename>
+            <filename>../anim_txt_ybi.png</filename>
+            <filename>../anim_txt_yo.png</filename>
+            <filename>../anim_txt_nippon_a.png</filename>
+            <filename>../anim_txt_nippon_d.png</filename>
+            <filename>../anim_txt_nippon_n.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

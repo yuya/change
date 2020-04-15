@@ -6,7 +6,6 @@ import { YouTubePlayer } from "youtube-player/dist/types";
 import { BeyooOoondsModel } from "models/ingame/beyooooondsModel";
 import { Scene } from "views";
 import { Intro } from "views/ingame/beyooooonds/intro";
-import { TitleScene } from "./titleScene";
 
 const YT_STATE = {
   UNSTARTED : -1,
@@ -18,43 +17,108 @@ const YT_STATE = {
 } as const;
 type YT_STATE = typeof YT_STATE[keyof typeof YT_STATE];
 
+const SubtitlePos = {
+  hey       : { x :  12, y : 206 },
+  yo        : { x : 184, y : 206 },
+  japanese  : { x :   3, y : 188 },
+  ybi_1     : { x :  17, y : 199 },
+  ybi_2     : { x : 169, y : 199 },
+  japa      : { x :  15, y : 128 },
+  nese      : { x :  17, y : 234 },
+  nippon_no : { x :  10, y : 128 },
+  nippon_d  : { x :  49, y : 128 },
+  nippon_n  : { x : 141, y : 128 },
+  nippon_a  : { x : 225, y : 128 },
+  d_big     : { x :  31, y : 128 },
+  n_big     : { x : 123, y : 128 },
+  a_big     : { x : 207, y : 128 },
+  d_mid     : { x :  19, y : 179 },
+  n_mid     : { x : 119, y : 179 },
+  a_mid     : { x : 210, y : 179 },
+  da_1      : { x :  13, y :  99 },
+  da_2      : { x : 114, y :  99 },
+  da_3      : { x : 215, y :  99 },
+  da_4      : { x :  13, y : 199 },
+  da_5      : { x : 114, y : 199 },
+  da_6      : { x : 215, y : 199 },
+  da_7      : { x :  13, y : 299 },
+} as const;
+type SubtitlePos = typeof SubtitlePos[keyof typeof SubtitlePos];
+
+const FxStarPos = {
+   star_1 : { x: 46, y:  5 },
+   star_2 : { x: 57, y: 14 },
+   star_3 : { x: 63, y: 29 },
+   star_4 : { x: 57, y: 45 },
+   star_5 : { x: 45, y: 55 },
+   star_6 : { x: 30, y: 62 },
+   star_7 : { x: 15, y: 56 },
+   star_8 : { x:  7, y: 48 },
+   star_9 : { x:  0, y: 33 },
+  star_10 : { x:  3, y: 18 },
+  star_11 : { x: 15, y:  4 },
+  star_12 : { x: 30, y:  0 },
+} as const;
+type FxStarPos = typeof FxStarPos[keyof typeof FxStarPos];
+
 type AnimSprites = {
   wait    : PIXI.AnimatedSprite,
   punch_l : PIXI.AnimatedSprite,
   punch_r : PIXI.AnimatedSprite,
 };
 
-type ActData = {
-  judge_time     : number,
-  act_type       : string,
-  act_fever_type : string,
-  act_a_duration : number,
-  act_ok_type    : string,
-  act_ng_type    : string,
-  act_ska_type   : string,
-  act_se         : string,
-  act_fever_se   : string,
-  act_ok_se      : string,
-  act_ng_se      : string,
-  act_ska_se     : string,
-  fx_ok          : string,
-  fx_fever_ok    : string,
-  bg_type        : string,
-  bg_fever_type  : string,
-  bg_fever_se    : string,
-  bg_unfever_se  : string,
-};
+// type ActData = {
+//   judge_time     : number,
+//   act_type       : string,
+//   act_fever_type : string,
+//   act_a_duration : number,
+//   act_ok_type    : string,
+//   act_ng_type    : string,
+//   act_ska_type   : string,
+//   act_se         : string,
+//   act_fever_se   : string,
+//   act_ok_se      : string,
+//   act_ng_se      : string,
+//   act_ska_se     : string,
+//   fx_ok          : string,
+//   fx_fever_ok    : string,
+//   bg_type        : string,
+//   bg_fever_type  : string,
+//   bg_fever_se    : string,
+//   bg_unfever_se  : string,
+// };
+// type NoteData = {
+//   instance      : GSAPTimeline,
+//   note_object   : PIXI.Sprite,
+//   note_time     : number,
+//   note_type     : string,
+//   note_duration : number,
+//   note_se       : string,
+//   note_ok_se    : string,
+//   note_ng_se    : string,
+//   note_ska_se   : string,
+// };
 
+type ActData = {
+  time         : number,
+  act          : string,
+  act_fever    : string,
+  duration     : number,
+  act_se       : string,
+  act_fever_se : string,
+};
 type NoteData = {
   instance      : GSAPTimeline,
-  note_object   : PIXI.Sprite,
+  note_sprite   : PIXI.Sprite,
   note_time     : number,
-  note_type     : string,
+  note_obj      : string,
   note_duration : number,
-  note_se       : string,
-  note_ok_se    : string,
-  note_ng_se    : string,
-  note_ska_se   : string,
+  note_spawn_se : string,
+};
+type GayaData = {
+  time     : number,
+  act      : string,
+  duration : number,
 };
 
 const Result = {
@@ -74,11 +138,14 @@ export class IngameScene extends Scene {
   private model       : BeyooOoondsModel;
   private judgeTimes  : number[];
   private spawnTimes  : number[];
+  private gayaTimes   : number[];
   private actDatas    : ActData[];
   private noteDatas   : NoteData[];
+  private gayaDatas   : GayaData[];
   private resultTable : ResultTable;
   private prevJudge   : number;
   private prevSpawn   : number;
+  private prevGaya    : number;
   private rawScore    : number;
   private isLoaded    : boolean;
   private isPaused    : boolean;
@@ -95,6 +162,8 @@ export class IngameScene extends Scene {
   private animParts   : any;
   private animSprites : AnimSprites;
   private currentAnim : PIXI.AnimatedSprite;
+  private subtitle    : { [key : string] : PIXI.Sprite };
+  private subtitleEl  : PIXI.Container;
 
   public constructor() {
     super();
@@ -103,9 +172,12 @@ export class IngameScene extends Scene {
     this.textures    = this.assetData.load("textures");
     this.judgeTimes  = [];
     this.spawnTimes  = [];
+    this.gayaTimes   = [];
     this.actDatas    = [];
     this.noteDatas   = [];
+    this.gayaDatas   = [];
     this.resultTable = {};
+    this.subtitle    = {};
     this.isLoaded    = false;
     this.isPaused    = false;
     this.rawScore    = 0;
@@ -128,44 +200,41 @@ export class IngameScene extends Scene {
 
   private initGameData(): void {
     this.model.ingameData.forEach((item, index) => {
-      const judgeTime : number = item["judge_time"];
-      const spawnTime : number = item["note_time"];
+      const type = item["type"];
 
-      this.judgeTimes.push(judgeTime);
-      this.spawnTimes.push(spawnTime);
-
-      this.actDatas.push({
-        judge_time     : item["judge_time"],
-        act_type       : item["act_type"],
-        act_fever_type : item["act_fever_type"],
-        act_a_duration : item["act_a_duration"],
-        act_ok_type    : item["act_ok_type"],
-        act_ng_type    : item["act_ng_type"],
-        act_ska_type   : item["act_ska_type"],
-        act_se         : item["act_se"],
-        act_fever_se   : item["act_fever_se"],
-        act_ok_se      : item["act_ok_se"],
-        act_ng_se      : item["act_ng_se"],
-        act_ska_se     : item["act_ska_se"],
-        fx_ok          : item["fx_ok"],
-        fx_fever_ok    : item["fx_fever_ok"],
-        bg_type        : item["bg_type"],
-        bg_fever_type  : item["bg_fever_type"],
-        bg_fever_se    : item["bg_fever_se"],
-        bg_unfever_se  : item["bg_unfever_se"],
-      });
-
-      this.noteDatas.push({
-        instance      : null,
-        note_object   : null,
-        note_time     : item["note_time"],
-        note_type     : item["note_type"],
-        note_duration : item["note_duration"],
-        note_se       : item["note_se"],
-        note_ok_se    : item["note_ok_se"],
-        note_ng_se    : item["note_ng_se"],
-        note_ska_se   : item["note_ska_se"],
-      });
+      if (type === "judge") {
+        this.judgeTimes.push(item["time"]);
+        this.spawnTimes.push(item["note_time"]);
+        
+        this.actDatas.push({
+          time         : item["time"],
+          act          : item["act"],
+          act_fever    : item["act_fever"],
+          duration     : item["duration"],
+          act_se       : item["act_se"],
+          act_fever_se : item["act_fever_se"],
+        });
+        this.noteDatas.push({
+          instance      : null,
+          note_sprite   : null,
+          note_time     : item["note_time"],
+          note_obj      : item["note_obj"],
+          note_duration : item["note_duration"],
+          note_spawn_se : item["note_spawn_se"],
+        });
+      }
+      else if (type === "gaya") {
+        this.gayaTimes.push(item["time"]);
+        this.gayaDatas.push({
+          time     : item["time"],
+          act      : item["act"],
+          duration : item["duration"],
+        });
+      }
+      else if (type === "fade_in") {
+      }
+      else if (type === "fade_out") {
+      }
     });
   }
 
@@ -205,6 +274,7 @@ export class IngameScene extends Scene {
         this.player.destroy();
         this.disableFeverBg();
         utils.setBgColor(this.game.renderer, conf.color.gray);
+        this.destroy();
         this.game.currentScene.destroy();
 
         setTimeout(() => {
@@ -274,6 +344,93 @@ export class IngameScene extends Scene {
     this.currentTime = utils.sec2msec(time);
   }
 
+  private initNorikan(): void {
+    this.el.norikan_icon_1 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_1");
+    this.el.norikan_icon_2 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_2");
+    this.el.norikan_icon_3 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_3");
+    this.el.norikan_icon_4 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_4");
+    this.el.norikan_icon_5 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_5");
+    this.el.norikan_label  = utils.createSprite(this.textures["label_nori"], "norikan_label");
+
+    this.norikanEl = new PIXI.Container();
+    this.norikanEl.name = "norikan";
+    this.norikanEl.width  = 16;
+    this.norikanEl.height = 132;
+    this.norikanEl.addChild(
+      this.el.norikan_icon_5,
+      this.el.norikan_icon_4,
+      this.el.norikan_icon_3,
+      this.el.norikan_icon_2,
+      this.el.norikan_icon_1,
+      this.el.norikan_label,
+    );
+
+    this.el.norikan_icon_5.position.set(2,  0);
+    this.el.norikan_icon_4.position.set(2, 19);
+    this.el.norikan_icon_3.position.set(2, 38);
+    this.el.norikan_icon_2.position.set(2, 57);
+    this.el.norikan_icon_1.position.set(2, 76);
+    this.el.norikan_label.position.set(3, 100);
+
+    this.norikanEl.pivot.set(this.norikanEl.width, 0);
+    this.norikanEl.scale.set(2, 2);
+    this.norikanEl.position.set(conf.canvas_width - 30, 50);
+
+    this.norikanEl.on("increment", () => {
+      this.norikan++;
+      this.updateNorikan(this.norikan);
+    });
+
+    this.norikanEl.on("reset", () => {
+      this.norikan = 0;
+      this.updateNorikan(this.norikan);
+    });
+  }
+
+  private initSubtitle(): void {
+    this.subtitle["hey"]       = utils.createSprite(this.animParts["anim_txt_hey"], "hey");
+    this.subtitle["yo"]        = utils.createSprite(this.animParts["anim_txt_yo"], "yo");
+    this.subtitle["japanese"]  = utils.createSprite(this.animParts["anim_txt_japanese"], "japanese");
+    this.subtitle["ybi_1"]     = utils.createSprite(this.animParts["anim_txt_ybi"], "ybi_1");
+    this.subtitle["ybi_2"]     = utils.createSprite(this.animParts["anim_txt_ybi"], "ybi_2");
+    this.subtitle["japa"]      = utils.createSprite(this.animParts["anim_txt_japa"], "japa");
+    this.subtitle["nese"]      = utils.createSprite(this.animParts["anim_txt_nese"], "nese");
+    this.subtitle["nippon_no"] = utils.createSprite(this.animParts["anim_txt_nippon_no"], "nippon_no");
+    this.subtitle["nippon_d"]  = utils.createSprite(this.animParts["anim_txt_nippon_d"], "nippon_d");
+    this.subtitle["nippon_n"]  = utils.createSprite(this.animParts["anim_txt_nippon_n"], "nippon_n");
+    this.subtitle["nippon_a"]  = utils.createSprite(this.animParts["anim_txt_nippon_a"], "nippon_a");
+    this.subtitle["d_big"]     = utils.createSprite(this.animParts["anim_txt_nippon_d"], "d_big");
+    this.subtitle["n_big"]     = utils.createSprite(this.animParts["anim_txt_nippon_n"], "n_big");
+    this.subtitle["a_big"]     = utils.createSprite(this.animParts["anim_txt_nippon_a"], "a_big");
+    this.subtitle["d_mid"]     = utils.createSprite(this.animParts["anim_txt_d"], "d_mid");
+    this.subtitle["n_mid"]     = utils.createSprite(this.animParts["anim_txt_n"], "n_mid");
+    this.subtitle["a_mid"]     = utils.createSprite(this.animParts["anim_txt_a"], "a_mid");
+    this.subtitle["da_1"]      = utils.createSprite(this.animParts["anim_txt_da"], "da_1");
+    this.subtitle["da_2"]      = utils.createSprite(this.animParts["anim_txt_da"], "da_2");
+    this.subtitle["da_3"]      = utils.createSprite(this.animParts["anim_txt_da"], "da_3");
+    this.subtitle["da_4"]      = utils.createSprite(this.animParts["anim_txt_da"], "da_4");
+    this.subtitle["da_5"]      = utils.createSprite(this.animParts["anim_txt_da"], "da_5");
+    this.subtitle["da_6"]      = utils.createSprite(this.animParts["anim_txt_da"], "da_6");
+    this.subtitle["da_7"]      = utils.createSprite(this.animParts["anim_txt_da"], "da_7");
+
+    this.subtitleEl = new PIXI.Container();
+    this.subtitleEl.name = "subtitle";
+    this.subtitleEl.width  = conf.canvas_width;
+    this.subtitleEl.height = conf.canvas_height;
+
+    Object.keys(this.subtitle).forEach((key, index) => {
+      const subtitle = this.subtitle[key];
+
+      subtitle.position.set(SubtitlePos[key].x, SubtitlePos[key].y);
+      subtitle.alpha = 0.85;
+      subtitle.visible = false;
+
+      this.subtitleEl.addChild(subtitle);
+    });
+
+    this.subtitleEl.scale.set(2, 2);
+  }
+
   private initLayout(): void {
     const spriteSheetDom = this.assetData.load("spriteSheetDom").spritesheet.textures;
 
@@ -302,50 +459,26 @@ export class IngameScene extends Scene {
     this.el.youtubeBg.scale.set(2, 2);
     this.el.youtubeBg.position.set(280, 48);
 
-    this.el.norikan_icon_1 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_1");
-    this.el.norikan_icon_2 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_2");
-    this.el.norikan_icon_3 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_3");
-    this.el.norikan_icon_4 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_4");
-    this.el.norikan_icon_5 = utils.createSprite(this.textures["icon_nori_1"], "norikan_icon_5");
-    this.el.norikan_label  = utils.createSprite(this.textures["label_nori"], "norikan_label");
-
-    this.norikanEl = new PIXI.Container();
-    this.norikanEl.name = "norikan";
-    this.norikanEl.width  = 16;
-    this.norikanEl.height = 132;
-    this.norikanEl.addChild(
-      this.el.norikan_icon_5,
-      this.el.norikan_icon_4,
-      this.el.norikan_icon_3,
-      this.el.norikan_icon_2,
-      this.el.norikan_icon_1,
-      this.el.norikan_label,
-    );
-
-    this.el.norikan_icon_5.position.set(2,  0);
-    this.el.norikan_icon_4.position.set(2, 19);
-    this.el.norikan_icon_3.position.set(2, 38);
-    this.el.norikan_icon_2.position.set(2, 57);
-    this.el.norikan_icon_1.position.set(2, 76);
-    this.el.norikan_label.position.set(2, 100);
-
-    this.norikanEl.pivot.set(this.norikanEl.width, 0);
-    this.norikanEl.scale.set(2, 2);
-    this.norikanEl.position.set(conf.canvas_width - 30, 50);
-
-    this.norikanEl.on("increment", () => {
-      this.norikan++;
-      this.updateNorikan(this.norikan);
-    });
-
-    this.norikanEl.on("reset", () => {
-      this.norikan = 0;
-      this.updateNorikan(this.norikan);
-    });
+    this.initNorikan();
+    this.initSubtitle();
 
     this.el.feverBg = utils.createSprite(this.animParts["bg_fever_1"]);
     this.el.feverBg.scale.set(4, 4);
     this.el.feverBg.visible = false;
+
+    console.log((this.el.feverBg as any)._destroyed);
+    console.log((this.animSprites.wait as any)._destroyed);
+    console.log((this.animSprites.punch_l as any)._destroyed);
+    console.log((this.animSprites.punch_r as any)._destroyed);
+    console.log((this.el.youtubeBg as any)._destroyed);
+    console.log((this.rect.cover as any)._destroyed);
+    console.log((this.el.pauseBtn as any)._destroyed);
+    console.log((this.el.volumeToggleBtn as any)._destroyed);
+    console.log((this.norikanEl as any)._destroyed);
+    console.log((this.subtitleEl as any)._destroyed);
+    console.log((this.container as any)._destroyed);
+
+    // if (this.container.isde)
 
     this.container.addChild(
       this.el.feverBg,
@@ -357,6 +490,7 @@ export class IngameScene extends Scene {
       this.el.pauseBtn,
       this.el.volumeToggleBtn,
       this.norikanEl,
+      this.subtitleEl,
     );
   }
 
@@ -431,25 +565,48 @@ export class IngameScene extends Scene {
     }
   }
 
+  private playGaya(): void {
+    const approximate = utils.getApproximate(this.gayaTimes, this.currentTime);
+    const index       = this.gayaTimes.indexOf(approximate);
+    const gayaData    = this.gayaDatas[index];
+    
+    if (approximate >= this.currentTime ||
+        this.prevGaya === approximate) {
+      return;
+    }
+
+    const acts = gayaData.act.split(",");
+    let   idx  = 0;
+    let   len  = acts.length;
+
+    for (; len; ++idx, --len) {
+      const act  = acts[idx];
+      const gaya = this.subtitle[act];
+
+      gaya.visible = true;
+      setTimeout(() => gaya.visible = false, gayaData.duration);
+    }
+
+    this.prevGaya = approximate;
+  }
+
   private spawnNote(): void {
     const approximate = utils.getApproximate(this.spawnTimes, this.currentTime);
     const index       = this.spawnTimes.indexOf(approximate);
     const noteData    = this.noteDatas[index];
 
-    // TODO: DEBUG
     if (approximate >= this.currentTime ||
         this.prevSpawn === approximate) {
       return;
     }
 
-    const ball = utils.createSprite(this.animParts[`anim_note_${noteData.note_type}`]);
-    // ball.position.set(conf.canvas_width, conf.canvas_height);
+    const ball = utils.createSprite(this.animParts[`anim_note_${noteData.note_obj}`]);
+
     ball.position.set(450, 900);
     ball.scale.set(5, 5);
     this.container.addChild(ball);
 
     const noteDuration = noteData.note_duration;
-
     const timeline = gsap.timeline({
       // ease: "linear",
       onComplete: () => {
@@ -459,32 +616,21 @@ export class IngameScene extends Scene {
     });
 
     noteData.instance = timeline;
-    noteData.note_object = ball;
+    noteData.note_sprite = ball;
 
     timeline.to(ball, {
-      // duration: utils.msec2sec(noteDuration),
       duration: utils.msec2sec(noteDuration),
       ease: "linear",
       motionPath: [
         {"x":550,"y":950},{"x":483.3333333333333,"y":550},{"x":391.66666666666663,"y":408.3333333333333},{"x":275,"y":525}
       ],
-        // [{"x":550,"y":950},{"x":483.3333333333333,"y":550},{"x":375,"y":408.3333333333333},{"x":225,"y":525}]
-        // {"x":450,"y":900},
-        // {"x":316.66666666666663,"y":333.3333333333333},
-        // {"x":216.66666666666666,"y":200},
-        // {"x":160,"y":370}
-        // {"x":150,"y":500}
-      // ],
       pixi: { scale: 1 },
     });
     timeline.to(ball, {
       duration: utils.msec2sec(100),
       ease: "easeOutExpo",
       motionPath: [
-        // {"x":160,"y":370},
         {"x":275,"y":525},{"x":258.3333333333333,"y":541.6666666666666},{"x":241.66666666666666,"y":575},{"x":225,"y":625}
-        // {"x":225,"y":525},{"x":208.33333333333331,"y":541.6666666666666},{"x":191.66666666666663,"y":575},{"x":175,"y":625}
-        // {"x":150,"y":500},
       ],
       pixi: { scale: 0.8 }
     });
@@ -500,10 +646,7 @@ export class IngameScene extends Scene {
         ease: "linear",
         motionPath: [
           {"x":275,"y":525},{"x":458.33333333333326,"y":458.3333333333333},{"x":600,"y":375},{"x":700,"y":275}
-          // {"x":225,"y":525},{"x":258.3333333333333,"y":408.3333333333333},{"x":416.66666666666663,"y":325},{"x":700,"y":275}
         ],
-        // x: 640,
-        // y: 120,
         onComplete: () => { ball.destroy() }
       });
     });
@@ -518,10 +661,7 @@ export class IngameScene extends Scene {
         ease: "linear",
         motionPath: [
           {"x":275,"y":525},{"x":391.66666666666663,"y":458.3333333333333},{"x":533.3333333333333,"y":408.3333333333333},{"x":700,"y":375}
-          // {"x":225,"y":525},{"x":258.3333333333333,"y":441.66666666666663},{"x":416.66666666666663,"y":391.66666666666663},{"x":700,"y":375}
         ],
-        // x: 640,
-        // y: 240,
         onComplete: () => { ball.destroy() }
       });
     });
@@ -536,10 +676,7 @@ export class IngameScene extends Scene {
         ease: "linear",
         motionPath: [
           {"x":275,"y":525},{"x":325,"y":491.66666666666663},{"x":466.66666666666663,"y":474.99999999999994},{"x":700,"y":475}
-          // {"x":225,"y":525},{"x":275,"y":491.66666666666663},{"x":433.3333333333333,"y":474.99999999999994},{"x":700,"y":475}
         ],
-        // x: 512,
-        // y: 320,
         onComplete: () => { ball.destroy() }
       });
     });
@@ -554,16 +691,13 @@ export class IngameScene extends Scene {
         ease: "linear",
         motionPath: [
           {"x":275,"y":525},{"x":308.3333333333333,"y":508.3333333333333},{"x":333.3333333333333,"y":541.6666666666666},{"x":350,"y":625}
-          // {"x":225,"y":525},{"x":291.66666666666663,"y":508.3333333333333},{"x":316.66666666666663,"y":541.6666666666666},{"x":300,"y":625}
         ],
-        // x: 320,
-        // y: 512,
         onComplete: () => { ball.destroy() }
       });
     });
 
-    if (noteData.note_se) {
-      this.sound.se[noteData.note_se].play();
+    if (noteData.note_spawn_se) {
+      this.sound.se[noteData.note_spawn_se].play();
     }
     
     this.prevSpawn = approximate;
@@ -650,9 +784,9 @@ export class IngameScene extends Scene {
       return;
     }
 
-    const act  = actData.act_type;
+    const act  = actData.act;
     const note = noteData.instance;
-    const ball = noteData.note_object;
+    const ball = noteData.note_sprite;
 
     this.playAnim(act);
     note.pause();
@@ -781,6 +915,7 @@ export class IngameScene extends Scene {
       this.syncCurrentTime();
       this.loopTimer = 0;
     }
+    this.playGaya();
     this.spawnNote();
 
     this.lastTime = now;

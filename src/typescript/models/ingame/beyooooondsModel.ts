@@ -40,7 +40,17 @@ export class BeyooOoondsModel {
   }
 
   private initScoreTable(): void {
-    const noteLen   = Object.keys(this.ingameData).length;
+    const noteLen   = (() => {
+      let retNum = 0;
+
+      Object.keys(this.ingameData).forEach((key) => {
+        if (this.ingameData[key].type === "judge") {
+          retNum++;
+        }
+      });
+
+      return retNum;
+    })();
     const maxScore  = 100;
     const baseScore = {
       perfect : 100,
