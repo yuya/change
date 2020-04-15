@@ -31,9 +31,8 @@ export class CreditContent extends Content {
   <dd>
     <table>
       <tr>
-        <td colspan="2"><a class="icon newtab" href="http://kokagem.sakura.ne.jp/font/mochi/" target="_blank" rel="noopener"><i class="mod-mochi">Nu</i> きなこもち</a>&nbsp;<i class="mod-mochi">(<a class="icon twitter" href="https://twitter.com/sayunu/status/1230841977979031552" target="_blank" rel="noopener">@sayunu thx!</a>)</i></td>
-      </tr>
-        <td colspan="2"><a class="icon newtab" href="http://jikasei.me/font/jf-dotfont/" target="_blank" rel="noopener">JFドットM+H10</a></td>
+        <td><a class="icon newtab" href="http://kokagem.sakura.ne.jp/font/mochi/" target="_blank" rel="noopener"><i class="mod-mochi">Nu</i> きなこもち</a></td>
+        <td><a class="icon newtab" href="http://jikasei.me/font/jf-dotfont/" target="_blank" rel="noopener">JFドットM+H10</a></td>
       <tr>
         <td><a class="icon newtab" href="http://www.ku-da.net/fonts/font-exotic-agent.html" target="_blank" rel="noopener">exotic agent</a></td>
         <td><a class="icon newtab" href="https://fontdasu.com/179" target="_blank" rel="noopener noreferrer">ヨコスカブロック</a></td>
@@ -49,7 +48,11 @@ export class CreditContent extends Content {
       </tr>
       <tr>
         <td><a class="icon newtab" href="https://soundeffect-lab.info/" target="_blank" rel="noopener">効果音ラボ</a></td>
-        <td>&nbsp;</td>
+        <td><a class="icon newtab" href="https://otologic.jp/" target="_blank" rel="noopener">OtoLogic</a></td>
+      </tr>
+      <tr>
+        <td><a class="icon newtab" href="https://01earth.net/" target="_blank" rel="noopener">01SoundEarth</a></td>
+        <td><a class="icon newtab" href="#" target="_blank" rel="noopener"></a></td>
       </tr>
     </table>
   </dd>
