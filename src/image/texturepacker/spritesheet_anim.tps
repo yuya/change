@@ -183,6 +183,8 @@
         <map type="IndividualSpriteSettingsMap">
             <key type="filename">../anim_bg_star_1.png</key>
             <key type="filename">../anim_bg_star_9.png</key>
+            <key type="filename">../anim_fx_star_1.png</key>
+            <key type="filename">../anim_fx_star_9.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -201,6 +203,10 @@
             <key type="filename">../anim_bg_star_12.png</key>
             <key type="filename">../anim_bg_star_3.png</key>
             <key type="filename">../anim_bg_star_4.png</key>
+            <key type="filename">../anim_fx_star_10.png</key>
+            <key type="filename">../anim_fx_star_12.png</key>
+            <key type="filename">../anim_fx_star_3.png</key>
+            <key type="filename">../anim_fx_star_4.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -217,6 +223,8 @@
             </struct>
             <key type="filename">../anim_bg_star_11.png</key>
             <key type="filename">../anim_bg_star_2.png</key>
+            <key type="filename">../anim_fx_star_11.png</key>
+            <key type="filename">../anim_fx_star_2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -232,6 +240,7 @@
                 <false/>
             </struct>
             <key type="filename">../anim_bg_star_5.png</key>
+            <key type="filename">../anim_fx_star_5.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -247,6 +256,7 @@
                 <false/>
             </struct>
             <key type="filename">../anim_bg_star_6.png</key>
+            <key type="filename">../anim_fx_star_6.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -262,6 +272,7 @@
                 <false/>
             </struct>
             <key type="filename">../anim_bg_star_7.png</key>
+            <key type="filename">../anim_fx_star_7.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -277,6 +288,7 @@
                 <false/>
             </struct>
             <key type="filename">../anim_bg_star_8.png</key>
+            <key type="filename">../anim_fx_star_8.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -710,6 +722,18 @@
             <filename>../anim_txt_nippon_a.png</filename>
             <filename>../anim_txt_nippon_d.png</filename>
             <filename>../anim_txt_nippon_n.png</filename>
+            <filename>../anim_fx_star_1.png</filename>
+            <filename>../anim_fx_star_10.png</filename>
+            <filename>../anim_fx_star_11.png</filename>
+            <filename>../anim_fx_star_12.png</filename>
+            <filename>../anim_fx_star_2.png</filename>
+            <filename>../anim_fx_star_3.png</filename>
+            <filename>../anim_fx_star_4.png</filename>
+            <filename>../anim_fx_star_5.png</filename>
+            <filename>../anim_fx_star_6.png</filename>
+            <filename>../anim_fx_star_7.png</filename>
+            <filename>../anim_fx_star_8.png</filename>
+            <filename>../anim_fx_star_9.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
