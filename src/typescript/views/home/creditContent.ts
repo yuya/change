@@ -52,7 +52,7 @@ export class CreditContent extends Content {
       </tr>
       <tr>
         <td><a class="icon newtab" href="https://01earth.net/" target="_blank" rel="noopener">01SoundEarth</a></td>
-        <td><a class="icon newtab" href="#" target="_blank" rel="noopener"></a></td>
+        <td>&nbsp;</td>
       </tr>
     </table>
   </dd>
