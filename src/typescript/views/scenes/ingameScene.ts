@@ -67,38 +67,6 @@ type AnimSprites = {
   punch_r : PIXI.AnimatedSprite,
 };
 
-// type ActData = {
-//   judge_time     : number,
-//   act_type       : string,
-//   act_fever_type : string,
-//   act_a_duration : number,
-//   act_ok_type    : string,
-//   act_ng_type    : string,
-//   act_ska_type   : string,
-//   act_se         : string,
-//   act_fever_se   : string,
-//   act_ok_se      : string,
-//   act_ng_se      : string,
-//   act_ska_se     : string,
-//   fx_ok          : string,
-//   fx_fever_ok    : string,
-//   bg_type        : string,
-//   bg_fever_type  : string,
-//   bg_fever_se    : string,
-//   bg_unfever_se  : string,
-// };
-// type NoteData = {
-//   instance      : GSAPTimeline,
-//   note_object   : PIXI.Sprite,
-//   note_time     : number,
-//   note_type     : string,
-//   note_duration : number,
-//   note_se       : string,
-//   note_ok_se    : string,
-//   note_ng_se    : string,
-//   note_ska_se   : string,
-// };
-
 type ActData = {
   time         : number,
   act          : string,
@@ -250,7 +218,7 @@ export class IngameScene extends Scene {
 
   private attachEvent(): void {
     this.game.eventHandler.on("introPlayed", () => {
-      conf.root_el.classList.toggle("yt-loaded");
+      conf.root_el.classList.add("yt-loaded");
       this.setYoutubeParam();
       this.initLayout();
       this.game.ticker.start();
@@ -269,7 +237,7 @@ export class IngameScene extends Scene {
         this.syncCurrentTime();
         this.userData.save("latest_score", this.currentScore);
 
-        conf.root_el.classList.toggle("yt-loaded");
+        conf.root_el.classList.remove("yt-loaded");
         document.removeEventListener("visibilitychange", this.game.events.enablePause, false);
         this.player.destroy();
         this.disableFeverBg();
@@ -466,18 +434,6 @@ export class IngameScene extends Scene {
     this.el.feverBg.scale.set(4, 4);
     this.el.feverBg.visible = false;
 
-    console.log((this.el.feverBg as any)._destroyed);
-    console.log((this.animSprites.wait as any)._destroyed);
-    console.log((this.animSprites.punch_l as any)._destroyed);
-    console.log((this.animSprites.punch_r as any)._destroyed);
-    console.log((this.el.youtubeBg as any)._destroyed);
-    console.log((this.rect.cover as any)._destroyed);
-    console.log((this.el.pauseBtn as any)._destroyed);
-    console.log((this.el.volumeToggleBtn as any)._destroyed);
-    console.log((this.norikanEl as any)._destroyed);
-    console.log((this.subtitleEl as any)._destroyed);
-    console.log((this.container as any)._destroyed);
-
     this.container.addChild(
       this.el.feverBg,
       this.animSprites.wait,
@@ -499,7 +455,7 @@ export class IngameScene extends Scene {
 
     this.game.ticker.stop();
     utils.appendDom("yt-overlay", conf.canvas_el);
-    conf.root_el.classList.toggle("is-paused");
+    conf.root_el.classList.add("is-paused");
     this.el.txtPause  = utils.createSprite(this.textures["txt_pause"]);
     this.rect.overlay = utils.createRect("overlay", conf.canvas_width, conf.canvas_height, 0x222222, 0.75);
     this.rect.overlay.interactive = this.rect.overlay.buttonMode = true;
@@ -519,7 +475,7 @@ export class IngameScene extends Scene {
   private disablePause(): void {
     this.isPaused = false;
     utils.removeDom("yt-overlay", conf.canvas_el);
-    conf.root_el.classList.toggle("is-paused");
+    conf.root_el.classList.remove("is-paused");
     this.sound.play("se", "cancel");
     this.player.playVideo();
     this.rect.overlay.destroy();
@@ -845,10 +801,11 @@ export class IngameScene extends Scene {
         this.syncCurrentTime();
         this.userData.save("latest_score", this.currentScore);
 
-        conf.root_el.classList.toggle("yt-loaded");
+        conf.root_el.classList.add("yt-loaded");
         document.removeEventListener("visibilitychange", this.game.events.enablePause, false);
         this.player.destroy();
         this.game.currentScene.destroy();
+        this.destroy();
         this.game.route(nextSceneName);
         break;
       case YT_STATE.PLAYING:
