@@ -478,8 +478,6 @@ export class IngameScene extends Scene {
     console.log((this.subtitleEl as any)._destroyed);
     console.log((this.container as any)._destroyed);
 
-    // if (this.container.isde)
-
     this.container.addChild(
       this.el.feverBg,
       this.animSprites.wait,
@@ -906,10 +904,12 @@ export class IngameScene extends Scene {
 
     const now = performance.now();
     this.elapsedTime = now - this.startTime;
-
-    const diff = this.elapsedTime - (this.lastTime - this.startTime);
-    this.currentTime += diff;
-    this.loopTimer   += diff;
+    
+    if (this.isLoaded) {
+      const diff = this.elapsedTime - (this.lastTime - this.startTime);
+      this.currentTime += diff;
+      this.loopTimer   += diff;
+    }
 
     if (this.loopTimer >= this.interval) {
       this.syncCurrentTime();
