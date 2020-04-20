@@ -812,6 +812,7 @@ export class IngameScene extends Scene {
         if (!this.game.ticker.started) {
           this.game.ticker.start();
         }
+        this.syncCurrentTime();
         this.isLoaded = true;
         break;
       case YT_STATE.PAUSED:
