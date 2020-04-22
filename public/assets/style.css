@@ -260,6 +260,29 @@ iframe#youtube {
 .txt-body .pic { margin-bottom: 18px; }
 .txt-body .pic img { display: block; }
 
+.result-body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  font-size: 0;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
+}
+.result-body a {
+  display: block;
+  height: 100%;
+}
+.result-body:hover a img {
+  -webkit-filter: brightness(120%);
+  -moz-filter: brightness(120%);
+  -ms-filter: brightness(120%);
+  -o-filter: brightness(120%);
+  filter: brightness(120%);
+}
+
 #cover {
   position: absolute;
   top: 0;

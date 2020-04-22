@@ -39,14 +39,14 @@ export class ResultData {
     if (this.score >= ResultThreshold.Superb) {
       ret = {
         eval: {
-          from: "しゃちょー の おことば",
-          comment: "パンチにキレがある！ きみ、いいね！",
+          from: "しゃちょうの おことば",
+          comment: "GJ！ パンチにキレがあっていいね！",
           labelPath: "label_eval_high",
           sePath: "eval_high",
           bgmPath: "eval_high",
         },
         outro: {
-          comment: "ニッポンを げんきに したい！",
+          comment: "チカラをあわせて がんばろう！",
           imgPath: "superb_outro",
           jinglePath: "outro_high",
         },
@@ -57,14 +57,14 @@ export class ResultData {
              this.score < ResultThreshold.Superb) {
       ret = {
         eval: {
-          from: "じょうし の おことば",
+          from: "じょうしの ひとこと",
           comment: "とりあえず...",
           labelPath: "label_eval_mid",
           sePath: "eval_mid",
           bgmPath: "eval_mid",
         },
         outro: {
-          comment: "MV みて 元気だそっと！",
+          comment: "元気だそっと！",
           imgPath: "ok_outro",
           jinglePath: "outro",
         },
@@ -74,14 +74,14 @@ export class ResultData {
     else {
       ret = {
         eval: {
-          from: "どうりょう の おことば",
+          from: "どうりょうの ひとこと",
           comment: "ぜんぜん あってない・・・",
           labelPath: "label_eval_low",
           sePath: "eval_low",
           bgmPath: "eval_low",
         },
         outro: {
-          comment: "MV みて べんきょうだ！",
+          comment: "MV 見て べんきょうだ！",
           imgPath: "try_again_outro",
           jinglePath: "outro",
         },

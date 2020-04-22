@@ -8,6 +8,7 @@ export class ResultScene extends Scene {
   private resultData : ResultData;
   private textures   : any;
   private bgMsgHead  : PIXI.NineSlicePlane;
+  private dom        ; HTMLElement;
   private txt        : { [key : string] : PIXI.Text };
 
   public constructor(resultData: ResultData) {
@@ -20,7 +21,7 @@ export class ResultScene extends Scene {
     this.txt = {};
     this.el  = {
       msgFoot   : utils.createSprite(this.textures[this.resultData.data.eval.labelPath]),
-      outroImg  : utils.createSprite(this.textures["img_intro_beyooooonds"]),
+      // outroImg  : utils.createSprite(this.textures["img_intro_beyooooonds"]),
     };
     this.rect = {
       background  : utils.createRect("bg", conf.canvas_width, conf.canvas_height, conf.color.black),
@@ -32,6 +33,7 @@ export class ResultScene extends Scene {
 
     const initialize = () => {
       this.initLayout();
+      this.initDom();
     };
 
     if (!this.sound.isLoaded) {
@@ -87,13 +89,39 @@ export class ResultScene extends Scene {
     this.el.msgFoot.alpha = 0;
   }
 
+  private initDom(): void {
+    const img = new Image();
+    const w   = 480;
+    const h   = 360;
+    const a   = document.createElement("a");
+
+    a.target   = "_blank";
+    a.rel      = "noopener";
+    a.href     = "https://www.youtube.com/watch?v=KYVMtijS74U";
+    img.src    = "https://img.youtube.com/vi/KYVMtijS74U/hqdefault.jpg";
+    img.width  = w;
+    img.height = h;
+
+    this.dom = document.createElement("div");
+    // const dom = document.createElement("div");
+    this.dom.style.visibility = "hidden";
+
+    this.dom.id = "dom";
+    this.dom.className = "result-body";
+    this.dom.style.width  = `${w}px`;
+    this.dom.style.height = `${h}px`;
+
+    a.appendChild(img);
+    this.dom.appendChild(a);
+    
+    conf.canvas_el.appendChild(this.dom);
+  }
+
   private showOutro(): void {
     this.container = new PIXI.Container();
     this.container.name = "container";
 
-    this.el.outroImg.scale.set(2, 2);
-    this.el.outroImg.pivot.set(this.el.outroImg.width / 4, this.el.outroImg.height / 4);
-    this.el.outroImg.position.set(utils.display.centerX, utils.display.centerY);
+    this.dom.style.visibility = "visible";
 
     const msgOutroStr = this.resultData.data.outro.comment;
     
@@ -104,12 +132,12 @@ export class ResultScene extends Scene {
       align: "center",
     });
     this.txt.msgOutro.pivot.set(this.txt.msgOutro.width / 2, 0);
-    this.txt.msgOutro.position.set(utils.display.centerX, this.el.outroImg.y + (this.el.outroImg.height/2) + 30);
+    this.txt.msgOutro.position.set(utils.display.centerX, utils.display.centerY + 210);
     this.rect.coverOutro.interactive = this.rect.coverOutro.buttonMode = true;
 
     this.sound.play("jingle", this.resultData.data.outro.jinglePath);
     this.attachEvent();
-    this.container.addChild(this.el.outroImg, this.txt.msgOutro, this.rect.coverOutro);
+    this.container.addChild(this.txt.msgOutro, this.rect.coverOutro);
     this.game.stage.addChild(this.container);
   }
 
