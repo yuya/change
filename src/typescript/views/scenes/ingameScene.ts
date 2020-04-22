@@ -100,60 +100,79 @@ type ResultTable = {
 };
 
 export class IngameScene extends Scene {
-  private textures    : any;
-  private intro       : Intro;
-  private player      : YouTubePlayer;
-  private model       : BeyooOoondsModel;
-  private judgeTimes  : number[];
-  private spawnTimes  : number[];
-  private gayaTimes   : number[];
-  private actDatas    : ActData[];
-  private noteDatas   : NoteData[];
-  private gayaDatas   : GayaData[];
-  private resultTable : ResultTable;
-  private prevJudge   : number;
-  private prevSpawn   : number;
-  private prevGaya    : number;
-  private rawScore    : number;
-  private isLoaded    : boolean;
-  private isPaused    : boolean;
-  private norikan     : number;
-  private norikanEl   : PIXI.Container;
-  private playerState : number;
-  private startTime   : number;
-  private elapsedTime : number;
-  private currentTime : number;
-  private lastTime    : number;
-  private loopTimer   : number;
-  private interval    : number;
-  private ytOptions   : object;
-  private animParts   : any;
-  private animSprites : AnimSprites;
-  private currentAnim : PIXI.AnimatedSprite;
-  private subtitle    : { [key : string] : PIXI.Sprite };
-  private subtitleEl  : PIXI.Container;
+  private textures      : any;
+  private intro         : Intro;
+  private player        : YouTubePlayer;
+  private model         : BeyooOoondsModel;
+  private judgeTimes    : number[];
+  private spawnTimes    : number[];
+  private gayaTimes     : number[];
+  private actDatas      : ActData[];
+  private noteDatas     : NoteData[];
+  private gayaDatas     : GayaData[];
+  private resultTable   : ResultTable;
+  private prevJudge     : number;
+  private prevSpawn     : number;
+  private prevGaya      : number;
+  private rawScore      : number;
+  private isLoaded      : boolean;
+  private isPaused      : boolean;
+  private isFever       : boolean;
+  private norikan       : number;
+  private norikanEl     : PIXI.Container;
+  private playerState   : number;
+  private startTime     : number;
+  private elapsedTime   : number;
+  private currentTime   : number;
+  private lastTime      : number;
+  private loopTimer     : number;
+  private interval      : number;
+  private ytOptions     : object;
+  private animParts     : any;
+  private animSprites   : AnimSprites;
+  private currentAnim   : PIXI.AnimatedSprite;
+  private subtitle      : { [key : string] : PIXI.Sprite };
+  private subtitleEl    : PIXI.Container;
+  private fxGreatEl     : PIXI.Container;
+  private fxPerfectEl   : PIXI.Container;
+  private starList      : PIXI.Sprite[];
 
   public constructor() {
     super();
 
-    this.model       = new BeyooOoondsModel();
-    this.textures    = this.assetData.load("textures");
-    this.judgeTimes  = [];
-    this.spawnTimes  = [];
-    this.gayaTimes   = [];
-    this.actDatas    = [];
-    this.noteDatas   = [];
-    this.gayaDatas   = [];
-    this.resultTable = {};
-    this.subtitle    = {};
-    this.isLoaded    = false;
-    this.isPaused    = false;
-    this.rawScore    = 0;
-    this.norikan     = 0;
-    this.rect.cover  = utils.createRect("cover", conf.canvas_width, conf.canvas_height);
-    this.animParts   = this.assetData.load("animation").spritesheet.textures;
+    this.model         = new BeyooOoondsModel();
+    this.textures      = this.assetData.load("textures");
+    this.judgeTimes    = [];
+    this.spawnTimes    = [];
+    this.gayaTimes     = [];
+    this.actDatas      = [];
+    this.noteDatas     = [];
+    this.gayaDatas     = [];
+    this.resultTable   = {};
+    this.subtitle      = {};
+    this.isLoaded      = false;
+    this.isPaused      = false;
+    this.isFever       = false;
+    this.rawScore      = 0;
+    this.norikan       = 0;
+    this.rect.cover    = utils.createRect("cover", conf.canvas_width, conf.canvas_height);
+    this.animParts     = this.assetData.load("animation").spritesheet.textures;
 
     this.game.events["enablePause"] = this.enablePause.bind(this);
+    this.starList = [
+      utils.createSprite(this.animParts["anim_fx_star_1"],   "star_1"),
+      utils.createSprite(this.animParts["anim_fx_star_2"],   "star_2"),
+      utils.createSprite(this.animParts["anim_fx_star_3"],   "star_3"),
+      utils.createSprite(this.animParts["anim_fx_star_4"],   "star_4"),
+      utils.createSprite(this.animParts["anim_fx_star_5"],   "star_5"),
+      utils.createSprite(this.animParts["anim_fx_star_6"],   "star_6"),
+      utils.createSprite(this.animParts["anim_fx_star_7"],   "star_7"),
+      utils.createSprite(this.animParts["anim_fx_star_8"],   "star_8"),
+      utils.createSprite(this.animParts["anim_fx_star_9"],   "star_9"),
+      utils.createSprite(this.animParts["anim_fx_star_10"], "star_10"),
+      utils.createSprite(this.animParts["anim_fx_star_11"], "star_11"),
+      utils.createSprite(this.animParts["anim_fx_star_12"], "star_12"),
+    ];
     
     this.initGameData();
     this.initAnimSprites();
@@ -397,6 +416,111 @@ export class IngameScene extends Scene {
     });
 
     this.subtitleEl.scale.set(2, 2);
+  }
+
+  private playHitEffectPerfect(): void {
+    const starContainer = new PIXI.Container();
+    const containerSize = 78;
+    const centerPoint   = containerSize / 2;
+
+    starContainer.width = starContainer.height = containerSize;
+    starContainer.pivot.set(centerPoint, centerPoint);
+    starContainer.position.set(294, 548);
+
+    let idx = 0;
+    let len = this.starList.length;
+
+    for (; len; ++idx, --len) {
+      const star = this.starList[idx];
+      const name = `star_${idx + 1}`;
+      const posX = FxStarPos[name].x + star.width/2;
+      const posY = FxStarPos[name].y + star.height/2;
+
+      star.anchor.set(0.5, 0.5);
+      star.position.set(posX, posY);
+      starContainer.addChild(star);
+
+      const targetX = posX - centerPoint;
+      const targetY = posY - centerPoint;
+
+      gsap.fromTo(star, {
+        pixi: {
+          x: posX,
+          y: posY,
+          rotation: 0,
+        }
+      }, {
+        ease: "easeOutExpo",
+        duration: utils.msec2sec(330),
+        pixi: {
+          x: `+=${targetX}`,
+          y: `+=${targetY}`,
+          rotation: 30,
+        },
+      });
+    }
+
+    starContainer.name = "fx_great";
+    starContainer.scale.set(0.2, 0.2);
+    this.container.addChildAt(starContainer, 1);
+
+    gsap.to(starContainer, {
+      ease: "easeOutExpo",
+      duration: utils.msec2sec(330),
+      pixi: {
+        scale: 2,
+        rotation: 30,
+      },
+      onComplete: () => {
+        starContainer.destroy();
+      }
+    });
+  }
+
+  private playHitEffectGreat(): void {
+    const starContainer = new PIXI.Container();
+    const containerSize = 78;
+    const centerPoint   = containerSize / 2;
+
+    starContainer.width = starContainer.height = containerSize;
+    starContainer.pivot.set(centerPoint, centerPoint);
+    starContainer.position.set(294, 548);
+
+    let idx = 0;
+    let len = this.starList.length;
+
+    for (; len; ++idx, --len) {
+      const star = this.starList[idx];
+      const name = `star_${idx + 1}`;
+
+      star.anchor.set(0.5, 0.5);
+      star.position.set(FxStarPos[name].x + star.width/2, FxStarPos[name].y + star.height/2);
+      starContainer.addChild(star);
+
+      gsap.fromTo(star, {
+        pixi: { rotation: 0 }
+      }, {
+        ease: "easeOutExpo",
+        duration: utils.msec2sec(330),
+        pixi: { rotation: 15 },
+      });
+    }
+
+    starContainer.name = "fx_great";
+    starContainer.scale.set(0.2, 0.2);
+    this.container.addChildAt(starContainer, 1);
+
+    gsap.to(starContainer, {
+      ease: "easeOutExpo",
+      duration: utils.msec2sec(330),
+      pixi: {
+        scale: 1.5,
+        rotation: 15,
+      },
+      onComplete: () => {
+        starContainer.destroy();
+      }
+    });
   }
 
   private initLayout(): void {
@@ -666,6 +790,7 @@ export class IngameScene extends Scene {
           if (len === index) return;
           (el as PIXI.Sprite).texture = this.textures["icon_nori_1"];
         });
+        this.isFever = false;
         this.disableFeverBg();
         break;
       case 1:
@@ -697,6 +822,7 @@ export class IngameScene extends Scene {
             (el as PIXI.Sprite).texture = this.textures["icon_nori_4"];
           }
         });
+        this.isFever = true;
         this.enableFeverBg();
         break;
       case 4:
@@ -738,7 +864,7 @@ export class IngameScene extends Scene {
       return;
     }
 
-    const act  = actData.act;
+    const act  = this.isFever ? actData.act_fever : actData.act;
     const note = noteData.instance;
     const ball = noteData.note_sprite;
 
@@ -749,6 +875,7 @@ export class IngameScene extends Scene {
     if (absDiff <= this.model.judgeTiming.perfect) {
       this.sound.se.hit.play();
       ball.emit("perfect");
+      this.playHitEffectPerfect();
       this.norikanEl.emit("increment");
       this.rawScore += this.model.scoreTable.perfect;
       this.resultTable[approximate] = Result.ok;
@@ -759,6 +886,7 @@ export class IngameScene extends Scene {
              absDiff > this.model.judgeTiming.perfect) {
       this.sound.se.hit.play();
       ball.emit("great");
+      this.playHitEffectGreat();
       this.norikanEl.emit("increment");
 
       this.rawScore += this.model.scoreTable.great;
