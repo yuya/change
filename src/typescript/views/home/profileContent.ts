@@ -45,9 +45,13 @@ export class ProfileContent extends Content {
     conf.canvas_el.appendChild(dom);
 
     const picProfile  = document.querySelector(".pic-profile");
-    const spriteImage = this.game.assetData.load("spriteSheetDom").children[0].data.cloneNode();
-    spriteImage.width = 480;
-    spriteImage.height = 326;
+    const spriteData  = this.game.assetData.load("spriteSheetDom");
+    const spriteImage = spriteData.children[0].data.cloneNode();
+
+    spriteImage.width     = spriteData.data.meta.size.w*2;
+    spriteImage.height    = spriteData.data.meta.size.h*2;
+    spriteImage.style.top = `-${spriteData.data.frames.pic_yhashimoto.frame.y*2}px`;
+    
     picProfile.appendChild(spriteImage);
   }
 
