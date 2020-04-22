@@ -16,7 +16,6 @@ const YT_STATE = {
   CUED      :  5,
 } as const;
 type YT_STATE = typeof YT_STATE[keyof typeof YT_STATE];
-
 const SubtitlePos = {
   hey       : { x :  12, y : 206 },
   yo        : { x : 184, y : 206 },
@@ -32,9 +31,6 @@ const SubtitlePos = {
   d_big     : { x :  31, y : 128 },
   n_big     : { x : 123, y : 128 },
   a_big     : { x : 207, y : 128 },
-  d_mid     : { x :  19, y : 179 },
-  n_mid     : { x : 119, y : 179 },
-  a_mid     : { x : 210, y : 179 },
   da_1      : { x :  13, y :  99 },
   da_2      : { x : 114, y :  99 },
   da_3      : { x : 215, y :  99 },
@@ -44,7 +40,6 @@ const SubtitlePos = {
   da_7      : { x :  13, y : 299 },
 } as const;
 type SubtitlePos = typeof SubtitlePos[keyof typeof SubtitlePos];
-
 const FxStarPos = {
    star_1 : { x: 46, y:  5 },
    star_2 : { x: 57, y: 14 },
@@ -66,7 +61,6 @@ type AnimSprites = {
   punch_l : PIXI.AnimatedSprite,
   punch_r : PIXI.AnimatedSprite,
 };
-
 type ActData = {
   time         : number,
   act          : string,
@@ -88,7 +82,6 @@ type GayaData = {
   act      : string,
   duration : number,
 };
-
 const Result = {
   ska : -1,
   ng  :  0,
@@ -115,6 +108,7 @@ export class IngameScene extends Scene {
   private prevSpawn     : number;
   private prevGaya      : number;
   private rawScore      : number;
+  private updateCount   : number; 
   private isLoaded      : boolean;
   private isPaused      : boolean;
   private isFever       : boolean;
@@ -133,8 +127,6 @@ export class IngameScene extends Scene {
   private currentAnim   : PIXI.AnimatedSprite;
   private subtitle      : { [key : string] : PIXI.Sprite };
   private subtitleEl    : PIXI.Container;
-  private fxGreatEl     : PIXI.Container;
-  private fxPerfectEl   : PIXI.Container;
   private starList      : PIXI.Sprite[];
 
   public constructor() {
@@ -153,6 +145,7 @@ export class IngameScene extends Scene {
     this.isLoaded      = false;
     this.isPaused      = false;
     this.isFever       = false;
+    this.updateCount   = 0;
     this.rawScore      = 0;
     this.norikan       = 0;
     this.rect.cover    = utils.createRect("cover", conf.canvas_width, conf.canvas_height);
@@ -180,7 +173,6 @@ export class IngameScene extends Scene {
     this.player = YTPlayer(conf.player_el, this.model.ytOptions);
     this.player.setPlaybackQuality("small");
     this.player.setVolume(0);
-    // this.player.mute();
 
     this.attachEvent();
   }
@@ -240,7 +232,7 @@ export class IngameScene extends Scene {
       conf.root_el.classList.add("yt-loaded");
       this.setYoutubeParam();
       this.initLayout();
-      this.game.ticker.start();
+      this.game.renderer.render(this.game.stage);
     });
 
     this.game.eventHandler.once("fadeIn", () => {
@@ -389,9 +381,6 @@ export class IngameScene extends Scene {
     this.subtitle["d_big"]     = utils.createSprite(this.animParts["anim_txt_nippon_d"], "d_big");
     this.subtitle["n_big"]     = utils.createSprite(this.animParts["anim_txt_nippon_n"], "n_big");
     this.subtitle["a_big"]     = utils.createSprite(this.animParts["anim_txt_nippon_a"], "a_big");
-    this.subtitle["d_mid"]     = utils.createSprite(this.animParts["anim_txt_d"], "d_mid");
-    this.subtitle["n_mid"]     = utils.createSprite(this.animParts["anim_txt_n"], "n_mid");
-    this.subtitle["a_mid"]     = utils.createSprite(this.animParts["anim_txt_a"], "a_mid");
     this.subtitle["da_1"]      = utils.createSprite(this.animParts["anim_txt_da"], "da_1");
     this.subtitle["da_2"]      = utils.createSprite(this.animParts["anim_txt_da"], "da_2");
     this.subtitle["da_3"]      = utils.createSprite(this.animParts["anim_txt_da"], "da_3");
@@ -460,7 +449,7 @@ export class IngameScene extends Scene {
       });
     }
 
-    starContainer.name = "fx_great";
+    starContainer.name = "fx_perfect";
     starContainer.scale.set(0.2, 0.2);
     this.container.addChildAt(starContainer, 1);
 
@@ -573,9 +562,7 @@ export class IngameScene extends Scene {
   }
 
   private enablePause(): void {
-    if (this.isPaused) {
-      return;
-    }
+    if (this.isPaused) { return }
 
     this.game.ticker.stop();
     utils.appendDom("yt-overlay", conf.canvas_el);
@@ -644,6 +631,8 @@ export class IngameScene extends Scene {
   }
 
   private playGaya(): void {
+    if (!this.isLoaded) { return }
+
     const approximate = utils.getApproximate(this.gayaTimes, this.currentTime);
     const index       = this.gayaTimes.indexOf(approximate);
     const gayaData    = this.gayaDatas[index];
@@ -686,7 +675,6 @@ export class IngameScene extends Scene {
 
     const noteDuration = noteData.note_duration;
     const timeline = gsap.timeline({
-      // ease: "linear",
       onComplete: () => {
         this.norikanEl.emit("reset");
         ball.destroy();
@@ -796,7 +784,6 @@ export class IngameScene extends Scene {
       case 1:
         this.norikanEl.children.forEach((el, index) => {
           if (len === index) return;
-
           if (index < 1) {
             (el as PIXI.Sprite).texture = this.textures["icon_nori_2"];
           }
@@ -805,7 +792,6 @@ export class IngameScene extends Scene {
       case 2:
         this.norikanEl.children.forEach((el, index) => {
           if (len === index) return;
-
           if (index < 2) {
             (el as PIXI.Sprite).texture = this.textures["icon_nori_2"];
           }
@@ -814,7 +800,6 @@ export class IngameScene extends Scene {
       case 3:
         this.norikanEl.children.forEach((el, index) => {
           if (len === index) return;
-
           if (index < 2) {
             (el as PIXI.Sprite).texture = this.textures["icon_nori_3"];
           }
@@ -828,7 +813,6 @@ export class IngameScene extends Scene {
       case 4:
         this.norikanEl.children.forEach((el, index) => {
           if (len === index) return;
-
           if (index < 2) {
             (el as PIXI.Sprite).texture = this.textures["icon_nori_3"];
           }
@@ -840,14 +824,12 @@ export class IngameScene extends Scene {
       case 5:
         this.norikanEl.children.forEach((el, index) => {
           if (len === index) return;
-
           (el as PIXI.Sprite).texture = this.textures["icon_nori_5"];
         });
         break;
       default:
         break;
     }
-
   }
 
   private judgeTiming(): void {
@@ -873,7 +855,7 @@ export class IngameScene extends Scene {
 
     // Perfect
     if (absDiff <= this.model.judgeTiming.perfect) {
-      this.sound.se.hit.play();
+      this.sound.se[act].play();
       ball.emit("perfect");
       this.playHitEffectPerfect();
       this.norikanEl.emit("increment");
@@ -884,7 +866,7 @@ export class IngameScene extends Scene {
     // Great
     else if (absDiff <= this.model.judgeTiming.great &&
              absDiff > this.model.judgeTiming.perfect) {
-      this.sound.se.hit.play();
+      this.sound.se[act].play();
       ball.emit("great");
       this.playHitEffectGreat();
       this.norikanEl.emit("increment");
@@ -896,7 +878,7 @@ export class IngameScene extends Scene {
     // Good
     else if (absDiff <= this.model.judgeTiming.good &&
              absDiff > this.model.judgeTiming.great) {
-      this.sound.se.hit.play();
+      this.sound.se[act].play();
       ball.emit("good");
       this.norikanEl.emit("increment");
       this.rawScore += this.model.scoreTable.good;
@@ -948,10 +930,9 @@ export class IngameScene extends Scene {
         this.syncCurrentTime();
         break;
       case YT_STATE.BUFFERING:
+        this.syncCurrentTime();
         break;
       case YT_STATE.CUED:
-        break;
-      default:
         break;
     }
 
@@ -1001,8 +982,12 @@ export class IngameScene extends Scene {
       this.syncCurrentTime();
       this.loopTimer = 0;
     }
-    this.playGaya();
-    this.spawnNote();
+
+    if (this.updateCount !== 0) {
+      this.playGaya();
+      this.spawnNote();
+    }
+    this.updateCount++;
 
     this.lastTime = now;
     this.game.renderer.render(this.game.stage);

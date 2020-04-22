@@ -102,7 +102,7 @@ export class HomeScene extends Scene {
     this.circleMenu = new CircleMenu();
     
     this.rect["moveToPrev"] = utils.createRect("move_to_prev", 60, conf.canvas_height);
-    this.rect["moveToNext"] = utils.createRect("move_to_prev", 60, conf.canvas_height);
+    this.rect["moveToNext"] = utils.createRect("move_to_next", 60, conf.canvas_height);
 
     this.rect.moveToNext.pivot.set(this.rect.moveToNext.width, 0);
     this.rect.moveToNext.position.set(conf.canvas_width, 0);

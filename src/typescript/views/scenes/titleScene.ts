@@ -215,7 +215,7 @@ export class TitleScene extends Scene {
       star.anchor.set(0.5, 0.5);
       star.position.set(StarPos[name].x + star.width/2, StarPos[name].y + star.height/2);
       this.background.addChild(star);
-    })
+    });
 
     this.background.scale.set(2, 2);
 
