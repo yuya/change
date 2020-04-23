@@ -32,7 +32,7 @@ export class CreditContent extends Content {
     <table>
       <tr>
         <td><a class="icon newtab" href="http://kokagem.sakura.ne.jp/font/mochi/" target="_blank" rel="noopener"><i class="mod-mochi">Nu</i> きなこもち</a></td>
-        <td><a class="icon newtab" href="http://jikasei.me/font/jf-dotfont/" target="_blank" rel="noopener">JFドットM+H10</a></td>
+        <td><a class="icon newtab" href="https://littlelimit.net/misaki.htm" target="_blank" rel="noopener">美咲ゴシック</a></td>
       <tr>
         <td><a class="icon newtab" href="http://www.ku-da.net/fonts/font-exotic-agent.html" target="_blank" rel="noopener">exotic agent</a></td>
         <td><a class="icon newtab" href="https://fontdasu.com/179" target="_blank" rel="noopener noreferrer">ヨコスカブロック</a></td>
