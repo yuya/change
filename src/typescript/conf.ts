@@ -23,7 +23,7 @@ const color = {
 };
 
 const font = {
-  "family" : "Nu Kinako Mochi, JF Dot M+H 10, sans-serif",
+  "family" : "Nu Kinako Mochi, Misaki Gothic, sans-serif",
 };
 
 export const conf = {

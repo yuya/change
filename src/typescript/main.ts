@@ -41,7 +41,7 @@ const init = (): void => {
   const _loadWebFont = (): void => {
     WebFont.load({
       custom: {
-        families: ["Nu Kinako Mochi", "JF Dot M+H 10"]
+        families: ["Nu Kinako Mochi", "Misaki Gothic"]
       },
       active: () => {
         _setVolume();

@@ -5,9 +5,9 @@
   ;
 }
 @font-face {
-  font-family: "JF Dot M+H 10";
-  src: url("/assets/font/JF-Dot-MPlusH10.woff2") format("woff2"),
-       url("/assets/font/JF-Dot-MPlusH10.woff") format("woff")
+  font-family: "Misaki Gothic";
+  src: url("/assets/font/misaki_gothic.woff2") format("woff2"),
+       url("/assets/font/misaki_gothic.woff") format("woff")
   ;
 }
 
@@ -237,7 +237,7 @@ iframe#youtube {
   width: 480px;
   color: #222;
   font-size: 20px;
-  font-family: "Nu Kinako Mochi", "JF Dot M+H 10", sans-serif;
+  font-family: "Nu Kinako Mochi", "Misaki Gothic", sans-serif;
   line-height: 40px;
   text-align: left;
   -ms-interpolation-mode: nearest-neighbor;
